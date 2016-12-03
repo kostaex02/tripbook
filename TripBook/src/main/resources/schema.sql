@@ -1,202 +1,120 @@
-
-CREATE TABLE board_picture_table
-(  
-	board_picture_no      NUMBER     NOT NULL ,
-	file_name             VARCHAR2(250)     NOT NULL ,
-	board_no              NUMBER     NOT NULL ,
-   CONSTRAINT   R_20 PRIMARY KEY (  board_no)   ,
-   CONSTRAINT   _XPKboard_picture_table PRIMARY KEY (  board_picture_no)
-);
-
-
-CREATE TABLE board_table
-(  
-	board_no              NUMBER     NOT NULL ,
-	content               VARCHAR2(4000)     NULL ,
-	write_date            DATE     NOT NULL ,
-	location_lat          NUMBER(4,16)     NULL ,
-	location_lng          NUMBER(4,16)     NULL ,
-	writer                VARCHAR2(50)     NOT NULL ,
-	state                 NUMBER     SORT ,
-	schedule_no           NUMBER     NULL ,
-	location              VARCHAR2(1)     NULL ,
-       CONSTRAINT   R_15 PRIMARY KEY (  writer)   ,
-   CONSTRAINT   R_24 PRIMARY KEY (  schedule_no)   ,
-   CONSTRAINT   _XPKboard_table PRIMARY KEY (  board_no),
-   ypes
-)  ;
-
-CREATE TABLE friend_table
-(  
-	state                 VARCHAR2(1)     NOT NULL ,
-	friend_no             NUMBER     NOT NULL ,
-	friend_id1            VARCHAR2(50)     NOT NULL ,
-	friend_id2            VARCHAR2(50)     NOT NULL ,
-   CONSTRAINT   friend_table PRIMARY KEY (  friend_id1)   ,
-   CONSTRAINT   R_26 PRIMARY KEY (  friend_id2)   ,
-   CONSTRAINT   _XPKfriend_table PRIMARY KEY (  friend_no),
-   ypes
-)  ;
-
-
-
-CREATE TABLE grade_table
-(  
-	grade_no              NUMBER     NOT NULL ,
-	grade                 NUMBER(2)     NOT NULL ,
-	id                    VARCHAR2(50)     NOT NULL ,
-	board_no              NUMBER     NOT NULL ,
-       CONSTRAINT   R_30 PRIMARY KEY (  id)   ,
-   CONSTRAINT   R_31 PRIMARY KEY (  board_no)   ,
-   CONSTRAINT   _XPKgrade_table PRIMARY KEY (  grade_no),
-   ypes
-)  ;
-
-
-
-ALTER TABLE  grade_table 
-	ADD  ;
-
-
-
-CREATE TABLE group_member_table
-(  
-	group_member_no       NUMBER     NOT NULL ,
-	id                    VARCHAR2(50)     NOT NULL ,
-	group_no              NUMBER     NOT NULL ,
-       CONSTRAINT   R_22 PRIMARY KEY (  id)   ,
-   CONSTRAINT   R_23 PRIMARY KEY (  group_no)   ,
-   CONSTRAINT   _XPKgroup_member_table PRIMARY KEY (  group_member_no),
-   ypes
-)  ;
-
-
-
-ALTER TABLE  group_member_table 
-	ADD  ;
-
-
-
-CREATE TABLE group_table
-(  
-	group_no              NUMBER     NOT NULL ,
-	group_name            VARCHAR2(100)     NOT NULL ,
-       CONSTRAINT   _XPKgroup_table PRIMARY KEY (  group_no),
-   ypes
-)  ;
-
-
-
-ALTER TABLE  group_table 
-	ADD  ;
-
-
-
-CREATE TABLE keyword_table
-(  
-	keyword_no            NUMBER     NOT NULL ,
-	keyword               VARCHAR2(100)     NOT NULL ,
-	schedule_no           NUMBER     NOT NULL ,
-       CONSTRAINT   R_32 PRIMARY KEY (  schedule_no)   ,
-   CONSTRAINT   _XPKkeyword_table PRIMARY KEY (  keyword_no),
-   ypes
-)  ;
-
-
-
-ALTER TABLE  keyword_table 
-	ADD  ;
-
-
-
-CREATE TABLE notice_content_table
-(  
-	content               VARCHAR2(4000)     NOT NULL ,
-	notice_no             NUMBER     NOT NULL ,
-       CONSTRAINT   R_29 PRIMARY KEY (  notice_no)   ,
-   CONSTRAINT   _XPKnotice_content_table PRIMARY KEY (  notice_no),
-   ypes
-)  ;
-
-
-
-ALTER TABLE  notice_content_table 
-	ADD  ;
-
-
-
-CREATE TABLE notice_table
-(  
-	notice_no             NUMBER     NOT NULL ,
-	state                 VARCHAR2(1)     NOT NULL ,
-	sender                VARCHAR2(50)     NOT NULL ,
-	receiver              VARCHAR2(50)     NOT NULL ,
-	send_date             DATE     NOT NULL ,
-	check_state           VARCHAR2(1)     NOT NULL ,
-       CONSTRAINT   R_27 PRIMARY KEY (  sender)   ,
-   CONSTRAINT   R_28 PRIMARY KEY (  receiver)   ,
-   CONSTRAINT   _XPKnotice_table PRIMARY KEY (  notice_no),
-   ypes
-)  ;
-
-
-
-ALTER TABLE  notice_table 
-	ADD  ;
-
-
-
-CREATE TABLE reply_table
-(  
-	reply_no              NUMBER     NOT NULL ,
-	content               VARCHAR2(200)     NOT NULL ,
-	writer_date           DATE     NOT NULL ,
-	writer                VARCHAR2(50)     NOT NULL ,
-	board_no              NUMBER     NOT NULL ,
-       CONSTRAINT   R_16 PRIMARY KEY (  writer)   ,
-   CONSTRAINT   R_17 PRIMARY KEY (  board_no)   ,
-   CONSTRAINT   _XPKreply_table PRIMARY KEY (  reply_no),
-   ypes
-)  ;
-
-
-
-ALTER TABLE  reply_table 
-	ADD  ;
-
-
-
-CREATE TABLE schedule_table
-(  
-	schedule_no           NUMBER     NOT NULL ,
-	subject               VARCHAR2(100)     NOT NULL ,
-	start_date            DATE     NOT NULL ,
-	end_date              DATE     NULL ,
-	write_date            DATE     NOT NULL ,
-	state                 NUMBER     NOT NULL ,
-	writer                VARCHAR2(50)     NOT NULL ,
-       CONSTRAINT   R_19 PRIMARY KEY (  writer)   ,
-   CONSTRAINT   _XPKschedule_table PRIMARY KEY (  schedule_no),
-   ypes
-)  ;
-
-
-
-ALTER TABLE  schedule_table 
-	ADD  ;
-
-
+create user tripbook identified by 1234;
+alter user tripbook account unlock;
+grant connect, resource to tripbook;
+grant create sequence to tripbook;
 
 CREATE TABLE user_table
 (  
-	id                    VARCHAR2(50)     NOT NULL ,
-	password              VARCHAR2(20)     NOT NULL ,
-	name                  VARCHAR2(18)     NOT NULL ,
-	age                   NUMBER(3)     NOT NULL ,
-	gender                VARCHAR2(1)     NOT NULL ,
-	register_date         DATE     NOT NULL ,
-	update_date           DATE     NULL ,
-	state                 VARCHAR2(1)     NOT NULL ,
-       CONSTRAINT   _XPKuser_table PRIMARY KEY (  id),
-   ypes
-)  ;
+	id VARCHAR2(50) primary key, --아이디(이메일)
+	password VARCHAR2(20) NOT NULL, -- 비밀번호
+	name VARCHAR2(18) NOT NULL, -- 이름
+	age NUMBER(3) NOT NULL, -- 나이
+	gender VARCHAR2(1) check (gender in ('0','1')), -- 성별(0,1)
+	register_date DATE NOT NULL , -- 가입일
+	update_date DATE, -- 수정일
+	file_name VARCHAR2(250), -- 프로필 사진
+	state VARCHAR2(1) default '0' -- 계정 상태(0 : 일반,1 : 관리자,2 : 계정 탈퇴 예정)
+);
+
+create sequence friend_sequence nocache;
+CREATE TABLE friend_table
+(  
+	friend_no NUMBER primary key, -- 시퀀스
+	state VARCHAR2(1) default '0' check (state in ('0','1')), -- 친구 상태(0:친구 신청,1:서로 친구)
+	friend_id1 VARCHAR2(50) references user_table(id), -- 아이디 1
+	friend_id2 VARCHAR2(50) references user_table(id) -- 아이디 2
+);
+
+create sequence schedule_sequence nocache;
+CREATE TABLE schedule_table
+(  
+	schedule_no NUMBER primary key, -- 시퀀스
+	subject VARCHAR2(100) NOT NULL, -- 제목
+	start_date DATE NOT NULL, -- 시작일
+	end_date DATE NULL, -- 종료일
+	write_date DATE NOT NULL, -- 작성일
+	state number NOT NULL, -- 상태(권한 부여)
+	writer VARCHAR2(50) references user_table(id) not null -- 작성자
+);
+
+create sequence board_sequence nocache;
+CREATE TABLE board_table
+(  
+	board_no NUMBER primary key, -- 시퀀스
+	content VARCHAR2(4000) NULL, -- 내용
+	write_date DATE NOT NULL , -- 작성일
+	trip_date DATE, -- 시행일
+	location VARCHAR2(1), -- 위치(0:국내,1:국외)
+	location_lat NUMBER(4,16), -- 위도
+	location_lng NUMBER(4,16), -- 경도
+	writer VARCHAR2(50) references user_table(id) not null, -- 작성자
+	state NUMBER not null, --권한
+	schedule_no references schedule_table(schedule_no) not null -- 여행 시퀀스
+);
+
+create sequence board_picture_sequence nocache;
+CREATE TABLE board_picture_table
+(  
+	board_picture_no NUMBER primary key, -- 시퀀스
+	file_name VARCHAR2(250) NOT NULL, -- 파일 이름
+	board_no NUMBER references schedule_table(schedule_no) not null -- 게시글 시퀀스
+);
+
+create sequence grade_sequence nocache;
+CREATE TABLE grade_table
+(  
+	grade_no NUMBER primary key, -- 시퀀스
+	grade NUMBER(2) NOT NULL, -- 점수
+	id VARCHAR2(50) references user_table(id) not null, -- 아이디
+	board_no NUMBER references board_table(board_no) not null -- 게시글
+);
+
+create sequence group_sequence nocache;
+CREATE TABLE group_table
+(  
+	group_no NUMBER primary key, --시퀀스
+	group_name VARCHAR2(100) NOT NULL -- 그룹 이름
+);
+
+create sequence group_member_sequence nocache;
+CREATE TABLE group_member_table
+(  
+	group_member_no NUMBER primary key, -- 시퀀스
+	id VARCHAR2(50) references user_table(id) not null, -- 멤버 아이디
+	group_no references group_table(group_no) not null -- 그룹 시퀀스
+);
+
+create sequence keyword_sequence nocache;
+CREATE TABLE keyword_table
+(  
+	keyword_no NUMBER primary key, --시퀀스
+	keyword VARCHAR2(100) NOT NULL, -- 키워드
+	schedule_no NUMBER NOT NULL -- 여행 시퀀스
+);
+
+create sequence notice_sequence nocache;
+CREATE TABLE notice_table
+(  
+	notice_no NUMBER primary key, -- 시퀀스
+	state VARCHAR2(1) NOT NULL, --(0:친구, 1:그룹, 2:공지, 3:게시물)
+	sender VARCHAR2(50) references user_table(id) not null, -- 보내는 사람
+	receiver VARCHAR2(50) references user_table(id) not null, -- 받는 사람
+	send_date DATE NOT NULL, -- 보낸 날짜
+	check_state VARCHAR2(1) NOT NULL -- 읽음 유무(0:읽지 않음,1:읽음)
+);
+
+CREATE TABLE notice_content_table
+(  
+	content VARCHAR2(4000) NOT NULL ,
+	notice_no NUMBER references notice_table(notice_no) unique
+);
+
+create sequence reply_sequence nocache;
+CREATE TABLE reply_table
+(  
+	reply_no NUMBER primary key,
+	content VARCHAR2(200) NOT NULL ,
+	writer_date DATE NOT NULL,
+	writer VARCHAR2(50) references user_table(id),
+	board_no NUMBER references board_table(board_no)
+);
