@@ -1,18 +1,233 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
-<html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
+<html lang="en" class="no-js">
 <head>
-	<title>Home</title>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inspiration for Article Intro Effects | Demo 2</title>
+<meta name="description" content="Inspiration for Article Intro Effects" />
+<meta name="keywords"
+	content="title, header, effect, scroll, inspiration, medium, web design" />
+<meta name="author" content="Codrops" />
+<link rel="shortcut icon" href="../favicon.ico">
+<!-- Bootstrap core CSS -->
+<link href='<c:url value="/resources/css/bootstrap/bootstrap.min.css"/>' rel='stylesheet' />
+<link href='<c:url value="/resources/css/index/normalize.css"/>' rel='stylesheet' />
+<link href='<c:url value="/resources/css/index/demo.css"/>' rel='stylesheet' />
+<link href='<c:url value="/resources/css/index/component.css"/>' rel='stylesheet' />
+
+<!--[if IE]>  		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
 </head>
-<body>
-<h1>
-	Hello world!  
-</h1>
-<a href='main/main'>main</a><p>
-<a href="mypage/mypage">mypage</a><p>
-<a href='calendar/calendar'>calendar</a><p>
+<style>
+.container {
+	margin-right: 0;
+	margin-left: 0;
+	padding-left: 0;
+	padding-right: 0;
+	width: 100%;
+}
+.form-login{
+	
+}
+</style>
+<body class="demo-2">
+	<div id="container" class="container intro-effect-fadeout">
+		<header class="header">
+			<div class="bg-img">
+				<img src='<c:url value="/images/1.jpg"/>' alt="Background Image" />
+			</div>
+			<div class="title">
 
+				<h1>TripBook</h1>
+				<p class="subline">By Team 너나들이</p>
+			</div>
+		</header>
+		<button class="trigger">
+			<span>Trigger</span>
+		</button>
+		<article class="content">
+			<form class="form-horizontal">
+				<div class="form-login">
+					<label for="inputEmail3" class="col-sm-8 control-label">Email</label>
+					<div class="col-sm-4">
+						<input type="email" class="form-control" name="id"
+							placeholder="Email">
+					</div>
+				</div>
+				<div class="form-login">
+					<label for="inputPassword3" class="col-sm-8 control-label">Password</label>
+					<div class="col-sm-4">
+						<input type="password" class="form-control" name="password"
+							placeholder="Password">
+					</div>
+				</div>
+				<div class="form-login">
+					<div class="col-sm-offset-8 col-sm-4">
+						<button type="submit" class="btn btn-default">Sign in</button>
+					</div>
+				</div>
+			</form>
+		</article>
+		<section class="related">
+			<p><a href="#">아이디 찾기</a> / <a href="#">비밀번호 찾기</a> / <a href="#">회원가입</a><p>
+			<a href='main/main'>main</a><p>
+			<a href="mypage/mypage">mypage</a><p>
+			<a href='calendar/calendar'>calendar</a><p>
+		</section>
+	</div>
+	
+	<!-- /container -->
+	<!-- Bootstrap load -->
+	<script src='<c:url value="/resources/js/jquery-2.2.4.js"/>'></script>
+	<script src='<c:url value="/resources/js/bootstrap/bootstrap.min.js"/>'></script>
+	
+	<!-- Event 효과 -->
+	<script src='<c:url value="/resources/js/index/classie.js"/>'></script>
+	
+	<script>
+		(function() {
 
-<P>  The time on the server is ${serverTime}. </P>
+			// detect if IE : from http://stackoverflow.com/a/16657946		
+			var ie = (function() {
+				var undef, rv = -1; // Return value assumes failure.
+				var ua = window.navigator.userAgent;
+				var msie = ua.indexOf('MSIE ');
+				var trident = ua.indexOf('Trident/');
+
+				if (msie > 0) {
+					// IE 10 or older => return version number
+					rv = parseInt(
+							ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+				} else if (trident > 0) {
+					// IE 11 (or newer) => return version number
+					var rvNum = ua.indexOf('rv:');
+					rv = parseInt(ua.substring(rvNum + 3, ua
+							.indexOf('.', rvNum)), 10);
+				}
+
+				return ((rv > -1) ? rv : undef);
+			}());
+
+			// disable/enable scroll (mousewheel and keys) from http://stackoverflow.com/a/4770179					
+			// left: 37, up: 38, right: 39, down: 40,
+			// spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+			var keys = [ 32, 37, 38, 39, 40 ], wheelIter = 0;
+
+			function preventDefault(e) {
+				e = e || window.event;
+				if (e.preventDefault)
+					e.preventDefault();
+				e.returnValue = false;
+			}
+
+			function keydown(e) {
+				for (var i = keys.length; i--;) {
+					if (e.keyCode === keys[i]) {
+						preventDefault(e);
+						return;
+					}
+				}
+			}
+
+			function touchmove(e) {
+				preventDefault(e);
+			}
+
+			function wheel(e) {
+				// for IE 
+				//if( ie ) {
+				//preventDefault(e);
+				//}
+			}
+
+			function disable_scroll() {
+				window.onmousewheel = document.onmousewheel = wheel;
+				document.onkeydown = keydown;
+				document.body.ontouchmove = touchmove;
+			}
+
+			function enable_scroll() {
+				window.onmousewheel = document.onmousewheel = document.onkeydown = document.body.ontouchmove = null;
+			}
+
+			var docElem = window.document.documentElement, scrollVal, isRevealed, noscroll, isAnimating, container = document
+					.getElementById('container'), trigger = container
+					.querySelector('button.trigger');
+
+			function scrollY() {
+				return window.pageYOffset || docElem.scrollTop;
+			}
+
+			function scrollPage() {
+				scrollVal = scrollY();
+
+				if (noscroll && !ie) {
+					if (scrollVal < 0)
+						return false;
+					// keep it that way
+					window.scrollTo(0, 0);
+				}
+
+				if (classie.has(container, 'notrans')) {
+					classie.remove(container, 'notrans');
+					return false;
+				}
+
+				if (isAnimating) {
+					return false;
+				}
+
+				if (scrollVal <= 0 && isRevealed) {
+					toggle(0);
+				} else if (scrollVal > 0 && !isRevealed) {
+					toggle(1);
+				}
+			}
+
+			function toggle(reveal) {
+				isAnimating = true;
+
+				if (reveal) {
+					classie.add(container, 'modify');
+				} else {
+					noscroll = true;
+					disable_scroll();
+					classie.remove(container, 'modify');
+				}
+
+				// simulating the end of the transition:
+				setTimeout(function() {
+					isRevealed = !isRevealed;
+					isAnimating = false;
+					if (reveal) {
+						noscroll = false;
+						enable_scroll();
+					}
+				}, 600);
+			}
+
+			// refreshing the page...
+			var pageScroll = scrollY();
+			noscroll = pageScroll === 0;
+
+			disable_scroll();
+
+			if (pageScroll) {
+				isRevealed = true;
+				classie.add(container, 'notrans');
+				classie.add(container, 'modify');
+			}
+
+			window.addEventListener('scroll', scrollPage);
+			trigger.addEventListener('click', function() {
+				toggle('reveal');
+			});
+		})();
+	</script>
+
 </body>
 </html>
