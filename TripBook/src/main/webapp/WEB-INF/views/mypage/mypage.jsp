@@ -5,14 +5,31 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel='stylesheet' type='text/css'
-	href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,400italic'>
-<link rel="stylesheet" type="text/css" href="<c:url value="/resource/css/bootstrap.min.css"/>"/>
+
+<link rel="stylesheet" type="text/css" href="../resources/css/bootstrap/bootstrap.min.css" />
 
 <title>Insert title here</title>
 </head>
 <body>
-<div id='mypage'>mypage</div>
-
+	<div class="content-main">
+		<div class="row margin-b-30">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<div class="banner-main-home">
+					<div class="banner-main-home-text">
+						<div class="heading">
+							<h1>공지사항</h1>
+							<p class="text-uppercase">*그녀를 믿지마세요</p>
+						</div>
+						<div class="desc">
+							<p>
+								
+							</p>
+						</div>
+					</div>
+					<%-- <img src="<c:url value="/images/img.jsp"/>" alt="Image" class="img-responsive"> --%>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
