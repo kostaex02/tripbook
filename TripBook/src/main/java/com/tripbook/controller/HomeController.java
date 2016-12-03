@@ -29,10 +29,6 @@ public class HomeController {
 	public void testPage(){
 	}
 	
-	@RequestMapping("main/{pageName}")
-	public void test(){
-	}
-	
 	@RequestMapping("login")
 	public String login(HttpServletRequest request,UserDTO user){
 		UserDTO tempUser = userService.login(user);

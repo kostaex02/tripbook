@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class SessionCheckAdvice {
 	
-	@Around("execution(public * com.tripbook.controller.main.*.*(..))")
+	@Around("execution(public * com.tripbook.test.main.*.*(..))")
 	public Object around(ProceedingJoinPoint point) throws Throwable{
 		Object methodParams [] = point.getArgs();
 		HttpServletRequest request = (HttpServletRequest) methodParams[0];
