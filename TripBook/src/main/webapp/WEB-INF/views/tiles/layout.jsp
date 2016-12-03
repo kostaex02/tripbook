@@ -19,6 +19,7 @@
 		margin:5px 0px;
 		width:68%;
 		height:auto;
+		padding:5px;
 	}
 	
 	#content{
@@ -28,6 +29,7 @@
 		clear:both;
 		width:68%;
 		height:auto;
+		padding:5px;
 	}
 	
 	#side{
