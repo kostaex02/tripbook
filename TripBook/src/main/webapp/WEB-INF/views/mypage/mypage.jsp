@@ -5,16 +5,47 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href='<c:url value="/resources/css/main/example.css"/>'>
+<link rel="stylesheet" href='<c:url value="/resources/css/main/stroll.css"/>'>
 
 <title>Insert title here</title>
+<style type="text/css">
+#notice{
+	border: 1px solid red;
+}
+#logList{
+	border: 1px solid gray;
+	margin-top: 20px;
+}
+#logStory{
+	border: 1px solid pink;
+	display: inline-table;
+	width: 100%;
+	position: relative;
+}
+profile{
+	display: table-cell;
+}
+#message{
+	display: table-cell;
+}
+</style>
 </head>
 <body>
-	<div class="content-main">
+	<div id="notice">
 		<h1>공지사항</h1>
 		<p class="text-uppercase">*그녀를 믿지마세요</p>
 	</div>
-	<div class="desc">
-		<p></p>
+	<div id="logList">
+		<ul class="grow">
+			<li id="logStory">
+				<div class="profile">미니 프로필 사진</div>
+				<div id="message">친구하자!</div>
+				<input type="submit" value="수락">
+				<input type="submit" value="거절">
+			</li>
+			
+		</ul>
 	</div>
 </body>
 </html>
