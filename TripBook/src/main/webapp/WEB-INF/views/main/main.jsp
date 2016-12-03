@@ -7,18 +7,29 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Trip Book</title>
 <style>
-	#mainAdd{
+	#mainNewBoard{
 		border:1px solid black;
-		width:300px;
-		height:100px;
+		text-align: center;
+	}
+	
+	#mainRecentBoard{
+		
 	}
 
 </style>
 </head>
 <body>
-<div id='mainAdd'>adsfklja;lskdjf;</div>
+<div id='mainNewBoard'>
+게시글 작성 영역
+<hr>
+<input type='button' value='일반게시물'>
+<input type='button' value='여행게시물'>
+</div>
 
+<div id='mainRecentBoard'>
+<img src='<c:url value="/images/img.jpg"/>'>
 
+</div>
 
 </body>
 </html>

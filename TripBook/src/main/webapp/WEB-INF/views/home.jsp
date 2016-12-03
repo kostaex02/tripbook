@@ -8,8 +8,10 @@
 <h1>
 	Hello world!  
 </h1>
-<a href='main/main'>main</a>
-<a href="mypage/mypage">mypage</a>
+<a href='main/main'>main</a><p>
+<a href="mypage/mypage">mypage</a><p>
+<a href='calendar/calendar'>calendar</a><p>
+
 
 <P>  The time on the server is ${serverTime}. </P>
 </body>
