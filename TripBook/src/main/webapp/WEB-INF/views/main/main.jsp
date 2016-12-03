@@ -52,8 +52,7 @@
 <body>
 <div id='mainNewBoard'>
 	게시글 작성 영역
-	<jsp:include page='<c:url value="/main/newGeneralBoard"/>' flush="false"/>
-	
+	<c:import url="../main/newGeneralBoard.jsp"/>
 	<hr>
 	
 	<input type='button' value='일반게시물'>
