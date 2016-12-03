@@ -14,14 +14,6 @@
 		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"/>
 	</definition>
 	
-	<definition name="user/*" extends="layout">
-		<put-attribute name="content" value="WEB-INF/views/user/{1}.jsp"/>
-	</definition>
-	
-	<definition name="board/*" extends="layout">
-		<put-attribute name="content" value="WEB-INF/views/board/{1}.jsp"/>
-	</definition>
-	
 	
 </tiles-definitions>
 
