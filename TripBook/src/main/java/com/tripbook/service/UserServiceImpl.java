@@ -12,13 +12,11 @@ public class UserServiceImpl implements UserService {
 	private UserDAO userDao;
 	
 	@Override
-	public int login(UserDTO user) {
+	public UserDTO login(UserDTO user) {
 		int result = 0;
-		UserDTO tempUser = userDao.selectUser(user.getId());
-		if(tempUser!=null&&!tempUser.getPassword().equals(user.getPassword())){
-			result = 1;
-		}
-		return result;
+		UserDTO tempUser = userDao.selectUser(user);
+		
+		return tempUser;
 	}
 
 }

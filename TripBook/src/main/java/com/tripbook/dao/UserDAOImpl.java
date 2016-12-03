@@ -9,8 +9,8 @@ import com.tripbook.dto.UserDTO;
 public class UserDAOImpl implements UserDAO {
 	private SqlSession session;
 	@Override
-	public UserDTO selectUser(String userId) {
-		return session.selectOne("userMapper.selectUserById", userId);
+	public UserDTO selectUser(UserDTO user) {
+		return session.selectOne("userMapper.selectUserById", user);
 	}
 
 }

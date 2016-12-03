@@ -30,13 +30,13 @@ public class HomeController {
 	
 	@RequestMapping("login")
 	public String login(HttpServletRequest request,UserDTO user){
-		int result = userService.login(user);
-		if(result>0){
+		UserDTO tempUser = userService.login(user);
+		if(tempUser!=null){
 			HttpSession session= request.getSession();
 			
-			session.setAttribute("userId", user.getId());
-			session.setAttribute("userName", user.getName());
-			session.setAttribute("userFileName", user.getFileName());
+			session.setAttribute("userId", tempUser.getId());
+			session.setAttribute("userName", tempUser.getName());
+			session.setAttribute("userFileName", tempUser.getFileName());
 			
 		}else{
 			ModelAndView mv = new ModelAndView();
