@@ -23,7 +23,7 @@ public class HomeController {
 		return "home";
 	}
 	
-	@RequestMapping("{pageName}")
+	@RequestMapping("{folderName}/{pageName}")
 	public void testPage(){}
 	
 }

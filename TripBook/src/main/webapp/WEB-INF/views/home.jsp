@@ -8,7 +8,7 @@
 <h1>
 	Hello world!  
 </h1>
-<a href='main'>main</a>
+<a href='main/main'>main</a>
 
 <P>  The time on the server is ${serverTime}. </P>
 </body>
