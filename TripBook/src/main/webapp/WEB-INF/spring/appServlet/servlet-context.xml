@@ -9,61 +9,86 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
 
-	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
-	
+	<!-- DispatcherServlet Context: defines this servlet's request-processing 
+		infrastructure -->
+
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
 
-	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
+		up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
 	<resources mapping="/images/**" location="/images/" />
 	
-	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
-	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
+		in the /WEB-INF/views directory -->
+	<beans:bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 		<beans:property name="order" value="2"></beans:property>
 	</beans:bean>
-	
-	<!-- 파일업로드 -->
-	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
-	<!-- 파일다운로드 -->
+
+
 	<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
-		<beans:property name="order" value="0"/>
+		<beans:property name="order" value="0" />
 	</beans:bean>
-	
-	<!-- Tiles를 위한 ViewResolver를 선언 -->
+
+
+	<!-- json 등록하기 -->
+	<beans:bean class="net.sf.json.spring.web.servlet.view.JsonView"
+		id="jsonView">
+		<beans:property name="contentType" value="text/html;charset=UTF-8"></beans:property>
+	</beans:bean>
+
 	<beans:bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<beans:property name="viewClass"
 			value="org.springframework.web.servlet.view.tiles3.TilesView" />
 		<beans:property name="order" value="1" />
 	</beans:bean>
-	
-	<beans:bean class="org.springframework.web.servlet.view.tiles3.TilesViewResolver" id="tilesViewResolver"/>
-	<beans:bean class="org.springframework.web.servlet.view.tiles3.TilesConfigurer" id="tilesConfigurer">
+
+	<!-- tile를 위한 viewResolver 선언 -->
+	<beans:bean
+		class="org.springframework.web.servlet.view.tiles3.TilesViewResolver"
+		id="tilesViewResolver" />
+
+	<beans:bean
+		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer"
+		id="tilesConfigurer">
 		<beans:property name="definitions">
 			<beans:list>
 				<beans:value>/WEB-INF/tiles/tiles.xml</beans:value>
 			</beans:list>
 		</beans:property>
 	</beans:bean>
-	
-	<!-- Exception 등록하기 -->
-	<beans:bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+
+	<beans:bean
+		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<beans:property name="exceptionMappings">
 			<beans:props>
 				<beans:prop key="java.lang.Exception">
-					error/errorMessage <!-- errorMessage 보임 -->
+					error/errorMessage
 				</beans:prop>
 			</beans:props>
 		</beans:property>
 	</beans:bean>
-	
-	<!-- aop를 annotation설정!! -->
-	<aop:aspectj-autoproxy/>
-	
+
+	<!-- Aop annotation -->
+	<aop:aspectj-autoproxy />
+
 	<context:component-scan base-package="com.tripbook" />
-	
-	
-	
+	<!-- 뒤로가기 -->
+	<interceptors>
+		<beans:bean id="webContentInterceptor"
+			class="org.springframework.web.servlet.mvc.WebContentInterceptor">
+			<beans:property name="cacheSeconds" value="0" />
+			<beans:property name="useExpiresHeader" value="true" />
+			<beans:property name="useCacheControlHeader" value="true" />
+			<beans:property name="useCacheControlNoStore" value="true" />
+		</beans:bean>
+	</interceptors>
+	<!-- 파일 업로드 -->
+	<beans:bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></beans:bean>
 </beans:beans>
