@@ -26,6 +26,6 @@
 	</div>
 	<div id='calendar'></div>
 	<div style='clear:both'></div>
-	<div id="calendarTrash" class="calendar-trash"><img src="<c:url value='/resources/trash.png'/>"></div>
+	<div id="calendarTrash" class="calendar-trash">휴지통</div>
 </body>
 </html>

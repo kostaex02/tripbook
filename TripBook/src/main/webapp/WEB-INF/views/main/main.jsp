@@ -52,7 +52,10 @@
 <body>
 <div id='mainNewBoard'>
 	게시글 작성 영역
+	<%-- <jsp:include page='<c:url value="/main/newGeneralBoard"/>' flush="false"/> --%>
+	
 	<hr>
+	
 	<input type='button' value='일반게시물'>
 	<input type='button' value='여행게시물'>
 </div>
@@ -61,11 +64,12 @@
 		<li>
 			<div id='mainRecentBoard'>
 				<p>
-					<div class='profile'>미니 프로필 사진</div>
+					<div class='profile'><img src='<c:url value="/images/img.jpg"/>'>미니 프로필 사진</div>
+					
 					<b>User ID</b> 12월 03일 오전 11:41
 				</p>
 					<div class='picture'>
-					여기는 사진 영역
+					
 					</div>
 				<div id='replys'>
 					댓글 영역<br>
