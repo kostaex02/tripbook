@@ -25,8 +25,13 @@ public class HomeController {
 		return "home";
 	}
 	
-	@RequestMapping("{folderName}/{pageName}")
-	public void testPage(){}
+	@RequestMapping("{pageName}")
+	public void testPage(){
+	}
+	
+	@RequestMapping("main/{pageName}")
+	public void test(){
+	}
 	
 	@RequestMapping("login")
 	public String login(HttpServletRequest request,UserDTO user){

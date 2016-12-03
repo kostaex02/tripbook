@@ -52,7 +52,7 @@
 <body>
 <div id='mainNewBoard'>
 	게시글 작성 영역
-	<%-- <jsp:include page='<c:url value="/main/newGeneralBoard"/>' flush="false"/> --%>
+	<jsp:include page='<c:url value="/main/newGeneralBoard"/>' flush="false"/>
 	
 	<hr>
 	
