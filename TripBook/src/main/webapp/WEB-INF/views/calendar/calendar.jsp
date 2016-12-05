@@ -18,12 +18,7 @@
 </style>
 </head>
 <body>
-	<div id='top'>
-		<div id='locale-top'>
-			Locales:
-			<select id='locale-selector'></select>
-		</div>
-	</div>
+	
 	<div id='calendar'></div>
 	<div style='clear:both'></div>
 	<div id="calendarTrash" class="calendar-trash">휴지통</div>

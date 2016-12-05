@@ -6,7 +6,7 @@
 			header: {
 				left: 'prev,next today',
 				center: 'title',
-				right: 'month,agendaWeek'
+				right: 'month,listMonth,listWeek'
 			},
 			defaultDate: moment(),
 			locale: initialLocaleCode,
@@ -123,19 +123,5 @@
 		}
 		*/
 		
-		// build the locale selector's options
-		$.each($.fullCalendar.locales, function(localeCode) {
-			$('#locale-selector').append(
-				$('<option/>')
-					.attr('value', localeCode)
-					.prop('selected', localeCode == initialLocaleCode)
-					.text(localeCode)
-			);
-		});
-		// when the selected option changes, dynamically change the calendar option
-		$('#locale-selector').on('change', function() {
-			if (this.value) {
-				$('#calendar').fullCalendar('option', 'locale', this.value);
-			}
-		});
+		
 	});

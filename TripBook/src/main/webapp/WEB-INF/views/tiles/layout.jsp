@@ -9,6 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href='<c:url value="/resources/css/tiles/drawer.min.css"/>' rel="stylesheet">
 <link rel="stylesheet" href='<c:url value="/resources/css/tiles/layout.css"/>'>
+<link rel="stylesheet" href='<c:url value="/resources/css/bootstrap/bootstrap.min.css"/>'>
 <title>Insert title here</title>
 <style>
 	div{
@@ -88,7 +89,7 @@
 	
 	
 	
-	
+<script src='<c:url value="/resources/js/bootstrap/bootstrap.min.js"/>' charset="utf-8"></script>	
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
