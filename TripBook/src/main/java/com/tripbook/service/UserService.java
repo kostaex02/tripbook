@@ -28,6 +28,7 @@ public interface UserService {
 	
 	/**
 	 * 검색된 사람과 친구 제외한 나머지 사람 검색
+	 * @param keyword 
 	 **/
-	List<UserDTO> searchUser(String userId);
+	List<UserDTO> searchUser(String userId, String keyword);
 }

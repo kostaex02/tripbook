@@ -50,7 +50,7 @@
 
 <div id='sideNav'>
 	
-		<a href='<c:url value="/mypage/mypage"/>'><div id='sideProfile'>프로필</div></a>
+		<a href='<c:url value="/mypage/profile"/>'><div id='sideProfile'>프로필</div></a>
 		<a href='<c:url value="/calendar/calendar"/>'><div id='sideSchedule'>스케줄</div></a>
 		<a href='<c:url value="/main/main"/>'><div id='sideHome'>Home</div></a>
 		<a href='#'><div id='sideBiography'>여행일대기</div></a>

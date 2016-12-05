@@ -23,9 +23,11 @@ public class SearchController {
 	public void page(HttpServletRequest request){}
 	
 	@RequestMapping("list")
-	public ModelAndView list(HttpServletRequest request){
+	public ModelAndView list(HttpServletRequest request,String keyword){
 		HttpSession session = request.getSession();
-		List<UserDTO> userList = userService.searchUser((String)session.getAttribute("userId"));
-		return null;
+		List<UserDTO> userList = userService.searchUser((String)session.getAttribute("userId"),keyword);
+		ModelAndView mv = new ModelAndView("search/searchList");
+		mv.addObject("userList", userList);
+		return mv;
 	}
 }

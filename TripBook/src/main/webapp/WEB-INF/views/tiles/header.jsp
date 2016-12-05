@@ -69,12 +69,14 @@
 <body>
 	<div class="jbTable">
 		<div class="jbTableRow">
+			<form action="<c:url value="/search/list"/>">
 			<div class="jbTableCell jbText">
-				<label for="exclusive_input">검색을 입력하세요</label> <input type="text" id="exclusive_input">
+				<label for="exclusive_input">검색을 입력하세요</label> <input type="text" id="exclusive_input" name="keyword">
 			</div>
 			<div class="jbTableCell jbSubmit">
 				<input type="submit" value="Search">
 			</div>
+			</form>
 		</div>
 	</div>
 </body>

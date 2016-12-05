@@ -19,6 +19,7 @@ select * from user_table;
 insert into user_table(id,password,name,age,gender,register_date,state) values('admin@tripbook.com','admin','관리자',20,'0',sysdate,'1');
 insert into user_table(id,password,name,age,gender,register_date,state) values('user@test.com','user','유저',27,'0',sysdate,'0');
 select name from user_table where id = 'admin@tripbook.com';
+		select id,name,age,gender,file_name from user_table where (name like '%%')
 
 create sequence friend_sequence nocache;
 CREATE TABLE friend_table
