@@ -28,4 +28,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		user_table(id,password,name,age,gender,register_date,file_name,state)
 		values(#{id},#{password},#{name},#{age},#{gender},sysdate,#{fileName,jdbcType=string},0)
 	</insert>
+	
+	<select id="selectUser" parameterType="String" resultMap="selectUserMap">
+		select id,name,file_name from user_table where id=#{value} and state='0'
+	</select>
 </mapper>

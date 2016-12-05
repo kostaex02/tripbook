@@ -1,5 +1,7 @@
 package com.tripbook.controller.main;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -8,5 +10,5 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MainController {
 	
 	@RequestMapping("{pageName}")
-	public void page(){}
+	public void page(HttpServletRequest request){}
 }

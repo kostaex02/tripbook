@@ -13,7 +13,6 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public UserDTO login(UserDTO user) {
-		int result = 0;
 		UserDTO tempUser = userDao.selectUser(user);
 		return tempUser;
 	}

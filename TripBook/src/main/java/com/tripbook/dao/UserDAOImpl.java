@@ -23,5 +23,9 @@ public class UserDAOImpl implements UserDAO {
 	public int insertUser(UserDTO user) {
 		return session.insert("userMapper.insertUser", user);
 	}
+	@Override
+	public UserDTO selectUser(String userId) {
+		return session.selectOne("userMapper.selectUser",userId);
+	}
 
 }
