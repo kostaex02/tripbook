@@ -79,6 +79,11 @@ CREATE TABLE group_table
 	group_name VARCHAR2(100) NOT NULL -- 그룹 이름
 );
 
+select * from group_table;
+insert into group_table(group_no,group_name) values(group_sequence.nextval,'전체공개');
+insert into group_table(group_no,group_name) values(group_sequence.nextval,'친구공개');
+insert into group_table(group_no,group_name) values(group_sequence.nextval,'비공개');
+
 create sequence group_member_sequence nocache;
 CREATE TABLE group_member_table
 (  

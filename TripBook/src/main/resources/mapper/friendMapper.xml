@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="friendMapper">
+	<resultMap type="FriendDTO" id="selectFriendMap">
+		<id column="friend_no" property="friendNo"/>
+		<result column="state" property="state"/>
+		<result column="friend_id1" property="friendId1"/>
+		<result column="friend_id2" property="friendId2"/>
+	</resultMap>
+	<select id="selectFriend" parameterType="String" resultMap="selectFriendMap">
+		select friend_no,state,friend_id1,friend_id2 from friend_table
+		 where state=#{state} and (friend_id1=#{userId} or friend_id2=#{userId})
+	</select>
+</mapper>
