@@ -55,11 +55,9 @@ public class HomeController {
 	
 	@RequestMapping("register")
 	public String register(UserDTO user){
+		System.out.println(user);
 		int result = userService.register(user);
-		String message = "가입성공";
-		if(result>0){
-			message = "가입 실패";
-		}
+		
 		return "home";
 	}
 }

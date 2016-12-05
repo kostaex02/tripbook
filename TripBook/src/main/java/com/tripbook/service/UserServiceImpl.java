@@ -1,5 +1,7 @@
 package com.tripbook.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,6 +37,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public UserDTO selectProfile(String userId) {
 		return userDao.selectProfile(userId);
+	}
+
+	@Override
+	public List<UserDTO> searchUser(String userId) {
+		return userDao.searchUser(userId);
 	}
 
 }

@@ -1,5 +1,7 @@
 package com.tripbook.controller.main;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -12,21 +14,18 @@ import com.tripbook.dto.UserDTO;
 import com.tripbook.service.UserService;
 
 @Controller
-@RequestMapping("user")
-public class UserController {
+@RequestMapping("search")
+public class SearchController {
 	@Autowired
 	private UserService userService;
 	
 	@RequestMapping("{pageName}")
 	public void page(HttpServletRequest request){}
 	
-	@RequestMapping("profile")
-	public ModelAndView selectProfile(HttpServletRequest request){
+	@RequestMapping("list")
+	public ModelAndView list(HttpServletRequest request){
 		HttpSession session = request.getSession();
-		UserDTO user = userService.selectProfile((String)session.getAttribute("userId"));
-		System.out.println(user);
-		ModelAndView mv = new ModelAndView("mypage/mypage");
-		mv.addObject("user", user);
-		return mv;
+		List<UserDTO> userList = userService.searchUser((String)session.getAttribute("userId"));
+		return null;
 	}
 }

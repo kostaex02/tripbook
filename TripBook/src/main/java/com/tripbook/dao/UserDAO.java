@@ -1,5 +1,7 @@
 package com.tripbook.dao;
 
+import java.util.List;
+
 import com.tripbook.dto.UserDTO;
 
 public interface UserDAO {
@@ -15,4 +17,6 @@ public interface UserDAO {
 	UserDTO selectUser(String userId);
 
 	UserDTO selectProfile(String userId);
+
+	List<UserDTO> searchUser(String userId);
 }

@@ -16,8 +16,9 @@ CREATE TABLE user_table
 	state VARCHAR2(1) default '0' -- 계정 상태(0 : 일반,1 : 관리자,2 : 계정 탈퇴 예정)
 );
 select * from user_table;
-insert into user_table(id,password,name,age,gender,register_date,file_name,state) values('admin@tripbook.com','admin','관리자',20,'0',sysdate,'1');
+insert into user_table(id,password,name,age,gender,register_date,state) values('admin@tripbook.com','admin','관리자',20,'0',sysdate,'1');
 insert into user_table(id,password,name,age,gender,register_date,state) values('user@test.com','user','유저',27,'0',sysdate,'0');
+select name from user_table where id = 'admin@tripbook.com';
 
 create sequence friend_sequence nocache;
 CREATE TABLE friend_table

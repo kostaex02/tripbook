@@ -26,7 +26,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="insertUser" parameterType="userDTO">
 		insert into 
 		user_table(id,password,name,age,gender,register_date,file_name,state)
-		values(#{id},#{password},#{name},#{age},#{gender},sysdate,#{fileName,jdbcType=string},0)
+		values(#{id},#{password},#{name},#{age},#{gender},sysdate,#{fileName,jdbcType=VARCHAR},0)
 	</insert>
 	
 	<select id="selectUser" parameterType="String" resultMap="selectUserMap">
@@ -34,6 +34,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="selectProfile" parameterType="String" resultMap="selectUserMap">
-		select id,name,age,gender where id=#{value}
+		select id,name,age,gender,file_name where id=#{value}
 	</select>
 </mapper>

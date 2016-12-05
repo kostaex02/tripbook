@@ -1,5 +1,7 @@
 package com.tripbook.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -30,6 +32,10 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public UserDTO selectProfile(String userId) {
 		return session.selectOne("userMapper.selectProfile", userId);
+	}
+	@Override
+	public List<UserDTO> searchUser(String userId) {
+		return null;
 	}
 
 }

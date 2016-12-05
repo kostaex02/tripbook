@@ -55,7 +55,7 @@
 	      <ul class="drawer-menu">
 	      
 	        <li><a class="drawer-menu-item" href='<c:url value="/main/main"/>'>Home</a></li>
-			<li><a class="drawer-menu-item" href='<c:url value="/mypage/mypage"/>'>My Page</a></li>
+			<li><a class="drawer-menu-item" href='<c:url value="/mypage/profile"/>'>My Page</a></li>
 			<li><a class="drawer-menu-item" href='<c:url value="/calendar/calendar"/>'>Schedule</a></li>
 			<li><a class="drawer-menu-item" href="#">Trip Biography</a></li>
 			<li><a class="drawer-menu-item" href='<c:url value="/friends/friends"/>'>Friends</a></li>

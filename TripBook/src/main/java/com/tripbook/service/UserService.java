@@ -1,5 +1,7 @@
 package com.tripbook.service;
 
+import java.util.List;
+
 import com.tripbook.dto.UserDTO;
 
 public interface UserService {
@@ -23,4 +25,9 @@ public interface UserService {
 	 * 유저 전체 정보 출력
 	 */
 	UserDTO selectProfile(String userId);
+	
+	/**
+	 * 검색된 사람과 친구 제외한 나머지 사람 검색
+	 **/
+	List<UserDTO> searchUser(String userId);
 }

@@ -12,14 +12,14 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class SessionCheckAdvice {
 	
-	@Around("execution(public * com.tripbook.test.main.*.*(..))")
+	@Around("execution(public * com.tripbook.controller.main.*.*(..))")
 	public Object around(ProceedingJoinPoint point) throws Throwable{
 		Object methodParams [] = point.getArgs();
 		HttpServletRequest request = (HttpServletRequest) methodParams[0];
 		
 		HttpSession session = request.getSession();
 		
-		if(session.getAttribute("loginUser")==null){
+		if(session.getAttribute("userId")==null){
 			//오류발생!!!
 			request.setAttribute("errorMsg", "로그인하고 오세요!!!");
 			throw new Exception();
