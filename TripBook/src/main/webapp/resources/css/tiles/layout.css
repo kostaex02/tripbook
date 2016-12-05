@@ -12,11 +12,12 @@
 	}
 	
 	#content{
-		margin-top:15px;
+		top:60px;
 		width:98%;
 	}
 	
 	#header{
+		margin-top:20px;
 		width:85%;
 	}
 }
@@ -29,24 +30,31 @@
 		display: none;
 	}
 	
-	#container{
-		margin:auto;
-	}
 	
 	#content{
-		margin-top:15px;
-		width:98%;
+		top:60px;
 	}
 	
 	#header{
-		width:85%;
+		margin-top:20px;
 	}
 }
 @media screen and (min-width:800px) and (max-width:1024px) {
-	
+	#slideBar{
+		display:none;
+	}
+	#header, #side{
+		margin-top:20px;
+	}
 	
 }
 @media screen and (min-width:1024px) {
+	#slideBar{
+		display:none;
+	}
+	#header, #side{
+		margin-top:20px;
+	}
 	
 	
 }

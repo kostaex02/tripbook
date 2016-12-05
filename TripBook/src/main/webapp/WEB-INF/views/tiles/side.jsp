@@ -45,7 +45,7 @@
 </style>
 
 </head>
-<body class="drawer drawer--left">
+<body >
 
 <div id='sideNav'>
 	
@@ -56,21 +56,7 @@
 		<div id='sideFriend'>친구</div>
 	
 </div>
-<button type="button" class="drawer-toggle drawer-hamburger">
-      <span class="sr-only">toggle navigation</span>
-      <span class="drawer-hamburger-icon"></span>
-    </button>
-    
-    <nav class="drawer-nav" role="navigation">
-      <ul class="drawer-menu">
-        <li><a class="drawer-menu-item" href="#">Top</a></li>
-		<li><a class="drawer-menu-item" href="#">Top</a></li>
-		<li><a class="drawer-menu-item" href="#">Top</a></li>
-		<li><a class="drawer-menu-item" href="#">Top</a></li>
-		<li><a class="drawer-menu-item" href="#">Top</a></li>
-		<li><a class="drawer-menu-item" href="#">Top</a></li>
-      </ul>
-    </nav>
+
 
 </body>
 </html>
