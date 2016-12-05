@@ -59,6 +59,7 @@
 	<input type='button' value='여행게시물'>
 </div>
 <hr>
+<div id='mainAllBoard'>
 	<ul class="grow">
 		<li>
 			<div id='mainRecentBoard'>
@@ -403,12 +404,12 @@
 			</div>
 		</li>
 	</ul>
-	
+</div>	
 	
 	
 <script src='<c:url value="/resources/js/main/stroll.min.js"/>'></script>	
 <script>
-	stroll.bind( 'ul' );
+	stroll.bind( '#mainAllBoard ul' );
 </script>
 </body>
 </html>

@@ -7,8 +7,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href='<c:url value="/resources/css/tiles/drawer.min.css"/>' rel="stylesheet">
+<link rel="stylesheet" href='<c:url value="/resources/css/tiles/layout.css"/>'>
 <title>Insert title here</title>
-
 <style>
 	div{
 		position:relative;
@@ -40,17 +41,23 @@
 		width:20%;
 		margin-right:100px;
 		height:auto;
-		left:10%;
+		left:9%;
 	}
 	#container{
 		border:5px solid pink;
 		width:100%;
 		height:90%;
-		margin-left:-50px;
+		margin-left:-60px;
 	}
 </style>
+
+
 </head>
 <body>
+
+    
+
+
 <div id='container'>
 	<div id='side'>
 		<tiles:insertAttribute name="side"/>
@@ -62,5 +69,21 @@
 		<tiles:insertAttribute name="content"/>
 	</div>
 </div>
+	
+	
+	
+	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+<script src='<c:url value="/resources/js/tiles/drawer.min.js"/>' charset="utf-8"></script>
+
+  <script>
+    $(document).ready(function() {
+      $('.drawer').drawer();
+    });
+  </script>	
+
+
 </body>
 </html>

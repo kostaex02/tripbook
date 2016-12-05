@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <title>Insert title here</title>
 <style>
 	#sideProfile, #sideSchedule, #sideHome, #sideBiography, #sideFriend, #sideNav{
@@ -42,15 +43,34 @@
 	}
 	
 </style>
+
 </head>
-<body>
+<body class="drawer drawer--left">
 
 <div id='sideNav'>
-	<div id='sideProfile'>프로필</div>
-	<div id='sideSchedule'>스케줄</div>
-	<div id='sideHome'>Home</div>
-	<div id='sideBiography'>여행일대기</div>
-	<div id='sideFriend'>친구</div>
+	
+		<div id='sideProfile'>프로필</div>
+		<div id='sideSchedule'>스케줄</div>
+		<div id='sideHome'>Home</div>
+		<div id='sideBiography'>여행일대기</div>
+		<div id='sideFriend'>친구</div>
+	
 </div>
+<button type="button" class="drawer-toggle drawer-hamburger">
+      <span class="sr-only">toggle navigation</span>
+      <span class="drawer-hamburger-icon"></span>
+    </button>
+    
+    <nav class="drawer-nav" role="navigation">
+      <ul class="drawer-menu">
+        <li><a class="drawer-menu-item" href="#">Top</a></li>
+		<li><a class="drawer-menu-item" href="#">Top</a></li>
+		<li><a class="drawer-menu-item" href="#">Top</a></li>
+		<li><a class="drawer-menu-item" href="#">Top</a></li>
+		<li><a class="drawer-menu-item" href="#">Top</a></li>
+		<li><a class="drawer-menu-item" href="#">Top</a></li>
+      </ul>
+    </nav>
+
 </body>
 </html>
