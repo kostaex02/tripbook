@@ -41,6 +41,7 @@
 	display:none;
 	margin-top:50px;
 }
+
 </style>
 <body class="demo-2">
 	<div id="container" class="container intro-effect-fadeout">
@@ -108,29 +109,38 @@
         <div class="modal-body">
         <form>
     		<div class="input-group has-success has-feedback">
-      		<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+      		<span class="input-group-addon">
+      		<i><img src='<c:url value="/images/icon_id20.png"/>'></i></span>
       		<input id="email" type="text" class="form-control has-success has-feedback" name="email" placeholder="Email">
-      		<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+      		<span class="form-control-feedback">
+      		<img src='<c:url value="/images/icon_ok16.png"/>'>
+      		</span>
     		</div>
     <br>
     <div class="input-group">
-      <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+      <span class="input-group-addon">
+      <i><img src='<c:url value="/images/icon_password20.png"/>'></i></span>
       <input id="password" type="password" class="form-control" name="password" placeholder="Password">
     </div>
     <br>
     <div class="input-group has-error has-feedback">
-      <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+      <span class="input-group-addon">
+      <i><img src='<c:url value="/images/icon_passwordCheck20.png"/>'></i></span>
       <input id="passwordCheck" type="password" class="form-control" name="password" placeholder="Password check">
-      <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+      <span class="form-control-feedback">
+      <img src='<c:url value="/images/icon_fail16.png"/>'>
+      </span>
     </div>
     <br>
     <div class="input-group">
-      <span class="input-group-addon"><i class="glyphicon glyphicon-edit"></i></span>
+      <span class="input-group-addon">
+      <i><img src='<c:url value="/images/icon_user20.png"/>'></i></span>
       <input id="name" type="text" class="form-control" name="msg" placeholder="이름">
     </div>	
     <br>
     <div class="input-group">
-      <span class="input-group-addon"><i class="glyphicon glyphicon-edit"></i></span>
+      <span class="input-group-addon">
+      <i><img src='<c:url value="/images/icon_birth20.png"/>'></i></span>
       <input id="age" type="text" class="form-control" name="msg" placeholder="나이">
     </div>
     <br>
@@ -138,7 +148,8 @@
       
       <input id="picture" type="text" class="form-control" name="email" placeholder="사진" disabled>
       <div class="input-group-btn">
-        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-picture"></i></button>
+        <button class="btn btn-default" type="button" id="buttonLoadPicture">
+        <i><img src='<c:url value="/images/icon_picture20.png"/>'></i></button>
       </div>
     </div>
     
@@ -305,7 +316,11 @@
 			});
 		})();
 	
-		
+		$(function(){
+			$("#buttonLoadPicture").click(function(){
+				alert("1");
+			});
+		})
 	
 	</script>
 
