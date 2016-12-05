@@ -426,6 +426,7 @@
     </div>
   </div>
 	
+<script src='<c:url value="/resources/js/calendar/lib/jquery.min.js"/>'></script>	
 	
 <script src='<c:url value="/resources/js/main/stroll.min.js"/>'></script>	
 <script>
@@ -436,6 +437,7 @@
 			keyboard: false
 		});		
 	}) */
+	
 </script>
 </body>
 </html>

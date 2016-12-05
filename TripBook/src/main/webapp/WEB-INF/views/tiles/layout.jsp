@@ -81,10 +81,8 @@
 	
 	
 <script src='<c:url value="/resources/js/bootstrap/bootstrap.min.js"/>' charset="utf-8"></script>	
-<script src='<c:url value="/resources/js/jquery-2.2.4.js"/>'></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
 <script src='<c:url value="/resources/js/tiles/drawer.min.js"/>' charset="utf-8"></script>
 
   <script>
