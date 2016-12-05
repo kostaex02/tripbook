@@ -30,8 +30,16 @@
 	padding-right: 0;
 	width: 100%;
 }
-.form-login{
-	
+.title{
+	margin-top:-100px;
+}
+.content{
+	margin-top:0px;
+	margin-bottom:0px;
+}
+#mainForm{
+	display:none;
+	margin-top:50px;
 }
 </style>
 <body class="demo-2">
@@ -41,17 +49,11 @@
 				<img src='<c:url value="/images/1.jpg"/>' alt="Background Image" />
 			</div>
 			<div class="title">
-
+				
 				<h1>TripBook</h1>
-				<p class="subline">By Team 너나들이</p>
-			</div>
-		</header>
-		<button class="trigger">
-			<span>Trigger</span>
-		</button>
-		<article class="content">
-			<form class="form-horizontal" method="post" action="login">
-				<div class="form-login">
+				<p class="subline">By Team 너나들이
+				<form class="form-horizontal" method="post" action="login" id="mainForm">
+					<div class="form-login" id="content1">
 					<label for="inputEmail3" class="col-sm-8 control-label">Email</label>
 					<div class="col-sm-4">
 						<input type="email" class="form-control" name="id"
@@ -67,19 +69,91 @@
 				</div>
 				<div class="form-login">
 					<div class="col-sm-offset-8 col-sm-4">
-						<button type="submit" class="btn btn-default">Sign in</button>
+						<button type="submit" class="btn btn-default">로그인</button><br><br>
 					</div>
 				</div>
-			</form>
+				<div class="form-login">
+					<div class="col-sm-offset-6 col-sm-6">
+						<a href="#registerForm" data-toggle="modal">회원가입</a> / 
+						<a href="#">아이디 찾기</a> / <a href="#">비밀번호 찾기</a>
+					
+					</div>
+				</div>
+				
+				</form>
+				</p>
+			</div>
+		</header>
+		<button class="trigger">
+			<span>Trigger</span>
+		</button>
+		<article class="content">
+			
 		</article>
 		<section class="related">
-			<p><a href="#">아이디 찾기</a> / <a href="#">비밀번호 찾기</a> / <a href="#">회원가입</a><p>
 			<a href='main/main'>main</a><p>
 			<a href="mypage/mypage">mypage</a><p>
 			<a href='calendar/calendar'>calendar</a><p>
 			<a href='friends/friends'>friends</a><p>
 		</section>
-	</div>
+		
+  <!-- Modal -->
+  <div class="modal fade" id="registerForm" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">회원가입</h4>
+        </div>
+        <div class="modal-body">
+        <form>
+    		<div class="input-group has-success has-feedback">
+      		<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+      		<input id="email" type="text" class="form-control has-success has-feedback" name="email" placeholder="Email">
+      		<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+    		</div>
+    <br>
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+      <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+    </div>
+    <br>
+    <div class="input-group has-error has-feedback">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+      <input id="passwordCheck" type="password" class="form-control" name="password" placeholder="Password check">
+      <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+    </div>
+    <br>
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-edit"></i></span>
+      <input id="name" type="text" class="form-control" name="msg" placeholder="이름">
+    </div>	
+    <br>
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-edit"></i></span>
+      <input id="age" type="text" class="form-control" name="msg" placeholder="나이">
+    </div>
+    <br>
+    <div class="input-group">
+      
+      <input id="picture" type="text" class="form-control" name="email" placeholder="사진" disabled>
+      <div class="input-group-btn">
+        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-picture"></i></button>
+      </div>
+    </div>
+    
+  </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">가입</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>	
+	
+	
 	
 	<!-- /container -->
 	<!-- Bootstrap load -->
@@ -194,7 +268,9 @@
 
 				if (reveal) {
 					classie.add(container, 'modify');
+					document.getElementById("mainForm").style.display="block";
 				} else {
+					document.getElementById("mainForm").style.display="none";
 					noscroll = true;
 					disable_scroll();
 					classie.remove(container, 'modify');
@@ -228,6 +304,9 @@
 				toggle('reveal');
 			});
 		})();
+	
+		
+	
 	</script>
 
 </body>
