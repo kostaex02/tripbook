@@ -53,7 +53,7 @@
 		// Delete duplicates (but continue and re-bind this list to get the
 		// latest properties and list items)
 		else if( contains( element ) ) {
-			
+			/*remove( element );*/
 		}
 
 		var list = IS_TOUCH_DEVICE ? new TouchList( element ) : new List( element );

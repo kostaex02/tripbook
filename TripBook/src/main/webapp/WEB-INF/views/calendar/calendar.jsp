@@ -14,7 +14,9 @@
 <script src='<c:url value="/resources/js/calendar/fullcalendar.js"/>'></script>
 <title>달!력!</title>
 <style type="text/css">
-
+	#calendar{
+		
+	}
 </style>
 </head>
 <body>

@@ -33,6 +33,7 @@ body {
 	#calendar {
 		margin:auto;
 		width: 100%;
+		height:auto;
 		background-color: white;
 	}
 	
@@ -46,10 +47,10 @@ body {
 		width: 100%;
 	}
 	
-	.fc-scroller {
+	/* .fc-scroller {
    		overflow-y: hidden !important;
    		overflow-x: hidden !important;
-	}
+	} */
 	#calendarTrash{
 		padding:20px;
 		border:1px solid black;

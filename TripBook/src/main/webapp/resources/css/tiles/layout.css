@@ -1,6 +1,7 @@
 @media screen and (max-width:400px) {
-	#content, #header{
-		position: relative;
+	body{
+		overflow-y: hidden !important;
+   		overflow-x: hidden !important;
 	}
 	
 	#side{
@@ -8,20 +9,32 @@
 	}
 	
 	#container{
-		margin:auto;
-	}
-	
-	#content{
-		top:60px;
-		width:98%;
+		margin-left:0px;
+		
+		
 	}
 	
 	#header{
 		margin-top:20px;
-		width:85%;
+		margin-bottom: 20px;
+	}
+	
+	#header, #content{
+		width:100%;
+	}
+	
+	#calendar {
+		position:relative;
+		margin:auto;
+		background-color: white;
 	}
 }
 @media screen and (min-width:400px) and (max-width:800px) {
+	body{
+		overflow-y: hidden !important;
+   		overflow-x: hidden !important;
+	}
+	
 	#content, #header{
 		position: relative;
 	}
@@ -30,32 +43,50 @@
 		display: none;
 	}
 	
-	
-	#content{
-		top:60px;
-	}
-	
 	#header{
 		margin-top:20px;
+		margin-bottom: 20px;
+	}
+	
+	#header, #content{
+		width:100%;
 	}
 }
 @media screen and (min-width:800px) and (max-width:1024px) {
+	body{
+		overflow-y: hidden !important;
+   		overflow-x: hidden !important;
+	}
+	
 	#slideBar{
 		display:none;
 	}
+	#content, #header{
+		width:70%;
+	}
+	
 	#header, #side{
 		margin-top:20px;
+		margin-bottom: 10px;
 	}
 	
 }
 @media screen and (min-width:1024px) {
+	body{
+		overflow-y: hidden !important;
+   		overflow-x: hidden !important;
+	}
 	#slideBar{
 		display:none;
 	}
-	#header, #side{
-		margin-top:20px;
+	#content, #header{
+		width:70%;
 	}
 	
+	#header, #side{
+		margin-top:20px;
+		margin-bottom: 10px;
+	}
 	
 }
 
