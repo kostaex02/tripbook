@@ -50,7 +50,7 @@
 			<span>Trigger</span>
 		</button>
 		<article class="content">
-			<form class="form-horizontal">
+			<form class="form-horizontal" method="post" action="login">
 				<div class="form-login">
 					<label for="inputEmail3" class="col-sm-8 control-label">Email</label>
 					<div class="col-sm-4">

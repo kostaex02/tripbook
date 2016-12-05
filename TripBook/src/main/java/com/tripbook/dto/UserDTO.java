@@ -11,6 +11,12 @@ public class UserDTO {
 	private String fileName;
 	private String state;
 	
+	@Override
+	public String toString() {
+		return "UserDTO [id=" + id + ", password=" + password + ", name=" + name + ", age=" + age + ", gender=" + gender
+				+ ", registerDate=" + registerDate + ", updateDate=" + updateDate + ", fileName=" + fileName
+				+ ", state=" + state + "]";
+	}
 	public String getId() {
 		return id;
 	}

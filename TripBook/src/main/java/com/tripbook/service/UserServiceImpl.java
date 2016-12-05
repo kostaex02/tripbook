@@ -15,7 +15,6 @@ public class UserServiceImpl implements UserService {
 	public UserDTO login(UserDTO user) {
 		int result = 0;
 		UserDTO tempUser = userDao.selectUser(user);
-		
 		return tempUser;
 	}
 
