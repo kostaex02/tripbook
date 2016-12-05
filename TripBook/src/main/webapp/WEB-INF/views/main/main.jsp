@@ -52,11 +52,11 @@
 <body>
 <div id='mainNewBoard'>
 	게시글 작성 영역
-	<c:import url="../main/newGeneralBoard.jsp"/>
+	<%-- <c:import url="../main/newGeneralBoard.jsp"/> --%>
 	<hr>
 	
 	<input type='button' value='일반게시물'>
-	<input type='button' value='여행게시물' onclick="location.href='../main/newGeneralBoard'">
+	<input type='button' value='여행게시물' onclick="location.href='newGeneralBoard'">
 </div>
 <hr>
 <div id='mainAllBoard'>
