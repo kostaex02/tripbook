@@ -42,7 +42,7 @@ public class HomeController {
 			session.setAttribute("userFileName", tempUser.getFileName());
 			mv = new ModelAndView("main/main");
 		}else{
-			mv=new ModelAndView("");
+			mv=new ModelAndView("home");
 		}
 		return mv;
 	}
