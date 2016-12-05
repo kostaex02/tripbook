@@ -39,9 +39,11 @@
 	}
 	#sideNav{
 		text-align: center;
-		
 	}
 	
+	a{
+		text-decoration: none;
+	}
 </style>
 
 </head>
@@ -49,11 +51,11 @@
 
 <div id='sideNav'>
 	
-		<div id='sideProfile'>프로필</div>
-		<div id='sideSchedule'>스케줄</div>
-		<div id='sideHome'>Home</div>
-		<div id='sideBiography'>여행일대기</div>
-		<div id='sideFriend'>친구</div>
+		<a href='<c:url value="/mypage/mypage"/>'><div id='sideProfile'>프로필</div></a>
+		<a href='<c:url value="/calendar/calendar"/>'><div id='sideSchedule'>스케줄</div></a>
+		<a href='<c:url value="/main/main"/>'><div id='sideHome'>Home</div></a>
+		<a href='#'><div id='sideBiography'>여행일대기</div></a>
+		<a href='<c:url value="/friends/friends"/>'><div id='sideFriend'>친구</div></a>
 	
 </div>
 
