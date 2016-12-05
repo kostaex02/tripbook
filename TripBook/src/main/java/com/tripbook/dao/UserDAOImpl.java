@@ -27,5 +27,9 @@ public class UserDAOImpl implements UserDAO {
 	public UserDTO selectUser(String userId) {
 		return session.selectOne("userMapper.selectUser",userId);
 	}
+	@Override
+	public UserDTO selectProfile(String userId) {
+		return session.selectOne("userMapper.selectProfile", userId);
+	}
 
 }

@@ -32,4 +32,9 @@ public class UserServiceImpl implements UserService {
 		return userDao.insertUser(user);
 	}
 
+	@Override
+	public UserDTO selectProfile(String userId) {
+		return userDao.selectProfile(userId);
+	}
+
 }

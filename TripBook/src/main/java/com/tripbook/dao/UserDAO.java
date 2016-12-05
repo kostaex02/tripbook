@@ -13,4 +13,6 @@ public interface UserDAO {
 	int insertUser(UserDTO user);
 	
 	UserDTO selectUser(String userId);
+
+	UserDTO selectProfile(String userId);
 }

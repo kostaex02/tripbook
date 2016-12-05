@@ -18,4 +18,9 @@ public interface UserService {
 	 * 가입
 	 */
 	int register(UserDTO user);
+	
+	/**
+	 * 유저 전체 정보 출력
+	 */
+	UserDTO selectProfile(String userId);
 }
