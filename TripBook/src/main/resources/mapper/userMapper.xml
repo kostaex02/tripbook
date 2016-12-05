@@ -33,7 +33,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select id,name,file_name from user_table where id=#{value} and state='0'
 	</select>
 	
-	<select id="selectProfile" parameterType="String" resultMap="selectUSerMap">
+	<select id="selectProfile" parameterType="String" resultMap="selectUserMap">
 		select id,name,age,gender where id=#{value}
 	</select>
 </mapper>
