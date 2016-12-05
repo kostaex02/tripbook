@@ -7,4 +7,8 @@ public interface UserDAO {
 	 * user 값을 이용해서 user 찾기
 	 * */
 	UserDTO selectUser(UserDTO userId);
+
+	String checkUser(String userId);
+
+	int insertUser(UserDTO user);
 }

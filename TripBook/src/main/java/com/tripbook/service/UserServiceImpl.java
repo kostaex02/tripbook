@@ -19,4 +19,19 @@ public class UserServiceImpl implements UserService {
 		return tempUser;
 	}
 
+	@Override
+	public int checkId(String userId) {
+		String name = userDao.checkUser(userId);
+		int result = 0;
+		if(name!=null){
+			result = 1;
+		}
+		return result;
+	}
+
+	@Override
+	public int register(UserDTO user) {
+		return userDao.insertUser(user);
+	}
+
 }

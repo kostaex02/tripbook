@@ -14,7 +14,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="file_name" property="fileName"/>
 		<result column="state" property="state"/>
 	</resultMap>
+	
 	<select id="selectUserById" parameterType="String" resultMap="selectUserMap">
-		select id,password,name,file_name where id = #{value}
+		select id,password,name,file_name from user_table where id = #{value}
 	</select>
+	
+	<select id="checkUserById" parameterType="String" resultType="String">
+		select name from user_table where id = #{value}
+	</select>
+	
+	<insert id="insertUser" parameterType="userDTO">
+		insert into 
+		user_table(id,password,name,age,gender,register_date,file_name,state)
+		values(#{id},#{password},#{name},#{age},#{gender},sysdate,#{fileName,jdbcType=string},0)
+	</insert>
 </mapper>
