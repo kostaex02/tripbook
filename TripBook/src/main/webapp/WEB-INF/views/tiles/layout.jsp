@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Insert title here</title>
 
 <style>
@@ -16,7 +17,7 @@
 	#header{
 		border:1px solid red;
 		float:right;
-		margin:5px 0px;
+		margin-left:-100px;
 		width:68%;
 		height:auto;
 		padding:5px;
@@ -25,7 +26,8 @@
 	#content{
 		border:1px solid black;
 		float:right;
-		margin:5px 0px;
+		margin-top:-50px;
+		margin-left:-100px;
 		clear:both;
 		width:68%;
 		height:auto;
@@ -35,13 +37,16 @@
 	#side{
 		border:1px solid blue;
 		float:left;
-		margin:5px 0px;
 		width:20%;
+		margin-right:100px;
 		height:auto;
+		left:10%;
 	}
 	#container{
 		border:5px solid pink;
 		width:100%;
+		height:90%;
+		margin-left:-50px;
 	}
 </style>
 </head>

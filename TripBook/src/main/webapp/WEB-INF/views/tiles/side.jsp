@@ -6,8 +6,51 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style>
+	#sideProfile, #sideSchedule, #sideHome, #sideBiography, #sideFriend, #sideNav{
+		position: relative;
+		border:1px solid navy;
+		margin: auto;
+		height:50px;
+	} 
+	
+	#sideProfile{
+		width:96%;
+		
+	}
+	#sideSchedule{
+		float:left;
+		width:42%;
+		left:2%
+	}
+	#sideHome{
+		float:left;
+		width:42%;
+		left:12%
+		
+	}
+	#sideBiography{
+		width:96%;
+		clear: both;
+	}
+	#sideFriend{
+		width:96%;
+	}
+	#sideNav{
+		text-align: center;
+		
+	}
+	
+</style>
 </head>
 <body>
-<h1>side!</h1>
+
+<div id='sideNav'>
+	<div id='sideProfile'>프로필</div>
+	<div id='sideSchedule'>스케줄</div>
+	<div id='sideHome'>Home</div>
+	<div id='sideBiography'>여행일대기</div>
+	<div id='sideFriend'>친구</div>
+</div>
 </body>
 </html>

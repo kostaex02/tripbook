@@ -63,8 +63,7 @@
 		<li>
 			<div id='mainRecentBoard'>
 				<p>
-					<div class='profile'><img src='<c:url value="/images/img.jpg"/>'>미니 프로필 사진</div>
-					
+					<div class='profile'>미니 프로필 사진</div>
 					<b>User ID</b> 12월 03일 오전 11:41
 				</p>
 					<div class='picture'>
