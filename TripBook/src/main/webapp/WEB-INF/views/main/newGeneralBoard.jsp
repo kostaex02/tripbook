@@ -6,8 +6,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+#boardContainer{
+	border: 1px solid gray;
+	width: 550px;
+	height: 350px;
+	
+}
+</style>
 </head>
 <body>
-일반글 작성
+
+<div id="boardContainer">
+	머야 이거
+</div>
+
 </body>
 </html>

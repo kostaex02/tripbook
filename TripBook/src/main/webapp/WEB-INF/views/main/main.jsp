@@ -56,7 +56,7 @@
 	<hr>
 	
 	<input type='button' value='일반게시물'>
-	<input type='button' value='여행게시물'>
+	<input type='button' value='여행게시물' onclick="location.href='../main/newGeneralBoard'">
 </div>
 <hr>
 <div id='mainAllBoard'>

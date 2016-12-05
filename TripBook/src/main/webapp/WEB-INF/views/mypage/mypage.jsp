@@ -48,9 +48,11 @@
 	margin-bottom: -15px;
 }
 
-div {
-	border: 1px solid red;
+#button{
+	display: table-cell;
+	vertical-align: middle;
 }
+
 </style>
 </head>
 <body>
@@ -64,99 +66,191 @@ div {
 				<div class="profile">
 					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
 				</div>
-				<div id="message">친구하자!</div> <input type="submit" value="수락">
-				<input type="submit" value="거절">
+				<div id="message">친구하자!</div>
+				<div id="button">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
 			</li>
 			<li id="logStory">
 				<div class="profile">
 					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
 				</div>
-				<div id="message">친구하자!</div> <input type="submit" value="수락">
-				<input type="submit" value="거절">
+				<div id="message">친구하자!</div>
+				<div id="button">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
 			</li>
 			<li id="logStory">
 				<div class="profile">
 					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
 				</div>
-				<div id="message">친구하자!</div> <input type="submit" value="수락">
-				<input type="submit" value="거절">
+				<div id="message">친구하자!</div>
+				<div id="button">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
 			</li>
 			<li id="logStory">
 				<div class="profile">
 					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
 				</div>
-				<div id="message">친구하자!</div> <input type="submit" value="수락">
-				<input type="submit" value="거절">
+				<div id="message">친구하자!</div>
+				<div id="button">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
 			</li>
 			<li id="logStory">
 				<div class="profile">
 					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
 				</div>
-				<div id="message">친구하자!</div> <input type="submit" value="수락">
-				<input type="submit" value="거절">
+				<div id="message">친구하자!</div>
+				<div id="button">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
 			</li>
 			<li id="logStory">
 				<div class="profile">
 					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
 				</div>
-				<div id="message">친구하자!</div> <input type="submit" value="수락">
-				<input type="submit" value="거절">
+				<div id="message">친구하자!</div>
+				<div id="button">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
 			</li>
 			<li id="logStory">
 				<div class="profile">
 					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
 				</div>
-				<div id="message">친구하자!</div> <input type="submit" value="수락">
-				<input type="submit" value="거절">
+				<div id="message">친구하자!</div>
+				<div id="button">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
 			</li>
 			<li id="logStory">
 				<div class="profile">
 					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
 				</div>
-				<div id="message">친구하자!</div> <input type="submit" value="수락">
-				<input type="submit" value="거절">
+				<div id="message">친구하자!</div>
+				<div id="button">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
 			</li>
 			<li id="logStory">
 				<div class="profile">
 					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
 				</div>
-				<div id="message">친구하자!</div> <input type="submit" value="수락">
-				<input type="submit" value="거절">
+				<div id="message">친구하자!</div>
+				<div id="button">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
 			</li>
 			<li id="logStory">
 				<div class="profile">
 					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
 				</div>
-				<div id="message">친구하자!</div> <input type="submit" value="수락">
-				<input type="submit" value="거절">
+				<div id="message">친구하자!</div>
+				<div id="button">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
 			</li>
 			<li id="logStory">
 				<div class="profile">
 					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
 				</div>
-				<div id="message">친구하자!</div> <input type="submit" value="수락">
-				<input type="submit" value="거절">
+				<div id="message">친구하자!</div>
+				<div id="button">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
 			</li>
 			<li id="logStory">
 				<div class="profile">
 					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
 				</div>
-				<div id="message">친구하자!</div> <input type="submit" value="수락">
-				<input type="submit" value="거절">
+				<div id="message">친구하자!</div>
+				<div id="button">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
 			</li>
 			<li id="logStory">
 				<div class="profile">
 					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
 				</div>
-				<div id="message">친구하자!</div> <input type="submit" value="수락">
-				<input type="submit" value="거절">
+				<div id="message">친구하자!</div>
+				<div id="button">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
 			</li>
 			<li id="logStory">
 				<div class="profile">
 					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
 				</div>
-				<div id="message">친구하자!</div> <input type="submit" value="수락">
-				<input type="submit" value="거절">
+				<div id="message">친구하자!</div>
+				<div id="button">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li id="logStory">
+				<div class="profile">
+					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div id="message">친구하자!</div>
+				<div id="button">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li id="logStory">
+				<div class="profile">
+					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div id="message">친구하자!</div>
+				<div id="button">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li id="logStory">
+				<div class="profile">
+					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div id="message">친구하자!</div>
+				<div id="button">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li id="logStory">
+				<div class="profile">
+					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div id="message">친구하자!</div>
+				<div id="button">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li id="logStory">
+				<div class="profile">
+					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div id="message">친구하자!</div>
+				<div id="button">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
 			</li>
 		</ul>
 	</div>
