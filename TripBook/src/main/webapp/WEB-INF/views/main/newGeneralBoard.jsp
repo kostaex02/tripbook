@@ -5,9 +5,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<!-- Bootstrap load -->
+
+<!-- jQuery load -->
 <script src='<c:url value="/resources/js/jquery-2.2.4.js"/>'></script>
+<!-- Bootstrap load -->
 <script src='<c:url value="/resources/js/bootstrap/bootstrap.min.js"/>'></script>
+
+
 <script type="text/javascript">
 	$(document).ready(function() {
 		var placeholderTarget = $('#title input[type="text"]');
