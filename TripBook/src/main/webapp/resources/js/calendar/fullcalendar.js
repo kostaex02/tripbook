@@ -6,7 +6,7 @@
 			header: {
 				left: 'prev,next today',
 				center: 'title',
-				right: 'month,listMonth,listWeek'
+				right: 'month,listMonth,listWeek',
 			},
 			defaultDate: moment(),
 			locale: initialLocaleCode,
