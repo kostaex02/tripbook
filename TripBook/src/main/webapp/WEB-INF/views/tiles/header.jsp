@@ -60,7 +60,7 @@
 
 .jbText label{
 	position: absolute;
-	padding: .4em .5em; /* input 요소의 padding 값 만큼 */
+	padding: .6em .5em; /* input 요소의 padding 값 만큼 */
 	color: #999;
 	cursor: text;
 }
