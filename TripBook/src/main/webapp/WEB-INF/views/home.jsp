@@ -126,7 +126,7 @@
     <div class="input-group has-error has-feedback">
       <span class="input-group-addon">
       <i><img src='<c:url value="/images/icon_passwordCheck20.png"/>'></i></span>
-      <input id="passwordCheck" type="password" class="form-control" name="password" placeholder="Password check">
+      <input id="passwordCheck" type="password" class="form-control" name="passwordCheck" placeholder="Password check">
       <span class="form-control-feedback">
       <img src='<c:url value="/images/icon_fail16.png"/>'>
       </span>
@@ -135,18 +135,18 @@
     <div class="input-group">
       <span class="input-group-addon">
       <i><img src='<c:url value="/images/icon_user20.png"/>'></i></span>
-      <input id="name" type="text" class="form-control" name="msg" placeholder="이름">
+      <input id="name" type="text" class="form-control" name="name" placeholder="이름">
     </div>	
     <br>
     <div class="input-group">
       <span class="input-group-addon">
       <i><img src='<c:url value="/images/icon_birth20.png"/>'></i></span>
-      <input id="age" type="text" class="form-control" name="msg" placeholder="나이">
+      <input id="age" type="text" class="form-control" name="age" placeholder="나이">
     </div>
     <br>
     <div class="input-group">
       
-      <input id="picture" type="text" class="form-control" name="email" placeholder="사진" disabled>
+      <input id="picture" type="text" class="form-control" name="picture" placeholder="사진" disabled>
       <div class="input-group-btn">
         <button class="btn btn-default" type="button" id="buttonLoadPicture">
         <i><img src='<c:url value="/images/icon_picture20.png"/>'></i></button>
