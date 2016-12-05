@@ -68,7 +68,7 @@
 					<b>User ID</b> 12월 03일 오전 11:41
 				</p>
 					<div class='picture'>
-					
+					<a href="#" data-toggle="modal" data-target="#image"><img src='<c:url value="/images/img.jpg"/>' style="width:100px"></a>
 					</div>
 				<div id='replys'>
 					댓글 영역<br>
@@ -405,6 +405,89 @@
 		</li>
 	</ul>
 </div>	
+
+<!-- Modal -->
+  <div class="modal fade" id="image" role="dialog" tabindex='-1'>
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">information</h4>
+        </div>
+        <div class="modal-body">
+          <a href="#stack2" data-toggle="modal" data-keyboard="true"><img src='<c:url value="/images/img.jpg"/>' class="img-rounded" alt="Cinque Terre" width="260" height="200"></a>
+          <a href="#stack2" data-toggle="modal"><img src='<c:url value="/images/img.jpg"/>' class="img-rounded" alt="Cinque Terre" width="260" height="200"></a>
+          <a href="#stack2" data-toggle="modal"><img src='<c:url value="/images/img.jpg"/>' class="img-rounded" alt="Cinque Terre" width="260" height="200"></a>
+          <a href="#stack2" data-toggle="modal"><img src='<c:url value="/images/img.jpg"/>' class="img-rounded" alt="Cinque Terre" width="260" height="200"></a>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Ok</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="stack2" role="dialog" tabindex='-1'>
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">detail information</h4>
+        </div>
+        <div class="modal-body">
+        	<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
+    		<!-- Indicators -->
+    			<ol class="carousel-indicators">
+      				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    				<li data-target="#myCarousel" data-slide-to="1"></li>
+      				<li data-target="#myCarousel" data-slide-to="2"></li>
+      				<li data-target="#myCarousel" data-slide-to="3"></li>
+    			</ol>
+
+   			<!-- Wrapper for slides -->
+    		<div class="carousel-inner" role="listbox">
+      			<div class="item active">
+        			<img src='<c:url value="/images/img.jpg"/>' class="img-rounded" alt="Chania" width="460" height="345">
+      			</div>
+
+      			<div class="item">
+        			<img src='<c:url value="/images/img.jpg"/>' class="img-rounded" alt="Chania" width="460" height="345">
+      			</div>
+    
+      			<div class="item">
+        			<img src='<c:url value="/images/img.jpg"/>' class="img-rounded" alt="Chania" width="460" height="345">
+      			</div>
+
+      			<div class="item">
+       				<img src='<c:url value="/images/img.jpg"/>' class="img-rounded" alt="Chania" width="460" height="345">
+      			</div>
+    		</div>
+
+    		<!-- Left and right controls -->
+    		<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      			<span class="sr-only">Previous</span>
+    		</a>
+    		<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      			<span class="sr-only">Next</span>
+    		</a>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Ok</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 	
 	
 <script src='<c:url value="/resources/js/main/stroll.min.js"/>'></script>	
