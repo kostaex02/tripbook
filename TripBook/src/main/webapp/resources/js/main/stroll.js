@@ -47,13 +47,13 @@
 	 */
 	function add( element, options ) {
 		// Only allow ul/ol
-		if( !element.nodeName || /^(#mainAllBoard ul|ol)$/i.test( element.nodeName ) === false ) {
+		if( !element.nodeName || /^(ul|ol)$/i.test( element.nodeName ) === false ) {
 			return false;
 		}
 		// Delete duplicates (but continue and re-bind this list to get the
 		// latest properties and list items)
 		else if( contains( element ) ) {
-			remove( element );
+			
 		}
 
 		var list = IS_TOUCH_DEVICE ? new TouchList( element ) : new List( element );
@@ -206,7 +206,7 @@
 					if( item._state !== 'past' ) {
 						item._state = 'past';
 						item.classList.add( 'past' );
-						item.classList.remove( 'future' );
+						/*item.classList.remove( 'future' );*/
 					}
 				}
 				// Below list viewport
@@ -215,7 +215,7 @@
 					if( item._state !== 'future' ) {
 						item._state = 'future';
 						item.classList.add( 'future' );
-						item.classList.remove( 'past' );
+						/*item.classList.remove( 'past' );*/
 					}
 				}
 				// Inside of list viewport
