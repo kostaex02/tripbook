@@ -77,6 +77,7 @@
 			<a href='main/main'>main</a><p>
 			<a href="mypage/mypage">mypage</a><p>
 			<a href='calendar/calendar'>calendar</a><p>
+			<a href='friends/friends'>friends</a><p>
 		</section>
 	</div>
 	
