@@ -72,6 +72,9 @@
 		width: 100%;
 		overflow: hidden;
 	}
+	.friendsGroupMember > input{
+		display:none;
+	}
 
 </style>
 </head>
@@ -550,17 +553,17 @@
 	        </div>	
 	        <div class="friendsGroupList">
 	        	<div class="friendsGroupListBind" >
-		         	<div id="friend1" class="friends" style="border-top: 1px solid black; font-size:30px;">
-		         		<img src="img/c.png">  이쁘니 /이브이 <input type="checkbox" value="1" style="display:none" />
+		         	<div id="friend1" class="friendsGroupMember" >
+		         		<div>이미지 영역</div>  친구1 / 누구니 <input type="checkbox" value="1" />
 		         	</div>
-		         	<div id="friend2" class="friends" style="border-top: 1px solid black; font-size:30px;">
-		         		<img src="img/c.png">  귀여미 /님피아 <input type="checkbox"  value="2" style="display:none" />
+		         	<div id="friend2" class="friendsGroupMember" >
+		         		<div>이미지 영역</div>  친구2 / 누구니 <input type="checkbox"  value="2" />
 		         	</div>
-		         	<div id="friend3" class="friends" style="border-top: 1px solid black; font-size:30px;">
-		         		<img src="img/c.png">  물쟁이 /샤미드 <input type="checkbox" value="3" style="display:none" />
+		         	<div id="friend3" class="friendsGroupMember" >
+		         		<div>이미지 영역</div>  친구3 / 누구니 <input type="checkbox" value="3" />
 		         	</div>
-		         	<div id="friend4" class="friends" style="border-top: 1px solid black; border-bottom: 1px solid black; font-size:30px;">
-		         		<img src="img/c.png">  부레기 /부스터 <input type="checkbox" value="4" style="display:none" />
+		         	<div id="friend4" class="friendsGroupMember" >
+		         		<div>이미지 영역</div>  친구4 / 누구니 <input type="checkbox" value="4" />
 		         	</div>
 	         	</div>
          	</div> 	
@@ -575,7 +578,7 @@
   </div>
 	<script type="text/javascript">
 	$(function() {
-		$('.friends').click(function() {
+		$('.friendsGroupMember').click(function() {
 			//체크 박스 셀렉터 지정				
 			checkbox = $(this).children().last();
 			//check박스 토글
@@ -592,7 +595,7 @@
 		$('#submit').click(function() {
 			var str = "";
 			str = $(".nameOfGroup").val();
-			$(".friends > :checkbox:checked").each(function(pi, po) {
+			$(".friendsGroupMember > :checkbox:checked").each(function(pi, po) {
 				str += po.value+" / ";
 			});
 			alert(str)

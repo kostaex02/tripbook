@@ -6,12 +6,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style type="text/css">
 #friendsList {
-	border: 1px solid gray;
 	margin-top: 20px;
 }
 
 #friends {
-	border: 1px solid pink;
 	width: 100%;
 	display: inline-table;
 }
@@ -42,9 +40,6 @@
 	vertical-align: middle;
 }
 
-div {
-	border: 1px solid red;
-}
 </style>
 </head>
 <body>
