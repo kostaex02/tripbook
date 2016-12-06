@@ -67,7 +67,13 @@
 		<a href='#'><div id='sideBiography'>여행일대기</div></a>
 		<a href='<c:url value="/friends/friends"/>'><div id='sideFriend'>친구</div></a>
 		<p>
-			<div id='sideGroup'>  <a data-toggle="modal" data-target="#myModal">+ 그룹 추가</a></div>
+			<div id='sideGroup'> 
+				<dl>
+					<a data-toggle="modal" data-target="#myModal">+ 그룹 추가</a>
+					<dd>학교친구</dd>
+					<dd>직장동료</dd>
+				</dl>
+			</div>
 		
 </div>
 <script src='<c:url value="/resources/js/jquery-2.2.4.js"/>'></script>

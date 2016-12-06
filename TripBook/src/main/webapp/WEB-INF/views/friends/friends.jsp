@@ -58,16 +58,16 @@
 		padding-right: 0;
 		width: 100%;
 	}
-	.FriendsNameDivOfGroup{
+	.friendsNameDivOfGroup{
 		padding-left:30px;
 	}
-	.FriendsListBind{
+	.friendsGroupListBind{
 		height: 160px;
 		width: 110%;
 		overflow: auto;
 		text-indent: 10px;
 	}
-	.FriendsList{
+	.friendsGroupList{
 		height: 160px;
 		width: 100%;
 		overflow: hidden;
@@ -542,14 +542,14 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
-        	<div class="FriendsNameDivOfGroup">
+        	<div class="friendsNameDivOfGroup">
 	        	<h2>그룹만들기</h2><br><br>
 	        	<input type="text" class="nameOfGroup" size="75" >
 	        	<br><br><br>
 	        	<h4>멤버추가</h4>
 	        </div>	
-	        <div class="FriendsList">
-	        	<div class="FriendsListBind" >
+	        <div class="friendsGroupList">
+	        	<div class="friendsGroupListBind" >
 		         	<div id="friend1" class="friends" style="border-top: 1px solid black; font-size:30px;">
 		         		<img src="img/c.png">  이쁘니 /이브이 <input type="checkbox" value="1" style="display:none" />
 		         	</div>
