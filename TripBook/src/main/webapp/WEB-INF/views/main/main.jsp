@@ -303,7 +303,6 @@
 	
 <script src='<c:url value="/resources/js/main/stroll.min.js"/>'></script>	
 <script>
-	sessionStorage.setItem("pageName","main");
 	
 	stroll.bind( '.mainAllBoard ul' );
 	/* $(function(){

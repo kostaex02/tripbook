@@ -71,6 +71,9 @@
 	width:50px;
 	height:50px;
 }
+#trash{
+	display:none;
+}
 
 </style>
 </head>
@@ -86,9 +89,7 @@
 			</div>
 			</form>
 		</div>
-		<c:if test='${session.pageName eq "calendar"}'>
-			<div class="calendarTrash"><img src='<c:url value="/images/trash.png"/>'></div>
-		</c:if>
+		<div class="calendarTrash" ><img id='trash' src='<c:url value="/images/trash.png"/>'></div>
 	</div>
 </body>
 </html>

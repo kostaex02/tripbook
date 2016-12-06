@@ -47,7 +47,11 @@
 	a{
 		text-decoration: none;
 	}
-	
+	#sideGroup{
+		border:1px solid red;
+		height:50px;
+		display:none;
+	}
 	
 	
 </style>
@@ -62,11 +66,33 @@
 		<a href='<c:url value="/main/main"/>'><div id='sideHome'>Home</div></a>
 		<a href='#'><div id='sideBiography'>여행일대기</div></a>
 		<a href='<c:url value="/friends/friends"/>'><div id='sideFriend'>친구</div></a>
-		<c:if test="${pageName eq 'friends'}">
+		<p>
 			<div id='sideGroup'> 여긴 친구 그룹</div>
-		</c:if>
+		
 </div>
+<script src='<c:url value="/resources/js/jquery-2.2.4.js"/>'></script>
+<script>
+$(function(){
+	$("a").click(function(){
+		sessionStorage.setItem("pageName", $(this).children("div").attr("id"));
+	});
+	 var trash = document.getElementById("trash");
+	    if(sessionStorage.getItem("pageName")!="sideSchedule"){
+	    	trash.style.display = 'none';
+	    }else{
+	    	trash.style.display = 'inline';
+	    }
+	    
+	 var group = document.getElementById("sideGroup");
+	    if(sessionStorage.getItem("pageName")!="sideFriend"){
+	    	console.log(sessionStorage.getItem("pageName"));
+	    	group.style.display = 'none';
+	    }else{
+	    	console.log(sessionStorage.getItem("pageName"));
+	    	group.style.display = 'inline';
+	    }
+})
 
-
+</script>
 </body>
 </html>
