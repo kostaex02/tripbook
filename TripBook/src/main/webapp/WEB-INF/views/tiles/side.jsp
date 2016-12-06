@@ -85,10 +85,8 @@ $(function(){
 	    
 	 var group = document.getElementById("sideGroup");
 	    if(sessionStorage.getItem("pageName")!="sideFriend"){
-	    	console.log(sessionStorage.getItem("pageName"));
 	    	group.style.display = 'none';
 	    }else{
-	    	console.log(sessionStorage.getItem("pageName"));
 	    	group.style.display = 'inline';
 	    }
 })
