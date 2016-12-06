@@ -94,7 +94,8 @@
 			</div>
 			</form>
 		</div>
-		<a class='logout' href='logout'>로그아웃</a>
+		<a class='logout' href='<c:url value="/logout"/>'>로그아웃</a>
+		
 		<div class="calendarTrash" ><img id='trash' src='<c:url value="/images/trash.png"/>'></div>
 	</div>
 </body>
