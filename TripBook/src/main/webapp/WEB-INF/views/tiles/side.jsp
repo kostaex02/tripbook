@@ -9,33 +9,39 @@
 <style>
 	#sideProfile, #sideSchedule, #sideHome, #sideBiography, #sideFriend, #sideNav{
 		position: relative;
-		border:1px solid navy;
-		margin: auto;
+		line-height: 55px;
 		height:50px;
+		color:white;
 	}
 	
 	#sideProfile{
+		background-color:maroon;
 		width:96%;
 	}
 	
 	#sideSchedule{
+		background-color:navy;
+		
 		float:left;
-		width:42%;
-		left:2%
+		width:48%;
+		left:0%
 	}
 	
 	#sideHome{
+		background-color:olive;
 		float:left;
-		width:42%;
-		left:12%
+		width:48%;
+		left:0%
 	}
 	
 	#sideBiography{
+		background-color:teal;
 		width:96%;
 		clear: both;
 	}
 	
 	#sideFriend{
+		background-color:silver;
 		width:96%;
 	}
 	
@@ -48,7 +54,6 @@
 		text-decoration: none;
 	}
 	#sideGroup{
-		border:1px solid red;
 		height:50px;
 		display:none;
 	}

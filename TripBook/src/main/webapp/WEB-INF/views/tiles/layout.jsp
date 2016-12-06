@@ -17,28 +17,24 @@
 	}
 	
 	#header{
-		border:1px solid red;
 		float:right;
 		height:auto;
 		padding:5px;
 	}
 	
 	#content{
-		border:1px solid black;
 		float:right;
 		height:auto;
 		padding:5px;
 	}
 	
 	#side{
-		border:1px solid blue;
 		float:left;
 		width:20%;
 		height:auto;
 		left:5%;
 	}
 	#container{
-		border:5px solid pink;
 		width:100%;
 		top:-50px;
 	}

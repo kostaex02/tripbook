@@ -47,12 +47,21 @@ public class HomeController {
 		}
 		return mv;
 	}
-	
+	/* 새로고침시 재로그인 방지 */
 	@RequestMapping("loginResult")
 	public String loginResult(){
 		
 		return "main/main";
 	}
+	
+	/* 로그아웃 */
+	@RequestMapping("logout")
+	public String logout(HttpSession session){
+		System.out.println("로그아웃");
+		session.invalidate();//세션 종료
+		return "home";
+	}
+	
 	
 	@RequestMapping("checkId")
 	@ResponseBody
