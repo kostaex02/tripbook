@@ -98,16 +98,7 @@
 			<span>Trigger</span>
 		</button>
 		<article class="content"></article>
-		<section class="related">
-			<a href='main/main'>main</a>
-			<p>
-				<a href="mypage/mypage">mypage</a>
-			<p>
-				<a href='calendar/calendar'>calendar</a>
-			<p>
-				<a href='friends/friends'>friends</a>
-			<p>
-		</section>
+		
 
 		<!-- Modal -->
 		<div class="modal fade" id="registerForm" role="dialog">
