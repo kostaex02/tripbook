@@ -1,4 +1,6 @@
 	$(document).ready(function() {
+		
+		
 		/* initialize the calendar
 		-----------------------------------------------------------------*/
 		var initialLocaleCode = 'ko';

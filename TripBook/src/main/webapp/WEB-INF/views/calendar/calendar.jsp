@@ -13,9 +13,8 @@
 <script src='<c:url value="/resources/js/calendar/locale-all.js"/>'></script>
 <script src='<c:url value="/resources/js/calendar/fullcalendar.js"/>'></script>
 <title>달!력!</title>
-
 </head>
 <body>
-	<div class='calendar'></div>
+	<div class='calendar' style='height:1000px;'></div>
 </body>
 </html>

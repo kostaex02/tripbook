@@ -6,6 +6,7 @@
 
 
 
+
 /* Customize
 --------------------------------------------------------------------------------------------------*/
 	#wrap {
@@ -39,14 +40,31 @@
 		width: 100%;
 	}
 	
-	.fc-scroller {
+	/* .fc-scroller {
    		overflow-y: hidden !important;
    		overflow-x: hidden !important;
-	}
+	} */
 	#calendarTrash{
 		padding:20px;
 		border:1px solid black;
 	}
+	
+	
+	
+	li:nth-child(odd){
+		background-color: #fff;
+		height:65px;
+		padding-top: 15px;
+		padding-left: 15px;
+	}
+	
+	li:nth-child(even){
+		background-color: #ddd;
+		height:65px;
+		padding-top: 15px;
+		padding-left: 15px;
+	}
+	
 /* Customize
 --------------------------------------------------------------------------------------------------*/
 	
