@@ -15,7 +15,7 @@
 			navLinks: true, // can click day/week names to navigate views
 			editable: true,
 			aspectRatio: 1.6,
-			dragRevertDuration: 300,
+			dragRevertDuration: 100,
 			droppable: true, // this allows things to be dropped onto the calendar
 			eventLimit: true, // allow "more" link when too many events\
 			eventClick: function(event, jsEvent, view) {               //작성된 이벤트 클릭시 일정내용 팝업으로 노출

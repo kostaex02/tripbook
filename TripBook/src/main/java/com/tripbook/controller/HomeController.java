@@ -40,11 +40,18 @@ public class HomeController {
 			session.setAttribute("userId", tempUser.getId());
 			session.setAttribute("userName", tempUser.getName());
 			session.setAttribute("userFileName", tempUser.getFileName());
-			mv = new ModelAndView("main/main");
+			/*mv = new ModelAndView("main/main");*/
+			return mv = new ModelAndView("redirect:loginResult");
 		}else{
 			mv=new ModelAndView("home");
 		}
 		return mv;
+	}
+	
+	@RequestMapping("loginResult")
+	public String loginResult(){
+		
+		return "main/main";
 	}
 	
 	@RequestMapping("checkId")

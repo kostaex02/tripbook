@@ -55,7 +55,8 @@
 	<%-- <c:import url="../main/newGeneralBoard.jsp"/> --%>
 	<hr>
 	
-	<input type='button' value='일반게시물' onclick="location.href='newGeneralBoard'">
+	<input type='button' value='일반게시물' onclick="location.href='<c:url value="/main/newGeneralBoard"/>'">
+	
 	<input type='button' value='여행게시물'>
 </div>
 <hr>
