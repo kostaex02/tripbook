@@ -11,34 +11,34 @@
 
 <title>Insert title here</title>
 <style type="text/css">
-#notice {
+#mypageNotice {
 	border: 1px solid red;
 }
 
-#logList {
+.mypageLogList {
 	border: 1px solid gray;
 	margin-top: 20px;
 }
 
-#logStory {
+.mypageLogStory {
 	border: 1px solid pink;
 	width: 100%;
 	display: inline-table;
 }
 
-.profile {
+.mypageProfile {
 	display: table-cell;
 	width: 50px;
 }
 
-#message {
+.mypageMessage {
 	display: table-cell;
 	vertical-align: middle;
 	text-align: center;
 	width: 70%;
 }
 
-.profileImg {
+.mypageProfileImg {
 	width: 60px;
 	height: 60px;
 	position: relative;
@@ -47,7 +47,7 @@
 	margin-bottom: -15px;
 }
 
-#button{
+.mypageButton{
 	display: table-cell;
 	vertical-align: middle;
 }
@@ -55,201 +55,611 @@
 </style>
 </head>
 <body>
-	<div id="notice">
+	<div id="mypageNotice">
 		${user.id }<br>
 		${user.name }<br>
 		${user.age }<br>
 		${user.gender }<br>
 		${user.fileName }<br>
 	</div>
-	<div id="logList">
+	<div class="mypageLogList">
 		<ul class="grow">
-			<li id="logStory">
-				<div class="profile">
-					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
 				</div>
-				<div id="message">친구하자!</div>
-				<div id="button">
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
 					<input type="submit" value="수락">
 					<input type="submit" value="거절">
 				</div>
 			</li>
-			<li id="logStory">
-				<div class="profile">
-					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
 				</div>
-				<div id="message">친구하자!</div>
-				<div id="button">
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
 					<input type="submit" value="수락">
 					<input type="submit" value="거절">
 				</div>
 			</li>
-			<li id="logStory">
-				<div class="profile">
-					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
 				</div>
-				<div id="message">친구하자!</div>
-				<div id="button">
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
 					<input type="submit" value="수락">
 					<input type="submit" value="거절">
 				</div>
 			</li>
-			<li id="logStory">
-				<div class="profile">
-					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
 				</div>
-				<div id="message">친구하자!</div>
-				<div id="button">
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
 					<input type="submit" value="수락">
 					<input type="submit" value="거절">
 				</div>
 			</li>
-			<li id="logStory">
-				<div class="profile">
-					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
 				</div>
-				<div id="message">친구하자!</div>
-				<div id="button">
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
 					<input type="submit" value="수락">
 					<input type="submit" value="거절">
 				</div>
 			</li>
-			<li id="logStory">
-				<div class="profile">
-					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
 				</div>
-				<div id="message">친구하자!</div>
-				<div id="button">
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
 					<input type="submit" value="수락">
 					<input type="submit" value="거절">
 				</div>
 			</li>
-			<li id="logStory">
-				<div class="profile">
-					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
 				</div>
-				<div id="message">친구하자!</div>
-				<div id="button">
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
 					<input type="submit" value="수락">
 					<input type="submit" value="거절">
 				</div>
 			</li>
-			<li id="logStory">
-				<div class="profile">
-					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
 				</div>
-				<div id="message">친구하자!</div>
-				<div id="button">
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
 					<input type="submit" value="수락">
 					<input type="submit" value="거절">
 				</div>
 			</li>
-			<li id="logStory">
-				<div class="profile">
-					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
 				</div>
-				<div id="message">친구하자!</div>
-				<div id="button">
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
 					<input type="submit" value="수락">
 					<input type="submit" value="거절">
 				</div>
 			</li>
-			<li id="logStory">
-				<div class="profile">
-					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
 				</div>
-				<div id="message">친구하자!</div>
-				<div id="button">
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
 					<input type="submit" value="수락">
 					<input type="submit" value="거절">
 				</div>
 			</li>
-			<li id="logStory">
-				<div class="profile">
-					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
 				</div>
-				<div id="message">친구하자!</div>
-				<div id="button">
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
 					<input type="submit" value="수락">
 					<input type="submit" value="거절">
 				</div>
 			</li>
-			<li id="logStory">
-				<div class="profile">
-					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
 				</div>
-				<div id="message">친구하자!</div>
-				<div id="button">
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
 					<input type="submit" value="수락">
 					<input type="submit" value="거절">
 				</div>
 			</li>
-			<li id="logStory">
-				<div class="profile">
-					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
 				</div>
-				<div id="message">친구하자!</div>
-				<div id="button">
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
 					<input type="submit" value="수락">
 					<input type="submit" value="거절">
 				</div>
 			</li>
-			<li id="logStory">
-				<div class="profile">
-					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
 				</div>
-				<div id="message">친구하자!</div>
-				<div id="button">
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
 					<input type="submit" value="수락">
 					<input type="submit" value="거절">
 				</div>
 			</li>
-			<li id="logStory">
-				<div class="profile">
-					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
 				</div>
-				<div id="message">친구하자!</div>
-				<div id="button">
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
 					<input type="submit" value="수락">
 					<input type="submit" value="거절">
 				</div>
 			</li>
-			<li id="logStory">
-				<div class="profile">
-					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
 				</div>
-				<div id="message">친구하자!</div>
-				<div id="button">
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
 					<input type="submit" value="수락">
 					<input type="submit" value="거절">
 				</div>
 			</li>
-			<li id="logStory">
-				<div class="profile">
-					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
 				</div>
-				<div id="message">친구하자!</div>
-				<div id="button">
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
 					<input type="submit" value="수락">
 					<input type="submit" value="거절">
 				</div>
 			</li>
-			<li id="logStory">
-				<div class="profile">
-					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
 				</div>
-				<div id="message">친구하자!</div>
-				<div id="button">
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
 					<input type="submit" value="수락">
 					<input type="submit" value="거절">
 				</div>
 			</li>
-			<li id="logStory">
-				<div class="profile">
-					<img class="profileImg" src='<c:url value="/images/img.jpg"/>'>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
 				</div>
-				<div id="message">친구하자!</div>
-				<div id="button">
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
+					<input type="submit" value="수락">
+					<input type="submit" value="거절">
+				</div>
+			</li>
+			<li class="mypageLogStory">
+				<div class="mypageProfile">
+					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+				</div>
+				<div class="mypageMessage">친구하자!</div>
+				<div class="mypageButton">
 					<input type="submit" value="수락">
 					<input type="submit" value="거절">
 				</div>
