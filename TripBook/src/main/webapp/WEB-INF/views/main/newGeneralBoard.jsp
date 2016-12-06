@@ -32,8 +32,7 @@
 	});
 
 	$(function() {
-
-		$('input.newGeneralBoardMulti').MultiFile({
+		$('#ex_file').MultiFile({
 			//max : 3, //업로드 최대 파일 갯수 (지정하지 않으면 무한대)
 			accept : 'jpg|png|gif', //허용할 확장자(지정하지 않으면 모든 확장자 허용)
 			//maxfile : 1024, //각 파일 최대 업로드 크기
@@ -127,6 +126,24 @@
 	float: right;
 	margin-right: 10px;
 }
+.newGeneralBoardUpload label{
+	display: inline-block;
+  	color: #999;
+  	font-size: inherit;
+	line-height: normal;
+	vertical-align: middle;
+	background-color: #fdfdfd;
+  	cursor: pointer;
+}
+/* .newGeneralBoardUpload input[type="file"]{
+	position: relative;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	border: 0;
+} */
 </style>
 </head>
 <body>
@@ -141,8 +158,8 @@
 			</div>
 			<hr style="width: 95%;">
 			<div class="newGeneralBoardUpload">
-				<img class="newGeneralBoardUploadImg" src='<c:url value="/images/icon_upload.png"/>' />
-					<input name="files" type="file" class="newGeneralBoardMulti with-preview"/>
+				<label for="ex_file"><img class="newGeneralBoardUploadImg" src='<c:url value="/images/icon_upload.png"/>'/></label>
+					<input type="file" class="newGeneralBoardMulti with-preview" id="ex_file" multiple/>
 					 <div id="newGeneralBoardMultiList" style="border:2px solid #c9c9c9;min-height:50px"></div>
 	
 				<div>
