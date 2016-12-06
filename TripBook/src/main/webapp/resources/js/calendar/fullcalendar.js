@@ -14,7 +14,7 @@
 			locale: initialLocaleCode,
 			buttonIcons: false, // show the prev/next text
 			weekNumbers: true,
-			navLinks: true, // can click day/week names to navigate views
+			navLinks: false, // can click day/week names to navigate views
 			editable: true,
 			aspectRatio: 1.6,
 			dragRevertDuration: 100,
