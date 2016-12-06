@@ -202,8 +202,9 @@
 	<script src='<c:url value="/resources/js/index/classie.js"/>'></script>
 
 	<script>
+		
 		(function() {
-
+			
 			// detect if IE : from http://stackoverflow.com/a/16657946		
 			var ie = (function() {
 				var undef, rv = -1; // Return value assumes failure.

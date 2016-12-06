@@ -7,22 +7,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Trip Book</title>
 <style>
-	#mainNewBoard{
+	.mainNewBoard{
 		border:1px solid black;
 		text-align: center;
 		margin: 10px 0px;
 	}
 	
-	#mainRecentBoard{
+	.mainRecentBoard{
 		border:5px dashed grey;
 		margin: 10px 0px;
 	}
 	
-	#replys{
+	.replys{
 		border:3px solid pink;
 	}
 	
-	#mainRecentBoard > *{
+	.mainRecentBoard > *{
 		margin:10px;
 	}
 	
@@ -59,10 +59,10 @@
 	<input type='button' value='여행게시물' onclick="location.href='newGeneralBoard'">
 </div>
 <hr>
-<div id='mainAllBoard'>
+<div class='mainAllBoard'>
 	<ul class="grow">
 		<li>
-			<div id='mainRecentBoard'>
+			<div class='mainRecentBoard'>
 				<p>
 					<div class='profile'>미니 프로필 사진</div>
 					<b>User ID</b> 12월 03일 오전 11:41
@@ -70,7 +70,7 @@
 					<div class='picture'>
 					<a href="#" data-toggle="modal" data-target="#image"><img src='<c:url value="/images/img.jpg"/>' style="width:100px"></a>
 					</div>
-				<div id='replys'>
+				<div class='replys'>
 					댓글 영역<br>
 					<div class='profile'>미니 프로필 사진</div><b>User ID</b> 12월 03일 오전 11:41<br>
 					-> 나도 놀러갈래!
@@ -81,15 +81,15 @@
 			</div>
 		</li>
 		<li>
-			<div id='mainRecentBoard'>
+			<div class='mainRecentBoard'>
 				<p>
 					<div class='profile'>미니 프로필 사진</div>
 					<b>User ID</b> 12월 03일 오전 11:41
 				</p>
 					<div class='picture'>
-					여기는 사진 영역
+					<a href="#" data-toggle="modal" data-target="#image"><img src='<c:url value="/images/img.jpg"/>' style="width:100px"></a>
 					</div>
-				<div id='replys'>
+				<div class='replys'>
 					댓글 영역<br>
 					<div class='profile'>미니 프로필 사진</div><b>User ID</b> 12월 03일 오전 11:41<br>
 					-> 나도 놀러갈래!
@@ -100,15 +100,15 @@
 			</div>
 		</li>
 		<li>
-			<div id='mainRecentBoard'>
+			<div class='mainRecentBoard'>
 				<p>
 					<div class='profile'>미니 프로필 사진</div>
 					<b>User ID</b> 12월 03일 오전 11:41
 				</p>
 					<div class='picture'>
-					여기는 사진 영역
+					<a href="#" data-toggle="modal" data-target="#image"><img src='<c:url value="/images/img.jpg"/>' style="width:100px"></a>
 					</div>
-				<div id='replys'>
+				<div class='replys'>
 					댓글 영역<br>
 					<div class='profile'>미니 프로필 사진</div><b>User ID</b> 12월 03일 오전 11:41<br>
 					-> 나도 놀러갈래!
@@ -119,15 +119,15 @@
 			</div>
 		</li>
 		<li>
-			<div id='mainRecentBoard'>
+			<div class='mainRecentBoard'>
 				<p>
 					<div class='profile'>미니 프로필 사진</div>
 					<b>User ID</b> 12월 03일 오전 11:41
 				</p>
 					<div class='picture'>
-					여기는 사진 영역
+					<a href="#" data-toggle="modal" data-target="#image"><img src='<c:url value="/images/img.jpg"/>' style="width:100px"></a>
 					</div>
-				<div id='replys'>
+				<div class='replys'>
 					댓글 영역<br>
 					<div class='profile'>미니 프로필 사진</div><b>User ID</b> 12월 03일 오전 11:41<br>
 					-> 나도 놀러갈래!
@@ -138,15 +138,15 @@
 			</div>
 		</li>
 		<li>
-			<div id='mainRecentBoard'>
+			<div class='mainRecentBoard'>
 				<p>
 					<div class='profile'>미니 프로필 사진</div>
 					<b>User ID</b> 12월 03일 오전 11:41
 				</p>
 					<div class='picture'>
-					여기는 사진 영역
+					<a href="#" data-toggle="modal" data-target="#image"><img src='<c:url value="/images/img.jpg"/>' style="width:100px"></a>
 					</div>
-				<div id='replys'>
+				<div class='replys'>
 					댓글 영역<br>
 					<div class='profile'>미니 프로필 사진</div><b>User ID</b> 12월 03일 오전 11:41<br>
 					-> 나도 놀러갈래!
@@ -157,15 +157,15 @@
 			</div>
 		</li>
 		<li>
-			<div id='mainRecentBoard'>
+			<div class='mainRecentBoard'>
 				<p>
 					<div class='profile'>미니 프로필 사진</div>
 					<b>User ID</b> 12월 03일 오전 11:41
 				</p>
 					<div class='picture'>
-					여기는 사진 영역
+					<a href="#" data-toggle="modal" data-target="#image"><img src='<c:url value="/images/img.jpg"/>' style="width:100px"></a>
 					</div>
-				<div id='replys'>
+				<div class='replys'>
 					댓글 영역<br>
 					<div class='profile'>미니 프로필 사진</div><b>User ID</b> 12월 03일 오전 11:41<br>
 					-> 나도 놀러갈래!
@@ -176,15 +176,15 @@
 			</div>
 		</li>
 		<li>
-			<div id='mainRecentBoard'>
+			<div class='mainRecentBoard'>
 				<p>
 					<div class='profile'>미니 프로필 사진</div>
 					<b>User ID</b> 12월 03일 오전 11:41
 				</p>
 					<div class='picture'>
-					여기는 사진 영역
+					<a href="#" data-toggle="modal" data-target="#image"><img src='<c:url value="/images/img.jpg"/>' style="width:100px"></a>
 					</div>
-				<div id='replys'>
+				<div class='replys'>
 					댓글 영역<br>
 					<div class='profile'>미니 프로필 사진</div><b>User ID</b> 12월 03일 오전 11:41<br>
 					-> 나도 놀러갈래!
@@ -195,205 +195,15 @@
 			</div>
 		</li>
 		<li>
-			<div id='mainRecentBoard'>
+			<div class='mainRecentBoard'>
 				<p>
 					<div class='profile'>미니 프로필 사진</div>
 					<b>User ID</b> 12월 03일 오전 11:41
 				</p>
 					<div class='picture'>
-					여기는 사진 영역
+					<a href="#" data-toggle="modal" data-target="#image"><img src='<c:url value="/images/img.jpg"/>' style="width:100px"></a>
 					</div>
-				<div id='replys'>
-					댓글 영역<br>
-					<div class='profile'>미니 프로필 사진</div><b>User ID</b> 12월 03일 오전 11:41<br>
-					-> 나도 놀러갈래!
-				</div>
-				<div>
-					<input type='button' value='좋아요'></span><a href='#'>댓글달기</a>
-				</div>
-			</div>
-		</li>
-		<li>
-			<div id='mainRecentBoard'>
-				<p>
-					<div class='profile'>미니 프로필 사진</div>
-					<b>User ID</b> 12월 03일 오전 11:41
-				</p>
-					<div class='picture'>
-					여기는 사진 영역
-					</div>
-				<div id='replys'>
-					댓글 영역<br>
-					<div class='profile'>미니 프로필 사진</div><b>User ID</b> 12월 03일 오전 11:41<br>
-					-> 나도 놀러갈래!
-				</div>
-				<div>
-					<input type='button' value='좋아요'></span><a href='#'>댓글달기</a>
-				</div>
-			</div>
-		</li>
-		<li>
-			<div id='mainRecentBoard'>
-				<p>
-					<div class='profile'>미니 프로필 사진</div>
-					<b>User ID</b> 12월 03일 오전 11:41
-				</p>
-					<div class='picture'>
-					여기는 사진 영역
-					</div>
-				<div id='replys'>
-					댓글 영역<br>
-					<div class='profile'>미니 프로필 사진</div><b>User ID</b> 12월 03일 오전 11:41<br>
-					-> 나도 놀러갈래!
-				</div>
-				<div>
-					<input type='button' value='좋아요'></span><a href='#'>댓글달기</a>
-				</div>
-			</div>
-		</li>
-		<li>
-			<div id='mainRecentBoard'>
-				<p>
-					<div class='profile'>미니 프로필 사진</div>
-					<b>User ID</b> 12월 03일 오전 11:41
-				</p>
-					<div class='picture'>
-					여기는 사진 영역
-					</div>
-				<div id='replys'>
-					댓글 영역<br>
-					<div class='profile'>미니 프로필 사진</div><b>User ID</b> 12월 03일 오전 11:41<br>
-					-> 나도 놀러갈래!
-				</div>
-				<div>
-					<input type='button' value='좋아요'></span><a href='#'>댓글달기</a>
-				</div>
-			</div>
-		</li>
-		<li>
-			<div id='mainRecentBoard'>
-				<p>
-					<div class='profile'>미니 프로필 사진</div>
-					<b>User ID</b> 12월 03일 오전 11:41
-				</p>
-					<div class='picture'>
-					여기는 사진 영역
-					</div>
-				<div id='replys'>
-					댓글 영역<br>
-					<div class='profile'>미니 프로필 사진</div><b>User ID</b> 12월 03일 오전 11:41<br>
-					-> 나도 놀러갈래!
-				</div>
-				<div>
-					<input type='button' value='좋아요'></span><a href='#'>댓글달기</a>
-				</div>
-			</div>
-		</li>
-		<li>
-			<div id='mainRecentBoard'>
-				<p>
-					<div class='profile'>미니 프로필 사진</div>
-					<b>User ID</b> 12월 03일 오전 11:41
-				</p>
-					<div class='picture'>
-					여기는 사진 영역
-					</div>
-				<div id='replys'>
-					댓글 영역<br>
-					<div class='profile'>미니 프로필 사진</div><b>User ID</b> 12월 03일 오전 11:41<br>
-					-> 나도 놀러갈래!
-				</div>
-				<div>
-					<input type='button' value='좋아요'></span><a href='#'>댓글달기</a>
-				</div>
-			</div>
-		</li>
-		<li>
-			<div id='mainRecentBoard'>
-				<p>
-					<div class='profile'>미니 프로필 사진</div>
-					<b>User ID</b> 12월 03일 오전 11:41
-				</p>
-					<div class='picture'>
-					여기는 사진 영역
-					</div>
-				<div id='replys'>
-					댓글 영역<br>
-					<div class='profile'>미니 프로필 사진</div><b>User ID</b> 12월 03일 오전 11:41<br>
-					-> 나도 놀러갈래!
-				</div>
-				<div>
-					<input type='button' value='좋아요'></span><a href='#'>댓글달기</a>
-				</div>
-			</div>
-		</li>
-		<li>
-			<div id='mainRecentBoard'>
-				<p>
-					<div class='profile'>미니 프로필 사진</div>
-					<b>User ID</b> 12월 03일 오전 11:41
-				</p>
-					<div class='picture'>
-					여기는 사진 영역
-					</div>
-				<div id='replys'>
-					댓글 영역<br>
-					<div class='profile'>미니 프로필 사진</div><b>User ID</b> 12월 03일 오전 11:41<br>
-					-> 나도 놀러갈래!
-				</div>
-				<div>
-					<input type='button' value='좋아요'></span><a href='#'>댓글달기</a>
-				</div>
-			</div>
-		</li>
-		<li>
-			<div id='mainRecentBoard'>
-				<p>
-					<div class='profile'>미니 프로필 사진</div>
-					<b>User ID</b> 12월 03일 오전 11:41
-				</p>
-					<div class='picture'>
-					여기는 사진 영역
-					</div>
-				<div id='replys'>
-					댓글 영역<br>
-					<div class='profile'>미니 프로필 사진</div><b>User ID</b> 12월 03일 오전 11:41<br>
-					-> 나도 놀러갈래!
-				</div>
-				<div>
-					<input type='button' value='좋아요'></span><a href='#'>댓글달기</a>
-				</div>
-			</div>
-		</li>
-		<li>
-			<div id='mainRecentBoard'>
-				<p>
-					<div class='profile'>미니 프로필 사진</div>
-					<b>User ID</b> 12월 03일 오전 11:41
-				</p>
-					<div class='picture'>
-					여기는 사진 영역
-					</div>
-				<div id='replys'>
-					댓글 영역<br>
-					<div class='profile'>미니 프로필 사진</div><b>User ID</b> 12월 03일 오전 11:41<br>
-					-> 나도 놀러갈래!
-				</div>
-				<div>
-					<input type='button' value='좋아요'></span><a href='#'>댓글달기</a>
-				</div>
-			</div>
-		</li>
-		<li>
-			<div id='mainRecentBoard'>
-				<p>
-					<div class='profile'>미니 프로필 사진</div>
-					<b>User ID</b> 12월 03일 오전 11:41
-				</p>
-					<div class='picture'>
-					여기는 사진 영역
-					</div>
-				<div id='replys'>
+				<div class='replys'>
 					댓글 영역<br>
 					<div class='profile'>미니 프로필 사진</div><b>User ID</b> 12월 03일 오전 11:41<br>
 					-> 나도 놀러갈래!
@@ -405,6 +215,7 @@
 		</li>
 	</ul>
 </div>	
+
 <!-- Modal -->
   <div class="modal fade" id="image" role="dialog" tabindex='-1' >
     <div class="modal-dialog">
@@ -427,6 +238,7 @@
       
     </div>
   </div>
+  
   
   <!-- Modal -->
   <div class="modal fade" id="detailPicture" role="dialog" tabindex='-1'>
@@ -486,11 +298,14 @@
     </div>
   </div>
 	
+	
 <script src='<c:url value="/resources/js/calendar/lib/jquery.min.js"/>'></script>	
 	
 <script src='<c:url value="/resources/js/main/stroll.min.js"/>'></script>	
 <script>
-	stroll.bind( '#mainAllBoard ul' );
+	sessionStorage.setItem("pageName","main");
+	
+	stroll.bind( '.mainAllBoard ul' );
 	/* $(function(){
 		$('#image').modal({
 			backdrop: 'static',

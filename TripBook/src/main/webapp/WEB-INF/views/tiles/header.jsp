@@ -64,6 +64,14 @@
 	cursor: text;
 }
 
+.calendarTrash{
+	position:absolute;
+	top:20%;
+	left:90%;
+	width:50px;
+	height:50px;
+}
+
 </style>
 </head>
 <body>
@@ -78,6 +86,8 @@
 			</div>
 			</form>
 		</div>
+		<div class="calendarTrash"><img src='<c:url value="/images/trash.png"/>'></div>
+		
 	</div>
 </body>
 </html>

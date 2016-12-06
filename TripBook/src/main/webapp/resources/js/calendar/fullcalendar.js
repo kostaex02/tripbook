@@ -2,7 +2,7 @@
 		/* initialize the calendar
 		-----------------------------------------------------------------*/
 		var initialLocaleCode = 'ko';
-		$('#calendar').fullCalendar({
+		$('.calendar').fullCalendar({
 			header: {
 				left: 'prev,next today',
 				center: 'title',
@@ -14,7 +14,7 @@
 			weekNumbers: true,
 			navLinks: true, // can click day/week names to navigate views
 			editable: true,
-			aspectRatio: 2,
+			aspectRatio: 1.6,
 			dragRevertDuration: 300,
 			droppable: true, // this allows things to be dropped onto the calendar
 			eventLimit: true, // allow "more" link when too many events\
@@ -82,7 +82,7 @@
 				}
 			],
 			eventDragStop: function(event, jsEvent, ui, view) { 
-				var trashEl = jQuery('#calendarTrash');
+				var trashEl = jQuery('.calendarTrash');
 			    var ofs = trashEl.offset();
 			    var x1 = ofs.left;
 			    var x2 = ofs.left + trashEl.outerWidth(true);
@@ -90,7 +90,7 @@
 			    var y2 = ofs.top + trashEl.outerHeight(true);
 			    if (jsEvent.pageX >= x1 && jsEvent.pageX<= x2 &&
 			        jsEvent.pageY >= y1 && jsEvent.pageY <= y2) {
-			        $('#calendar').fullCalendar('removeEvents', event.id);
+			        $('.calendar').fullCalendar('removeEvents', event.id);
 			    }
             },
 		    selectable: true,
@@ -106,11 +106,10 @@
 						start: start,
 						end: end
 					};
-					$('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
+					$('.calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
 				}
-				$('#calendar').fullCalendar('unselect');
+				$('.calendar').fullCalendar('unselect');
 			},
-			dropAccept:'#calendar-trash'
 		});
 		//----------------------------------------------------
 

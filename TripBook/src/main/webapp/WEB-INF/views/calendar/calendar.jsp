@@ -13,16 +13,11 @@
 <script src='<c:url value="/resources/js/calendar/locale-all.js"/>'></script>
 <script src='<c:url value="/resources/js/calendar/fullcalendar.js"/>'></script>
 <title>달!력!</title>
-<style type="text/css">
-	#calendar{
-		
-	}
-</style>
+<script>
+	sessionStorage.setItem("pageName","calendar");
+</script>
 </head>
 <body>
-	
-	<div id='calendar'></div>
-	<div style='clear:both'></div>
-	<div id="calendarTrash" class="calendar-trash">휴지통</div>
+	<div class='calendar'></div>
 </body>
 </html>

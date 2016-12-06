@@ -504,6 +504,7 @@
 	</div>
 	<script src='<c:url value="/resources/js/main/stroll.min.js"/>'></script>
 	<script>
+		sessionStorage.setItem("pageName","friends");
 		stroll.bind('ul');
 	</script>
 </body>

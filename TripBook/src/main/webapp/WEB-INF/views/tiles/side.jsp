@@ -12,37 +12,44 @@
 		border:1px solid navy;
 		margin: auto;
 		height:50px;
-	} 
+	}
 	
 	#sideProfile{
 		width:96%;
-		
 	}
+	
 	#sideSchedule{
 		float:left;
 		width:42%;
 		left:2%
 	}
+	
 	#sideHome{
 		float:left;
 		width:42%;
 		left:12%
-		
 	}
+	
 	#sideBiography{
 		width:96%;
 		clear: both;
 	}
+	
 	#sideFriend{
 		width:96%;
 	}
+	
 	#sideNav{
 		text-align: center;
+		clear: both;
 	}
 	
 	a{
 		text-decoration: none;
 	}
+	
+	
+	
 </style>
 
 </head>
@@ -58,7 +65,6 @@
 		<c:if test="${page}">
 			<div id='sideGroup'> 여긴 친구 그룹</div>
 		</c:if>
-		
 </div>
 
 
