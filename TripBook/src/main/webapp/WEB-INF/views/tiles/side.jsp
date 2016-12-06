@@ -62,7 +62,7 @@
 		<a href='<c:url value="/main/main"/>'><div id='sideHome'>Home</div></a>
 		<a href='#'><div id='sideBiography'>여행일대기</div></a>
 		<a href='<c:url value="/friends/friends"/>'><div id='sideFriend'>친구</div></a>
-		<c:if test="${page}">
+		<c:if test="${pageName eq 'friends'}">
 			<div id='sideGroup'> 여긴 친구 그룹</div>
 		</c:if>
 </div>

@@ -86,8 +86,9 @@
 			</div>
 			</form>
 		</div>
-		<div class="calendarTrash"><img src='<c:url value="/images/trash.png"/>'></div>
-		
+		<c:if test='${session.pageName eq "calendar"}'>
+			<div class="calendarTrash"><img src='<c:url value="/images/trash.png"/>'></div>
+		</c:if>
 	</div>
 </body>
 </html>
