@@ -331,7 +331,7 @@ hr{
 								<label for="mainExclusive_input">어디를 여행하셨나요?</label> <input
 									name="title" type="text" id="mainExclusive_input">
 							</div>
-							<hr>
+							<hr> 
 							<label for="ex_file"><img
 								class="newGeneralBoardUploadImg"
 								src='<c:url value="/images/icon_upload.png"/>' /></label> <input
@@ -482,6 +482,8 @@ hr{
 														});
 									});
 
+					
+					/* 멀티파일 설정 */
 					$(function() {
 						$('#ex_file').MultiFile({
 							//max : 3, //업로드 최대 파일 갯수 (지정하지 않으면 무한대)
