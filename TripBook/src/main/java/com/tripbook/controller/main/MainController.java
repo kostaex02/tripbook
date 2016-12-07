@@ -11,4 +11,11 @@ public class MainController {
 	
 	@RequestMapping("{pageName}")
 	public void page(HttpServletRequest request){}
+
+	/* ·Î±×¾Æ¿ô */
+	@RequestMapping("logout")
+	public String logout(HttpServletRequest request){
+		request.getSession().invalidate();
+		return "home";
+	}
 }

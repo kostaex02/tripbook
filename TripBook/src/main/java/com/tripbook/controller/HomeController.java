@@ -54,15 +54,6 @@ public class HomeController {
 		return "main/main";
 	}
 	
-	/* 로그아웃 */
-	@RequestMapping("logout")
-	public String logout(HttpSession session){
-		System.out.println("로그아웃");
-		session.invalidate();//세션 종료
-		return "home";
-	}
-	
-	
 	@RequestMapping("checkId")
 	@ResponseBody
 	public int checkId(String userId){
