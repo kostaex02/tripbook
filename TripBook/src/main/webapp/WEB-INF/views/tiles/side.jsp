@@ -56,6 +56,7 @@
 	#sideGroup{
 		height:50px;
 		display:none;
+		color:black;
 	}
 	
 	
@@ -74,7 +75,7 @@
 		<p>
 			<div id='sideGroup'> 
 				<dl>
-					<a data-toggle="modal" data-target="#myModal">+ 그룹 추가</a>
+					<dd><a data-toggle="modal" data-target="#myModal">+ 그룹 추가</a></dd>
 					<dd>학교친구</dd>
 					<dd>직장동료</dd>
 				</dl>
