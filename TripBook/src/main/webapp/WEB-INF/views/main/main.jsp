@@ -56,10 +56,9 @@ a {
 }
 
 .newGeneralBoardPictureImg {
-	width: 50px;
-	height: 50px;
-	margin: 15px;
-	margin-bottom: 0px;
+	width: 60px;
+	height: 60px;
+	margin: 10px;
 	display: inline-block;
 }
 
@@ -88,13 +87,15 @@ a {
 }
 
 .newGeneralBoardUpload {
-	border: 1px solid;
+	border: 1px solid pink;
 	width: 100%;
 }
 
 .newGeneralBoardUploadImg {
 	width: 64px;
-	margin-left: 10px;
+	margin-left: 0px;
+	border: 1px solid pink;
+	display: inline-block;
 }
 
 .newGeneralBoardMap {
@@ -102,21 +103,7 @@ a {
 	margin-left: 10px;
 }
 
-.newGeneralBoardFooter {
-	top: 70px;
-}
-
-.newGeneralBoardFooter input[type="submit"] {
-	float: right;
-	margin-right: 20px;
-}
-
-.newGeneralBoardFooter select {
-	float: right;
-	margin-right: 10px;
-}
-
-.newGeneralBoardContainer label {
+.newGeneralBoardContainer label[for="ex_file"]{
 	display: inline-block;
 	color: #999;
 	font-size: inherit;
@@ -124,15 +111,19 @@ a {
 	vertical-align: middle;
 	background-color: #fdfdfd;
 	cursor: pointer;
+	border: 1px solid pink;
 }
 
-.newGeneralBoardMultiList{
-	border: 2px solid #c9c9c9; 
-	width: 30px;
-	display: inline;
-	float: right;
+.newGeneralBoardMultiList {
+	border: 2px solid #c9c9c9;
+	min-width: 80px;
+	min-height: 50px;
+	display: inline-block;
 }
 
+hr{
+	margin-top: 0px;
+}
 </style>
 
 <link rel="stylesheet"
@@ -341,28 +332,26 @@ a {
 									name="title" type="text" id="mainExclusive_input">
 							</div>
 							<hr>
-								<label for="ex_file"><img
-									class="newGeneralBoardUploadImg"
-									src='<c:url value="/images/icon_upload.png"/>' /></label> <input
-									type="file" class="newGeneralBoardMulti with-preview"
-									id="ex_file" multiple />
-								<div class="newGeneralBoardMultiList"></div>
+							<label for="ex_file"><img
+								class="newGeneralBoardUploadImg"
+								src='<c:url value="/images/icon_upload.png"/>' /></label> <input
+								type="file" class="newGeneralBoardMulti with-preview"
+								id="ex_file" multiple />
+							<div class="newGeneralBoardMultiList"></div>
 
-								<div>
-									<img class="newGeneralBoardMap"
-										src="<c:url value="/images/icon_map.png"/>">
-								</div>
-								<div class=newGeneralBoardFooter>
-									<select>
-										<option value="전체보기">전체보기</option>
-										<option value="친구보기">친구보기</option>
-										<option value="그룹보기">그룹보기</option>
-										<option value="비공개">비공개</option>
-									</select>
-								</div>
+							<div>
+								<img class="newGeneralBoardMap"
+									src="<c:url value="/images/icon_map.png"/>">
+							</div>
 						</div>
 					</div>
 					<div class="modal-footer">
+						<select>
+							<option value="전체보기">전체보기</option>
+							<option value="친구보기">친구보기</option>
+							<option value="그룹보기">그룹보기</option>
+							<option value="비공개">비공개</option>
+						</select>
 						<button type="button" class="btn btn-default" id="submit">등록</button>
 						<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
 					</div>
@@ -372,131 +361,145 @@ a {
 	</div>
 
 	<!-- 이미지 Modal -->
-	
+
 	<!-- Modal -->
-  <div class="modal fade" id="image" role="dialog" tabindex='-1' >
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title">information</h4>
-        </div>
-        <div class="modal-body">
-        	<a href="#detailPicture" data-toggle="modal" data-keyboard="true"><img src='<c:url value="/images/img.jpg"/>' class="img-rounded" alt="Cinque Terre" width="260" height="200"></a>
-          	<a href="#detailPicture" data-toggle="modal"><img src='<c:url value="/images/img.jpg"/>' class="img-rounded" alt="Cinque Terre" width="260" height="200"></a>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Ok</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="detailPicture" role="dialog" tabindex='-1'>
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title">detail information</h4>
-        </div>
-        <div class="modal-body">
-        	<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
-    		<!-- Indicators -->
-    			<ol class="carousel-indicators">
-      				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    				<li data-target="#myCarousel" data-slide-to="1"></li>
-      				<li data-target="#myCarousel" data-slide-to="2"></li>
-      				<li data-target="#myCarousel" data-slide-to="3"></li>
-    			</ol>
+	<div class="modal fade" id="image" role="dialog" tabindex='-1'>
+		<div class="modal-dialog">
 
-   			<!-- Wrapper for slides -->
-    		<div class="carousel-inner" role="listbox">
-      			<div class="item active">
-        			<img src='<c:url value="/images/img.jpg"/>' class="img-rounded" alt="Chania">
-      			</div>
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h4 class="modal-title">information</h4>
+				</div>
+				<div class="modal-body">
+					<a href="#detailPicture" data-toggle="modal" data-keyboard="true"><img
+						src='<c:url value="/images/img.jpg"/>' class="img-rounded"
+						alt="Cinque Terre" width="260" height="200"></a> <a
+						href="#detailPicture" data-toggle="modal"><img
+						src='<c:url value="/images/img.jpg"/>' class="img-rounded"
+						alt="Cinque Terre" width="260" height="200"></a>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Ok</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
-      			<div class="item">
-        			<img src='<c:url value="/images/img.jpg"/>' alt="Chania">
-      			</div>
-    
-      			<div class="item">
-        			<img src='<c:url value="/images/img.jpg"/>' alt="Flower">
-      			</div>
+	<!-- Modal -->
+	<div class="modal fade" id="detailPicture" role="dialog" tabindex='-1'>
+		<div class="modal-dialog">
 
-      			<div class="item">
-       				<img src='<c:url value="/images/img.jpg"/>' alt="Flower">
-      			</div>
-    		</div>
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h4 class="modal-title">detail information</h4>
+				</div>
+				<div class="modal-body">
+					<div id="myCarousel" class="carousel slide" data-ride="carousel"
+						data-interval="0">
+						<!-- Indicators -->
+						<ol class="carousel-indicators">
+							<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+							<li data-target="#myCarousel" data-slide-to="1"></li>
+							<li data-target="#myCarousel" data-slide-to="2"></li>
+							<li data-target="#myCarousel" data-slide-to="3"></li>
+						</ol>
 
-    		<!-- Left and right controls -->
-    		<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      			<span class="sr-only">Previous</span>
-    		</a>
-    		<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      			<span class="sr-only">Next</span>
-    		</a>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Ok</button>
-        </div>
-      </div>
+						<!-- Wrapper for slides -->
+						<div class="carousel-inner" role="listbox">
+							<div class="item active">
+								<img src='<c:url value="/images/img.jpg"/>' class="img-rounded"
+									alt="Chania">
+							</div>
+
+							<div class="item">
+								<img src='<c:url value="/images/img.jpg"/>' alt="Chania">
+							</div>
+
+							<div class="item">
+								<img src='<c:url value="/images/img.jpg"/>' alt="Flower">
+							</div>
+
+							<div class="item">
+								<img src='<c:url value="/images/img.jpg"/>' alt="Flower">
+							</div>
+						</div>
+
+						<!-- Left and right controls -->
+						<a class="left carousel-control" href="#myCarousel" role="button"
+							data-slide="prev"> <span
+							class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+						</a> <a class="right carousel-control" href="#myCarousel"
+							role="button" data-slide="next"> <span
+							class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</a>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Ok</button>
+					</div>
+				</div>
 
 
-	<script src='<c:url value="/resources/js/calendar/lib/jquery.min.js"/>'></script>
-	<script
-		src="<c:url value="/resources/js/main/jQuery.MultiFile.min.js"/>"></script>
+				<script
+					src='<c:url value="/resources/js/calendar/lib/jquery.min.js"/>'></script>
+				<script
+					src="<c:url value="/resources/js/main/jQuery.MultiFile.min.js"/>"></script>
 
-	<script src='<c:url value="/resources/js/main/stroll.min.js"/>'></script>
-	<script>
-		/* 스크롤 효과 */
-		stroll.bind('.mainAllBoard ul');
+				<script src='<c:url value="/resources/js/main/stroll.min.js"/>'></script>
+				<script>
+					/* 스크롤 효과 */
+					stroll.bind('.mainAllBoard ul');
 
-		/* 이미지 업로드 */
-		$(document)
-				.ready(
-						function() {
-							var placeholderTarget = $('.newGeneralBoardTitle input[type="text"]');
+					/* 이미지 업로드 */
+					$(document).ready(function() {
+										var placeholderTarget = $('.newGeneralBoardTitle input[type="text"]');
 
-							//포커스시
-							placeholderTarget.on('focus', function() {
-								$(this).siblings('label').fadeOut('fast');
-							});
+										//포커스시
+										placeholderTarget.on('focus',
+												function() {
+													$(this).siblings('label')
+															.fadeOut('fast');
+												});
 
-							//포커스아웃시
-							placeholderTarget.on('focusout', function() {
-								if ($(this).val() == '') {
-									$(this).siblings('label').fadeIn('fast');
-								}
-							});
+										//포커스아웃시
+										placeholderTarget
+												.on(
+														'focusout',
+														function() {
+															if ($(this).val() == '') {
+																$(this).siblings('label')
+																		.fadeIn('fast');
+															}
+														});
+									});
+
+					$(function() {
+						$('#ex_file').MultiFile({
+							//max : 3, //업로드 최대 파일 갯수 (지정하지 않으면 무한대)
+							accept : 'jpg|png|gif', //허용할 확장자(지정하지 않으면 모든 확장자 허용)
+							//maxfile : 1024, //각 파일 최대 업로드 크기
+							//maxsize : 3024, //전체 파일 최대 업로드 크기
+							STRING : { //Multi-lingual support : 메시지 수정 가능
+								remove : "제거", //추가한 파일 제거 문구, 이미태그를 사용하면 이미지사용가능
+								duplicate : "$file 은 이미 선택된 파일입니다.",
+								denied : "$ext 는(은) 업로드 할수 없는 파일확장자입니다.",
+								selected : '$file 을 선택했습니다.',
+							//toomuch : "업로드할 수 있는 최대크기를 초과하였습니다.($size)",
+							//toomany : "업로드할 수 있는 최대 갯수는 $max개 입니다.",
+							//toobig : "$file 은 크기가 매우 큽니다. (max $size)"
+							},
+							list : ".newGeneralBoardMultiList" //파일목록을 출력할 요소 지정가능
 						});
-
-		$(function() {
-			$('#ex_file').MultiFile({
-				//max : 3, //업로드 최대 파일 갯수 (지정하지 않으면 무한대)
-				accept : 'jpg|png|gif', //허용할 확장자(지정하지 않으면 모든 확장자 허용)
-				//maxfile : 1024, //각 파일 최대 업로드 크기
-				//maxsize : 3024, //전체 파일 최대 업로드 크기
-				STRING : { //Multi-lingual support : 메시지 수정 가능
-					remove : "제거", //추가한 파일 제거 문구, 이미태그를 사용하면 이미지사용가능
-					duplicate : "$file 은 이미 선택된 파일입니다.",
-					denied : "$ext 는(은) 업로드 할수 없는 파일확장자입니다.",
-					selected : '$file 을 선택했습니다.',
-				//toomuch : "업로드할 수 있는 최대크기를 초과하였습니다.($size)",
-				//toomany : "업로드할 수 있는 최대 갯수는 $max개 입니다.",
-				//toobig : "$file 은 크기가 매우 큽니다. (max $size)"
-				},
-				list : ".newGeneralBoardMultiList" //파일목록을 출력할 요소 지정가능
-			});
-		});
-	</script>
+					});
+				</script>
 </body>
 </html>
