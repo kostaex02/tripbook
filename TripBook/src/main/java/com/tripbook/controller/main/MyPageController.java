@@ -30,8 +30,27 @@ public class MyPageController {
 	}
 	
 	@RequestMapping("update")
-	public ModelAndView update(HttpServletRequest request,UserDTO userDTO){
+	public String update(HttpServletRequest request,UserDTO userDTO){
 		int result = userService.updateUser(userDTO);
-		return null;
+		if(result==0){
+			request.setAttribute("errMessage", "Ε»Επ ½ΗΖΠ");
+			return "main/main";
+		}
+		HttpSession session = request.getSession();
+		UserDTO tempUser = userService.selectProfile((String)session.getAttribute("userId"));
+		session.setAttribute("userName", tempUser.getName());
+		session.setAttribute("userFileName", tempUser.getFileName());
+		return "main/main";
+	}
+	
+	@RequestMapping("delete")
+	public String delete(HttpServletRequest request){
+		HttpSession session = request.getSession();
+		int result = userService.deleteUser((String)session.getAttribute("userId"));
+		if(result==0){
+			request.setAttribute("errMessage", "Ε»Επ ½ΗΖΠ");
+			return "main/main";
+		}
+		return "main/logout";
 	}
 }

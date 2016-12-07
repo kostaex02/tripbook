@@ -21,8 +21,8 @@ public class SessionCheckAdvice {
 		
 		if(session.getAttribute("userId")==null){
 			//오류발생!!!
-			request.setAttribute("errorMsg", "로그인하고 오세요!!!");
-			throw new Exception();
+			request.setAttribute("errMsg", "로그인이 되어있지 않습니다");
+			return "home";
 			
 		}
 		

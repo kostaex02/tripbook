@@ -35,4 +35,6 @@ public interface UserService {
 	 * 유저 정보 수정
 	 */
 	int updateUser(UserDTO userDTO);
+
+	int deleteUser(String userId);
 }

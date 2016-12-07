@@ -21,4 +21,6 @@ public interface UserDAO {
 	List<UserDTO> searchUser(String userId);
 
 	int updateUser(UserDTO userDTO);
+
+	int deleteUser(String userId);
 }
