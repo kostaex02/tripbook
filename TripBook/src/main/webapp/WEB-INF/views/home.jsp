@@ -109,7 +109,7 @@
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 						<h4 class="modal-title">회원가입</h4>
 					</div>
-					<form action="register" method="post">
+					<form action="register" method="post" enctype="multipart/form-data">
 						<div class="modal-body">
 							<div class="input-group has-success has-feedback">
 								<span class="input-group-addon"> <i><img
@@ -169,7 +169,7 @@
 										<i><img src='<c:url value="/images/icon_picture20.png"/>'></i>
 									</button>
 								</div>
-								<input class="file-upload" type="file" accept="image/*" style="display:none">
+								<input id=file-upload class="file-upload" type="file" accept="image/*" style="display:none">
 								
 							</div>
 						
@@ -338,24 +338,17 @@
 		})();
 
 		$(function() {
-			
-			var fileTarget = $('.input-group .file-upload');
-
-			  fileTarget.on('change', function(){  // 값이 변경되면
-			    if(window.FileReader){  // modern browser
-			      var filename = $(this)[0].files[0].name;
-			    } 
-			    else {  // old IE
-			      var filename = $(this).val().split('/').pop().split('\\').pop();  // 파일명만 추출
-			    }
-			    
-			    // 추출한 파일명 삽입
-			    $(this).siblings('.upload-name').val(filename);
-			 });
-			
-			$(".file-upload").on('change', function(){
+			$(".input-group #file-upload").on('change', function(){
+					 if(window.FileReader){  // modern browser
+				      var filename = $(this)[0].files[0].name;
+				    } 
+				    else {  // old IE
+				      var filename = $(this).val().split('/').pop().split('\\').pop();  // 파일명만 추출
+				    }
+				    // 추출한 파일명 삽입
+				    $(".input-group #picture").val(filename);
+				});
 				
-			});
 			
 			$("#buttonLoadPicture").click(function() {
 				$(".file-upload").click();
