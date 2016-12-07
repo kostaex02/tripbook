@@ -22,7 +22,7 @@
 		background-color:maroon;
 		width:96%;
 	}
-	
+	 
 	#sideSchedule{
 		background-color:navy;
 		
