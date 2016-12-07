@@ -12,7 +12,7 @@
 		line-height: 55px;
 		height:auto;
 		color:white;
-	}
+	} 
 	
 	#sideProfile{
 		position: relative;

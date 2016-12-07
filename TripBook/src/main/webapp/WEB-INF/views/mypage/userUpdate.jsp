@@ -35,7 +35,7 @@
 				<input id="passwordCheck" type="password" class="form-control"
 					name="passwordCheck" placeholder="Password check">
 					<span id="checkingPasswordCheck" aria-hidden="true"></span>
-			</div>
+			</div> 
 			<br>
 			<div class="input-group">
 				<span class="input-group-addon"> <i><img
