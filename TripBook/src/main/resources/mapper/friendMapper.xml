@@ -13,4 +13,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select friend_no,state,friend_id1,friend_id2 from friend_table
 		 where state=#{state} and (friend_id1=#{userId} or friend_id2=#{userId})
 	</select>
+	<insert id="insertFriend" parameterType="Map">
+		insert into friend_table(friend_no,state,friend_id1,friend_id2)
+		values(friend_sequence.nextval,'0',#{userId},#{friendId})
+	</insert>
 </mapper>

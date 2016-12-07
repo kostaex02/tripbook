@@ -6,7 +6,15 @@ public class NoticeDTO {
 	private String sender;
 	private String receiver;
 	private String sendDate;
+	private String content;
 	private String checkState;
+	
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
 	public int getNoticeNo() {
 		return noticeNo;
 	}

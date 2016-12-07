@@ -17,5 +17,9 @@ public class FriendDAOImpl implements FriendDAO {
 	public List<FriendDTO> selectFriend(Map<String,String> friendMap) {
 		return session.selectList("friendMapper.selectFriend", friendMap);
 	}
+	@Override
+	public int insertFriend(Map<String, String> map) {
+		return session.insert("friendMapper.insertFriend", map);
+	}
 
 }
