@@ -11,8 +11,9 @@
 		<div class="modal-body">
 			<div id="inputId" class="input-group">
 				<span class="input-group-addon"> <i><img
-						src='<c:url value="/images/icon_id20.png"/>'></i></span> 
-						<label>${user.id}</label>
+						src='<c:url value="/images/icon_id20.png"/>'></i></span><input
+					id="name" type="text" class="form-control" name="name"
+					value="${user.id}" disabled> 
 
 			</div>
 			<br>
@@ -61,9 +62,8 @@
 			</div>
 			<br>
 			<div class="input-group">
-				
 				<input id="picture" type="text" class="form-control"
-					value="사진선택" disabled>
+					value="${user.fileName}" disabled>
 				<div class="input-group-btn">
 					<button class="btn btn-default" type="button"
 						id="buttonLoadPicture">
@@ -75,11 +75,44 @@
 			</div>
 		
 		<div class="modal-footer">
-			<input type="submit" class="btn btn-primary" value="가입">
+			<input type="submit" class="btn btn-primary" value="수정">
 			</button>
-			<button type="button" class="btn btn-default"
-				data-dismiss="modal">닫기</button>
+			<a href="<c:url value="/mypage/mypage"/>" class="btn btn-default">닫기</a>
 		</div>
 	</form>
 </body>
+
+<script>
+$(function(){
+
+	$(".input-group #file-upload").on('change', function(){
+		 if(window.FileReader){  // modern browser
+	     var filename = $(this)[0].files[0].name;
+	   } 
+	   else {  // old IE
+	     var filename = $(this).val().split('/').pop().split('\\').pop();  // 파일명만 추출
+	   }
+	   // 추출한 파일명 삽입
+	   $(".input-group #picture").val(filename);
+	});
+	
+	$("#buttonLoadPicture").click(function() {
+		$(".file-upload").click();
+	});
+	
+	$('#passwordCheck').keyup(function() {
+		if ($(this).val() == $('#password').val()) {
+			$('#inputPasswordCheck').removeClass('has-error has-feedback').addClass('has-success has-feedback');
+			$('#checkingPasswordCheck').removeClass('glyphicon glyphicon-remove form-control-feedback').addClass('glyphicon glyphicon-ok form-control-feedback')				
+		}else{
+			$('#inputPasswordCheck').removeClass('has-success has-feedback').addClass('has-error has-feedback');
+			$('#checkingPasswordCheck').removeClass('glyphicon glyphicon-ok form-control-feedback').addClass('glyphicon glyphicon-remove form-control-feedback')
+		}
+	});
+
+})
+
+
+</script>
+
 </html>
