@@ -7,7 +7,7 @@
 
 <title>Insert title here</title>
 <style>
-	 #sideSchedule, #sideHome, #sideBiography, #sideFriend, #sideNav{
+	 #sideSchedule, #sideHome, #sideBiography, #sideFriend{
 		position: relative;
 		line-height: 55px;
 		height:auto;
@@ -16,7 +16,7 @@
 	
 	#sideProfile{
 		position: relative;
-		line-height: 55px;
+		line-height: 40px;
 		height:130px;
 		padding:0px;
 		background-color:maroon;
@@ -52,6 +52,9 @@
 	#sideNav{
 		text-align: center;
 		clear: both;
+		position: relative;
+		
+		color:white;
 	}
 	
 	a{
@@ -90,7 +93,7 @@
 			<a class='sideProfileLink'href='<c:url value="/mypage/mypage"/>'><div id='sideProfile'>
 				<img class='profileImage' src='<c:url value="/tripbook/user/${userId}/${userFileName}"/>'>
 				<div class='userName'>${userName}</div>
-				<a class='logout' href='<c:url value="/mypage/profile"/>'>정보수정</a>
+				<a class='logout' href='<c:url value="/mypage/profile"/>'>정보수정</a><br>
 				<a class='logout' href='<c:url value="/main/logout"/>'>로그아웃</a>
 			</div>
 		</a>
