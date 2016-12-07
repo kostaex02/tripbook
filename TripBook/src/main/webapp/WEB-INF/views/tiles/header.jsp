@@ -75,10 +75,6 @@
 #trash{
 	display:none;
 }
-.logout{
-	position : relative;
-	margin-left:30px;
-}
 
 </style>
 </head>
@@ -94,7 +90,7 @@
 			</div>
 			</form>
 		</div>
-		<a class='logout' href='<c:url value="/main/logout"/>'>로그아웃</a>
+		
 		
 		<div class="calendarTrash" ><img id='trash' src='<c:url value="/images/trash.png"/>'></div>
 	</div>

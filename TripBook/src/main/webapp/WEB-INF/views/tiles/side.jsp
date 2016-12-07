@@ -7,14 +7,18 @@
 
 <title>Insert title here</title>
 <style>
-	#sideProfile, #sideSchedule, #sideHome, #sideBiography, #sideFriend, #sideNav{
+	 #sideSchedule, #sideHome, #sideBiography, #sideFriend, #sideNav{
 		position: relative;
 		line-height: 55px;
-		height:50px;
+		height:auto;
 		color:white;
 	}
 	
 	#sideProfile{
+		position: relative;
+		line-height: 55px;
+		height:130px;
+		padding:0px;
 		background-color:maroon;
 		width:96%;
 	}
@@ -58,7 +62,12 @@
 		display:none;
 		color:black;
 	}
-	
+	.profileImage{
+		position:static;
+		float:left;
+		width:50%;
+		height:100%;
+	}
 	
 </style>
 
@@ -66,8 +75,14 @@
 <body >
 
 <div id='sideNav'>
-	
-		<a href='<c:url value="/mypage/profile"/>'><div id='sideProfile'>프로필</div></a>
+		
+			<div id='sideProfile'>
+				<a href='<c:url value="/mypage/profile"/>'><div><img class='profileImage' src='<c:url value="/images/img.jpg"/>'></div></a>
+				<div>${userName}</div>
+				<a class='logout' href='<c:url value="/main/logout"/>'>정보수정</a>
+				<a class='logout' href='<c:url value="/main/logout"/>'>로그아웃</a>
+			</div>
+		
 		<a href='<c:url value="/calendar/calendar"/>'><div id='sideSchedule'>스케줄</div></a>
 		<a href='<c:url value="/main/main"/>'><div id='sideHome'>Home</div></a>
 		<a href='#'><div id='sideBiography'>여행일대기</div></a>
