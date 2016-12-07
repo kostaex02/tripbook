@@ -56,7 +56,7 @@
 
 				<h1>TripBook</h1>
 				<p class="subline">By Team 너나들이
-				<form class="form-horizontal" method="post" action="login"
+				<form class="form-horizontal" method="post" action='<c:url value="/login"/>'
 					id="mainForm">
 					<div class="form-login" id="content1">
 						<label for="inputEmail3" class="col-sm-8 control-label">Email</label>
@@ -103,7 +103,7 @@
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 						<h4 class="modal-title">회원가입</h4>
 					</div>
-					<form id="registerForm" action="register" method="post" enctype="multipart/form-data" onsubmit="alert('1')">
+					<form id="registerForm" action="<c:url value="/register"/>" method="post" enctype="multipart/form-data" onsubmit="alert('1')">
 						<div class="modal-body">
 							<div id="inputId" class="input-group">
 								<span class="input-group-addon"> <i><img
@@ -347,7 +347,7 @@
 
 			$('#email').keyup(function() {
 				$.ajax({
-					url : "checkId",
+					url : "/controller/checkId",
 					type : "post",
 					data : 'userId=' + $(this).val(),
 					dataType : "text",
