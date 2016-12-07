@@ -76,6 +76,9 @@
 	.sideProfileLink:hover{
 		text-decoration:none !important
 	}
+	#sideSchedule, #sideHome, #sideBiography, #sideFriend, #sideNav :hover{
+		text-decoration:none !important
+	}
 	
 </style>
 

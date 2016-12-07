@@ -4,11 +4,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href='<c:url value="/resources/css/bootstrap/bootstrap.min.css"/>'
+	rel='stylesheet' />
+
 <title>Insert title here</title>
 </head>
 <body>
+<div class="modal-header">
+	<h4 class="modal-title">회원 정보 수정</h4>
+</div>
 <form action="register" method="post" enctype="multipart/form-data">
-		<div class="modal-body">
 			<div id="inputId" class="input-group">
 				<span class="input-group-addon"> <i><img
 						src='<c:url value="/images/icon_id20.png"/>'></i></span><input
@@ -24,12 +29,12 @@
 					name="password" placeholder="Password">
 			</div>
 			<br>
-			<div id="inputPassword" class="input-group">
+			<div id="inputPasswordCheck" class="input-group">
 				<span class="input-group-addon"> <i><img
 						src='<c:url value="/images/icon_passwordCheck20.png"/>'></i></span>
 				<input id="passwordCheck" type="password" class="form-control"
 					name="passwordCheck" placeholder="Password check">
-					<span id="checkingPassword" aria-hidden="true"></span>
+					<span id="checkingPasswordCheck" aria-hidden="true"></span>
 			</div>
 			<br>
 			<div class="input-group">
@@ -82,6 +87,11 @@
 	</form>
 </body>
 
+<!-- bootstrap -->
+<script src='<c:url value="/resources/js/jquery-2.2.4.js"/>'></script>
+<script src='<c:url value="/resources/js/bootstrap/bootstrap.min.js"/>'></script>
+
+
 <script>
 $(function(){
 
@@ -102,9 +112,11 @@ $(function(){
 	
 	$('#passwordCheck').keyup(function() {
 		if ($(this).val() == $('#password').val()) {
+			console.log("첵첵 성공");
 			$('#inputPasswordCheck').removeClass('has-error has-feedback').addClass('has-success has-feedback');
-			$('#checkingPasswordCheck').removeClass('glyphicon glyphicon-remove form-control-feedback').addClass('glyphicon glyphicon-ok form-control-feedback')				
+			$('#checkingPasswordCheck').removeClass('glyphicon glyphicon-remove form-control-feedback').addClass('glyphicon glyphicon-ok form-control-feedback')			
 		}else{
+			console.log("첵첵 실패");
 			$('#inputPasswordCheck').removeClass('has-success has-feedback').addClass('has-error has-feedback');
 			$('#checkingPasswordCheck').removeClass('glyphicon glyphicon-ok form-control-feedback').addClass('glyphicon glyphicon-remove form-control-feedback')
 		}
