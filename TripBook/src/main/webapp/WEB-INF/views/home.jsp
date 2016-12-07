@@ -105,14 +105,13 @@
 					</div>
 					<form action="register" method="post" enctype="multipart/form-data">
 						<div class="modal-body">
-							<div class="input-group has-success has-feedback">
+							<div id="inputId" class="input-group">
 								<span class="input-group-addon"> <i><img
-										src='<c:url value="/images/icon_id20.png"/>'></i></span> <input
-									id="email" type="text"
-									class="form-control has-success has-feedback" name="id"
-									placeholder="Email"> <span
-									class="glyphicon glyphicon-ok form-control-feedback"
-									aria-hidden="true"></span>
+										src='<c:url value="/images/icon_id20.png"/>'></i></span> 
+										<input id="email" type="text"
+									class="form-control" name="id"
+									placeholder="Email"> 
+									<span id="checkingID" aria-hidden="true"></span>
 
 							</div>
 							<br>
@@ -123,13 +122,12 @@
 									name="password" placeholder="Password">
 							</div>
 							<br>
-							<div class="input-group has-error has-feedback">
+							<div id="inputPassword" class="input-group">
 								<span class="input-group-addon"> <i><img
 										src='<c:url value="/images/icon_passwordCheck20.png"/>'></i></span>
 								<input id="passwordCheck" type="password" class="form-control"
-									name="passwordCheck" placeholder="Password check"> <span
-									class="glyphicon glyphicon-remove form-control-feedback"
-									aria-hidden="true"></span>
+									name="passwordCheck" placeholder="Password check">
+									<span id="checkingPassword" aria-hidden="true"></span>
 							</div>
 							<br>
 							<div class="input-group">
@@ -355,11 +353,12 @@
 					data : 'userId=' + $(this).val(),
 					dataType : "text",
 					success : function(data) {
-						var str = "";
 						if (data > 0) {
-							str = "<span class='glyphicon glyphicon-remove form-control-feedback'"+
-									"aria-hidden='true'></span>"
-							alert('존재하는 아이디');
+							$('#inputId').removeClass('has-success has-feedback').addClass('has-error has-feedback');
+							$('#checkingID').removeClass('glyphicon glyphicon-ok form-control-feedback').addClass('glyphicon glyphicon-remove form-control-feedback')
+						}else{
+							$('#inputId').removeClass('has-error has-feedback').addClass('has-success has-feedback');
+							$('#checkingID').removeClass('glyphicon glyphicon-remove form-control-feedback').addClass('glyphicon glyphicon-ok form-control-feedback')
 						}
 					},
 					error : function() {
@@ -367,9 +366,14 @@
 					}
 				})
 			});
+			
 			$('#passwordCheck').keyup(function() {
 				if ($(this).val() == $('#password').val()) {
-					alert('비밀번호 동일')
+					$('#inputPassword').removeClass('has-error has-feedback').addClass('has-success has-feedback');
+					$('#checkingPassword').removeClass('glyphicon glyphicon-remove form-control-feedback').addClass('glyphicon glyphicon-ok form-control-feedback')				
+				}else{
+					$('#inputPassword').removeClass('has-success has-feedback').addClass('has-error has-feedback');
+					$('#checkingPassword').removeClass('glyphicon glyphicon-ok form-control-feedback').addClass('glyphicon glyphicon-remove form-control-feedback')
 				}
 			})
 		})
