@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tripbook.dto.UserDTO;
@@ -60,7 +61,7 @@ public class HomeController {
 	}
 	
 	@RequestMapping("register")
-	public String register(HttpServletRequest request,UserDTO user){
+	public String register(HttpServletRequest request,UserDTO user,MultipartFile file){
 		int result = userService.register(user);
 		if(result==0){
 			request.setAttribute("errMessage", "가입 실패");

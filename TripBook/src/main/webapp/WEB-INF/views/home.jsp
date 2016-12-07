@@ -162,14 +162,14 @@
 							<div class="input-group">
 								
 								<input id="picture" type="text" class="form-control"
-									name="fileName" value="사진선택" disabled>
+									value="사진선택" disabled>
 								<div class="input-group-btn">
 									<button class="btn btn-default" type="button"
 										id="buttonLoadPicture">
 										<i><img src='<c:url value="/images/icon_picture20.png"/>'></i>
 									</button>
 								</div>
-								<input id=file-upload class="file-upload" type="file" accept="image/*" style="display:none">
+								<input id=file-upload name="file" class="file-upload" type="file" accept="image/*" style="display:none">
 								
 							</div>
 						
