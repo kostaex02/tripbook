@@ -45,6 +45,7 @@ a {
 }
 
 .newGeneralBoardContainer {
+	border: 1px solid;
 	width: 550px;
 	height: 350px;
 	display: inline-block;
@@ -59,6 +60,7 @@ a {
 	height: 50px;
 	margin: 15px;
 	margin-bottom: 0px;
+	display: inline-block;
 }
 
 .newGeneralBoardTitle {
@@ -86,13 +88,13 @@ a {
 }
 
 .newGeneralBoardUpload {
-	float: left;
+	border: 1px solid;
+	width: 100%;
 }
 
 .newGeneralBoardUploadImg {
 	width: 64px;
 	margin-left: 10px;
-	float: left;
 }
 
 .newGeneralBoardMap {
@@ -114,7 +116,7 @@ a {
 	margin-right: 10px;
 }
 
-.newGeneralBoardUpload label {
+.newGeneralBoardContainer label {
 	display: inline-block;
 	color: #999;
 	font-size: inherit;
@@ -123,6 +125,14 @@ a {
 	background-color: #fdfdfd;
 	cursor: pointer;
 }
+
+.newGeneralBoardMultiList{
+	border: 2px solid #c9c9c9; 
+	width: 30px;
+	display: inline;
+	float: right;
+}
+
 </style>
 
 <link rel="stylesheet"
@@ -315,53 +325,50 @@ a {
 	<div class="modal fade" id="addGeneralBoard" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<div class="modal-header">
-					일반게시물
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-				</div>
-			<div class="modal-body">
 				<form action="#" method="post" enctype="multipart/form-data">
-					<div class="newGeneralBoardContainer">
-						<div class="newGeneralBoardPicture">
-							<img class="newGeneralBoardPictureImg"
-								src='<c:url value="/images/img.jpg"/>'>
-						</div>
-						<div class="newGeneralBoardTitle">
-							<label for="exclusive_input2">어디를 여행하셨나요?</label> <input
-								name="title" type="text" id="exclusive_input2">
-						</div>
-						<hr>
-						<div class="newGeneralBoardUpload">
-							<label for="ex_file"><img
-								class="newGeneralBoardUploadImg"
-								src='<c:url value="/images/icon_upload.png"/>' /></label> <input
-								type="file" class="newGeneralBoardMulti with-preview"
-								id="ex_file" multiple />
-							<div id="newGeneralBoardMultiList"
-								style="border: 2px solid #c9c9c9; min-height: 50px"></div>
+					<div class="modal-header">
+						일반게시물
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<div class="modal-body">
+						<div class="newGeneralBoardContainer">
+							<div class="newGeneralBoardPicture">
+								<img class="newGeneralBoardPictureImg"
+									src='<c:url value="/images/img.jpg"/>'>
+							</div>
+							<div class="newGeneralBoardTitle">
+								<label for="mainExclusive_input">어디를 여행하셨나요?</label> <input
+									name="title" type="text" id="mainExclusive_input">
+							</div>
+							<hr>
+								<label for="ex_file"><img
+									class="newGeneralBoardUploadImg"
+									src='<c:url value="/images/icon_upload.png"/>' /></label> <input
+									type="file" class="newGeneralBoardMulti with-preview"
+									id="ex_file" multiple />
+								<div class="newGeneralBoardMultiList"></div>
 
-							<div>
-								<img class="newGeneralBoardMap"
-									src="<c:url value="/images/icon_map.png"/>">
-							</div>
-							<div class=newGeneralBoardFooter>
-								<select>
-									<option value="전체보기">전체보기</option>
-									<option value="친구보기">친구보기</option>
-									<option value="그룹보기">그룹보기</option>
-									<option value="비공개">비공개</option>
-								</select>
-							</div>
+								<div>
+									<img class="newGeneralBoardMap"
+										src="<c:url value="/images/icon_map.png"/>">
+								</div>
+								<div class=newGeneralBoardFooter>
+									<select>
+										<option value="전체보기">전체보기</option>
+										<option value="친구보기">친구보기</option>
+										<option value="그룹보기">그룹보기</option>
+										<option value="비공개">비공개</option>
+									</select>
+								</div>
 						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" id="submit">등록</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
 					</div>
 				</form>
 			</div>
-			<div class="modal-footer" style="">
-				<button type="button" class="btn btn-default" id="submit">등록</button>
-				<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
-			</div>
 		</div>
-	</div>
 	</div>
 
 
@@ -408,7 +415,7 @@ a {
 				//toomany : "업로드할 수 있는 최대 갯수는 $max개 입니다.",
 				//toobig : "$file 은 크기가 매우 큽니다. (max $size)"
 				},
-				list : "#newGeneralBoardMultiList" //파일목록을 출력할 요소 지정가능
+				list : ".newGeneralBoardMultiList" //파일목록을 출력할 요소 지정가능
 			});
 		});
 	</script>
