@@ -37,5 +37,9 @@ public class UserDAOImpl implements UserDAO {
 	public List<UserDTO> searchUser(String userId) {
 		return session.selectList("userMapper.searchUser",userId);
 	}
+	@Override
+	public int updateUser(UserDTO userDTO) {
+		return session.update("userMapper.updateUser", userDTO);
+	}
 
 }

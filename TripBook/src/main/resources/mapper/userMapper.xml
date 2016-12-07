@@ -40,4 +40,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="searchUser" parameterType="String" resultMap="selectUserMap">
 		select id,name,age,gender,file_name from user_table where (name like '%${value}%')
 	</select>
+	
+	<update id="updateUser" parameterType="userDTO">
+		update user_table
+		<trim prefix="set" suffixOverrides=",">
+			<if test="name!=null">
+				name=#{name},
+			</if>
+			<if test="age!=null">
+				age=#{age},
+			</if>
+			<if test="gender!=null">
+				gender=#{gender},
+			</if>
+			<if test="fileName!=null">
+				file_name=#{fileName},
+			</if>
+			update_date=#{updateDate}
+		</trim>
+		where id=#{id}
+	</update>
 </mapper>

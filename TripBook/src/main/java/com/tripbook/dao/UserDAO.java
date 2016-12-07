@@ -19,4 +19,6 @@ public interface UserDAO {
 	UserDTO selectProfile(String userId);
 
 	List<UserDTO> searchUser(String userId);
+
+	int updateUser(UserDTO userDTO);
 }

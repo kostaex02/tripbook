@@ -24,9 +24,14 @@ public class MyPageController {
 	public ModelAndView selectProfile(HttpServletRequest request){
 		HttpSession session = request.getSession();
 		UserDTO user = userService.selectProfile((String)session.getAttribute("userId"));
-		System.out.println(user);
 		ModelAndView mv = new ModelAndView("mypage/mypage");
 		mv.addObject("user", user);
 		return mv;
+	}
+	
+	@RequestMapping("update")
+	public ModelAndView update(HttpServletRequest request,UserDTO userDTO){
+		int result = userService.updateUser(userDTO);
+		return null;
 	}
 }
