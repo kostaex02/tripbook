@@ -66,26 +66,34 @@
 		position:static;
 		float:left;
 		width:50%;
-		height:100%;
+		height:130px;
+	}
+	
+	.userName{
+		color:white;
+	}
+	
+	.sideProfileLink:hover{
+		text-decoration:none !important
 	}
 	
 </style>
 
 </head>
-<body >
+<body>
 
-<div id='sideNav'>
-		
-			<div id='sideProfile'>
-				<a href='<c:url value="/mypage/profile"/>'><div><img class='profileImage' src='<c:url value="/images/img.jpg"/>'></div></a>
-				<div>${userName}</div>
+
+	<div id='sideNav'>
+			<a class='sideProfileLink'href='<c:url value="/mypage/profile"/>'><div id='sideProfile'>
+				<img class='profileImage' src='<c:url value="/tripbook/user/${userId}/${userFileName}"/>'>
+				<div class='userName'>${userName}</div>
 				<a class='logout' href='<c:url value="/main/logout"/>'>정보수정</a>
 				<a class='logout' href='<c:url value="/main/logout"/>'>로그아웃</a>
 			</div>
-		
+		</a>
 		<a href='<c:url value="/calendar/calendar"/>'><div id='sideSchedule'>스케줄</div></a>
 		<a href='<c:url value="/main/main"/>'><div id='sideHome'>Home</div></a>
-		<a href='#'><div id='sideBiography'>여행일대기</div></a>
+		<a href='<c:url value="/biography/biography"/>'><div id='sideBiography'>여행일대기</div></a>
 		<a href='<c:url value="/friends/friends"/>'><div id='sideFriend'>친구</div></a>
 		<p>
 			<div id='sideGroup'> 
