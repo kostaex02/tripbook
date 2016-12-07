@@ -103,7 +103,7 @@
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 						<h4 class="modal-title">회원가입</h4>
 					</div>
-					<form id="registerForm" action="<c:url value="/register"/>" method="post" enctype="multipart/form-data" onsubmit="alert('1')">
+					<form id="registerForm" action="<c:url value="/register"/>" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
 						<div class="modal-body">
 							<div id="inputId" class="input-group">
 								<span class="input-group-addon"> <i><img
@@ -130,18 +130,20 @@
 									<span id="checkingPasswordCheck" aria-hidden="true"></span>
 							</div>
 							<br>
-							<div class="input-group">
+							<div id="inputName" class="input-group">
 								<span class="input-group-addon"> <i><img
 										src='<c:url value="/images/icon_user20.png"/>'></i></span> <input
 									id="name" type="text" class="form-control" name="name"
 									placeholder="이름">
+									<span id="checkingName" aria-hidden="true"></span>
 							</div>
 							<br>
-							<div class="input-group">
+							<div id="inputAge" class="input-group">
 								<span class="input-group-addon"> <i><img
 										src='<c:url value="/images/icon_birth20.png"/>'></i></span> <input
 									id="age" type="number" class="form-control" name="age"
 									placeholder="나이">
+									<span id="checkingAge" aria-hidden="true"></span>
 							</div>
 							<br>
 							<div class="input-group">
@@ -346,6 +348,10 @@
 			});
 
 			$('#email').keyup(function() {
+				if($(this).val()==""){
+					$('#inputId').removeClass('has-success has-feedback').addClass('has-error has-feedback');
+					$('#checkingID').removeClass('glyphicon glyphicon-ok form-control-feedback').addClass('glyphicon glyphicon-remove form-control-feedback');
+				}else{
 				$.ajax({
 					url : "/controller/checkId",
 					type : "post",
@@ -354,38 +360,61 @@
 					success : function(data) {
 						if (data > 0) {
 							$('#inputId').removeClass('has-success has-feedback').addClass('has-error has-feedback');
-							$('#checkingID').removeClass('glyphicon glyphicon-ok form-control-feedback').addClass('glyphicon glyphicon-remove form-control-feedback')
+							$('#checkingID').removeClass('glyphicon glyphicon-ok form-control-feedback').addClass('glyphicon glyphicon-remove form-control-feedback');
 						}else{
 							$('#inputId').removeClass('has-error has-feedback').addClass('has-success has-feedback');
-							$('#checkingID').removeClass('glyphicon glyphicon-remove form-control-feedback').addClass('glyphicon glyphicon-ok form-control-feedback')
+							$('#checkingID').removeClass('glyphicon glyphicon-remove form-control-feedback').addClass('glyphicon glyphicon-ok form-control-feedback');
 						}
 					},
 					error : function() {
 						alert('error')
 					}
 				})
+				}
 			});
 			
 			$('#passwordCheck').keyup(function() {
-				if ($(this).val() == $('#password').val()) {
+				if ($(this).val() == $('#password').val() && $(this).val()!="") {
 					$('#inputPasswordCheck').removeClass('has-error has-feedback').addClass('has-success has-feedback');
-					$('#checkingPasswordCheck').removeClass('glyphicon glyphicon-remove form-control-feedback').addClass('glyphicon glyphicon-ok form-control-feedback')				
+					$('#checkingPasswordCheck').removeClass('glyphicon glyphicon-remove form-control-feedback').addClass('glyphicon glyphicon-ok form-control-feedback');				
 				}else{
 					$('#inputPasswordCheck').removeClass('has-success has-feedback').addClass('has-error has-feedback');
-					$('#checkingPasswordCheck').removeClass('glyphicon glyphicon-ok form-control-feedback').addClass('glyphicon glyphicon-remove form-control-feedback')
+					$('#checkingPasswordCheck').removeClass('glyphicon glyphicon-ok form-control-feedback').addClass('glyphicon glyphicon-remove form-control-feedback');
 				}
 			});
 			
-			function validateForm(){
-				var name = document.forms["registerForm"]["id"].value;
-				alert(name);
-				if(name==""){
-					alert("아이디 입력?");
-					return false;
+			$('#name').keyup(function(){
+				if($(this).val() == ""){
+					$('#inputName').removeClass('has-success has-feedback').addClass('has-error has-feedback');
+					$('#checkingName').removeClass('glyphicon glyphicon-ok form-control-feedback').addClass('glyphicon glyphicon-remove form-control-feedback');
+				}else{
+					$('#inputName').removeClass('has-error has-feedback').addClass('has-success has-feedback');
+					$('#checkingName').removeClass('glyphicon glyphicon-remove form-control-feedback').addClass('glyphicon glyphicon-ok form-control-feedback');	
 				}
-			}
+			})
+			
+			$('#age').keyup(function(){
+				if($(this).val() == ""){
+					$('#inputAge').removeClass('has-success has-feedback').addClass('has-error has-feedback');
+					$('#checkingAge').removeClass('glyphicon glyphicon-ok form-control-feedback').addClass('glyphicon glyphicon-remove form-control-feedback');
+				}else{
+					$('#inputAge').removeClass('has-error has-feedback').addClass('has-success has-feedback');
+					$('#checkingAge').removeClass('glyphicon glyphicon-remove form-control-feedback').addClass('glyphicon glyphicon-ok form-control-feedback');	
+				}
+			})
+			
 			
 		})
+		
+		function validateForm(){
+ 			/* var id = document.forms["registerForm"]["id"].value;
+			var password = document.forms["registerForm"]["password"].value;
+			var passwordCheck = document.forms["registerForm"]["passwordCheck"].value;
+			 */
+			 if($("span").hasClass("glyphicon-remove")){
+				return false;		
+			}
+		}
 	</script>
 
 </body>
