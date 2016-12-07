@@ -58,7 +58,7 @@
 					<input type="hidden" value="${item.id}">
 					<div class="friendsName">${item.name }</div>
 					<div class="friendsButton">
-						<input type="button" value="message">
+						<input type="button" value="친구 신청">
 					</div>
 				</li>
 			</c:forEach>
