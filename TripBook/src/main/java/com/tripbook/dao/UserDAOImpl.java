@@ -41,5 +41,9 @@ public class UserDAOImpl implements UserDAO {
 	public int updateUser(UserDTO userDTO) {
 		return session.update("userMapper.updateUser", userDTO);
 	}
+	@Override
+	public int deleteUser(String userId) {
+		return session.delete("userMapper.deleteUser",userId);
+	}
 
 }

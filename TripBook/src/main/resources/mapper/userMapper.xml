@@ -56,8 +56,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="fileName!=null">
 				file_name=#{fileName},
 			</if>
-			update_date=#{updateDate}
+			update_date=sysdate
 		</trim>
 		where id=#{id}
 	</update>
+	
+	<delete id="deleteUser" parameterType="String">
+		delete from user_table where id = #{value}
+	</delete>
 </mapper>

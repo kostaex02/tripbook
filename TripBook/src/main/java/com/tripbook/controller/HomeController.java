@@ -40,7 +40,6 @@ public class HomeController {
 			session.setAttribute("userId", tempUser.getId());
 			session.setAttribute("userName", tempUser.getName());
 			session.setAttribute("userFileName", tempUser.getFileName());
-			/*mv = new ModelAndView("main/main");*/
 			return mv = new ModelAndView("redirect:loginResult");
 		}else{
 			mv=new ModelAndView("home");
@@ -61,10 +60,11 @@ public class HomeController {
 	}
 	
 	@RequestMapping("register")
-	public String register(UserDTO user){
-		System.out.println(user);
+	public String register(HttpServletRequest request,UserDTO user){
 		int result = userService.register(user);
-		
+		if(result==0){
+			request.setAttribute("errMessage", "가입 실패");
+		}
 		return "home";
 	}
 }
