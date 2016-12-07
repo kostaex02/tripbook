@@ -4,6 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript">
+$(function(){
+	$('.friendsButton input[type=button]').click(function(){
+		alert($(this).parents().siblings("input").attr('id'));
+	})	
+})
+	
+</script>
 <style type="text/css">
 .friendsList {
 	margin-top: 20px;
@@ -55,7 +63,7 @@
 					<div class="friendsPicture">
 						<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
 					</div>
-					<input type="hidden" value="${item.id}">
+					<input type="hidden" value="${state.count}" id="${item.id}">
 					<div class="friendsName">${item.name }</div>
 					<div class="friendsButton">
 						<input type="button" value="친구 신청">
