@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tripbook.dao.FriendDAO;
+import com.tripbook.dao.NoticeDAO;
 import com.tripbook.dao.UserDAO;
 import com.tripbook.dto.FriendDTO;
 import com.tripbook.dto.UserDTO;
@@ -18,6 +19,8 @@ public class FriendServiceImpl implements FriendService {
 	private FriendDAO friendDAO;
 	@Autowired
 	private UserDAO userDAO;
+	@Autowired
+	private NoticeDAO noticeDAO;
 	
 	@Override
 	public List<UserDTO> selectFriendList(String userId,String state) {
@@ -40,6 +43,17 @@ public class FriendServiceImpl implements FriendService {
 		}
 		
 		return userList;
+	}
+
+	@Override
+	public int addFriend(String userId, String friendId) {
+		Map<String,String> map = new HashMap<>();
+		map.put("userId", userId);
+		map.put("friendId", friendId);
+		
+		friendDAO.insertFriend(map);
+		map.put("state", "0");
+		return noticeDAO.insertNotice(map);
 	}
 
 }

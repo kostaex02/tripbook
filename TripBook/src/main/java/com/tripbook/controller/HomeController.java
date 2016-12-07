@@ -65,7 +65,7 @@ public class HomeController {
 	
 	@RequestMapping("register")
 	public String register(HttpServletRequest request,UserDTO user,MultipartFile file){
-		String saveDir = "c://tripbook//user//"+user.getId()+"//";
+		String saveDir = request.getSession().getServletContext().getRealPath("/WEB-INF/tripbook/user/"+user.getId()+"/");
 		File folder = new File(saveDir);
 		if (!folder.exists()) {
 			folder.mkdirs();

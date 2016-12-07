@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tripbook.dto.UserDTO;
+import com.tripbook.service.FriendService;
 import com.tripbook.service.UserService;
 
 @Controller
@@ -18,6 +19,8 @@ import com.tripbook.service.UserService;
 public class SearchController {
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private FriendService friendService;
 	
 	@RequestMapping("{pageName}")
 	public void page(HttpServletRequest request){}
@@ -29,5 +32,13 @@ public class SearchController {
 		ModelAndView mv = new ModelAndView("search/searchList");
 		mv.addObject("userList", userList);
 		return mv;
+	}
+	
+	@RequestMapping("addFriend")
+	public String addFriend(HttpServletRequest request,String friendId){
+		HttpSession session = request.getSession();
+		String userId = (String)session.getAttribute("userId");
+		int result = friendService.addFriend(userId,friendId);
+		return "main/main";
 	}
 }

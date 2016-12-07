@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="boardMapper">
+	 <resultMap type="noticeDTO" id="selectNoticeMap">
+	 	<id column="notice_no" property="noticeNo"/>
+	 	<result column="state" property="state"/>
+	 	<result column="sender" property="sender"/>
+	 	<result column="receiver" property="receiver"/>
+	 	<result column="send_date" property="sendDate"/>
+	 	<result column="content" property="content"/>
+	 	<result column="check_state" property="checkState"/>
+	 </resultMap>
+	 <insert id="insertNotice" parameterType="Map">
+	 	insert into notice_table(notice_no,state,sender,receiver,send_date,content,check_state)
+	 	values(notice_sequence.nextval,#{state},#{userId},#{friendId},sysdate,#{content,jdbcType=VARCHAR},'0');
+	 </insert>
+</mapper>

@@ -110,13 +110,8 @@ CREATE TABLE notice_table
 	sender VARCHAR2(50) references user_table(id) not null, -- 보내는 사람
 	receiver VARCHAR2(50) references user_table(id) not null, -- 받는 사람
 	send_date DATE NOT NULL, -- 보낸 날짜
+	content VARCHAR2(4000),
 	check_state VARCHAR2(1) NOT NULL -- 읽음 유무(0:읽지 않음,1:읽음)
-);
-
-CREATE TABLE notice_content_table
-(  
-	content VARCHAR2(4000) NOT NULL ,
-	notice_no NUMBER references notice_table(notice_no) unique
 );
 
 create sequence reply_sequence nocache;
