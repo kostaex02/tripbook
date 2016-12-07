@@ -80,7 +80,7 @@
 					</div>
 					<div class="form-login">
 						<div class="col-sm-offset-6 col-sm-6">
-							<a href="#registerForm" data-toggle="modal">회원가입</a> / <a
+							<a href="#registerModal" data-toggle="modal">회원가입</a> / <a
 								href="#">아이디 찾기</a> / <a href="#">비밀번호 찾기</a>
 						</div>
 					</div>
@@ -96,19 +96,19 @@
 		</article>
 		
 		<!-- Modal -->
-		<div class="modal fade" id="registerForm" role="dialog">
+		<div class="modal fade" id="registerModal" role="dialog">
 			<div class="modal-dialog modal-sm">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 						<h4 class="modal-title">회원가입</h4>
 					</div>
-					<form action="register" method="post" enctype="multipart/form-data">
+					<form id="registerForm" action="register" method="post" enctype="multipart/form-data" onsubmit="alert('1')">
 						<div class="modal-body">
 							<div id="inputId" class="input-group">
 								<span class="input-group-addon"> <i><img
 										src='<c:url value="/images/icon_id20.png"/>'></i></span> 
-										<input id="email" type="text"
+										<input id="email" type="email"
 									class="form-control" name="id"
 									placeholder="Email"> 
 									<span id="checkingID" aria-hidden="true"></span>
@@ -122,12 +122,12 @@
 									name="password" placeholder="Password">
 							</div>
 							<br>
-							<div id="inputPassword" class="input-group">
+							<div id="inputPasswordCheck" class="input-group">
 								<span class="input-group-addon"> <i><img
 										src='<c:url value="/images/icon_passwordCheck20.png"/>'></i></span>
 								<input id="passwordCheck" type="password" class="form-control"
 									name="passwordCheck" placeholder="Password check">
-									<span id="checkingPassword" aria-hidden="true"></span>
+									<span id="checkingPasswordCheck" aria-hidden="true"></span>
 							</div>
 							<br>
 							<div class="input-group">
@@ -167,7 +167,6 @@
 						
 						<div class="modal-footer">
 							<input type="submit" class="btn btn-primary" value="가입">
-							</button>
 							<button type="button" class="btn btn-default"
 								data-dismiss="modal">닫기</button>
 						</div>
@@ -369,13 +368,23 @@
 			
 			$('#passwordCheck').keyup(function() {
 				if ($(this).val() == $('#password').val()) {
-					$('#inputPassword').removeClass('has-error has-feedback').addClass('has-success has-feedback');
-					$('#checkingPassword').removeClass('glyphicon glyphicon-remove form-control-feedback').addClass('glyphicon glyphicon-ok form-control-feedback')				
+					$('#inputPasswordCheck').removeClass('has-error has-feedback').addClass('has-success has-feedback');
+					$('#checkingPasswordCheck').removeClass('glyphicon glyphicon-remove form-control-feedback').addClass('glyphicon glyphicon-ok form-control-feedback')				
 				}else{
-					$('#inputPassword').removeClass('has-success has-feedback').addClass('has-error has-feedback');
-					$('#checkingPassword').removeClass('glyphicon glyphicon-ok form-control-feedback').addClass('glyphicon glyphicon-remove form-control-feedback')
+					$('#inputPasswordCheck').removeClass('has-success has-feedback').addClass('has-error has-feedback');
+					$('#checkingPasswordCheck').removeClass('glyphicon glyphicon-ok form-control-feedback').addClass('glyphicon glyphicon-remove form-control-feedback')
 				}
-			})
+			});
+			
+			function validateForm(){
+				var name = document.forms["registerForm"]["id"].value;
+				alert(name);
+				if(name==""){
+					alert("아이디 입력?");
+					return false;
+				}
+			}
+			
 		})
 	</script>
 
