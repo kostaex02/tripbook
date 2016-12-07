@@ -5,37 +5,42 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style type="text/css">
-#friendsList {
+.friendsList {
 	margin-top: 20px;
 }
 
-#friends {
+.friendsProfile {
 	width: 100%;
 	display: inline-table;
 }
 
-.picture {
+.friendsPicture {
 	display: table-cell;
-	width: 50px;
+	width: 70px;
 }
 
-#friendsProfile {
+.friendsName {
 	display: table-cell;
 	vertical-align: middle;
 	text-align: center;
 	width: 70%;
 }
 
-.friendPicture {
+.friendsId {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	width: 70%;
+}
+
+.friendPictureImg {
 	width: 70px;
 	height: 70px;
 	position: relative;
 	float: left;
-	margin: -10px;
-	margin-bottom: -15px;
 }
 
-#button{
+.friendsButton{
 	display: table-cell;
 	vertical-align: middle;
 }
@@ -43,17 +48,17 @@
 </style>
 </head>
 <body>
-	<div id="friendsList">
+	<div class="friendsList">
 		<ul class="grow">
 			<c:forEach items="${userList }" var="item" varStatus="state">
-				<li id="friends">
-					<div class="picture">
-						<img class="friendPicture" src='<c:url value="/images/img.jpg"/>'>
+				<li class="friendsProfile">
+					<div class="friendsPicture">
+						<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
 					</div>
-					<input type="text" value="${item.id} ">
-					<div id="friendsProfile">${item.name } <br> id는 히든<br></div>
-					<div id="button">
-						<input type="submit" value="message">
+					<input type="hidden" value="${item.id}">
+					<div class="friendsName">${item.name }</div>
+					<div class="friendsButton">
+						<input type="button" value="message">
 					</div>
 				</li>
 			</c:forEach>

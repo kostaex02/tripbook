@@ -16,12 +16,10 @@
 }
 
 .mypageLogList {
-	border: 1px solid gray;
 	margin-top: 20px;
 }
 
 .mypageLogStory {
-	border: 1px solid pink;
 	width: 100%;
 	display: inline-table;
 }
