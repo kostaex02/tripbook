@@ -100,6 +100,7 @@
 			select: function(start, end) {
 				//alert(moment(start).format('YYYY-MM-DD hh:mm'));
 				var title = prompt('제목을 입력하세요');
+				
 				var eventData;
 				if (title) {
 					eventData = {

@@ -54,11 +54,7 @@
 </head>
 <body>
 	<div id="mypageNotice">
-		${user.id }<br>
-		${user.name }<br>
-		${user.age }<br>
-		${user.gender }<br>
-		${user.fileName }<br>
+		공지사항?
 	</div>
 	<div class="mypageLogList">
 		<ul class="grow">

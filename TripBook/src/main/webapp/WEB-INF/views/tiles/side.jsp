@@ -84,10 +84,10 @@
 
 
 	<div id='sideNav'>
-			<a class='sideProfileLink'href='<c:url value="/mypage/profile"/>'><div id='sideProfile'>
+			<a class='sideProfileLink'href='<c:url value="/mypage/mypage"/>'><div id='sideProfile'>
 				<img class='profileImage' src='<c:url value="/tripbook/user/${userId}/${userFileName}"/>'>
 				<div class='userName'>${userName}</div>
-				<a class='logout' href='<c:url value="/main/logout"/>'>정보수정</a>
+				<a class='logout' href='<c:url value="/mypage/profile"/>'>정보수정</a>
 				<a class='logout' href='<c:url value="/main/logout"/>'>로그아웃</a>
 			</div>
 		</a>

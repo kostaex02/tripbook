@@ -1,0 +1,85 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="register" method="post" enctype="multipart/form-data">
+		<div class="modal-body">
+			<div id="inputId" class="input-group">
+				<span class="input-group-addon"> <i><img
+						src='<c:url value="/images/icon_id20.png"/>'></i></span> 
+						<label>${user.id}</label>
+
+			</div>
+			<br>
+			<div class="input-group">
+				<span class="input-group-addon"> <i><img
+						src='<c:url value="/images/icon_password20.png"/>'></i></span> <input
+					id="password" type="password" class="form-control"
+					name="password" placeholder="Password">
+			</div>
+			<br>
+			<div id="inputPassword" class="input-group">
+				<span class="input-group-addon"> <i><img
+						src='<c:url value="/images/icon_passwordCheck20.png"/>'></i></span>
+				<input id="passwordCheck" type="password" class="form-control"
+					name="passwordCheck" placeholder="Password check">
+					<span id="checkingPassword" aria-hidden="true"></span>
+			</div>
+			<br>
+			<div class="input-group">
+				<span class="input-group-addon"> <i><img
+						src='<c:url value="/images/icon_user20.png"/>'></i></span> <input
+					id="name" type="text" class="form-control" name="name"
+					value="${user.name}">
+			</div>
+			<br>
+			<div class="input-group">
+				<span class="input-group-addon"> <i><img
+						src='<c:url value="/images/icon_birth20.png"/>'></i></span> <input
+					id="age" type="number" class="form-control" name="age"
+					value="${user.age}">
+			</div>
+			<br>
+			<div class="input-group">
+				<span class="input-group-addon"> <i><img
+						src='<c:url value="/images/icon_birth20.png"/>'></i></span> 
+				<c:choose>
+					<c:when test="${user.gender eq 0}">		
+						<input type="radio" name="gender" value="0" checked="checked">남자
+						<input type="radio" name="gender" value="1">여자
+					</c:when>
+					<c:otherwise>
+						<input type="radio" name="gender" value="0">남자
+						<input type="radio" name="gender" value="1" checked="checked">여자
+					</c:otherwise>
+				</c:choose>
+			</div>
+			<br>
+			<div class="input-group">
+				
+				<input id="picture" type="text" class="form-control"
+					value="사진선택" disabled>
+				<div class="input-group-btn">
+					<button class="btn btn-default" type="button"
+						id="buttonLoadPicture">
+						<i><img src='<c:url value="/images/icon_picture20.png"/>'></i>
+					</button>
+				</div>
+				<input id=file-upload name="file" class="file-upload" type="file" accept="image/*" style="display:none">
+				
+			</div>
+		
+		<div class="modal-footer">
+			<input type="submit" class="btn btn-primary" value="가입">
+			</button>
+			<button type="button" class="btn btn-default"
+				data-dismiss="modal">닫기</button>
+		</div>
+	</form>
+</body>
+</html>
