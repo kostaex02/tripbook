@@ -38,7 +38,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="searchUser" parameterType="String" resultMap="selectUserMap">
-		select id,name,age,gender,file_name from user_table where (name like '%${value}%')
+		select id,name,age,gender,file_name from user_table where (name like '%${value}%') and state='0'
 	</select>
 	
 	<update id="updateUser" parameterType="userDTO">
