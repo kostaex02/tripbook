@@ -1,5 +1,8 @@
 package com.tripbook.controller;
 
+import java.io.File;
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -62,9 +65,28 @@ public class HomeController {
 	
 	@RequestMapping("register")
 	public String register(HttpServletRequest request,UserDTO user,MultipartFile file){
-		int result = userService.register(user);
-		if(result==0){
-			request.setAttribute("errMessage", "가입 실패");
+		String saveDir = "c://tripbook//user//"+user.getId()+"//";
+		File folder = new File(saveDir);
+		if (!folder.exists()) {
+			folder.mkdirs();
+		}
+		if(file!=null){
+			user.setFileName(file.getOriginalFilename());
+			try {
+				file.transferTo(new File(saveDir+user.getFileName()));
+				int result = userService.register(user);
+				if(result==0){
+					request.setAttribute("errMessage", "가입 실패");
+				}
+			} catch (IllegalStateException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else{
+			int result = userService.register(user);
+			if(result==0){
+				request.setAttribute("errMessage", "가입 실패");
+			}
 		}
 		return "home";
 	}

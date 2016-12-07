@@ -1,17 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<html lang="en" class="no-js">
+<html class="no-js">
 <head>
-<meta charset="UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Inspiration for Article Intro Effects | Demo 2</title>
-<meta name="description" content="Inspiration for Article Intro Effects" />
-<meta name="keywords"
-	content="title, header, effect, scroll, inspiration, medium, web design" />
-<meta name="author" content="Codrops" />
-<link rel="shortcut icon" href="../favicon.ico">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>TripBook</title>
+
 <!-- Bootstrap core CSS -->
 <link href='<c:url value="/resources/css/bootstrap/bootstrap.min.css"/>'
 	rel='stylesheet' />
@@ -52,7 +46,7 @@
 	display: none;
 }
 </style>
-<body class="demo-2">
+<body>
 	<div id="container" class="container intro-effect-fadeout">
 		<header class="header">
 			<div class="bg-img">
@@ -98,9 +92,9 @@
 		<button class="trigger">
 			<span>Trigger</span>
 		</button>
-		<article class="content"></article>
-
-
+		<article class="content">
+		</article>
+		
 		<!-- Modal -->
 		<div class="modal fade" id="registerForm" role="dialog">
 			<div class="modal-dialog modal-sm">
@@ -148,7 +142,7 @@
 							<div class="input-group">
 								<span class="input-group-addon"> <i><img
 										src='<c:url value="/images/icon_birth20.png"/>'></i></span> <input
-									id="age" type="text" class="form-control" name="age"
+									id="age" type="number" class="form-control" name="age"
 									placeholder="나이">
 							</div>
 							<br>
@@ -361,7 +355,10 @@
 					data : 'userId=' + $(this).val(),
 					dataType : "text",
 					success : function(data) {
+						var str = "";
 						if (data > 0) {
+							str = "<span class='glyphicon glyphicon-remove form-control-feedback'"+
+									"aria-hidden='true'></span>"
 							alert('존재하는 아이디');
 						}
 					},
