@@ -80,9 +80,9 @@
 			</div>
 		
 		<div class="modal-footer">
-			<input type="submit" class="btn btn-primary" value="수정">
-			</button>
-			<a href="<c:url value="/mypage/mypage"/>" class="btn btn-default">닫기</a>
+			<input type="submit" class="btn btn-primary" value="수정하기">
+			<a href="#" class="btn btn-primary">탈퇴하기</a>
+			<a href="<c:url value="/mypage/mypage"/>" class="btn btn-default">이전</a>
 		</div>
 	</form>
 </body>
