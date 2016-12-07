@@ -74,7 +74,7 @@
 		<tiles:insertAttribute name="content"/>
 	</div>
 </div>
-	
+
 	
 	
 <script src='<c:url value="/resources/js/bootstrap/bootstrap.min.js"/>' charset="utf-8"></script>	
@@ -86,6 +86,15 @@
   <script>
     $(document).ready(function() {
       $('.drawer').drawer();
+      
+      function error(){
+    	  var errMessage = <%= request.getAttribute("errMessage") %>;
+    	  if(errMessage!=null){
+    		  alert("오류!");
+    	  }
+      }
+      
+      error();
     });
   </script>	
 
