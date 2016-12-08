@@ -125,6 +125,64 @@ a {
 hr {
 	margin-top: 0px;
 }
+
+.controls {
+  margin-top: 10px;
+  border: 1px solid transparent;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 32px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 300px;
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+}
+
+.pac-container {
+  font-family: Roboto;
+  background-color: #FFF;
+    z-index: 20;
+    position: fixed;
+    display: inline-block;
+    float: left;
+}
+
+#type-selector {
+  color: #fff;
+  background-color: #4d90fe;
+  padding: 5px 11px 0px 11px;
+}
+
+#type-selector label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}
+#target {
+        width: 345px;
+}
+
+.modal{
+    z-index: 20;   
+}
+.modal-backdrop{
+    z-index: 10;        
+}​
+
 </style>
 
 <link rel="stylesheet"
@@ -139,7 +197,7 @@ hr {
 	<div id='mainNewBoard'>
 		게시글 작성 영역
 		<hr>
-		<input class="btn btn-primary btn-sm" type='button' value='일반게시물' data-toggle="modal" data-target="#addGeneralBoard" data-keyboard="true">
+		<input class="btn btn-primary btn-sm" type='button' value='일반게시물' data-toggle="modal" data-target="#addGeneralBoard" data-keyboard="false">
 		<input class="btn btn-primary btn-sm" type='button' value='여행게시물'>
 	</div>
 	<hr>
@@ -314,7 +372,7 @@ hr {
 	<div class="modal fade" id="addGeneralBoard" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form action="#" method="post" enctype="multipart/form-data">
+				<form action="#" method="post" enctype="multipart/form-data" onkeydown="return captureReturnKey(event)">
 					<div class="modal-header">
 						일반게시물
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -346,6 +404,12 @@ hr {
 								</div>
 								<div class="newGeneralBoardMultiList"></div>
 								<div class="newGeneralMap"></div>
+								
+							</div>
+							<div class="newGeneralBoardMap" style="width:100%;">
+							<!-- map부분 -->
+							<input id="pac-input" class="controls" type="text" placeholder="Search Box">
+    						<div id="map" style="width:100%; height:300px;"></div>
 							</div>
 						</div>
 					</div>
@@ -432,9 +496,78 @@ hr {
  	<script src="<c:url value="/resources/js/main/jQuery.MultiFile.min.js"/>"></script>
 
 	<script src='<c:url value="/resources/js/main/stroll.min.js"/>'></script>
+	
 	<script>
-		/* 스크롤 효과 */
-		stroll.bind('.mainAllBoard ul');
+	//enter키 금지
+	function captureReturnKey(e) { 
+	    if(e.keyCode==13 && e.srcElement.type != 'textarea') 
+	    return false; 
+	} 
+	
+	//구글 map API
+	function initAutocomplete() {
+		  var map = new google.maps.Map(document.getElementById('map'), {
+		    center: {lat: -33.8688, lng: 151.2195},
+		    zoom: 13,
+		    mapTypeId: google.maps.MapTypeId.ROADMAP
+		  });
+
+		  var infowindow = new google.maps.InfoWindow(); // 정보 상세창 올리기
+		  // Create the search box and link it to the UI element.
+		  var input = document.getElementById('pac-input');
+		  var searchBox = new google.maps.places.SearchBox(input);
+		  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+		  // Bias the SearchBox results towards current map's viewport.
+		  map.addListener('bounds_changed', function() {
+		    searchBox.setBounds(map.getBounds());
+		  });
+
+		  var markers = [];
+		  // [START region_getplaces]
+		  // Listen for the event fired when the user selects a prediction and retrieve
+		  // more details for that place.
+		  searchBox.addListener('places_changed', function() {
+		    var places = searchBox.getPlaces();
+			if (places.length == 0) {
+		      return;
+		    }
+			// Clear out the old markers.
+		    markers.forEach(function(marker) {
+		      marker.setMap(null);
+		    });
+		    markers = [];
+
+		    // For each place, get the icon, name and location.
+		    var bounds = new google.maps.LatLngBounds();
+		    places.forEach(function(place) {
+		      alert(place.geometry.location);
+		        
+		      // Create a marker for each place.
+		      markers.push(new google.maps.Marker({
+		        map: map,
+		        title: place.name,
+		        position: place.geometry.location
+		      }));
+		      
+		      google.maps.event.addListener(markers,'click',function(){
+		    	 infowindow.setContent(place.name);
+		    	 infowindow.open(map, this);
+		      });
+		      
+		      if (place.geometry.viewport) {
+		        // Only geocodes have viewport.
+		        bounds.union(place.geometry.viewport);
+		      } else {
+		        bounds.extend(place.geometry.location);
+		      }
+		    });
+		    map.fitBounds(bounds);
+		  });
+		  // [END region_getplaces]
+		} 
+	/* 스크롤 효과 */
+	stroll.bind('.mainAllBoard ul');
 
 		/* 타이틀 포커스 효과 */
 		$(document)
@@ -485,6 +618,13 @@ hr {
 			})
 			
 		}); 
+		
+		$('#addGeneralBoard').on('shown.bs.modal', function () {
+		    google.maps.event.trigger(map, "resize");
+		});
+		
 	</script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBv7i1sbKKdVRfbilHi8obuYThFnE3P9ZA&libraries=places&callback=initAutocomplete"
+         async defer></script>
 </body>
 </html>
