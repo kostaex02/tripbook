@@ -13,7 +13,13 @@ $(function(){
 			data : 'friendId=' + $(this).parents().siblings("input").attr('id'),
 			dataType : "text",
 			success : function(data) {
-				console.log(data)
+				if(data==2){
+					alert("이미 신청");
+				}else if(data==1){
+					alert("신청 성공");
+				}else{
+					alert("신청 실패");	
+				}
 			},
 			error : function() {
 				alert('error')
