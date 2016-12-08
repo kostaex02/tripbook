@@ -139,11 +139,8 @@ hr {
 	<div id='mainNewBoard'>
 		게시글 작성 영역
 		<hr>
-		<a href="#" data-toggle="modal" data-target="#addGeneralBoard">게시물</a>
-		<input type='button' value='일반게시물'
-			onclick="location.href='<c:url value="/main/newGeneralBoard"/>'">
-
-		<input type='button' value='여행게시물'>
+		<input class="btn btn-primary btn-sm" type='button' value='일반게시물' data-toggle="modal" data-target="#addGeneralBoard" data-keyboard="true">
+		<input class="btn btn-primary btn-sm" type='button' value='여행게시물'>
 	</div>
 	<hr>
 	<div class='mainAllBoard'>
@@ -334,12 +331,21 @@ hr {
 							</div>
 							<hr>
 							<div class="newGeneralBoardSelect">
-								<img class="newGeneralBoardUploadImg"
-									src='<c:url value="/images/icon_upload.png"/>' /> <input
-									type="file" class="newGeneralBoardMulti with-preview" multiple />
+								<div class="input-group-btn">
+									<button class="btn btn-default btn-sm" type="button" id="newGeneralBoardUploadImg">
+										<i><img src='<c:url value="/images/icon_upload.png"/>' width="64px" height="64px"></i>
+									</button>
+									<button class="btn btn-default btn-sm" type="button" id="newGeneralBoardMap">
+										<i><img src='<c:url value="/images/icon_map.png"/>' width="64px" height="64px"></i>
+									</button>
+								</div>
+								<input type="file" class="newGeneralBoardMulti with-preview" style="display:none" multiple/>
+								<div class="btn-group groupMap" role="group" style="display:none">
+									<button type="button" class="btn btn-default btn-sm" id="insideDaumMap">국내</button>
+									<button type="button" class="btn btn-default btn-sm" id="insideGoogleMap">해외</button>
+								</div>
 								<div class="newGeneralBoardMultiList"></div>
-								<img class="newGeneralBoardMap"
-									src="<c:url value="/images/icon_map.png"/>">
+								<div class="newGeneralMap"></div>
 							</div>
 						</div>
 					</div>
@@ -350,8 +356,8 @@ hr {
 							<option value="그룹보기">그룹보기</option>
 							<option value="비공개">비공개</option>
 						</select>
-						<button type="button" class="btn btn-default" id="submit">등록</button>
-						<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+						<button type="submit" class="btn btn-default btn-sm">등록</button>
+						<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">취소</button>
 					</div>
 				</form>
 			</div>
@@ -366,8 +372,7 @@ hr {
 			<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-hidden="true">&times;</button>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					<h4 class="modal-title">detail information</h4>
 				</div>
 				<div class="modal-body">
@@ -415,8 +420,7 @@ hr {
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Ok</button>
+					<button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Close</button>
 				</div>
 			</div>
 		</div>
@@ -425,7 +429,7 @@ hr {
 
 
 	<script src='<c:url value="/resources/js/calendar/lib/jquery.min.js"/>'></script>
-	<script src="<c:url value="/resources/js/main/jQuery.MultiFile.min.js"/>"></script>
+ 	<script src="<c:url value="/resources/js/main/jQuery.MultiFile.min.js"/>"></script>
 
 	<script src='<c:url value="/resources/js/main/stroll.min.js"/>'></script>
 	<script>
@@ -453,7 +457,7 @@ hr {
 
 		/* 멀티파일 설정 */
 		$(function() {
-				$('.newGeneralBoardMulti').MultiFile({
+			$('.newGeneralBoardMulti').MultiFile({
 					//max : 3, //업로드 최대 파일 갯수 (지정하지 않으면 무한대)
 					accept : 'jpg|png|gif', //허용할 확장자(지정하지 않으면 모든 확장자 허용)
 					//maxfile : 1024, //각 파일 최대 업로드 크기
@@ -468,8 +472,19 @@ hr {
 					//toobig : "$file 은 크기가 매우 큽니다. (max $size)"
 					},
 					list : ".newGeneralBoardMultiList" //파일목록을 출력할 요소 지정가능
-				});
-		});
+			});
+				 
+			
+			$('#newGeneralBoardUploadImg').click(function() {
+				$('.groupMap').hide();		
+				$('.newGeneralBoardMulti').show();
+			});
+			$('#newGeneralBoardMap').click(function(){
+				$('.newGeneralBoardMulti').hide();
+				$('.groupMap').show();	
+			})
+			
+		}); 
 	</script>
 </body>
 </html>
