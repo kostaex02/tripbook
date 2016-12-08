@@ -138,7 +138,7 @@ textarea{
 				<form action='' method="post">
 					<div class="modal-body">
 						<input type='text' class="form-control" name="receiver" placeholder="받는 사람">
-						<textarea placeholder="메세지를 입력하세요" ></textarea>
+						<textarea placeholder="메세지를 입력하세요" name="message"></textarea>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" id="submit">등록</button>
