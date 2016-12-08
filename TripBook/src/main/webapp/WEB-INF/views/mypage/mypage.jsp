@@ -13,6 +13,7 @@
 <style type="text/css">
 #mypageNotice {
 	border: 1px solid red;
+	margin:
 }
 
 .mypageLogList {

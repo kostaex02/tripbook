@@ -110,6 +110,7 @@ textarea{
 		</ul>
 	</div>
 	
+	
 	<!-- 공지사항 작성 Modal -->
 	<div class="modal fade" id="addNotice" role="dialog">
 		<div class="modal-dialog">
@@ -120,7 +121,7 @@ textarea{
 				</div>
 				<form action='' method="post">
 					<div class="modal-body">
-						<textarea placeholder="공지사항을 입력하세요"></textarea>
+						<textarea placeholder="공지사항을 입력하세요" name="notice"></textarea>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" id="submit">등록</button>

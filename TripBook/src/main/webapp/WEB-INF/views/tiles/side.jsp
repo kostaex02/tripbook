@@ -85,11 +85,18 @@
 
 	/* a 태그 밑줄 제거 */
 	a:hover{
-		text-decoration:none !important
+		text-decoration:none !important;
+		color:white;
 	}
 	a{
 		text-decoration:none !important;
 		color:white;
+	}
+	.sideAddGroupButton{
+		color:black;
+	}
+	.sideAddGroupButton:hover{
+		color:black;
 	}
 	
 	
@@ -173,7 +180,7 @@
 			<p>
 			<div id='sideGroup'> 
 				<dl>
-					<dd><a data-toggle="modal" data-target="#myModal">+ 그룹 추가</a></dd>
+					<dd><a class="sideAddGroupButton" data-toggle="modal" data-target="#myModal">+ 그룹 추가</a></dd>
 					<dd>학교친구</dd>
 					<dd>직장동료</dd>
 				</dl>
