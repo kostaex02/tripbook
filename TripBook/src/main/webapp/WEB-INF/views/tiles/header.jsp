@@ -88,6 +88,7 @@
 			<div class="jbTableCell jbSubmit">
 				<input class="btn btn-default" type="submit" id="searchButton" value="검색">
 			</div>
+			
 			</form>
 		</div>
 		
