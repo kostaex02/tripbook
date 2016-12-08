@@ -72,16 +72,72 @@
 		height:130px;
 	}
 	
-	.userName{
+
+	
+	#adminSideNav, #sideNav:hover{
+		text-decoration:none !important
+	}
+	.logout, .userName, #adminSideNav, #adminSideHome, #adminSideNotice, #adminSideMessge, #adminSideBoard, #adminSideUser, #sideSchedule, #sideHome, #sideBiography, #sideFriend, #sideNav :hover{
+		text-decoration:none !important;
 		color:white;
 	}
 	
-	.sideProfileLink:hover{
-		text-decoration:none !important
+	
+	/* admin menu */
+	
+	#adminSideHome, #adminSideNotice, #adminSideMessge, #adminSideBoard, #adminSideUser{
+		height:50px;
+		line-height: 50px;
 	}
-	#sideSchedule, #sideHome, #sideBiography, #sideFriend, #sideNav :hover{
-		text-decoration:none !important
+	
+	#adminSideNav{
+		text-align: center;
+		clear: both;
+		position: relative;
 	}
+	
+	#adminSideProfile{
+		position: relative;
+		line-height: 40px;
+		padding:0px;
+		background-color:maroon;
+		width:96%;
+	}
+	
+	
+	#adminSideHome{
+		position: relative;
+		padding:0px;
+		background-color:maroon;
+		width:96%;
+	}
+	
+	#adminSideNotice{
+		background-color:navy;
+		float:left;
+		width:48%;
+		left:0%
+	}
+	
+	#adminSideMessge{
+		background-color:olive;
+		float:left;
+		width:48%;
+		left:0%
+	}
+	
+	#adminSideBoard{
+		background-color:teal;
+		width:96%;
+		clear: both;
+	}
+	
+	#adminSideUser{
+		background-color:silver;
+		width:96%;
+	}
+	
+	
 	
 </style>
 
@@ -89,7 +145,7 @@
 <body>
 
 <c:choose>
-	<c:when test="">
+	<c:when test="${userState eq '0'}">
 		<div id='sideNav'>
 			<a class='sideProfileLink'href='<c:url value="/mypage/mypage"/>'><div id='sideProfile'>
 				<img class='profileImage' src='<c:url value="/tripbook/user/${userId}/${userFileName}"/>'>
@@ -113,18 +169,20 @@
 		</div>
 	</c:when>
 	<c:otherwise>
-
-
-
-
-
-
-
-
-
-
-
-
+		<div id='adminSideNav'>
+			<a class='adminSideHome' href='<c:url value="/main/main"/>'>
+				<div id='adminSideProfile'>
+					<div class='userName'>${userName}</div>
+					<a class='logout' href='<c:url value="/main/logout"/>'>로그아웃</a>
+				</div>
+			</a>
+			<a href='<c:url value="/mypage/mypage"/>'><div id='adminSideNotice'>공지사항</div></a>
+			<a href='<c:url value="/mypage/mypage"/>'><div id='adminSideMessge'>메세지</div></a>
+			<a href='<c:url value="/main/main"/>'><div id='adminSideBoard'>게시물 관리</div></a>
+			<a href='<c:url value="/friends/friends"/>'><div id='adminSideUser'>회원관리</div></a>
+			<p>
+			
+		</div>
 	</c:otherwise>
 </c:choose>
 
