@@ -106,7 +106,7 @@ a {
 	display: inline-table;
 }
 
-.newGeneralBoardSelect{
+.newGeneralBoardSelect {
 	display: inline-block;
 	color: #999;
 	font-size: inherit;
@@ -122,7 +122,7 @@ a {
 	display: inline-block;
 }
 
-hr{
+hr {
 	margin-top: 0px;
 }
 </style>
@@ -156,7 +156,7 @@ hr{
 						<b>User ID</b> 12월 03일 오전 11:41
 						</p>
 						<div class='picture'>
-							<a href="#" data-toggle="modal" data-target="#image"><img
+							<a href="#" data-toggle="modal" data-target="#detailPicture"><img
 								src='<c:url value="/images/img.jpg"/>' style="width: 100px"></a>
 						</div>
 						<div class='replys'>
@@ -176,7 +176,7 @@ hr{
 						<b>User ID</b> 12월 03일 오전 11:41
 						</p>
 						<div class='picture'>
-							<a href="#" data-toggle="modal" data-target="#image"><img
+							<a href="#" data-toggle="modal" data-target="#detailPicture"><img
 								src='<c:url value="/images/img.jpg"/>' style="width: 100px"></a>
 						</div>
 						<div class='replys'>
@@ -196,7 +196,7 @@ hr{
 						<b>User ID</b> 12월 03일 오전 11:41
 						</p>
 						<div class='picture'>
-							<a href="#" data-toggle="modal" data-target="#image"><img
+							<a href="#" data-toggle="modal" data-target="#detailPicture"><img
 								src='<c:url value="/images/img.jpg"/>' style="width: 100px"></a>
 						</div>
 						<div class='replys'>
@@ -216,7 +216,7 @@ hr{
 						<b>User ID</b> 12월 03일 오전 11:41
 						</p>
 						<div class='picture'>
-							<a href="#" data-toggle="modal" data-target="#image"><img
+							<a href="#" data-toggle="modal" data-target="#detailPicture"><img
 								src='<c:url value="/images/img.jpg"/>' style="width: 100px"></a>
 						</div>
 						<div class='replys'>
@@ -236,7 +236,7 @@ hr{
 						<b>User ID</b> 12월 03일 오전 11:41
 						</p>
 						<div class='picture'>
-							<a href="#" data-toggle="modal" data-target="#image"><img
+							<a href="#" data-toggle="modal" data-target="#detailPicture"><img
 								src='<c:url value="/images/img.jpg"/>' style="width: 100px"></a>
 						</div>
 						<div class='replys'>
@@ -256,7 +256,7 @@ hr{
 						<b>User ID</b> 12월 03일 오전 11:41
 						</p>
 						<div class='picture'>
-							<a href="#" data-toggle="modal" data-target="#image"><img
+							<a href="#" data-toggle="modal" data-target="#detailPicture"><img
 								src='<c:url value="/images/img.jpg"/>' style="width: 100px"></a>
 						</div>
 						<div class='replys'>
@@ -276,7 +276,7 @@ hr{
 						<b>User ID</b> 12월 03일 오전 11:41
 						</p>
 						<div class='picture'>
-							<a href="#" data-toggle="modal" data-target="#image"><img
+							<a href="#" data-toggle="modal" data-target="#detailPicture"><img
 								src='<c:url value="/images/img.jpg"/>' style="width: 100px"></a>
 						</div>
 						<div class='replys'>
@@ -296,7 +296,7 @@ hr{
 						<b>User ID</b> 12월 03일 오전 11:41
 						</p>
 						<div class='picture'>
-							<a href="#" data-toggle="modal" data-target="#image"><img
+							<a href="#" data-toggle="modal" data-target="#detailPicture"><img
 								src='<c:url value="/images/img.jpg"/>' style="width: 100px"></a>
 						</div>
 						<div class='replys'>
@@ -332,12 +332,14 @@ hr{
 								<label for="mainExclusive_input">어디를 여행하셨나요?</label> <input
 									name="title" type="text" id="mainExclusive_input">
 							</div>
-							<hr> 
+							<hr>
 							<div class="newGeneralBoardSelect">
-								<img class="newGeneralBoardUploadImg" src='<c:url value="/images/icon_upload.png"/>' />
-								<input type="file" class="newGeneralBoardMulti with-preview" multiple />
+								<img class="newGeneralBoardUploadImg"
+									src='<c:url value="/images/icon_upload.png"/>' /> <input
+									type="file" class="newGeneralBoardMulti with-preview" multiple />
 								<div class="newGeneralBoardMultiList"></div>
-								<img class="newGeneralBoardMap"	src="<c:url value="/images/icon_map.png"/>">
+								<img class="newGeneralBoardMap"
+									src="<c:url value="/images/icon_map.png"/>">
 							</div>
 						</div>
 					</div>
@@ -358,34 +360,6 @@ hr{
 
 	<!-- 이미지 Modal -->
 
-	<!-- Modal -->
-	<div class="modal fade" id="image" role="dialog" tabindex='-1'>
-		<div class="modal-dialog">
-
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-hidden="true">&times;</button>
-					<h4 class="modal-title">information</h4>
-				</div>
-				<div class="modal-body">
-					<a href="#detailPicture" data-toggle="modal" data-keyboard="true"><img
-						src='<c:url value="/images/img.jpg"/>' class="img-rounded"
-						alt="Cinque Terre" width="260" height="200"></a> <a
-						href="#detailPicture" data-toggle="modal"><img
-						src='<c:url value="/images/img.jpg"/>' class="img-rounded"
-						alt="Cinque Terre" width="260" height="200"></a>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Ok</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Modal -->
 	<div class="modal fade" id="detailPicture" role="dialog" tabindex='-1'>
 		<div class="modal-dialog">
 
@@ -401,6 +375,7 @@ hr{
 						data-interval="0">
 						<!-- Indicators -->
 						<ol class="carousel-indicators">
+						<!-- class="active" 첫번째로 나오는 화면. -->
 							<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 							<li data-target="#myCarousel" data-slide-to="1"></li>
 							<li data-target="#myCarousel" data-slide-to="2"></li>
@@ -438,69 +413,66 @@ hr{
 							<span class="sr-only">Next</span>
 						</a>
 					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">Ok</button>
-					</div>
 				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Ok</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
-				<script
-					src='<c:url value="/resources/js/calendar/lib/jquery.min.js"/>'></script>
-				<script
-					src="<c:url value="/resources/js/main/jQuery.MultiFile.min.js"/>"></script>
 
-				<script src='<c:url value="/resources/js/main/stroll.min.js"/>'></script>
-				<script>
-					/* 스크롤 효과 */
-					stroll.bind('.mainAllBoard ul');
+	<script src='<c:url value="/resources/js/calendar/lib/jquery.min.js"/>'></script>
+	<script src="<c:url value="/resources/js/main/jQuery.MultiFile.min.js"/>"></script>
 
-					/* 타이틀 포커스 효과 */
-					$(document).ready(function() {
-										var placeholderTarget = $('.newGeneralBoardTitle input[type="text"]');
+	<script src='<c:url value="/resources/js/main/stroll.min.js"/>'></script>
+	<script>
+		/* 스크롤 효과 */
+		stroll.bind('.mainAllBoard ul');
 
-										//포커스시
-										placeholderTarget.on('focus',
-												function() {
-													$(this).siblings('label')
-															.fadeOut('fast');
-												});
+		/* 타이틀 포커스 효과 */
+		$(document)
+				.ready(
+						function() {
+							var placeholderTarget = $('.newGeneralBoardTitle input[type="text"]');
 
-										//포커스아웃시
-										placeholderTarget
-												.on(
-														'focusout',
-														function() {
-															if ($(this).val() == '') {
-																$(this).siblings('label')
-																		.fadeIn('fast');
-															}
-														});
-									});
-
-					
-					/* 멀티파일 설정 */
-					$(function() {
-						$(".newGeneralBoardUploadImg").click(function() {
-							$('#ex_file').MultiFile({
-								//max : 3, //업로드 최대 파일 갯수 (지정하지 않으면 무한대)
-								accept : 'jpg|png|gif', //허용할 확장자(지정하지 않으면 모든 확장자 허용)
-								//maxfile : 1024, //각 파일 최대 업로드 크기
-								//maxsize : 3024, //전체 파일 최대 업로드 크기
-								STRING : { //Multi-lingual support : 메시지 수정 가능
-									remove : "제거", //추가한 파일 제거 문구, 이미태그를 사용하면 이미지사용가능
-									duplicate : "$file 은 이미 선택된 파일입니다.",
-									denied : "$ext 는(은) 업로드 할수 없는 파일확장자입니다.",
-									selected : '$file 을 선택했습니다.',
-								//toomuch : "업로드할 수 있는 최대크기를 초과하였습니다.($size)",
-								//toomany : "업로드할 수 있는 최대 갯수는 $max개 입니다.",
-								//toobig : "$file 은 크기가 매우 큽니다. (max $size)"
-								},
-								list : ".newGeneralBoardMultiList" //파일목록을 출력할 요소 지정가능
+							//포커스시
+							placeholderTarget.on('focus', function() {
+								$(this).siblings('label').fadeOut('fast');
 							});
-						})
-						
-					});
-				</script>
+
+							//포커스아웃시
+							placeholderTarget.on('focusout', function() {
+								if ($(this).val() == '') {
+									$(this).siblings('label').fadeIn('fast');
+								}
+							});
+						});
+
+		/* 멀티파일 설정 */
+		$(function() {
+			$(".newGeneralBoardUploadImg").click(function() {
+				$('#ex_file').MultiFile({
+					//max : 3, //업로드 최대 파일 갯수 (지정하지 않으면 무한대)
+					accept : 'jpg|png|gif', //허용할 확장자(지정하지 않으면 모든 확장자 허용)
+					//maxfile : 1024, //각 파일 최대 업로드 크기
+					//maxsize : 3024, //전체 파일 최대 업로드 크기
+					STRING : { //Multi-lingual support : 메시지 수정 가능
+						remove : "제거", //추가한 파일 제거 문구, 이미태그를 사용하면 이미지사용가능
+						duplicate : "$file 은 이미 선택된 파일입니다.",
+						denied : "$ext 는(은) 업로드 할수 없는 파일확장자입니다.",
+						selected : '$file 을 선택했습니다.',
+					//toomuch : "업로드할 수 있는 최대크기를 초과하였습니다.($size)",
+					//toomany : "업로드할 수 있는 최대 갯수는 $max개 입니다.",
+					//toobig : "$file 은 크기가 매우 큽니다. (max $size)"
+					},
+					list : ".newGeneralBoardMultiList" //파일목록을 출력할 요소 지정가능
+				});
+			})
+
+		});
+	</script>
 </body>
 </html>

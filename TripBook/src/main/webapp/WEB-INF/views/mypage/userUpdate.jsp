@@ -17,7 +17,7 @@
 			<div id="inputId" class="input-group">
 				<span class="input-group-addon"> <i><img
 						src='<c:url value="/images/icon_id20.png"/>'></i></span><input
-					id="name" type="text" class="form-control" name="name"
+					id="id" type="text" class="form-control" name="id"
 					value="${user.id}" disabled> 
 
 			</div>
