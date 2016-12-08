@@ -11,9 +11,6 @@
 
 <title>Insert title here</title>
 <style type="text/css">
-#adminNotice {
-	border: 1px solid red;
-}
 
 .adminLogList {
 	margin-top: 20px;
@@ -35,13 +32,16 @@
 	text-align: center;
 	width: 70%;
 }
-
+textarea{
+	width:100%;
+	height:300px;
+}
 
 </style>
 </head>
 <body>
 	<div id="adminNotice">
-		공지사항?
+		<a href="#" class='btn btn-primary' data-toggle="modal" data-target="#addNotice">공지사항 작성</a>
 	</div>
 	<div class="adminLogList">
 		<ul class="grow">
@@ -108,6 +108,31 @@
 			
 		</ul>
 	</div>
+	
+	<!-- 공지사항 작성 Modal -->
+	<div class="modal fade" id="addNotice" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					공지사항
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<form action='' method="post">
+					<div class="modal-body">
+						<textarea placeholder="공지사항을 입력하세요"></textarea>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" id="submit">등록</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	
 	<script src='<c:url value="/resources/js/main/stroll.min.js"/>'></script>
 	<script>
 		stroll.bind('ul');
