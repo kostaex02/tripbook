@@ -37,7 +37,7 @@ public class MyPageController {
 	public String update(HttpServletRequest request,UserDTO user,MultipartFile file){
 		HttpSession session = request.getSession();
 		String id = (String)session.getAttribute("userId");
-		String saveDir = request.getSession().getServletContext().getRealPath("/tripbook/user/"+id+"/");
+		String saveDir = request.getSession().getServletContext().getRealPath("/tripbook/user/"+id);
 		File folder = new File(saveDir);
 		user.setId(id);
 		if (folder.exists()) {
@@ -46,6 +46,8 @@ public class MyPageController {
 					f.delete();
 				}
 			}
+			folder.delete();
+			folder.mkdir();
 		}else{
 			folder.mkdir();
 		}
@@ -53,7 +55,7 @@ public class MyPageController {
 		if(file!=null){
 			user.setFileName(file.getOriginalFilename());
 			try {
-				file.transferTo(new File(saveDir+user.getFileName()));
+				file.transferTo(new File(saveDir+"\\"+user.getFileName()));
 				int result = userService.updateUser(user);
 				if(result==0){
 					request.setAttribute("errMessage", "수정 실패");

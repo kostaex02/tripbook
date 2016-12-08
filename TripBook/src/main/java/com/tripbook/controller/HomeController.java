@@ -67,15 +67,20 @@ public class HomeController {
 	@RequestMapping("register")
 	public String register(HttpServletRequest request,UserDTO user,MultipartFile file){
 		String saveDir = request.getSession().getServletContext().getRealPath("/tripbook/user/"+user.getId()+"/");
+
 		File folder = new File(saveDir);
 		if (!folder.exists()) {
 			folder.mkdirs();
-		}
-		if(folder.listFiles()!=null){
-			for(File f:folder.listFiles()){
-				f.delete();
+		}else{
+			if(folder.listFiles()!=null){
+				for(File f:folder.listFiles()){
+					f.delete();
+				}
+				folder.delete();
+				folder.mkdir();
 			}
 		}
+		
 		int idCheck = userService.selectIdState(user.getId(),"0");
 		if(idCheck>0){
 			if(file!=null){
