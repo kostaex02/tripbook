@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public UserDTO login(UserDTO user) {
-		UserDTO tempUser = userDao.selectUser(user);
+		UserDTO tempUser = userDao.loginUser(user);
 		return tempUser;
 	}
 
@@ -35,7 +35,17 @@ public class UserServiceImpl implements UserService {
 		}
 		return result;
 	}
-
+	
+	@Override
+	public int selectIdState(String userId, String state) {
+		Map<String,String> map = new HashMap<>();
+		map.put("userId", userId);
+		map.put("state", state);
+		int result = 0;
+		if(userDao.selectUserIdState(map)!=null) result = 1;
+		return result;
+	}
+	
 	@Override
 	public int register(UserDTO user) {
 		return userDao.insertUser(user);
@@ -82,5 +92,6 @@ public class UserServiceImpl implements UserService {
 	public int deleteUser(String userId) {
 		return userDao.deleteUser(userId);
 	}
+
 
 }

@@ -35,20 +35,27 @@ public class MyPageController {
 	
 	@RequestMapping("update")
 	public String update(HttpServletRequest request,UserDTO user,MultipartFile file){
-		String saveDir = request.getSession().getServletContext().getRealPath("/tripbook/user/"+user.getId()+"/");
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("userId");
+		String saveDir = request.getSession().getServletContext().getRealPath("/tripbook/user/"+id+"/");
 		File folder = new File(saveDir);
+		user.setId(id);
 		if (folder.exists()) {
-			folder.delete();
+			for(File f:folder.listFiles()){
+				f.delete();
+			}
+		}else{
 			folder.mkdir();
 		}
+		
 		if(file!=null){
 			user.setFileName(file.getOriginalFilename());
 			try {
 				file.transferTo(new File(saveDir+user.getFileName()));
 				int result = userService.updateUser(user);
 				if(result==0){
-					request.setAttribute("errMessage", "가입 실패");
-					return "mypage/mypage";
+					request.setAttribute("errMessage", "수정 실패");
+					return "mypage/userUpdate";
 				}
 			} catch (IllegalStateException | IOException e) {
 				// TODO Auto-generated catch block
@@ -57,11 +64,10 @@ public class MyPageController {
 		}else{
 			int result = userService.register(user);
 			if(result==0){
-				request.setAttribute("errMessage", "가입 실패");
-				return "mypage/mypage";
+				request.setAttribute("errMessage", "수정 실패");
+				return "mypage/userUpdate";
 			}
 		}
-		HttpSession session = request.getSession();
 		UserDTO tempUser = userService.selectProfile((String)session.getAttribute("userId"));
 		session.setAttribute("userName", tempUser.getName());
 		session.setAttribute("userFileName", tempUser.getFileName());

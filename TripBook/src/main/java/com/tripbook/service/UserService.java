@@ -6,7 +6,7 @@ import com.tripbook.dto.UserDTO;
 
 public interface UserService {
 	/**
-	 * userDAO를 이용해서 로그인 가능 유무 체크
+	 * userDAO를 이용해서 로그인
 	 */
 	UserDTO login(UserDTO user);
 	
@@ -35,6 +35,14 @@ public interface UserService {
 	 * 유저 정보 수정
 	 */
 	int updateUser(UserDTO userDTO);
-
+	
+	/**
+	 * 유저 삭제
+	 */
 	int deleteUser(String userId);
+	
+	/**
+	 * id,state값을 이용하여 아이디 검색
+	 */
+	int selectIdState(String userId, String state);
 }

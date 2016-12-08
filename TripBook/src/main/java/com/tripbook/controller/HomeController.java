@@ -71,22 +71,49 @@ public class HomeController {
 		if (!folder.exists()) {
 			folder.mkdirs();
 		}
-		if(file!=null){
-			user.setFileName(file.getOriginalFilename());
-			try {
-				file.transferTo(new File(saveDir+user.getFileName()));
+		for(File f:folder.listFiles()){
+			f.delete();
+		}
+		int idCheck = userService.selectIdState(user.getId(),"0");
+		if(idCheck>0){
+			if(file!=null){
+				user.setFileName(file.getOriginalFilename());
+				user.setState("0");
+				try {
+					file.transferTo(new File(saveDir+user.getFileName()));
+					int result = userService.updateUser(user);
+					if(result==0){
+						request.setAttribute("errMessage", "가입 실패");
+					}
+				} catch (IllegalStateException | IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}else{
+				int result = userService.updateUser(user);
+				if(result==0){
+					request.setAttribute("errMessage", "가입 실패");
+				}
+			}
+		}
+		else{
+			if(file!=null){
+				user.setFileName(file.getOriginalFilename());
+				try {
+					file.transferTo(new File(saveDir+user.getFileName()));
+					int result = userService.register(user);
+					if(result==0){
+						request.setAttribute("errMessage", "가입 실패");
+					}
+				} catch (IllegalStateException | IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}else{
 				int result = userService.register(user);
 				if(result==0){
 					request.setAttribute("errMessage", "가입 실패");
 				}
-			} catch (IllegalStateException | IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}else{
-			int result = userService.register(user);
-			if(result==0){
-				request.setAttribute("errMessage", "가입 실패");
 			}
 		}
 		return "home";

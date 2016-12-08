@@ -1,6 +1,7 @@
 package com.tripbook.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +15,17 @@ public class UserDAOImpl implements UserDAO {
 	private SqlSession session;
 	
 	@Override
-	public UserDTO selectUser(UserDTO user) {
-		return session.selectOne("userMapper.selectUserById", user);
+	public UserDTO loginUser(UserDTO user) {
+		return session.selectOne("userMapper.loginUser", user);
 	}
 	@Override
 	public String checkUser(String userId) {
 		return session.selectOne("userMapper.checkUserById",userId);
+	}
+	@Override
+	public String selectUserIdState(Map<String, String> map) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	@Override
 	public int insertUser(UserDTO user) {
@@ -45,5 +51,6 @@ public class UserDAOImpl implements UserDAO {
 	public int deleteUser(String userId) {
 		return session.delete("userMapper.deleteUser",userId);
 	}
-
+	
+	
 }

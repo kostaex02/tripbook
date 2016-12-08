@@ -15,12 +15,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="state" property="state"/>
 	</resultMap>
 	
-	<select id="selectUserById" parameterType="String" resultMap="selectUserMap">
-		select id,name,file_name,state from user_table where id = #{id} and password=#{password}
+	<select id="loginUser" parameterType="String" resultMap="selectUserMap">
+		select id,name,file_name,state from user_table where id = #{id} and password=#{password} and state not in ('2')
 	</select>
 	
 	<select id="checkUserById" parameterType="String" resultType="String">
-		select name from user_table where id = #{value}
+		select name from user_table where id = #{value} and state not in ('2')
 	</select>
 	
 	<insert id="insertUser" parameterType="userDTO">
@@ -44,6 +44,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="updateUser" parameterType="userDTO">
 		update user_table
 		<trim prefix="set" suffixOverrides=",">
+			<if test="password!=null">
+				password=#{password},
+			</if>
 			<if test="name!=null">
 				name=#{name},
 			</if>
