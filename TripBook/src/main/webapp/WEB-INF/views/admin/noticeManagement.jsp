@@ -110,6 +110,7 @@ textarea{
 		</ul>
 	</div>
 	
+	
 	<!-- 공지사항 작성 Modal -->
 	<div class="modal fade" id="addNotice" role="dialog">
 		<div class="modal-dialog">
