@@ -94,6 +94,7 @@
 	}
 	.sideAddGroupButton{
 		color:black;
+		cursor: pointer;
 	}
 	.sideAddGroupButton:hover{
 		color:black;
@@ -156,7 +157,9 @@
 		width:96%;
 	}
 	
-	
+	dl{
+		margin-bottom: 5px;
+	}
 	
 </style>
 
@@ -178,8 +181,11 @@
 			<a href='<c:url value="/biography/biography"/>'><div id='sideBiography'>여행일대기</div></a>
 			<a href='<c:url value="/friends/friends"/>'><div id='sideFriend'>친구</div></a>
 			<p>
-			<div id='sideGroup'> 
-				<dl>
+			<div id='sideGroup'>
+				<dl class="sideGroup">
+					<dd style="cursor: pointer">그룹</dd>
+				</dl>
+				<dl class="sideGroupMenu">
 					<dd><a class="sideAddGroupButton" data-toggle="modal" data-target="#myModal">+ 그룹 추가</a></dd>
 					<dd>학교친구</dd>
 					<dd>직장동료</dd>
@@ -231,6 +237,10 @@ $(function(){
 	$("#searchButton").click(function(){
 		sessionStorage.setItem("pageName", $(this).children("div").attr("id"));
 	});
+	
+	$("#sideGroup").hover(function() {
+		$(this).append($())
+	})
 	
 	 var trash = document.getElementById("trash");
 	    if(sessionStorage.getItem("pageName")!="sideSchedule"){
