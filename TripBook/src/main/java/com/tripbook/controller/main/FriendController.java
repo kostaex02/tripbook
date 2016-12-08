@@ -34,7 +34,6 @@ public class FriendController {
 	public int tryAdd(HttpServletRequest request, String friendId){
 		HttpSession session = request.getSession();
 		String userId = (String) session.getAttribute("userId");
-		System.out.println(friendId);
 		return friendService.addFriend(userId, friendId);
 	}
 	

@@ -12,6 +12,7 @@ import com.tripbook.dao.FriendDAO;
 import com.tripbook.dao.NoticeDAO;
 import com.tripbook.dao.UserDAO;
 import com.tripbook.dto.FriendDTO;
+import com.tripbook.dto.NoticeDTO;
 import com.tripbook.dto.UserDTO;
 @Service
 public class FriendServiceImpl implements FriendService {
@@ -50,11 +51,11 @@ public class FriendServiceImpl implements FriendService {
 		Map<String,String> map = new HashMap<>();
 		map.put("userId", userId);
 		map.put("friendId", friendId);
-		if(friendDAO.selectFriendOnly(map)>0){
+		if(friendDAO.selectFriendOnly(map)!=null){
 			return 2;
 		}else{
 			friendDAO.insertFriend(map);
-			return noticeDAO.insertNotice(map);
+			return noticeDAO.insertNotice(new NoticeDTO("0", userId, friendId));
 		}
 	}
 

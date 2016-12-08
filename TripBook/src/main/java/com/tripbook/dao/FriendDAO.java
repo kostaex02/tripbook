@@ -19,5 +19,5 @@ public interface FriendDAO {
 	/**
 	 * 유저 둘의 관계를 확인하는 테이블
 	 */
-	int selectFriendOnly(Map<String, String> map);
+	String selectFriendOnly(Map<String, String> map);
 }

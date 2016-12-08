@@ -9,6 +9,24 @@ public class NoticeDTO {
 	private String content;
 	private String checkState;
 	
+	
+	
+	public NoticeDTO() {
+		super();
+	}
+	public NoticeDTO(String state, String sender, String receiver) {
+		super();
+		this.state = state;
+		this.sender = sender;
+		this.receiver = receiver;
+	}
+	public NoticeDTO(String state, String sender, String receiver, String content) {
+		super();
+		this.state = state;
+		this.sender = sender;
+		this.receiver = receiver;
+		this.content = content;
+	}
 	public String getContent() {
 		return content;
 	}

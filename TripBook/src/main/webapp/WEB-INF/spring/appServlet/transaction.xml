@@ -42,10 +42,20 @@
 	<beans:bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
 		p:dataSource-ref="dataSource" />
+	<!-- 트랜잭션 방식 1 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="*" propagation="REQUIRED" />
+		</tx:attributes>
+	</tx:advice>
 
+
+	<aop:config>
+		<aop:advisor advice-ref="txAdvice" pointcut="execution(public * com.tripbook.service.*.*(..))" />
+	</aop:config>
 	<!-- spring transaction annotaion설정 -->
-	<tx:annotation-driven transaction-manager="transactionManager"/>
-
+<!-- 	<tx:annotation-driven transaction-manager="transactionManager"/>
+ -->
 </beans:beans>
 
 

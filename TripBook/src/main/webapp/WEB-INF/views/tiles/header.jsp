@@ -56,12 +56,13 @@
 	-webkit-appearance: none; /* 브라우저별 기본 스타일링 제거 */
 	-moz-appearance: none;
 	appearance: none;
-	outline-style: inherit;
+	outline-style: inherit; 
 	
 }
 
 .jbText input[type="text"]:focus{
-	box-shadow: 0 0 1pt 1pt blue;
+	box-shadow: 0 0 2pt 0.5pt #00C6ED;
+	border-color: #00C6ED;
 }
 
 .jbText label{
