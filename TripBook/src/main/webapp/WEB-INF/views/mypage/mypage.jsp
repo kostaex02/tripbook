@@ -64,8 +64,8 @@
 				</div>
 				<div class="mypageMessage">친구하자!</div>
 				<div class="mypageButton">
-					<input type="submit" value="수락">
-					<input type="submit" value="거절">
+					<input class="btn btn-primary" type="submit" value="수락">
+					<input class="btn btn-default" type="submit" value="거절">
 				</div>
 			</li>
 			<li class="mypageLogStory">

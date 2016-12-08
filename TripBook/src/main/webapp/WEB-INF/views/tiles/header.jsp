@@ -86,7 +86,7 @@
 				<label for="exclusive_input">검색을 입력하세요</label> <input type="text" id="exclusive_input" name="keyword">
 			</div>
 			<div class="jbTableCell jbSubmit">
-				<input type="submit" id="searchButton" value="Search">
+				<input class="btn btn-default" type="submit" id="searchButton" value="검색">
 			</div>
 			</form>
 		</div>

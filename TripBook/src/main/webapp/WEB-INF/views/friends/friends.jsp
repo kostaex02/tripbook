@@ -86,7 +86,7 @@
 				</div>
 				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
 				<div class="friendsButton">
-					<input type="submit" value="message">
+					<input class="btn btn-info" type="submit" value="message">
 				</div>
 			</li>
 			<li class="friendsProfile">
