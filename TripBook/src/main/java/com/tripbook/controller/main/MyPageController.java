@@ -38,9 +38,8 @@ public class MyPageController {
 		String saveDir = request.getSession().getServletContext().getRealPath("/tripbook/user/"+user.getId()+"/");
 		File folder = new File(saveDir);
 		if (folder.exists()) {
-			if(folder.delete()){
-				folder.mkdir();
-			}
+			folder.delete();
+			folder.mkdir();
 		}
 		if(file!=null){
 			user.setFileName(file.getOriginalFilename());
