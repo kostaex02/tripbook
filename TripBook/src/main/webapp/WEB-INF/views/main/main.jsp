@@ -453,7 +453,6 @@ hr {
 
 		/* 멀티파일 설정 */
 		$(function() {
-			$(".newGeneralBoardUploadImg").click(function() {
 				$('.newGeneralBoardMulti').MultiFile({
 					//max : 3, //업로드 최대 파일 갯수 (지정하지 않으면 무한대)
 					accept : 'jpg|png|gif', //허용할 확장자(지정하지 않으면 모든 확장자 허용)
@@ -470,8 +469,6 @@ hr {
 					},
 					list : ".newGeneralBoardMultiList" //파일목록을 출력할 요소 지정가능
 				});
-			})
-
 		});
 	</script>
 </body>
