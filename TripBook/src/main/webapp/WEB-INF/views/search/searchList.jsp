@@ -8,12 +8,12 @@
 $(function(){
 	$('.friendsButton input[type=button]').click(function(){
 		$.ajax({
-			url : "/controller/friend/tryAdd",
-			type : "post",
+			url : "/controller/friends/tryAdd",
+			type : "get",
 			data : 'friendId=' + $(this).parents().siblings("input").attr('id'),
 			dataType : "text",
 			success : function(data) {
-				
+				console.log(data)
 			},
 			error : function() {
 				alert('error')

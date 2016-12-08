@@ -31,11 +31,11 @@ public class FriendController {
 	
 	@RequestMapping("tryAdd")
 	@ResponseBody
-	public String tryAdd(HttpServletRequest request, String friendId){
+	public int tryAdd(HttpServletRequest request, String friendId){
 		HttpSession session = request.getSession();
 		String userId = (String) session.getAttribute("userId");
-		friendService.addFriend(userId, friendId);
-		return null;
+		System.out.println(friendId);
+		return friendService.addFriend(userId, friendId);
 	}
 	
 }
