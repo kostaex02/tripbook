@@ -2,6 +2,9 @@ package com.tripbook.controller.main;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -12,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.tripbook.dto.NoticeDTO;
 import com.tripbook.dto.UserDTO;
+import com.tripbook.service.NoticeService;
 import com.tripbook.service.UserService;
 
 @Controller
@@ -20,6 +25,8 @@ import com.tripbook.service.UserService;
 public class MyPageController {
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private NoticeService noticeService;
 	
 	@RequestMapping("{pageName}")
 	public void page(HttpServletRequest request){}
@@ -88,5 +95,14 @@ public class MyPageController {
 		}
 		session.invalidate();
 		return "home";
+	}
+	
+	@RequestMapping("list")
+	public ModelAndView list(HttpServletRequest request){
+		HttpSession session = request.getSession();
+		List<NoticeDTO> otherNoticeList = noticeService.selectNoticeByReceiver((String)session.getAttribute("userId"));
+		ModelAndView mv = new ModelAndView("mypage/mypage");
+		mv.addObject("otherNoticeList", otherNoticeList);
+		return mv;
 	}
 }

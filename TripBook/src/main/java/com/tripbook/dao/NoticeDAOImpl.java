@@ -1,5 +1,7 @@
 package com.tripbook.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -13,6 +15,11 @@ public class NoticeDAOImpl implements NoticeDAO {
 	@Override
 	public int insertNotice(NoticeDTO noticeDTO) {
 		return session.insert("noticeMapper.insertNotice", noticeDTO);
+	}
+
+	@Override
+	public List<NoticeDTO> selectNoticeByReceiver(String userId) {
+		return session.selectList("noticeMapper.selectNoticeOther", userId);
 	}
 
 }

@@ -124,3 +124,7 @@ CREATE TABLE reply_table
 	board_no NUMBER references board_table(board_no)
 );
 
+select notice_no,notice_table.state state,sender,receiver,send_date,content,check_state,name,file_name
+from notice_table join user_table on (notice_table.sender = user_table.id) 
+where receiver='test3@test.com' and check_state='0' 
+order by send_date desc;

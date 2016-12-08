@@ -8,7 +8,8 @@ public class NoticeDTO {
 	private String sendDate;
 	private String content;
 	private String checkState;
-	
+	private String fileName;
+	private String name;
 	
 	
 	public NoticeDTO() {
@@ -26,6 +27,18 @@ public class NoticeDTO {
 		this.sender = sender;
 		this.receiver = receiver;
 		this.content = content;
+	}
+	public String getFileName() {
+		return fileName;
+	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getContent() {
 		return content;

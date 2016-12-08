@@ -17,9 +17,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 	values(notice_sequence.nextval,#{state},#{sender},#{receiver,jdbcType=VARCHAR},sysdate,#{content,jdbcType=VARCHAR},'0')
 	 </insert>
 	 <select id="selectNoticeByReceiver" parameterType="String" resultMap="selectNoticeMap">
-	 	select notice_no,state,sender,receiver,send_date,content,check_state
-	 	from notice_table 
-	 	where receiver=#{userId} and check_state='0' 
-	 	order by send_date desc 
+	 	select notice_no,notice_table.state state,sender,receiver,send_date,content,check_state,name,file_name
+		from notice_table join user_table on (notice_table.sender = user_table.id) 
+		where receiver='test3@test.com' and check_state='0' 
+		order by send_date desc
 	 </select>
 </mapper>
