@@ -52,10 +52,16 @@
 	line-height: normal; /* line-height 초기화 */
 	padding: .8em .1em; /* 원하는 여백 설정, 상하단 여백으로 높이를 조절 */
 	border: 1px solid #999;
-	border-radius: 0; /* iSO 둥근모서리 제거 */
+	border-radius: 10px;
 	-webkit-appearance: none; /* 브라우저별 기본 스타일링 제거 */
 	-moz-appearance: none;
 	appearance: none;
+	outline-style: inherit;
+	
+}
+
+.jbText input[type="text"]:focus{
+	box-shadow: 0 0 1pt 1pt blue;
 }
 
 .jbText label{
@@ -63,6 +69,7 @@
 	padding: .6em .5em; /* input 요소의 padding 값 만큼 */
 	color: #999;
 	cursor: text;
+	
 }
 
 .calendarTrash{
