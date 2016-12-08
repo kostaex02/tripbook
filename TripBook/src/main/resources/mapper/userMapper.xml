@@ -16,7 +16,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 	
 	<select id="selectUserById" parameterType="String" resultMap="selectUserMap">
-		select id,name,file_name from user_table where id = #{id} and password=#{password}
+		select id,name,file_name,state from user_table where id = #{id} and password=#{password}
 	</select>
 	
 	<select id="checkUserById" parameterType="String" resultType="String">
