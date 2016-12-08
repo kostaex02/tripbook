@@ -7,6 +7,9 @@
 
 <title>Insert title here</title>
 <style>
+	
+
+	/* 유저 side menu */
 	 #sideSchedule, #sideHome, #sideBiography, #sideFriend{
 		position: relative;
 		line-height: 55px;
@@ -57,9 +60,6 @@
 		color:white;
 	}
 	
-	a{
-		text-decoration: none;
-	}
 	#sideGroup{
 		height:50px;
 		display:none;
@@ -71,19 +71,26 @@
 		width:50%;
 		height:130px;
 	}
+	.friendProfile{
+		
+			
+	}
 	
+	#friendAdd{
+		visibility: hidden;
+	}
 
-	
-	#adminSideNav, #sideNav:hover{
+	/* a 태그 밑줄 제거 */
+	a:hover{
 		text-decoration:none !important
 	}
-	.logout, .userName, #adminSideNav, #adminSideHome, #adminSideNotice, #adminSideMessge, #adminSideBoard, #adminSideUser, #sideSchedule, #sideHome, #sideBiography, #sideFriend, #sideNav :hover{
+	a{
 		text-decoration:none !important;
 		color:white;
 	}
 	
 	
-	/* admin menu */
+	/* 관리자 side menu */
 	
 	#adminSideHome, #adminSideNotice, #adminSideMessge, #adminSideBoard, #adminSideUser{
 		height:50px;
@@ -166,9 +173,21 @@
 					<dd>직장동료</dd>
 				</dl>
 			</div>
+			<hr>
+			<a class='sideProfileLink'href='<c:url value="/mypage/mypage"/>'><div id='sideProfile'>
+				<img class='profileImage' src='<c:url value="/tripbook/user/${friendUserId}/${friendUserFileName}"/>'>
+				<div class='userName'>friendUserName</div>
+				<a href='#'>게시물 보기</a><br>
+				<a href='#'>일대기 보기</a>
+				</div>
+				<hr id='friendAdd'>
+				<c:if test="${userName != null}">
+					<input class="btn btn-primary" type='button' value='친구 신청'>
+				</c:if>
+			</a>
 		</div>
 	</c:when>
-	<c:otherwise>
+	<c:when test="${userState eq '1'}">
 		<div id='adminSideNav'>
 			<a class='adminSideHome' href='<c:url value="/main/main"/>'>
 				<div id='adminSideProfile'>
@@ -183,8 +202,12 @@
 			<p>
 			
 		</div>
-	</c:otherwise>
+	</c:when>
 </c:choose>
+	
+
+
+
 
 <script src='<c:url value="/resources/js/jquery-2.2.4.js"/>'></script>
 <script>
@@ -205,11 +228,22 @@ $(function(){
 	    }
 	    
 	 var group = document.getElementById("sideGroup");
-	    if(sessionStorage.getItem("pageName")!="sideFriend"){
-	    	group.style.display = 'none';
-	    }else{
-	    	group.style.display = 'inline';
-	    }
+	 	if(group != null){
+		    if(sessionStorage.getItem("pageName")!="sideFriend"){
+		    	group.style.display = 'none';
+		    }else{
+		    	group.style.display = 'inline';
+		    }
+	 	}
+	 	
+	 var friendProfile = document.getElementById("friendProfile");
+	 	if(friendProfile != null){
+		    if(sessionStorage.getItem("pageName")!="friendProfile"){
+		    	friendProfile.style.display = 'none';
+		    }else{
+		    	friendProfile.style.display = 'inline';
+		    }
+	 	}
 })
 
 </script>
