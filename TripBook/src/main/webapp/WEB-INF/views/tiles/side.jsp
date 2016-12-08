@@ -189,16 +189,16 @@
 	</c:when>
 	<c:when test="${userState eq '1'}">
 		<div id='adminSideNav'>
-			<a class='adminSideHome' href='<c:url value="/main/main"/>'>
+			<a class='adminSideHome' href='<c:url value="/admin/boardManagement"/>'>
 				<div id='adminSideProfile'>
 					<div class='userName'>${userName}</div>
 					<a class='logout' href='<c:url value="/main/logout"/>'>로그아웃</a>
 				</div>
 			</a>
-			<a href='<c:url value="/mypage/mypage"/>'><div id='adminSideNotice'>공지사항</div></a>
-			<a href='<c:url value="/mypage/mypage"/>'><div id='adminSideMessge'>메세지</div></a>
-			<a href='<c:url value="/main/main"/>'><div id='adminSideBoard'>게시물 관리</div></a>
-			<a href='<c:url value="/friends/friends"/>'><div id='adminSideUser'>회원관리</div></a>
+			<a href='<c:url value="/admin/noticeManagement"/>'><div id='adminSideNotice'>공지사항</div></a>
+			<a href='<c:url value="/admin/messageManagement"/>'><div id='adminSideMessge'>메세지</div></a>
+			<a href='<c:url value="/admin/boardManagement"/>'><div id='adminSideBoard'>게시물 관리</div></a>
+			<a href='<c:url value="/admin/userManagement"/>'><div id='adminSideUser'>회원관리</div></a>
 			<p>
 			
 		</div>
