@@ -117,6 +117,11 @@ $(function(){
 	$("a").click(function(){
 		sessionStorage.setItem("pageName", $(this).children("div").attr("id"));
 	});
+	
+	$("#searchButton").click(function(){
+		sessionStorage.setItem("pageName", $(this).children("div").attr("id"));
+	});
+	
 	 var trash = document.getElementById("trash");
 	    if(sessionStorage.getItem("pageName")!="sideSchedule"){
 	    	trash.style.display = 'none';
