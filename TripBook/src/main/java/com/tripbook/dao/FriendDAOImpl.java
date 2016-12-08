@@ -13,6 +13,7 @@ import com.tripbook.dto.FriendDTO;
 public class FriendDAOImpl implements FriendDAO {
 	@Autowired
 	private SqlSession session;
+	
 	@Override
 	public List<FriendDTO> selectFriend(Map<String,String> friendMap) {
 		return session.selectList("friendMapper.selectFriend", friendMap);
@@ -20,6 +21,10 @@ public class FriendDAOImpl implements FriendDAO {
 	@Override
 	public int insertFriend(Map<String, String> map) {
 		return session.insert("friendMapper.insertFriend", map);
+	}
+	@Override
+	public int selectFriendOnly(Map<String, String> map) {
+		return session.selectOne("friendMapper.selectFriendOnly", map);
 	}
 
 }
