@@ -1,11 +1,15 @@
 package com.tripbook.controller.main;
 
+import java.io.File;
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tripbook.dto.UserDTO;
@@ -30,11 +34,33 @@ public class MyPageController {
 	}
 	
 	@RequestMapping("update")
-	public String update(HttpServletRequest request,UserDTO userDTO){
-		int result = userService.updateUser(userDTO);
-		if(result==0){
-			request.setAttribute("errMessage", "탈퇴 실패");
-			return "main/main";
+	public String update(HttpServletRequest request,UserDTO user,MultipartFile file){
+		String saveDir = request.getSession().getServletContext().getRealPath("/tripbook/user/"+user.getId()+"/");
+		File folder = new File(saveDir);
+		if (folder.exists()) {
+			if(folder.delete()){
+				folder.mkdir();
+			}
+		}
+		if(file!=null){
+			user.setFileName(file.getOriginalFilename());
+			try {
+				file.transferTo(new File(saveDir+user.getFileName()));
+				int result = userService.updateUser(user);
+				if(result==0){
+					request.setAttribute("errMessage", "가입 실패");
+					return "mypage/mypage";
+				}
+			} catch (IllegalStateException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else{
+			int result = userService.register(user);
+			if(result==0){
+				request.setAttribute("errMessage", "가입 실패");
+				return "mypage/mypage";
+			}
 		}
 		HttpSession session = request.getSession();
 		UserDTO tempUser = userService.selectProfile((String)session.getAttribute("userId"));

@@ -13,7 +13,7 @@
 <div class="modal-header">
 	<h4 class="modal-title">회원 정보 수정</h4>
 </div>
-<form action="register" method="post" enctype="multipart/form-data">
+<form action="<c:url value="/mypage/update"/>" method="post" enctype="multipart/form-data">
 			<div id="inputId" class="input-group">
 				<span class="input-group-addon"> <i><img
 						src='<c:url value="/images/icon_id20.png"/>'></i></span><input
@@ -81,7 +81,7 @@
 		
 		<div class="modal-footer">
 			<input type="submit" class="btn btn-primary" value="수정하기">
-			<a href="#" class="btn btn-primary">탈퇴하기</a>
+			<a href="<c:url value="/mypage/delete"/>" class="btn btn-primary">탈퇴하기</a>
 			<a href="<c:url value="/mypage/mypage"/>" class="btn btn-default">이전</a>
 		</div>
 	</form>
