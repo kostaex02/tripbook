@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.3.0/css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/biography/font-awesome.min.css"/>" />
 	
 	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/biography/style.css"/>" />
 	<script src="<c:url value="/resources/js/biography/modernizr-custom.js"/>"></script>
