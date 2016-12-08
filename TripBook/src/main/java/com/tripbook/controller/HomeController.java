@@ -71,8 +71,10 @@ public class HomeController {
 		if (!folder.exists()) {
 			folder.mkdirs();
 		}
-		for(File f:folder.listFiles()){
-			f.delete();
+		if(folder.listFiles()!=null){
+			for(File f:folder.listFiles()){
+				f.delete();
+			}
 		}
 		int idCheck = userService.selectIdState(user.getId(),"0");
 		if(idCheck>0){

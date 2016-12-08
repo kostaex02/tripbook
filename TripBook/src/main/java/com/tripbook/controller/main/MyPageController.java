@@ -41,8 +41,10 @@ public class MyPageController {
 		File folder = new File(saveDir);
 		user.setId(id);
 		if (folder.exists()) {
-			for(File f:folder.listFiles()){
-				f.delete();
+			if(folder.listFiles()!=null){
+				for(File f:folder.listFiles()){
+					f.delete();
+				}
 			}
 		}else{
 			folder.mkdir();
