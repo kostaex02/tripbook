@@ -11,6 +11,14 @@
 <link rel="stylesheet" href='<c:url value="/resources/css/bootstrap/bootstrap.min.css"/>'>
 <title>Insert title here</title>
 <style>
+	body{
+		background: url('<c:url value="/images/heartCloud.jpg"/>') no-repeat center center fixed; 
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+	
 	div{
 		position:relative;
 	}
