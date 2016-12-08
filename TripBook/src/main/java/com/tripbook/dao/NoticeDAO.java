@@ -1,7 +1,10 @@
 package com.tripbook.dao;
 
-import java.util.Map;
+import com.tripbook.dto.NoticeDTO;
 
 public interface NoticeDAO {
-	int insertNotice(Map<String,String> map);
+	/**
+	 * 알림 입력
+	 */
+	int insertNotice(NoticeDTO noticeDTO);
 }

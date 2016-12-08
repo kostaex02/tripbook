@@ -23,10 +23,8 @@ public class FriendDAOImpl implements FriendDAO {
 		return session.insert("friendMapper.insertFriend", map);
 	}
 	@Override
-	public int selectFriendOnly(Map<String, String> map) {
-		System.out.println(session);
-		int result = session.selectOne("friendMapper.selectFriendOnly", map);
-		return result;
+	public String selectFriendOnly(Map<String, String> map) {
+		return session.selectOne("friendMapper.selectFriendOnly", map);
 	}
 
 }

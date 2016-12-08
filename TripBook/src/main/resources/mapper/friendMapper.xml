@@ -14,7 +14,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		 where state=#{state} and (friend_id1=#{userId} or friend_id2=#{userId})
 	</select>
 	
-	<select id="selectFriendOnly" parameterType="Map" resultType="int">
+	<select id="selectFriendOnly" parameterType="Map" resultType="String">
 		select friend_no from friend_table
 		 where (friend_id1=#{userId} and friend_id2=#{friendId}) or (friend_id1=#{friendId} and friend_id2=#{userId})
 	</select>
