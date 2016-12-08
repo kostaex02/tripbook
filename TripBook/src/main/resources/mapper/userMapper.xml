@@ -33,6 +33,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select id,name,file_name from user_table where id=#{value} and state='0'
 	</select>
 	
+	<select id="selectUserIdState" parameterType="map" resultType="String">
+		select name from user_table where id=#{userId} and state=#{state}	
+	</select>
+	
 	<select id="selectProfile" parameterType="String" resultMap="selectUserMap">
 		select id,name,age,gender,file_name from user_table where id=#{value}
 	</select>
@@ -59,12 +63,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="fileName!=null">
 				file_name=#{fileName},
 			</if>
+			<if test="state!=null">
+				state=#{state},
+			</if>
 			update_date=sysdate
 		</trim>
 		where id=#{id}
 	</update>
 	
 	<delete id="deleteUser" parameterType="String">
-		delete from user_table where id = #{value}
+		update user_table set state='2' where id=#{id}
 	</delete>
 </mapper>

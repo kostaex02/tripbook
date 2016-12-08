@@ -7,7 +7,18 @@
 <script type="text/javascript">
 $(function(){
 	$('.friendsButton input[type=button]').click(function(){
-		alert($(this).parents().siblings("input").attr('id'));
+		$.ajax({
+			url : "/controller/friend/tryAdd",
+			type : "post",
+			data : 'friendId=' + $(this).parents().siblings("input").attr('id'),
+			dataType : "text",
+			success : function(data) {
+				
+			},
+			error : function() {
+				alert('error')
+			}
+		})
 	})	
 })
 	

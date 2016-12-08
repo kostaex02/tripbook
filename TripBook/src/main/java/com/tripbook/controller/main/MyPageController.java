@@ -40,19 +40,19 @@ public class MyPageController {
 		String saveDir = request.getSession().getServletContext().getRealPath("/tripbook/user/"+id);
 		File folder = new File(saveDir);
 		user.setId(id);
-		if (folder.exists()) {
-			if(folder.listFiles()!=null){
-				for(File f:folder.listFiles()){
-					f.delete();
-				}
-			}
-			folder.delete();
-			folder.mkdir();
-		}else{
-			folder.mkdir();
-		}
 		
 		if(file!=null){
+			if (folder.exists()) {
+				if(folder.listFiles()!=null){
+					for(File f:folder.listFiles()){
+						f.delete();
+					}
+				}
+				folder.delete();
+				folder.mkdir();
+			}else{
+				folder.mkdir();
+			}
 			user.setFileName(file.getOriginalFilename());
 			try {
 				file.transferTo(new File(saveDir+"\\"+user.getFileName()));
@@ -66,7 +66,7 @@ public class MyPageController {
 				e.printStackTrace();
 			}
 		}else{
-			int result = userService.register(user);
+			int result = userService.updateUser(user);
 			if(result==0){
 				request.setAttribute("errMessage", "¼öÁ¤ ½ÇÆÐ");
 				return "mypage/userUpdate";
@@ -86,6 +86,7 @@ public class MyPageController {
 			request.setAttribute("errMessage", "Å»Åð ½ÇÆÐ");
 			return "main/main";
 		}
-		return "main/logout";
+		session.invalidate();
+		return "home";
 	}
 }

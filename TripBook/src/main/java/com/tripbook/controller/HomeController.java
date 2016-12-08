@@ -81,11 +81,13 @@ public class HomeController {
 			}
 		}
 		
-		int idCheck = userService.selectIdState(user.getId(),"0");
+		int idCheck = userService.selectIdState(user.getId(),"2");
 		if(idCheck>0){
 			if(file!=null){
 				user.setFileName(file.getOriginalFilename());
 				user.setState("0");
+
+				System.out.println(user);
 				try {
 					file.transferTo(new File(saveDir+user.getFileName()));
 					int result = userService.updateUser(user);

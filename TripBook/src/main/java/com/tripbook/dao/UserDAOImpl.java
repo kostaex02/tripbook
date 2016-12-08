@@ -24,8 +24,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 	@Override
 	public String selectUserIdState(Map<String, String> map) {
-		// TODO Auto-generated method stub
-		return null;
+		return session.selectOne("userMapper.selectUserIdState",map);
 	}
 	@Override
 	public int insertUser(UserDTO user) {
@@ -49,7 +48,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 	@Override
 	public int deleteUser(String userId) {
-		return session.delete("userMapper.deleteUser",userId);
+		return session.update("userMapper.deleteUser",userId);
 	}
 	
 	
