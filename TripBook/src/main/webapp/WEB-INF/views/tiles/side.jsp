@@ -15,6 +15,7 @@
 		line-height: 55px;
 		height:auto;
 		color:white;
+		border-radius: 10px;
 	} 
 	
 	#sideProfile{
@@ -24,6 +25,7 @@
 		padding:0px;
 		background-color:maroon;
 		width:96%;
+		border-radius: 10px;
 	}
 	 
 	#sideSchedule{
@@ -70,6 +72,7 @@
 		float:left;
 		width:50%;
 		height:130px;
+		border-radius: 10px;
 	}
 	.friendProfile{
 		
@@ -95,6 +98,7 @@
 	#adminSideHome, #adminSideNotice, #adminSideMessge, #adminSideBoard, #adminSideUser{
 		height:50px;
 		line-height: 50px;
+		border-radius: 10px;
 	}
 	
 	#adminSideNav{
@@ -109,6 +113,7 @@
 		padding:0px;
 		background-color:maroon;
 		width:96%;
+		border-radius: 10px;
 	}
 	
 	

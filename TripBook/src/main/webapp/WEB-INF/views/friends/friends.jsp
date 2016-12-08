@@ -86,7 +86,7 @@
 				</div>
 				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
 				<div class="friendsButton">
-					<input class="btn btn-info" type="submit" value="message">
+					<input class="btn btn-primary" type="submit" value="메세지 작성">
 				</div>
 			</li>
 			<li class="friendsProfile">
@@ -95,7 +95,7 @@
 				</div>
 				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
 				<div class="friendsButton">
-					<input type="submit" value="message">
+					<input class="btn btn-primary" type="submit" value="메세지 작성">
 				</div>
 			</li>
 			<li class="friendsProfile">
@@ -104,7 +104,7 @@
 				</div>
 				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
 				<div class="friendsButton">
-					<input type="submit" value="message">
+					<input class="btn btn-primary" type="submit" value="메세지 작성">
 				</div>
 			</li>
 			<li class="friendsProfile">
@@ -113,7 +113,7 @@
 				</div>
 				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
 				<div class="friendsButton">
-					<input type="submit" value="message">
+					<input class="btn btn-primary" type="submit" value="메세지 작성">
 				</div>
 			</li>
 			<li class="friendsProfile">
@@ -122,7 +122,7 @@
 				</div>
 				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
 				<div class="friendsButton">
-					<input type="submit" value="message">
+					<input class="btn btn-primary" type="submit" value="메세지 작성">
 				</div>
 			</li>
 			<li class="friendsProfile">
@@ -131,7 +131,7 @@
 				</div>
 				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
 				<div class="friendsButton">
-					<input type="submit" value="message">
+					<input class="btn btn-primary" type="submit" value="메세지 작성">
 				</div>
 			</li>
 			<li class="friendsProfile">
@@ -140,7 +140,7 @@
 				</div>
 				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
 				<div class="friendsButton">
-					<input type="submit" value="message">
+					<input class="btn btn-primary" type="submit" value="메세지 작성">
 				</div>
 			</li>
 			<li class="friendsProfile">
@@ -149,7 +149,7 @@
 				</div>
 				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
 				<div class="friendsButton">
-					<input type="submit" value="message">
+					<input class="btn btn-primary" type="submit" value="메세지 작성">
 				</div>
 			</li>
 			<li class="friendsProfile">
@@ -158,7 +158,7 @@
 				</div>
 				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
 				<div class="friendsButton">
-					<input type="submit" value="message">
+					<input class="btn btn-primary" type="submit" value="메세지 작성">
 				</div>
 			</li>
 			<li class="friendsProfile">
@@ -167,7 +167,7 @@
 				</div>
 				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
 				<div class="friendsButton">
-					<input type="submit" value="message">
+					<input class="btn btn-primary" type="submit" value="메세지 작성">
 				</div>
 			</li>
 			<li class="friendsProfile">
@@ -176,7 +176,7 @@
 				</div>
 				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
 				<div class="friendsButton">
-					<input type="submit" value="message">
+					<input class="btn btn-primary" type="submit" value="메세지 작성">
 				</div>
 			</li>
 			<li class="friendsProfile">
@@ -185,7 +185,7 @@
 				</div>
 				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
 				<div class="friendsButton">
-					<input type="submit" value="message">
+					<input class="btn btn-primary" type="submit" value="메세지 작성">
 				</div>
 			</li>
 			<li class="friendsProfile">
@@ -194,7 +194,7 @@
 				</div>
 				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
 				<div class="friendsButton">
-					<input type="submit" value="message">
+					<input class="btn btn-primary" type="submit" value="메세지 작성">
 				</div>
 			</li>
 			<li class="friendsProfile">
@@ -203,7 +203,7 @@
 				</div>
 				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
 				<div class="friendsButton">
-					<input type="submit" value="message">
+					<input class="btn btn-primary" type="submit" value="메세지 작성">
 				</div>
 			</li>
 			<li class="friendsProfile">
@@ -212,7 +212,7 @@
 				</div>
 				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
 				<div class="friendsButton">
-					<input type="submit" value="message">
+					<input class="btn btn-primary" type="submit" value="메세지 작성">
 				</div>
 			</li>
 			<li class="friendsProfile">
@@ -221,7 +221,7 @@
 				</div>
 				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
 				<div class="friendsButton">
-					<input type="submit" value="message">
+					<input class="btn btn-primary" type="submit" value="메세지 작성">
 				</div>
 			</li>
 			<li class="friendsProfile">
@@ -230,7 +230,7 @@
 				</div>
 				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
 				<div class="friendsButton">
-					<input type="submit" value="message">
+					<input class="btn btn-primary" type="submit" value="메세지 작성">
 				</div>
 			</li>
 			<li class="friendsProfile">
@@ -239,7 +239,7 @@
 				</div>
 				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
 				<div class="friendsButton">
-					<input type="submit" value="message">
+					<input class="btn btn-primary" type="submit" value="메세지 작성">
 				</div>
 			</li>
 			<li class="friendsProfile">
@@ -248,7 +248,7 @@
 				</div>
 				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
 				<div class="friendsButton">
-					<input type="submit" value="message">
+					<input class="btn btn-primary" type="submit" value="메세지 작성">
 				</div>
 			</li>
 			<li class="friendsProfile">
@@ -257,7 +257,7 @@
 				</div>
 				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
 				<div class="friendsButton">
-					<input type="submit" value="message">
+					<input class="btn btn-primary" type="submit" value="메세지 작성">
 				</div>
 			</li>
 			<li class="friendsProfile">
@@ -266,7 +266,7 @@
 				</div>
 				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
 				<div class="friendsButton">
-					<input type="submit" value="message">
+					<input class="btn btn-primary" type="submit" value="메세지 작성">
 				</div>
 			</li>
 			<li class="friendsProfile">
@@ -275,259 +275,7 @@
 				</div>
 				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
 				<div class="friendsButton">
-					<input type="submit" value="message">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input type="submit" value="message">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input type="submit" value="message">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input type="submit" value="message">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input type="submit" value="message">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input type="submit" value="message">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input type="submit" value="message">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input type="submit" value="message">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input type="submit" value="message">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input type="submit" value="message">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input type="submit" value="message">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input type="submit" value="message">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input type="submit" value="message">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input type="submit" value="message">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input type="submit" value="message">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input type="submit" value="message">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input type="submit" value="message">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input type="submit" value="message">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input type="submit" value="message">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input type="submit" value="message">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input type="submit" value="message">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input type="submit" value="message">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input type="submit" value="message">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input type="submit" value="message">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input type="submit" value="message">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input type="submit" value="message">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input type="submit" value="message">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input type="submit" value="message">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input type="submit" value="message">
+					<input class="btn btn-primary" type="submit" value="메세지 작성">
 				</div>
 			</li>
 		</ul>
