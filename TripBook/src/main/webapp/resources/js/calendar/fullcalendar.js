@@ -16,7 +16,7 @@
 			weekNumbers: true,
 			navLinks: false, // can click day/week names to navigate views
 			editable: true,
-			aspectRatio: 1.6,
+			aspectRatio: 1.9,
 			dragRevertDuration: 100,
 			droppable: true, // this allows things to be dropped onto the calendar
 			eventLimit: true, // allow "more" link when too many events\
