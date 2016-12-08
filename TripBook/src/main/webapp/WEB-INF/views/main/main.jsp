@@ -454,7 +454,7 @@ hr {
 		/* 멀티파일 설정 */
 		$(function() {
 			$(".newGeneralBoardUploadImg").click(function() {
-				$('#ex_file').MultiFile({
+				$('.newGeneralBoardMulti').MultiFile({
 					//max : 3, //업로드 최대 파일 갯수 (지정하지 않으면 무한대)
 					accept : 'jpg|png|gif', //허용할 확장자(지정하지 않으면 모든 확장자 허용)
 					//maxfile : 1024, //각 파일 최대 업로드 크기
