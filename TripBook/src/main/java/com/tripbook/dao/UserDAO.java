@@ -20,14 +20,17 @@ public interface UserDAO {
 	 * id,state를 이용한 이름 검색
 	 */
 	String selectUserIdState(Map<String, String> map);
-
+	
+	/**
+	 * 검색된 리스트의 값이 자신의 값과 친구들을 제외한 모든 값을 출력
+	 */
+	List<UserDTO> searchUser(Map<String, String> map);
+	
 	int insertUser(UserDTO user);
 	
 	UserDTO selectUser(String userId);
 
 	UserDTO selectProfile(String userId);
-
-	List<UserDTO> searchUser(String userId);
 
 	int updateUser(UserDTO userDTO);
 

@@ -58,10 +58,12 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<UserDTO> searchUser(String userId, String keyword) {
-		List<UserDTO> userList = userDao.searchUser(keyword);
 		Map<String, String> map = new HashMap<>();
 		map.put("userId", userId);
 		map.put("state", "1");
+		map.put("keyword", keyword);
+		List<UserDTO> userList = userDao.searchUser(map);
+		
 		List<FriendDTO> friendList = friendDao.selectFriend(map);
 		List<UserDTO> resultList = null;
 		if (userList == null||userList.size()==0) {
@@ -69,7 +71,6 @@ public class UserServiceImpl implements UserService {
 		} else if (friendList == null||friendList.size()==0) {
 			return userList;
 		} else {
-
 			resultList = new ArrayList<>();
 			for (UserDTO userDTO : userList) {
 				for (FriendDTO friendDTO : friendList) {

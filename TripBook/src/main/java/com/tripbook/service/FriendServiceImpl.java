@@ -50,10 +50,12 @@ public class FriendServiceImpl implements FriendService {
 		Map<String,String> map = new HashMap<>();
 		map.put("userId", userId);
 		map.put("friendId", friendId);
-		
-		friendDAO.insertFriend(map);
-		map.put("state", "0");
-		return noticeDAO.insertNotice(map);
+		if(friendDAO.selectFriendOnly(map)>0){
+			return 2;
+		}else{
+			friendDAO.insertFriend(map);
+			return noticeDAO.insertNotice(map);
+		}
 	}
 
 }
