@@ -58,6 +58,19 @@
 
 .friendsGroupMember>input {
 	display: none;
+	height:60px;
+}
+.friendsAddListImg {
+	width: 60px;
+	height: 60px;
+	position: relative;
+	float: left;
+}
+.friendsAddListDiv{
+	height: 60px;
+}
+.friendsGroupMemberName{
+	height: 60px;
 }
 
 textarea {
@@ -99,52 +112,33 @@ textarea {
 						그룹추가
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 					</div>
-					<div class="modal-body">
-						<div class="friendsNameDivOfGroup">
-							<h2>그룹만들기</h2>
-							<br>
-							<br> <input type="text" class="form-control"> <br>
-							<br>
-							<br>
-							<h4>멤버추가</h4>
-						</div>
-						<div class="friendsGroupList">
-							<div class="friendsGroupListBind">
-								<div id="friend1" class="friendsGroupMember">
-									<div>이미지 영역</div>
-									친구1 / 누구니 <input type="checkbox" value="1" />
-								</div>
-								<div id="friend2" class="friendsGroupMember">
-									<div>이미지 영역</div>
-									친구2 / 누구니 <input type="checkbox" value="2" />
-								</div>
-								<div id="friend3" class="friendsGroupMember">
-									<div>이미지 영역</div>
-									친구3 / 누구니 <input type="checkbox" value="3" />
-								</div>
-								<div id="friend4" class="friendsGroupMember">
-									<div>이미지 영역</div>
-									친구4 / 누구니 <input type="checkbox" value="4" />
-								</div>
-								<div id="friend5" class="friendsGroupMember">
-									<div>이미지 영역</div>
-									친구5 / 누구니 <input type="checkbox" value="5" />
-								</div>
-								<div id="friend6" class="friendsGroupMember">
-									<div>이미지 영역</div>
-									친구6 / 누구니 <input type="checkbox" value="6" />
-								</div>
-								<div id="friend7" class="friendsGroupMember">
-									<div>이미지 영역</div>
-									친구7 / 누구니 <input type="checkbox" value="7" />
+					<form action="" method="post">
+						<div class="modal-body">
+							<div class="friendsNameDivOfGroup">
+								<h2>그룹만들기</h2>
+								<br>
+								<br> <input type="text" class="form-control nameOfGroup"> <br>
+								<br>
+								<br>
+								<h4>멤버추가</h4>
+							</div>
+							<div class="friendsGroupList">
+								<div class="friendsGroupListBind">
+									
+									<c:forEach items="${friendList}" var="friendsAddList">
+										<div class="friendsGroupMember">
+												<div class="friendsAddListDiv"><img class="friendsAddListImg" src='<c:url value="/tripbook/user/${friendsAddList.id}/${friendsAddList.fileName}"/>'>${friendsAddList.name}</div>
+												 <input type="checkbox" name="friendsAddMemberList" value="${friendsAddList.id}" />
+										</div>
+									</c:forEach>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" id="submit">등록</button>
-						<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
-					</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default friendsGroup" >등록</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -190,15 +184,15 @@ textarea {
 					$(this).css("background-color", "#ffffff");
 				}
 			})
-			$('#submit').click(
+			$('.friendsGroup').click(
 					function() {
-						var str = "";
+						var str = " ";
 						str = $(".nameOfGroup").val();
 						$(".friendsGroupMember > :checkbox:checked").each(
-								function(pi, po) {
-									str += po.value + " / ";
-								});
-						alert(str)
+								function(index, item) {
+									str += item.value + " / ";
+						});
+						alert(str);
 					})
 		})
 	</script>
