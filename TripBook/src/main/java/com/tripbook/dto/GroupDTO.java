@@ -15,5 +15,9 @@ public class GroupDTO {
 	public void setGroupName(String groupName) {
 		this.groupName = groupName;
 	}
+	@Override
+	public String toString() {
+		return "GroupDTO [groupNo=" + groupNo + ", groupName=" + groupName + "]";
+	}
 	
 }

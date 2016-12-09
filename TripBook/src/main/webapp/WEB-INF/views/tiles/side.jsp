@@ -177,7 +177,6 @@
 		margin-bottom: 5px;
 	}
 	
-	
 </style>
 
 </head>
@@ -204,8 +203,13 @@
 				</dl>
 				<dl class="sideGroupMenu">
 					<dd><a class="sideAddGroupButton" data-toggle="modal" data-target="#myModal">+ 그룹 추가</a></dd>
-					<dd>학교친구</dd>
-					<dd>직장동료</dd>
+					<c:choose>
+					<c:when test="${groupList ne null}">
+						<c:forEach items="${groupList }" var="item">
+							<dd id="${item.groupNo }">${groupName }</dd>
+						</c:forEach>
+					</c:when>
+					</c:choose>
 				</dl>
 			</div>
 			<hr>
@@ -240,6 +244,7 @@
 	</c:when>
 </c:choose>
 	
+
 
 
 

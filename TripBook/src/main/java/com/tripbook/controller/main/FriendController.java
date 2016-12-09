@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.tripbook.dto.GroupDTO;
 import com.tripbook.service.FriendService;
 import com.tripbook.service.GroupService;
 
@@ -27,6 +28,7 @@ public class FriendController {
 	public ModelAndView friends(HttpServletRequest request){
 		HttpSession session = request.getSession();
 		String userId = (String) session.getAttribute("userId");
+		
 		
 		ModelAndView mv = new ModelAndView("friends/friends");
 		mv.addObject("friendList", friendService.selectFriendList(userId, "1"));

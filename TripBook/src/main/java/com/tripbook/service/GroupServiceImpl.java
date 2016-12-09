@@ -65,7 +65,7 @@ public class GroupServiceImpl implements GroupService {
 		for(int groupNo:list){
 			resultList.add(groupDAO.selectGroupByNo(groupNo));
 		}
-		return null;
+		return resultList;
 	}
 
 }
