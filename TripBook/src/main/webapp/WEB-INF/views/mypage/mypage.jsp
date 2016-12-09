@@ -13,8 +13,10 @@
 <style type="text/css">
 #mypageNotice {
 	border: 1px solid red;
+	overflow: scroll;
 	height:30%;
 }
+
 
 .mypageLogList {
 	margin-top: 20px;
@@ -56,175 +58,68 @@
 <body>
 	<div id="mypageNotice">
 		<ul class="grow">
-			<li class="mypageNoticeList">
-				공지사항 1
-			</li>
-			<li class="mypageNoticeList">
-				공지사항 1
-			</li>
-			<li class="mypageNoticeList">
-				공지사항 1
-			</li>
-			<li class="mypageNoticeList">
-				공지사항 1
-			</li>
-			<li class="mypageNoticeList">
-				공지사항 1
-			</li>
+			<c:forEach items="${noticeList}" var="noticeItem" varStatus="noticeState">
+				<li class="mypageNoticeList">
+					${noticeState} ${noticeItem.content}
+				</li>
+			</c:forEach>
 		</ul>
 	</div>
+	
 	<div class="mypageLogList">
 		<ul class="grow">
-			<li class="mypageLogStory">
-				<div class="mypageProfile">
-					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="mypageMessage">친구하자!</div>
-				<div class="mypageButton">
-					<input class="btn btn-primary" type="submit" value="수락">
-					<input class="btn btn-default" type="submit" value="거절">
-				</div>
-			</li>
-			<li class="mypageLogStory">
-				<div class="mypageProfile">
-					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="mypageMessage">친구하자!</div>
-				<div class="mypageButton">
-					<input class="btn btn-primary" type="submit" value="수락">
-					<input class="btn btn-default" type="submit" value="거절">
-				</div>
-			</li>
-			<li class="mypageLogStory">
-				<div class="mypageProfile">
-					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="mypageMessage">친구하자!</div>
-				<div class="mypageButton">
-					<input class="btn btn-primary" type="submit" value="수락">
-					<input class="btn btn-default" type="submit" value="거절">
-				</div>
-			</li>
-			<li class="mypageLogStory">
-				<div class="mypageProfile">
-					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="mypageMessage">친구하자!</div>
-				<div class="mypageButton">
-					<input class="btn btn-primary" type="submit" value="수락">
-					<input class="btn btn-default" type="submit" value="거절">
-				</div>
-			</li>
-			<li class="mypageLogStory">
-				<div class="mypageProfile">
-					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="mypageMessage">친구하자!</div>
-				<div class="mypageButton">
-					<input class="btn btn-primary" type="submit" value="수락">
-					<input class="btn btn-default" type="submit" value="거절">
-				</div>
-			</li>
-			<li class="mypageLogStory">
-				<div class="mypageProfile">
-					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="mypageMessage">친구하자!</div>
-				<div class="mypageButton">
-					<input class="btn btn-primary" type="submit" value="수락">
-					<input class="btn btn-default" type="submit" value="거절">
-				</div>
-			</li>
-			<li class="mypageLogStory">
-				<div class="mypageProfile">
-					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="mypageMessage">친구하자!</div>
-				<div class="mypageButton">
-					<input class="btn btn-primary" type="submit" value="수락">
-					<input class="btn btn-default" type="submit" value="거절">
-				</div>
-			</li>
-			<li class="mypageLogStory">
-				<div class="mypageProfile">
-					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="mypageMessage">친구하자!</div>
-				<div class="mypageButton">
-					<input class="btn btn-primary" type="submit" value="수락">
-					<input class="btn btn-default" type="submit" value="거절">
-				</div>
-			</li>
-			<li class="mypageLogStory">
-				<div class="mypageProfile">
-					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="mypageMessage">친구하자!</div>
-				<div class="mypageButton">
-					<input class="btn btn-primary" type="submit" value="수락">
-					<input class="btn btn-default" type="submit" value="거절">
-				</div>
-			</li>
-			<li class="mypageLogStory">
-				<div class="mypageProfile">
-					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="mypageMessage">친구하자!</div>
-				<div class="mypageButton">
-					<input class="btn btn-primary" type="submit" value="수락">
-					<input class="btn btn-default" type="submit" value="거절">
-				</div>
-			</li>
-			<li class="mypageLogStory">
-				<div class="mypageProfile">
-					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="mypageMessage">친구하자!</div>
-				<div class="mypageButton">
-					<input class="btn btn-primary" type="submit" value="수락">
-					<input class="btn btn-default" type="submit" value="거절">
-				</div>
-			</li>
-			<li class="mypageLogStory">
-				<div class="mypageProfile">
-					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="mypageMessage">친구하자!</div>
-				<div class="mypageButton">
-					<input class="btn btn-primary" type="submit" value="수락">
-					<input class="btn btn-default" type="submit" value="거절">
-				</div>
-			</li>
-			<li class="mypageLogStory">
-				<div class="mypageProfile">
-					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="mypageMessage">친구하자!</div>
-				<div class="mypageButton">
-					<input class="btn btn-primary" type="submit" value="수락">
-					<input class="btn btn-default" type="submit" value="거절">
-				</div>
-			</li>
-			<li class="mypageLogStory">
-				<div class="mypageProfile">
-					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="mypageMessage">친구하자!</div>
-				<div class="mypageButton">
-					<input class="btn btn-primary" type="submit" value="수락">
-					<input class="btn btn-default" type="submit" value="거절">
-				</div>
-			</li>
-			<li class="mypageLogStory">
-				<div class="mypageProfile">
-					<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="mypageMessage">친구하자!</div>
-				<div class="mypageButton">
-					<input class="btn btn-primary" type="submit" value="수락">
-					<input class="btn btn-default" type="submit" value="거절">
-				</div>
-			</li>
+			<c:forEach items="${otherNoticeList}" var="otherNoticeItem" varStatus="otherNoticeState">
+				<c:choose>
+					<c:when test="${otherNoticeItem.state eq '0'}">
+						<li class="mypageLogStory">
+							<div class="mypageProfile">
+								<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+							</div>
+							<div class="mypageMessage">친구하자!</div>
+							<div class="mypageButton">
+								<input class="btn btn-primary" type="submit" value="수락">
+								<input class="btn btn-default" type="submit" value="거절">
+							</div>
+						</li>
+					</c:when>
+					<c:when test="${otherNoticeItem.state eq '1'}">
+						<li class="mypageLogStory">
+							<div class="mypageProfile">
+								<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+							</div>
+							<div class="mypageMessage">그룹하자!</div>
+							<div class="mypageButton">
+								<input class="btn btn-primary" type="submit" value="수락">
+								<input class="btn btn-default" type="submit" value="거절">
+							</div>
+						</li>
+					</c:when>
+					<c:when test="${otherNoticeItem.state eq '2'}">
+						<li class="mypageLogStory">
+							<div class="mypageProfile">
+								<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+							</div>
+							<div class="mypageMessage">관리자 메세지</div>
+							<div class="mypageButton">
+								<input class="btn btn-primary" type="submit" value="수락">
+								<input class="btn btn-default" type="submit" value="거절">
+							</div>
+						</li>
+					</c:when>
+					<c:when test="${otherNoticeItem.state eq '3'}">
+						<li class="mypageLogStory">
+							<div class="mypageProfile">
+								<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+							</div>
+							<div class="mypageMessage">친구가 게시물 작성했습니다.</div>
+							<div class="mypageButton">
+								<input class="btn btn-primary" type="submit" value="수락">
+								<input class="btn btn-default" type="submit" value="거절">
+							</div>
+						</li>
+					</c:when>
+				</c:choose>
+			</c:forEach>
 		</ul>
 	</div>
 	<script src='<c:url value="/resources/js/main/stroll.min.js"/>'></script>
