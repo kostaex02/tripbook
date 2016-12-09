@@ -42,4 +42,11 @@ public class FriendController {
 		return friendService.rejectFriend(noticeNo);
 
 	}
+	
+	@RequestMapping("delete")
+	public String delete(HttpServletRequest request,String friendId){
+		HttpSession session = request.getSession();
+		friendService.deleteFriend((String)session.getAttribute("userId"),friendId);
+		return "friends/list";
+	}
 }

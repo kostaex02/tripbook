@@ -85,4 +85,14 @@ public class FriendServiceImpl implements FriendService {
 		return 0;
 	}
 
+	@Override
+	public int deleteFriend(String userId, String friendId) {
+		Map<String,String> map = new HashMap<>();
+	
+		map.put("userId", userId);
+		map.put("friendId", friendId);
+	
+		return friendDAO.deleteFriend(map);
+	}
+
 }

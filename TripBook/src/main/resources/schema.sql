@@ -124,4 +124,4 @@ CREATE TABLE reply_table
 	writer VARCHAR2(50) references user_table(id),
 	board_no NUMBER references board_table(board_no)
 );
-select * from friend_table
+select * from notice_table

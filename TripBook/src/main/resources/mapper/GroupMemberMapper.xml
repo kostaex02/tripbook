@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="groupMemberMapper">
+	<resultMap type="groupMemberDTO" id="selectGroupMemberMap">
+		<id column="group_member_no" property="groupMemberNo"/>
+		<result column="id" property = "id"/>
+		<result column="group_no" property = "groupNo"/>
+	</resultMap>
+	<insert id="insertGroupMember" parameterType="map">
+		insert into group_member_table(group_member_no,id,group_no)
+		values(group_member_sequence.nextval,#{friendId},#{groupNo})
+	</insert>
+</mapper>

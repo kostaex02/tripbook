@@ -58,18 +58,21 @@
 
 .friendsGroupMember>input {
 	display: none;
-	height:60px;
+	height: 60px;
 }
+
 .friendsAddListImg {
 	width: 60px;
 	height: 60px;
 	position: relative;
 	float: left;
 }
-.friendsAddListDiv{
+
+.friendsAddListDiv {
 	height: 60px;
 }
-.friendsGroupMemberName{
+
+.friendsGroupMemberName {
 	height: 60px;
 }
 
@@ -89,13 +92,13 @@ textarea {
 						<img class="friendPictureImg"
 							src='<c:url value="/tripbook/user/${item.id }/${item.fileName}"/>'>
 					</div>
-					<div class="friendsNameId">
-						${item.name}
-					</div>
+					<div class="friendsNameId">${item.name}</div>
 					<div class="friendsButton">
-						<a href="#" class='btn btn-primary' data-toggle="modal" data-target="#friendSendMessage">메세지 작성</a>
-						<a href="#" class='btn btn-primary' data-toggle="modal">친구 삭제</a>
-							
+						<a href="#" class='btn btn-primary' data-toggle="modal"
+							data-target="#friendSendMessage">메세지 작성</a> <a
+							href="/controller/friends/delete?friendId=${item.id }"
+							class='btn btn-primary' data-toggle="modal">친구 삭제</a>
+
 					</div>
 				</li>
 			</c:forEach>
@@ -116,27 +119,29 @@ textarea {
 						<div class="modal-body">
 							<div class="friendsNameDivOfGroup">
 								<h2>그룹만들기</h2>
-								<br>
-								<br> <input type="text" class="form-control nameOfGroup"> <br>
-								<br>
-								<br>
+								<br> <br> <input type="text"
+									class="form-control nameOfGroup"> <br> <br> <br>
 								<h4>멤버추가</h4>
 							</div>
 							<div class="friendsGroupList">
 								<div class="friendsGroupListBind">
-									
+
 									<c:forEach items="${friendList}" var="friendsAddList">
 										<div class="friendsGroupMember">
-												<div class="friendsAddListDiv"><img class="friendsAddListImg" src='<c:url value="/tripbook/user/${friendsAddList.id}/${friendsAddList.fileName}"/>'>${friendsAddList.name}</div>
-												 <input type="checkbox" name="friendsAddMemberList" value="${friendsAddList.id}" />
+											<div class="friendsAddListDiv">
+												<img class="friendsAddListImg"
+													src='<c:url value="/tripbook/user/${friendsAddList.id}/${friendsAddList.fileName}"/>'>${friendsAddList.name}</div>
+											<input type="checkbox" name="friendsAddMemberList"
+												value="${friendsAddList.id}" />
 										</div>
 									</c:forEach>
 								</div>
 							</div>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-default friendsGroup" >등록</button>
-							<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+							<button type="button" class="btn btn-default friendsGroup">등록</button>
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">취소</button>
 						</div>
 					</form>
 				</div>
@@ -186,14 +191,29 @@ textarea {
 			})
 			$('.friendsGroup').click(
 					function() {
-						var str = " ";
-						str = $(".nameOfGroup").val();
+						var friendId = [];
 						$(".friendsGroupMember > :checkbox:checked").each(
 								function(index, item) {
-									str += item.value + " / ";
+									friendId.push(item.value);
 						});
-						alert(str);
+						$.ajax({
+						url : "/controller/group/create",
+						type : "post",
+						data : 'groupName=' + $(".nameOfGroup").val()+'&friendId='+friendId,
+						dataType : "text",
+						success : function(data) {
+							if(data==1){
+								alert('그룹 생성 성공');
+								location.href='/controller/friends/list';
+							}else{
+								alert('그룹 생성 실패');
+							}
+						},
+						error : function() {
+							alert('error')
+						}
 					})
+			})
 		})
 	</script>
 

@@ -25,4 +25,9 @@ public interface FriendService {
 	 * 알림 테이블에 저장되어있는 아이디들을 이용하여 친구 신청 거절
 	 */
 	int rejectFriend(int noticeNo);
+	
+	/**
+	 * 친구 관계를 지우기
+	 */
+	int deleteFriend(String userId, String friendId);
 }
