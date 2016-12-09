@@ -17,6 +17,7 @@
 	height:30%;
 }
 
+
 .mypageLogList {
 	margin-top: 20px;
 }
@@ -56,15 +57,13 @@
 </head>
 <body>
 	<div id="mypageNotice">
-		<article>
-			<ul class="grow">
-				<c:forEach items="${noticeList}" var="noticeItem" varStatus="noticeState">
-					<li class="mypageNoticeList">
-						${noticeState} ${noticeItem.content}
-					</li>
-				</c:forEach>
-			</ul>
-		</article>
+		<ul class="grow">
+			<c:forEach items="${noticeList}" var="noticeItem" varStatus="noticeState">
+				<li class="mypageNoticeList">
+					${noticeState} ${noticeItem.content}
+				</li>
+			</c:forEach>
+		</ul>
 	</div>
 	
 	<div class="mypageLogList">
@@ -189,11 +188,43 @@
 			})
 			/* 그룹 수락 */
 			$('.mypageLogStory').on('click','.groupAccept',function(){
-				alert($(this).parent().attr('id'));
+				$.ajax({
+					url : "/controller/group/accept",
+					type : "post",
+					data : 'noticeNo=' + $(this).parent().attr('id'),
+					dataType : "text",
+					success : function(data) {
+						if(data==1){
+							alert('그룹 신청 수락');
+							location.href='/controller/mypage/list';
+						}else{
+							alert('그룹 신청 수락 실패');
+						}
+					},
+					error : function() {
+						alert('error')
+					}
+				})
 			})
 			/* 그룹 거절 */
 			$('.mypageLogStory').on('click','.groupRefuse',function(){
-				alert($(this).parent().attr('id'));
+				$.ajax({
+					url : "/controller/group/reject",
+					type : "post",
+					data : 'noticeNo=' + $(this).parent().attr('id'),
+					dataType : "text",
+					success : function(data) {
+						if(data==1){
+							alert('그룹 신청 거절');
+							location.href='/controller/mypage/list';
+						}else{
+							alert('그룹 신청 거절 실패');
+						}
+					},
+					error : function() {
+						alert('error')
+					}
+				})
 			})
 			/* 관리자 메세지 */
 			$('.mypageLogStory').on('click','.noticeItem',function(){
