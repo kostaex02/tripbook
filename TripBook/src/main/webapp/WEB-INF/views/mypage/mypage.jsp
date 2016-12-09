@@ -73,48 +73,43 @@
 					<c:when test="${otherNoticeItem.state eq '0'}">
 						<li class="mypageLogStory">
 							<div class="mypageProfile">
-								<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+								<img class="mypageProfileImg" src='<c:url value="/tripbook/user/${otherNoticeItem.sender}/${otherNoticeItem.fileName}"/>'>
 							</div>
-							<div class="mypageMessage">친구하자!</div>
-							<div class="mypageButton">
-								<input class="btn btn-primary" type="submit" value="수락">
-								<input class="btn btn-default" type="submit" value="거절">
+							<div class="mypageMessage">${otherNoticeItem.name}님의 친구신청!</div>
+							<div id='${otherNoticeItem.noticeNo}' class="mypageButton">
+								<input class="btn btn-primary friendAccept" type="button" value="수락">
+								<input class="btn btn-default friendRefuse" type="button" value="거절">
 							</div>
 						</li>
 					</c:when>
 					<c:when test="${otherNoticeItem.state eq '1'}">
 						<li class="mypageLogStory">
 							<div class="mypageProfile">
-								<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+								<img class="mypageProfileImg" src='<c:url value="/tripbook/user/${otherNoticeItem.sender}/${otherNoticeItem.fileName}"/>'>
 							</div>
-							<div class="mypageMessage">그룹하자!</div>
-							<div class="mypageButton">
-								<input class="btn btn-primary" type="submit" value="수락">
-								<input class="btn btn-default" type="submit" value="거절">
+							<div class="mypageMessage">${otherNoticeItem.name}님의 그룹신청!</div>
+							<div id='${otherNoticeItem.noticeNo}' class="mypageButton">
+								<input class="btn btn-primary groupAccept" type="submit" value="수락">
+								<input class="btn btn-default groupRefuse" type="submit" value="거절">
 							</div>
 						</li>
 					</c:when>
 					<c:when test="${otherNoticeItem.state eq '2'}">
 						<li class="mypageLogStory">
-							<div class="mypageProfile">
-								<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
-							</div>
-							<div class="mypageMessage">관리자 메세지</div>
-							<div class="mypageButton">
-								<input class="btn btn-primary" type="submit" value="수락">
-								<input class="btn btn-default" type="submit" value="거절">
+							<div class="mypageMessage">${otherNoticeItem.name} 관리자의 말씀 : ${otherNoticeItem.content}</div>
+							<div id='${otherNoticeItem.noticeNo}' class="mypageButton">
+								<input class="btn btn-primary noticeItem" type="submit" value="확인">
 							</div>
 						</li>
 					</c:when>
 					<c:when test="${otherNoticeItem.state eq '3'}">
 						<li class="mypageLogStory">
 							<div class="mypageProfile">
-								<img class="mypageProfileImg" src='<c:url value="/images/img.jpg"/>'>
+								<img class="mypageProfileImg" src='<c:url value="/tripbook/user/${otherNoticeItem.sender}/${otherNoticeItem.fileName}"/>'>
 							</div>
-							<div class="mypageMessage">친구가 게시물 작성했습니다.</div>
-							<div class="mypageButton">
-								<input class="btn btn-primary" type="submit" value="수락">
-								<input class="btn btn-default" type="submit" value="거절">
+							<div class="mypageMessage">${otherNoticeItem.name}님이 새로운 게시물을 작성했습니다.</div>
+							<div id='${otherNoticeItem.noticeNo}' class="mypageButton">
+								<input class="btn btn-primary friendBoard" type="submit" value="확인하러 가자">
 							</div>
 						</li>
 					</c:when>
@@ -124,7 +119,38 @@
 	</div>
 	<script src='<c:url value="/resources/js/main/stroll.min.js"/>'></script>
 	<script>
+		/* scroll 이벤트 */
 		stroll.bind('ul');
+		
+		/* 알림 버튼 관련 이벤트 */
+		$(function(){
+			/* 친구 수락 */
+			$('.mypageLogStory').on('click','.friendAccept',function(){
+				alert("수락 : "+$(this).parent().attr('id'));
+			})
+			/* 친구 거절 */
+			$('.mypageLogStory').on('click','.friendRefuse',function(){
+				alert("거절 : "+$(this).parent().attr('id'));
+			})
+			/* 그룹 수락 */
+			$('.mypageLogStory').on('click','.groupAccept',function(){
+				alert($(this).parent().attr('id'));
+			})
+			/* 그룹 거절 */
+			$('.mypageLogStory').on('click','.groupRefuse',function(){
+				alert($(this).parent().attr('id'));
+			})
+			/* 관리자 메세지 */
+			$('.mypageLogStory').on('click','.noticeItem',function(){
+				alert($(this).parent().attr('id'));
+			})
+			/* 친구 게시물 알림 */
+			$('.mypageLogStory').on('click','.friendBoard',function(){
+				alert($(this).parent().attr('id'));
+			})
+		})
+		
+		
 	</script>
 </body>
 </html>
