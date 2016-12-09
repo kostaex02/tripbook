@@ -29,12 +29,4 @@ public class FriendController {
 		return mv;
 	}
 	
-	@RequestMapping("tryAdd")
-	@ResponseBody
-	public int tryAdd(HttpServletRequest request, String friendId){
-		HttpSession session = request.getSession();
-		String userId = (String) session.getAttribute("userId");
-		return friendService.addFriend(userId, friendId);
-	}
-	
 }

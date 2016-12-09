@@ -101,7 +101,9 @@ public class MyPageController {
 	public ModelAndView list(HttpServletRequest request){
 		HttpSession session = request.getSession();
 		List<NoticeDTO> otherNoticeList = noticeService.selectNoticeByReceiver((String)session.getAttribute("userId"));
+		List<NoticeDTO> noticeList = noticeService.selectNoticeByAdmin();
 		ModelAndView mv = new ModelAndView("mypage/mypage");
+		mv.addObject("noticeList", noticeList);
 		mv.addObject("otherNoticeList", otherNoticeList);
 		return mv;
 	}

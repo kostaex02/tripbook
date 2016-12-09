@@ -8,8 +8,8 @@
 $(function(){
 	$('.friendsButton input[type=button]').click(function(){
 		$.ajax({
-			url : "/controller/friends/tryAdd",
-			type : "get",
+			url : "/controller/search/addFriend",
+			type : "post",
 			data : 'friendId=' + $(this).parents().siblings("input").attr('id'),
 			dataType : "text",
 			success : function(data) {

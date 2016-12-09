@@ -19,7 +19,12 @@ public class NoticeDAOImpl implements NoticeDAO {
 
 	@Override
 	public List<NoticeDTO> selectNoticeByReceiver(String userId) {
-		return session.selectList("noticeMapper.selectNoticeOther", userId);
+		return session.selectList("noticeMapper.selectNoticeByReceiver", userId);
+	}
+
+	@Override
+	public List<NoticeDTO> selectNoticeByAdmin() {
+		return session.selectList("noticeMapper.selectNoticeByAdmin");
 	}
 
 }

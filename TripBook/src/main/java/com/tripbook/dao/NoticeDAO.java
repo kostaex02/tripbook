@@ -14,4 +14,9 @@ public interface NoticeDAO {
 	 * 공지사항을 제외한 모든 알림 출력
 	 */
 	List<NoticeDTO> selectNoticeByReceiver(String userId);
+	
+	/**
+	 * 공지사항 알림 출력
+	 */
+	List<NoticeDTO> selectNoticeByAdmin();
 }

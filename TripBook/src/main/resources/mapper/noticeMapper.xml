@@ -11,6 +11,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 	<result column="send_date" property="sendDate"/>
 	 	<result column="content" property="content"/>
 	 	<result column="check_state" property="checkState"/>
+	 	<result column="name" property="name"/>
+	 	<result column="file_name" property="fileName"/>
 	 </resultMap>
 	 <insert id="insertNotice" parameterType="noticeDTO">
 	 	insert into notice_table(notice_no,state,sender,receiver,send_date,content,check_state)
@@ -19,7 +21,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 <select id="selectNoticeByReceiver" parameterType="String" resultMap="selectNoticeMap">
 	 	select notice_no,notice_table.state state,sender,receiver,send_date,content,check_state,name,file_name
 		from notice_table join user_table on (notice_table.sender = user_table.id) 
-		where receiver='test3@test.com' and check_state='0' 
+		where receiver=#{value} 
+		order by send_date desc
+	 </select>
+	 <select id="selectNoticeByAdmin" resultMap="selectNoticeMap">
+	 	select notice_no,notice_table.state state,sender,receiver,send_date,content,check_state,name,file_name
+		from notice_table join user_table on (notice_table.sender = user_table.id) 
+		where (receiver is null) and check_state in ('2') 
 		order by send_date desc
 	 </select>
 </mapper>

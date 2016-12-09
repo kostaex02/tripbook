@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tripbook.dto.UserDTO;
@@ -35,10 +36,10 @@ public class SearchController {
 	}
 	
 	@RequestMapping("addFriend")
-	public String addFriend(HttpServletRequest request,String friendId){
+	@ResponseBody
+	public int addFriend(HttpServletRequest request,String friendId){
 		HttpSession session = request.getSession();
 		String userId = (String)session.getAttribute("userId");
-		int result = friendService.addFriend(userId,friendId);
-		return "main/main";
+		return friendService.addFriend(userId, friendId);
 	}
 }
