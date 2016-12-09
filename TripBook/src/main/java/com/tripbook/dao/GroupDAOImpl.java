@@ -18,5 +18,9 @@ public class GroupDAOImpl implements GroupDAO {
 	public GroupDTO selectGroupByName(String groupName) {
 		return session.selectOne("groupMapper.selectGroupByName", groupName);
 	}
+	@Override
+	public GroupDTO selectGroupByNo(int groupNo) {
+		return session.selectOne("groupMapper.selectGroupByName", groupNo);
+	}
 
 }

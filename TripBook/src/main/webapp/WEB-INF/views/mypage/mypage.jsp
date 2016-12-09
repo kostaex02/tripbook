@@ -87,7 +87,7 @@
 							<div class="mypageProfile">
 								<img class="mypageProfileImg" src='<c:url value="/tripbook/user/${otherNoticeItem.sender}/${otherNoticeItem.fileName}"/>'>
 							</div>
-							<div class="mypageMessage">${otherNoticeItem.name}님의 그룹신청!</div>
+							<div class="mypageMessage">${otherNoticeItem.name}님의 ${otherNoticeItem.content} 그룹신청!</div>
 							<div id='${otherNoticeItem.noticeNo}' class="mypageButton">
 								<input class="btn btn-primary groupAccept" type="submit" value="수락">
 								<input class="btn btn-default groupRefuse" type="submit" value="거절">

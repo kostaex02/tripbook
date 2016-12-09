@@ -10,12 +10,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tripbook.service.FriendService;
+import com.tripbook.service.GroupService;
 
 @Controller
 @RequestMapping("friends")
 public class FriendController {
 	@Autowired
 	private FriendService friendService;
+	@Autowired
+	private GroupService groupService;
 	
 	@RequestMapping("{pageName}")
 	public void page(HttpServletRequest request){}
@@ -27,6 +30,7 @@ public class FriendController {
 		
 		ModelAndView mv = new ModelAndView("friends/friends");
 		mv.addObject("friendList", friendService.selectFriendList(userId, "1"));
+		mv.addObject("groupList", groupService.selectGroupList(userId));
 		return mv;
 	}
 	

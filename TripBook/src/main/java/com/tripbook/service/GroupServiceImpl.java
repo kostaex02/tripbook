@@ -1,6 +1,8 @@
 package com.tripbook.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,41 +33,16 @@ public class GroupServiceImpl implements GroupService {
 		groupMemberDAO.insertGroupMember(map);
 		int result = 0;
 		for(String str:friendId){
-			result = noticeDAO.insertNotice(new NoticeDTO("1", userId, str));
+			result = noticeDAO.insertNotice(new NoticeDTO("1", userId, str,groupDTO.getGroupNo()+""));
 		}
 		return result;
 	}
-/*	@Override
-	public int acceptFriend(int noticeNo) {
-		NoticeDTO notice = noticeDAO.selectNoticeById(noticeNo);
-		if(notice!=null){
-			Map<String,String> map = new HashMap<>();
-			map.put("userId", notice.getSender());
-			map.put("friendId", notice.getReceiver());
-			friendDAO.updateFriend(map);
-			return noticeDAO.deleteNoticeByNo(noticeNo);
-		}
-		return 0;
-	}
-
-	@Override
-	public int rejectFriend(int noticeNo) {
-		NoticeDTO notice = noticeDAO.selectNoticeById(noticeNo);
-		if(notice!=null){
-			Map<String,String> map = new HashMap<>();
-			map.put("userId", notice.getSender());
-			map.put("friendId", notice.getReceiver());
-			friendDAO.deleteFriend(map);
-			return noticeDAO.deleteNoticeByNo(noticeNo);
-		}
-		return 0;
-	}*/
 	@Override
 	public int acceptGroup(int noticeNo) {
 		NoticeDTO notice = noticeDAO.selectNoticeById(noticeNo);
 		if(notice!=null){
 			Map<String,Object> map = new HashMap<>();
-			map.put("groupNo", notice.getNoticeNo());
+			map.put("groupNo", notice.getContent());
 			map.put("friendId", notice.getReceiver());
 			groupMemberDAO.insertGroupMember(map);
 			return noticeDAO.deleteNoticeByNo(noticeNo);
@@ -80,6 +57,15 @@ public class GroupServiceImpl implements GroupService {
 			return noticeDAO.deleteNoticeByNo(noticeNo);
 		}
 		return 0;
+	}
+	@Override
+	public List<GroupDTO> selectGroupList(String userId) {
+		List<Integer> list = groupMemberDAO.selectGroupMember(userId);
+		List<GroupDTO> resultList = new ArrayList<>();
+		for(int groupNo:list){
+			resultList.add(groupDAO.selectGroupByNo(groupNo));
+		}
+		return null;
 	}
 
 }

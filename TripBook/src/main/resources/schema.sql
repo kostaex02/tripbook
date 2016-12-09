@@ -125,3 +125,4 @@ CREATE TABLE reply_table
 	board_no NUMBER references board_table(board_no)
 );
 select * from notice_table
+delete from group_table;
