@@ -13,7 +13,7 @@
 <style type="text/css">
 #mypageNotice {
 	border: 1px solid red;
-	margin:
+	height:30%;
 }
 
 .mypageLogList {
@@ -55,7 +55,23 @@
 </head>
 <body>
 	<div id="mypageNotice">
-		공지사항?
+		<ul class="grow">
+			<li class="mypageNoticeList">
+				공지사항 1
+			</li>
+			<li class="mypageNoticeList">
+				공지사항 1
+			</li>
+			<li class="mypageNoticeList">
+				공지사항 1
+			</li>
+			<li class="mypageNoticeList">
+				공지사항 1
+			</li>
+			<li class="mypageNoticeList">
+				공지사항 1
+			</li>
+		</ul>
 	</div>
 	<div class="mypageLogList">
 		<ul class="grow">
