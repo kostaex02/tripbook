@@ -1,6 +1,3 @@
-/**
- * Demo page styles, all list scroll effects styles are in sctroll.css
- */
 
 
 /**
@@ -9,7 +6,7 @@
 ul {
 	position: relative;
 	width: 100%;
-	height: auto;
+	height: 500px;
 	margin: 0;
 	padding: 0;
 	overflow-x: hidden;
@@ -27,7 +24,7 @@ ul {
 		padding: 16px;
 		background: #eee;
 		color: #252525;
-		font-size: 10px;
+		font-size: 18px;
 		z-index: 2;
 
 		-webkit-transform: translateZ(0px);

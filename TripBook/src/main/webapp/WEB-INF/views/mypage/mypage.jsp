@@ -17,7 +17,6 @@
 	height:30%;
 }
 
-
 .mypageLogList {
 	margin-top: 20px;
 }
@@ -57,13 +56,15 @@
 </head>
 <body>
 	<div id="mypageNotice">
-		<ul class="grow">
-			<c:forEach items="${noticeList}" var="noticeItem" varStatus="noticeState">
-				<li class="mypageNoticeList">
-					${noticeState} ${noticeItem.content}
-				</li>
-			</c:forEach>
-		</ul>
+		<article>
+			<ul class="grow">
+				<c:forEach items="${noticeList}" var="noticeItem" varStatus="noticeState">
+					<li class="mypageNoticeList">
+						${noticeState} ${noticeItem.content}
+					</li>
+				</c:forEach>
+			</ul>
+		</article>
 	</div>
 	
 	<div class="mypageLogList">
