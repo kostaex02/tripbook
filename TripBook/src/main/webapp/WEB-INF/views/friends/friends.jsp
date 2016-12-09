@@ -80,8 +80,9 @@ textarea {
 						${item.name}
 					</div>
 					<div class="friendsButton">
-						<a href="#" class='btn btn-primary' data-toggle="modal"
-							data-target="#friendSendMessage">메세지 작성</a>
+						<a href="#" class='btn btn-primary' data-toggle="modal" data-target="#friendSendMessage">메세지 작성</a>
+						<a href="#" class='btn btn-primary' data-toggle="modal">친구 삭제</a>
+							
 					</div>
 				</li>
 			</c:forEach>
@@ -159,8 +160,6 @@ textarea {
 				</div>
 				<form action='' method="post">
 					<div class="modal-body">
-						<input type='text' class="form-control" name="receiver"
-							placeholder="받는 사람">
 						<textarea placeholder="메세지를 입력하세요" name="message"></textarea>
 					</div>
 					<div class="modal-footer">

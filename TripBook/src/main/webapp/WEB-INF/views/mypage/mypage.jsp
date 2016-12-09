@@ -113,6 +113,28 @@
 							</div>
 						</li>
 					</c:when>
+					<c:when test="${otherNoticeItem.state eq '4'}">
+						<li class="mypageLogStory">
+							<div class="mypageProfile">
+								<img class="mypageProfileImg" src='<c:url value="/tripbook/user/${otherNoticeItem.sender}/${otherNoticeItem.fileName}"/>'>
+							</div>
+							<div class="mypageMessage">${otherNoticeItem.name}님의 메세지 : ${otherNoticeItem.content}</div>
+							<div id='${otherNoticeItem.noticeNo}' class="mypageButton">
+								<input class="btn btn-primary friendMessage" type="submit" value="확인하러 가자">
+							</div>
+						</li>
+					</c:when>
+					<c:when test="${otherNoticeItem.state eq '5'}">
+						<li class="mypageLogStory">
+							<div class="mypageProfile">
+								<img class="mypageProfileImg" src='<c:url value="/tripbook/user/${otherNoticeItem.sender}/${otherNoticeItem.fileName}"/>'>
+							</div>
+							<div class="mypageMessage">${otherNoticeItem.name}님이 게시물에 댓글 작성했습니다.</div>
+							<div id='${otherNoticeItem.noticeNo}' class="mypageButton">
+								<input class="btn btn-primary friendReply" type="submit" value="확인하러 가자">
+							</div>
+						</li>
+					</c:when>
 				</c:choose>
 			</c:forEach>
 		</ul>
@@ -180,6 +202,15 @@
 			$('.mypageLogStory').on('click','.friendBoard',function(){
 				alert($(this).parent().attr('id'));
 			})
+			/* 친구 메세지 */
+			$('.mypageLogStory').on('click','.friendMessage',function(){
+				alert($(this).parent().attr('id'));
+			})
+			/* 친구 댓글 */
+			$('.mypageLogStory').on('click','.friendReply',function(){
+				alert($(this).parent().attr('id'));
+			})
+			
 		})
 		
 		
