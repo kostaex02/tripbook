@@ -169,7 +169,7 @@
 <c:choose>
 	<c:when test="${userState eq '0'}">
 		<div id='sideNav'>
-			<a class='sideProfileLink'href='<c:url value="/mypage/mypage"/>'><div id='sideProfile'>
+			<a class='sideProfileLink'href='<c:url value="/mypage/list"/>'><div id='sideProfile'>
 				<img class='profileImage' src='<c:url value="/tripbook/user/${userId}/${userFileName}"/>'>
 				<div class='userName'>${userName}</div>
 				<a class='logout' href='<c:url value="/mypage/profile"/>'>정보수정</a><br>
@@ -192,7 +192,7 @@
 				</dl>
 			</div>
 			<hr>
-			<a class='sideProfileLink'href='<c:url value="/mypage/mypage"/>'><div id='sideProfile'>
+			<a class='sideProfileLink'href='<c:url value="/mypage/list"/>'><div id='sideProfile'>
 				<img class='profileImage' src='<c:url value="/tripbook/user/${friendUserId}/${friendUserFileName}"/>'>
 				<div class='userName'>friendUserName</div>
 				<a href='#'>게시물 보기</a><br>
