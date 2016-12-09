@@ -384,8 +384,7 @@ hr {
 									src='<c:url value="/images/img.jpg"/>'>
 							</div>
 							<div class="newGeneralBoardTitle">
-								<label for="mainExclusive_input">어디를 여행하셨나요?</label> <input
-									name="title" type="text" id="mainExclusive_input">
+								<textarea name="title" class="form-control" rows="5" id="mainExclusive_input"></textarea>
 							</div>
 							<hr>
 							<div class="newGeneralBoardSelect">
@@ -400,16 +399,16 @@ hr {
 								<input type="file" class="newGeneralBoardMulti with-preview" style="display:none" multiple/>
 								<div class="btn-group groupMap" role="group" style="display:none">
 									<button type="button" class="btn btn-default btn-sm" id="insideDaumMap">국내</button>
-									<button type="button" class="btn btn-default btn-sm" id="insideGoogleMap">해외</button>
+									<button type="button" class="btn btn-default btn-sm" id="insideGoogleMap" onclick="displayMap()">해외</button>
 								</div>
 								<div class="newGeneralBoardMultiList"></div>
 								<div class="newGeneralMap"></div>
 								
 							</div>
-							<div class="newGeneralBoardMap" style="width:100%;">
-							<!-- map부분 -->
-							<input id="pac-input" class="controls" type="text" placeholder="Search Box">
-    						<div id="map" style="width:100%; height:300px;"></div>
+							<div id="newGeneralBoardGMap"class="newGeneralBoardGMap" style="width:90%; display:none">
+								<!-- map부분 -->
+								<input id="pac-input" class="controls" type="text" placeholder="Search Box">
+    							<div id="map" style="width:90%; height:300px;"></div>
 							</div>
 						</div>
 					</div>
@@ -504,8 +503,10 @@ hr {
 	    return false; 
 	} 
 	
+	
 	//구글 map API
 	function initAutocomplete() {
+		
 		  var map = new google.maps.Map(document.getElementById('map'), {
 		    center: {lat: -33.8688, lng: 151.2195},
 		    zoom: 13,
@@ -568,7 +569,6 @@ hr {
 		} 
 	/* 스크롤 효과 */
 	stroll.bind('.mainAllBoard ul');
-
 		/* 타이틀 포커스 효과 */
 		$(document)
 				.ready(
@@ -597,7 +597,7 @@ hr {
 					//maxsize : 3024, //전체 파일 최대 업로드 크기
 					STRING : { //Multi-lingual support : 메시지 수정 가능
 						remove : "제거", //추가한 파일 제거 문구, 이미태그를 사용하면 이미지사용가능
-						duplicate : "$file 은 이미 선택된 파일입니다.",
+ 						duplicate : "$file 은 이미 선택된 파일입니다.",
 						denied : "$ext 는(은) 업로드 할수 없는 파일확장자입니다.",
 						selected : '$file 을 선택했습니다.',
 					//toomuch : "업로드할 수 있는 최대크기를 초과하였습니다.($size)",
@@ -619,9 +619,12 @@ hr {
 			
 		}); 
 		
-		$('#addGeneralBoard').on('shown.bs.modal', function () {
-		    google.maps.event.trigger(map, "resize");
-		});
+		function displayMap(){  
+			document.getElementById('newGeneralBoardGMap').style.display="block";
+			google.maps.event.trigger(map, "resize");
+		}
+		
+		
 		
 	</script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBv7i1sbKKdVRfbilHi8obuYThFnE3P9ZA&libraries=places&callback=initAutocomplete"
