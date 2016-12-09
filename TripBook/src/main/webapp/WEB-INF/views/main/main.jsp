@@ -181,7 +181,13 @@ hr {
 }
 .modal-backdrop{
     z-index: 10;        
-}​
+}
+
+#menu_wrap {position:absolute;top:0;left:0;bottom:0;width:250px;height:25px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 2;font-size:12px;border-radius: 10px;}
+.bg_white {background:#fff;}
+#menu_wrap .option{text-align: center;}
+#menu_wrap .option p {margin:10px 0;}  
+#menu_wrap .option button {margin-left:5px;}​
 
 </style>
 
@@ -398,19 +404,31 @@ hr {
 								</div>
 								<input type="file" class="newGeneralBoardMulti with-preview" style="display:none" multiple/>
 								<div class="btn-group groupMap" role="group" style="display:none">
-									<button type="button" class="btn btn-default btn-sm" id="insideDaumMap">국내</button>
+									<button type="button" class="btn btn-default btn-sm" id="insideDaumMap" onclick="relayout()">국내</button>
 									<button type="button" class="btn btn-default btn-sm" id="insideGoogleMap" onclick="displayMap()">해외</button>
 								</div>
 								<div class="newGeneralBoardMultiList"></div>
-								<div class="newGeneralMap"></div>
 								
 							</div>
-							<div id="newGeneralBoardGMap"class="newGeneralBoardGMap" style="width:90%; display:none">
+							<div id="newGeneralBoardGMap" class="newGeneralBoardMap" style="width:90%; display:none">
 								<!-- map부분 -->
 								<input id="pac-input" class="controls" type="text" placeholder="Search Box">
     							<div id="map" style="width:90%; height:300px;"></div>
 							</div>
-						</div>
+							
+							<div id="newGeneralBoardDMap" class="newGeneralBoardMap" style="width:90%; display:none">
+								<div id="menu_wrap" class="bg_white">
+								<div class="option">
+									<form onsubmit="searchPlaces(); return false;">
+										<input type="text" id="keyword" value="" size="15"> 
+										<button type="submit">검색하기</button> 
+									</form>
+								</div>
+							</div>
+
+							<div id="daumMap" style="width:90%; height:300px"></div>
+							</div>
+ 						</div>
 					</div>
 					<div class="modal-footer">
 						<select>
@@ -567,8 +585,10 @@ hr {
 		  });
 		  // [END region_getplaces]
 		} 
+	
 	/* 스크롤 효과 */
 	stroll.bind('.mainAllBoard ul');
+	
 		/* 타이틀 포커스 효과 */
 		$(document)
 				.ready(
@@ -588,8 +608,9 @@ hr {
 							});
 						});
 
-		/* 멀티파일 설정 */
+		
 		$(function() {
+			/* 멀티파일 설정 */
 			$('.newGeneralBoardMulti').MultiFile({
 					//max : 3, //업로드 최대 파일 갯수 (지정하지 않으면 무한대)
 					accept : 'jpg|png|gif', //허용할 확장자(지정하지 않으면 모든 확장자 허용)
@@ -618,16 +639,117 @@ hr {
 			})
 			
 		}); 
-		
-		function displayMap(){  
-			document.getElementById('newGeneralBoardGMap').style.display="block";
+					
+		function displayMap(){
+			document.getElementById('newGeneralBoardDMap').style.display="none";
+		    document.getElementById('newGeneralBoardGMap').style.display="block";
 			google.maps.event.trigger(map, "resize");
-		}
-		
-		
-		
+		}	
 	</script>
+	<!-- google API Key -->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBv7i1sbKKdVRfbilHi8obuYThFnE3P9ZA&libraries=places&callback=initAutocomplete"
          async defer></script>
+    <!-- daum API Key -->
+    <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=3bae0d1bca94080850d3d2451479c7ee&libraries=services"></script>
+	
+	<script>
+
+	var daumMarkers = [];
+
+	// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
+	var daumInfowindow = new daum.maps.InfoWindow({zIndex:1});
+
+	var mapContainer = document.getElementById('daumMap'), // 지도를 표시할 div 
+	    mapOption = {
+	        center: new daum.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
+	        level: 3 // 지도의 확대 레벨
+	    };  
+
+	// 지도를 생성합니다    
+	var daumMap = new daum.maps.Map(mapContainer, mapOption);
+	//var keyword = document.getElementById('keyword');
+
+	var daumMarker;
+
+	// 장소 검색 객체를 생성합니다
+	var daumPs = new daum.maps.services.Places(); 
+
+	searchPlaces();
+	//키워드 검색을 요청하는 함수입니다
+	function searchPlaces() {
+
+	    var keyword = document.getElementById('keyword').value;
+
+	    /* if (!keyword.replace(/^\s+|\s+$/g, '')) {
+	        alert('키워드를 입력해주세요!');
+	        return false;
+	    } */
+
+	    // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
+	    daumPs.keywordSearch( keyword, placesSearchCB); 
+	}
+
+	// 키워드 검색 완료 시 호출되는 콜백함수 입니다
+	function placesSearchCB (status, data, pagination) {
+	    if (status === daum.maps.services.Status.OK) {
+
+	        // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+	        // LatLngBounds 객체에 좌표를 추가합니다
+	        var daumBounds = new daum.maps.LatLngBounds();
+
+	/*         for (var i=0; i<data.places.length; i++) {
+	            displayMarker(data.places[i]);    
+	            bounds.extend(new daum.maps.LatLng(data.places[i].latitude, data.places[i].longitude));
+	        }       
+	 */
+	 		daumMap = new daum.maps.Map(mapContainer, mapOption);
+	 		displayMarker(data.places[0]);    
+	 		daumBounds.extend(new daum.maps.LatLng(data.places[0].latitude, data.places[0].longitude));
+	        // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+	        daumMap.setBounds(daumBounds);
+	    } 
+	}
+
+	// 지도에 마커를 표시하는 함수입니다
+	function displayMarker(place) {
+		
+		removeMarker();
+		// 마커를 생성하고 지도에 표시합니다
+	    daumMarker = new daum.maps.Marker({
+	        map: daumMap,
+	        position: new daum.maps.LatLng(place.latitude, place.longitude) 
+	    });
+		
+		daumMarker.setMap(daumMap);
+		daumMarkers.push(daumMarker);
+
+	    // 마커에 클릭이벤트를 등록합니다
+	    daum.maps.event.addListener(daumMarker, 'click', function() {
+	        // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+	        daumInfowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.title + '</div>');
+	        daumInfowindow.open(daumMap, daumMarker);
+	    });
+	}
+
+	function removeMarker() {
+	    for ( var i = 0; i < daumMarkers.length; i++ ) {
+	        daumMarkers[i].setMap(null);
+	    }   
+	    daumMarkers = [];
+	}
+
+	function relayout() {    
+	    
+	    // 지도를 표시하는 div 크기를 변경한 이후 지도가 정상적으로 표출되지 않을 수도 있습니다
+	    // 크기를 변경한 이후에는 반드시  map.relayout 함수를 호출해야 합니다 
+	    // window의 resize 이벤트에 의한 크기변경은 map.relayout 함수가 자동으로 호출됩니다
+	    document.getElementById('newGeneralBoardGMap').style.display="none";
+	    document.getElementById('newGeneralBoardDMap').style.display="block";
+	    daumMap.relayout();
+	}
+	
+	</script>
+
+
 </body>
 </html>
