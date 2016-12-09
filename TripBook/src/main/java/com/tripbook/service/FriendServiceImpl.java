@@ -35,10 +35,10 @@ public class FriendServiceImpl implements FriendService {
 			userList = new ArrayList<>();
 			for(FriendDTO f:friendList){
 				if(!f.getFriendId1().equals(userId)){
-					userList.add(userDAO.selectUser(f.getFriendId2()));
+					userList.add(userDAO.selectUser(f.getFriendId1()));
 				}
 				else{
-					userList.add(userDAO.selectUser(f.getFriendId1()));
+					userList.add(userDAO.selectUser(f.getFriendId2()));
 				}
 			}
 		}

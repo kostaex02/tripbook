@@ -195,7 +195,7 @@
 			<a href='<c:url value="/calendar/calendar"/>'><div id='sideSchedule'>스케줄</div></a>
 			<a href='<c:url value="/main/main"/>'><div id='sideHome'>Home</div></a>
 			<a href='<c:url value="/biography/biography"/>'><div id='sideBiography'>여행일대기</div></a>
-			<a href='<c:url value="/friends/friends"/>'><div id='sideFriend'>친구</div></a>
+			<a href='<c:url value="/friends/list"/>'><div id='sideFriend'>친구</div></a>
 			<p>
 			<div id='sideGroup'>
 				<dl class="sideGroupHeader">

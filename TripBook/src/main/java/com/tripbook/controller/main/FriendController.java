@@ -24,6 +24,7 @@ public class FriendController {
 	public ModelAndView friends(HttpServletRequest request){
 		HttpSession session = request.getSession();
 		String userId = (String) session.getAttribute("userId");
+		
 		ModelAndView mv = new ModelAndView("friends/friends");
 		mv.addObject("friendList", friendService.selectFriendList(userId, "1"));
 		return mv;
