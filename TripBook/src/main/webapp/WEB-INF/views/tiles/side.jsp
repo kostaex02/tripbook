@@ -157,6 +157,22 @@
 		width:96%;
 	}
 	
+	
+	/* 그룹관련 css */
+	
+	.sideGroupHeader{
+		background-color: black;
+		position: relative;
+		line-height: 30px;
+		height:auto;
+		color:white;
+		border-radius: 45px;
+		width: 15%;
+		
+	}
+	.sideGroupMenu{
+		display: none; 
+	}
 	dl{
 		margin-bottom: 5px;
 	}
@@ -182,7 +198,7 @@
 			<a href='<c:url value="/friends/friends"/>'><div id='sideFriend'>친구</div></a>
 			<p>
 			<div id='sideGroup'>
-				<dl class="sideGroup">
+				<dl class="sideGroupHeader">
 					<dd style="cursor: pointer">그룹</dd>
 				</dl>
 				<dl class="sideGroupMenu">
@@ -238,8 +254,8 @@ $(function(){
 		sessionStorage.setItem("pageName", $(this).children("div").attr("id"));
 	});
 	
-	$("#sideGroup").hover(function() {
-		$(this).append($())
+	$(".sideGroupHeader").click(function() {
+		$(".sideGroupMenu").slideToggle(500);
 	})
 	
 	 var trash = document.getElementById("trash");
