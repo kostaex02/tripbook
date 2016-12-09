@@ -59,4 +59,30 @@ public class FriendServiceImpl implements FriendService {
 		}
 	}
 
+	@Override
+	public int acceptFriend(int noticeNo) {
+		NoticeDTO notice = noticeDAO.selectNoticeById(noticeNo);
+		if(notice!=null){
+			Map<String,String> map = new HashMap<>();
+			map.put("userId", notice.getSender());
+			map.put("friendId", notice.getReceiver());
+			friendDAO.updateFriend(map);
+			return noticeDAO.deleteNoticeByNo(noticeNo);
+		}
+		return 0;
+	}
+
+	@Override
+	public int rejectFriend(int noticeNo) {
+		NoticeDTO notice = noticeDAO.selectNoticeById(noticeNo);
+		if(notice!=null){
+			Map<String,String> map = new HashMap<>();
+			map.put("userId", notice.getSender());
+			map.put("friendId", notice.getReceiver());
+			friendDAO.deleteFriend(map);
+			return noticeDAO.deleteNoticeByNo(noticeNo);
+		}
+		return 0;
+	}
+
 }

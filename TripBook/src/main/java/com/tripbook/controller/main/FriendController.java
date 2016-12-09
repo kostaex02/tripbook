@@ -29,4 +29,16 @@ public class FriendController {
 		return mv;
 	}
 	
+	@RequestMapping("accept")
+	@ResponseBody
+	public int accept(HttpServletRequest request,int noticeNo){
+		return friendService.acceptFriend(noticeNo);
+	}
+	
+	@RequestMapping("reject")
+	@ResponseBody
+	public int reject(HttpServletRequest request,int noticeNo){
+		return friendService.rejectFriend(noticeNo);
+
+	}
 }

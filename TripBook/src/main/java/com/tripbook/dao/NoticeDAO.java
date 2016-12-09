@@ -19,4 +19,14 @@ public interface NoticeDAO {
 	 * 공지사항 알림 출력
 	 */
 	List<NoticeDTO> selectNoticeByAdmin();
+	
+	/**
+	 * 공지사항 지우기
+	 */
+	int deleteNoticeByNo(int noticeNo);
+	
+	/**
+	 * no로 공지사항 검색
+	 */
+	NoticeDTO selectNoticeById(int noticeNo);
 }

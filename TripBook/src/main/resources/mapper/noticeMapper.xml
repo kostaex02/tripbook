@@ -30,4 +30,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where (receiver is null) and check_state in ('2') 
 		order by send_date desc
 	 </select>
+	 <delete id="deleteNoticeByNo" parameterType="int">
+	 	delete from notice_table where notice_no=#{value}
+	 </delete>
+	 <select id="selectNoticeByNo" parameterType="int" resultMap="selectNoticeMap">
+	 	select notice_no,state,sender,receiver,send_date,content,check_state
+		from notice_table join where notice_no=#{value}
+	 </select>
 </mapper>

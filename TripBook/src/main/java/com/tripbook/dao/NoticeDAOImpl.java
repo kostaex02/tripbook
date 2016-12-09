@@ -27,4 +27,14 @@ public class NoticeDAOImpl implements NoticeDAO {
 		return session.selectList("noticeMapper.selectNoticeByAdmin");
 	}
 
+	@Override
+	public int deleteNoticeByNo(int noticeNo) {
+		return session.delete("noticeMapper.deleteNoticeByNo", noticeNo);
+	}
+
+	@Override
+	public NoticeDTO selectNoticeById(int noticeNo) {
+		return session.selectOne("noticeMapper.selectNoticeByNo", noticeNo);
+	}
+
 }

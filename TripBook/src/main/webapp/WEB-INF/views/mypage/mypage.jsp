@@ -126,11 +126,43 @@
 		$(function(){
 			/* 친구 수락 */
 			$('.mypageLogStory').on('click','.friendAccept',function(){
-				alert("수락 : "+$(this).parent().attr('id'));
+				$.ajax({
+					url : "/controller/friends/accept",
+					type : "post",
+					data : 'noticeNo=' + $(this).parent().attr('id'),
+					dataType : "text",
+					success : function(data) {
+						if(data==1){
+							alert('친구 신청 수락');
+							location.href='/controller/mypage/list';
+						}else{
+							alert('친구 신청 수락 실패');
+						}
+					},
+					error : function() {
+						alert('error')
+					}
+				})
 			})
 			/* 친구 거절 */
 			$('.mypageLogStory').on('click','.friendRefuse',function(){
-				alert("거절 : "+$(this).parent().attr('id'));
+				$.ajax({
+					url : "/controller/friends/reject",
+					type : "post",
+					data : 'noticeNo=' + $(this).parent().attr('id'),
+					dataType : "text",
+					success : function(data) {
+						if(data==1){
+							alert('친구 신청 거절');
+							location.href='/controller/mypage/list';
+						}else{
+							alert('친구 신청 거절 실패');
+						}
+					},
+					error : function() {
+						alert('error')
+					}
+				})
 			})
 			/* 그룹 수락 */
 			$('.mypageLogStory').on('click','.groupAccept',function(){

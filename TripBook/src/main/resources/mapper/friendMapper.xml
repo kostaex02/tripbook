@@ -23,4 +23,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into friend_table(friend_no,state,friend_id1,friend_id2)
 		values(friend_sequence.nextval,'0',#{userId},#{friendId})
 	</insert>
+	
+	<update id="updateFriend" parameterType="Map">
+		update friend_table set state='1'
+		where (friend_id1=#{userId} and friend_id2=#{friendId}) or (friend_id1=#{friendId} and friend_id2=#{userId})
+	</update>
+	
+	<delete id="deleteFriend" parameterType="Map">
+		delete friend_table
+		where (friend_id1=#{userId} and friend_id2=#{friendId}) or (friend_id1=#{friendId} and friend_id2=#{userId})
+	</delete>
 </mapper>

@@ -20,4 +20,14 @@ public interface FriendDAO {
 	 * 유저 둘의 관계를 확인하는 테이블
 	 */
 	String selectFriendOnly(Map<String, String> map);
+	
+	/**
+	 * 친구 신청 확인
+	 */
+	int updateFriend(Map<String, String> map);
+
+	/**
+	 * 친구 신청 거절
+	 */
+	int deleteFriend(Map<String, String> map);
 }
