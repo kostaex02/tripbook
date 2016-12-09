@@ -61,8 +61,18 @@
 	        <li><a class="drawer-menu-item" href='<c:url value="/main/main"/>'>Home</a></li>
 			<li><a class="drawer-menu-item" href='<c:url value="/mypage/profile"/>'>My Page</a></li>
 			<li><a class="drawer-menu-item" href='<c:url value="/calendar/calendar"/>'>Schedule</a></li>
-			<li><a class="drawer-menu-item" href="#">Trip Biography</a></li>
-			<li><a class="drawer-menu-item" href='<c:url value="/friends/friends"/>'>Friends</a></li>
+			<li><a class="drawer-menu-item" href="<c:url value="/biography/biography"/>">Trip Biography</a></li>
+			<li><a class="drawer-menu-item" href='<c:url value="/friends/list"/>'>Friends</a></li>
+			<li class="drawer-dropdown">
+	          <a class="drawer-menu-item" data-target="#" href="#" data-toggle="dropdown" role="button" aria-expanded="false">
+	            Group <span class="drawer-caret"></span>
+	          </a>
+	          <ul class="drawer-dropdown-menu">
+	            <li><a class="drawer-dropdown-menu-item" href="#">그룹추가</a></li>
+	            <li><a class="drawer-dropdown-menu-item" href="#">학교친구</a></li>
+	            <li><a class="drawer-dropdown-menu-item" href="#">직장동기</a></li>
+	          </ul>
+	        </li>
 	      </ul>
 	    </nav>
 	</div>

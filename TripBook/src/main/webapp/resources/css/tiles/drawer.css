@@ -21,7 +21,7 @@
 }
 
 .drawer-brand {
-  font-size: 1.5rem;
+  font-size: 5px;
   font-weight: bold;
   line-height: 3.75rem;
   display: block;
@@ -36,9 +36,11 @@
   padding: 0;
   list-style: none;
 }
-
+.drawer-menu > *{
+	font-size: 10px;
+}
 .drawer-menu-item {
-  font-size: 1rem;
+  font-size: 5px;
   display: block;
   padding: .75rem;
   text-decoration: none;
