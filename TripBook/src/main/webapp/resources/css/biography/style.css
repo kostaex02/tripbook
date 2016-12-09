@@ -210,18 +210,20 @@
 }
 
 .container{
-	max-width: 120%
+	max-width: 120%;
+	padding-right: 30px;
 }
 
 .content{
-	margin-left:-10px;
-	max-width: 90%;
-}
-
-body {
-	overflow-y: scroll;
+	margin-left:-60px;
+	margin-right:-60px;
+	max-width: 200%;
+	max-height: 500px;
+	overflow-y: auto;
 	overflow-x: hidden;
 }
+
+
 
 
 

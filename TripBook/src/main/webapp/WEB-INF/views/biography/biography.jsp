@@ -11,9 +11,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body style='overflow-y: scroll; overflow-x: hidden;'>
-<div class="container" style='border: 1px solid black;'>
-
-		<div class="content" style='border: 1px solid black;'>
+<div class="container" >
+		<div class="content" >
 			<div class="grid">
 				<div class="grid__item" data-size="1280x853">
 					<a href="<c:url value="/images/test/1.jpg"/>" class="img-wrap"><img
