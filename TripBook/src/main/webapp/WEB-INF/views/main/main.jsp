@@ -390,10 +390,10 @@ hr {
 							<div class="newGeneralBoardSelect">
 								<div class="input-group-btn">
 									<button class="btn btn-default btn-sm" type="button" id="newGeneralBoardUploadImg">
-										<i><img src='<c:url value="/images/icon_upload.png"/>' width="64px" height="64px"></i>
+										<i><img src='<c:url value="/images/icon/icon_upload.png"/>' width="64px" height="64px"></i>
 									</button>
 									<button class="btn btn-default btn-sm" type="button" id="newGeneralBoardMap">
-										<i><img src='<c:url value="/images/icon_map.png"/>' width="64px" height="64px"></i>
+										<i><img src='<c:url value="/images/icon/icon_map.png"/>' width="64px" height="64px"></i>
 									</button>
 								</div>
 								<input type="file" class="newGeneralBoardMulti with-preview" style="display:none" multiple/>

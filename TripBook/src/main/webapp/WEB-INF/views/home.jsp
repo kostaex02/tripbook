@@ -107,7 +107,7 @@
 						<div class="modal-body">
 							<div id="inputId" class="input-group">
 								<span class="input-group-addon"> <i><img
-										src='<c:url value="/images/icon_id20.png"/>'></i></span> 
+										src='<c:url value="/images/icon/icon_id20.png"/>'></i></span> 
 										<input id="email" type="email"
 									class="form-control" name="id"
 									placeholder="Email"> 
@@ -117,14 +117,14 @@
 							<br>
 							<div class="input-group">
 								<span class="input-group-addon"> <i><img
-										src='<c:url value="/images/icon_password20.png"/>'></i></span> <input
+										src='<c:url value="/images/icon/icon_password20.png"/>'></i></span> <input
 									id="password" type="password" class="form-control"
 									name="password" placeholder="Password">
 							</div>
 							<br>
 							<div id="inputPasswordCheck" class="input-group">
 								<span class="input-group-addon"> <i><img
-										src='<c:url value="/images/icon_passwordCheck20.png"/>'></i></span>
+										src='<c:url value="/images/icon/icon_passwordCheck20.png"/>'></i></span>
 								<input id="passwordCheck" type="password" class="form-control"
 									name="passwordCheck" placeholder="Password check">
 									<span id="checkingPasswordCheck" aria-hidden="true"></span>
@@ -132,7 +132,7 @@
 							<br>
 							<div id="inputName" class="input-group">
 								<span class="input-group-addon"> <i><img
-										src='<c:url value="/images/icon_user20.png"/>'></i></span> <input
+										src='<c:url value="/images/icon/icon_user20.png"/>'></i></span> <input
 									id="name" type="text" class="form-control" name="name"
 									placeholder="이름">
 									<span id="checkingName" aria-hidden="true"></span>
@@ -140,7 +140,7 @@
 							<br>
 							<div id="inputAge" class="input-group">
 								<span class="input-group-addon"> <i><img
-										src='<c:url value="/images/icon_birth20.png"/>'></i></span> <input
+										src='<c:url value="/images/icon/icon_birth20.png"/>'></i></span> <input
 									id="age" type="number" class="form-control" name="age"
 									placeholder="나이">
 									<span id="checkingAge" aria-hidden="true"></span>
@@ -148,7 +148,7 @@
 							<br>
 							<div class="input-group">
 								<span class="input-group-addon"> <i><img
-										src='<c:url value="/images/icon_birth20.png"/>'></i></span> <input
+										src='<c:url value="/images/icon/icon_birth20.png"/>'></i></span> <input
 									type="radio" name="gender" value="0" checked="checked">남자
 								<input type="radio" name="gender" value="1">여자
 							</div>
@@ -160,7 +160,7 @@
 								<div class="input-group-btn">
 									<button class="btn btn-default" type="button"
 										id="buttonLoadPicture">
-										<i><img src='<c:url value="/images/icon_picture20.png"/>'></i>
+										<i><img src='<c:url value="/images/icon/icon_picture20.png"/>'></i>
 									</button>
 								</div>
 								<input id=file-upload name="file" class="file-upload" type="file" accept="image/*" style="display:none">

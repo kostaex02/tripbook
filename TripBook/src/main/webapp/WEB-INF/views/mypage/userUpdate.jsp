@@ -16,7 +16,7 @@
 <form action="<c:url value="/mypage/update"/>" method="post" enctype="multipart/form-data">
 			<div id="inputId" class="input-group">
 				<span class="input-group-addon"> <i><img
-						src='<c:url value="/images/icon_id20.png"/>'></i></span><input
+						src='<c:url value="/images/icon/icon_id20.png"/>'></i></span><input
 					id="id" type="text" class="form-control" name="id"
 					value="${user.id}" disabled> 
 
@@ -24,14 +24,14 @@
 			<br>
 			<div class="input-group">
 				<span class="input-group-addon"> <i><img
-						src='<c:url value="/images/icon_password20.png"/>'></i></span> <input
+						src='<c:url value="/images/icon/icon_password20.png"/>'></i></span> <input
 					id="password" type="password" class="form-control"
 					name="password" placeholder="Password">
 			</div>
 			<br>
 			<div id="inputPasswordCheck" class="input-group">
 				<span class="input-group-addon"> <i><img
-						src='<c:url value="/images/icon_passwordCheck20.png"/>'></i></span>
+						src='<c:url value="/images/icon/icon_passwordCheck20.png"/>'></i></span>
 				<input id="passwordCheck" type="password" class="form-control"
 					name="passwordCheck" placeholder="Password check">
 					<span id="checkingPasswordCheck" aria-hidden="true"></span>
@@ -39,21 +39,21 @@
 			<br>
 			<div class="input-group">
 				<span class="input-group-addon"> <i><img
-						src='<c:url value="/images/icon_user20.png"/>'></i></span> <input
+						src='<c:url value="/images/icon/icon_user20.png"/>'></i></span> <input
 					id="name" type="text" class="form-control" name="name"
 					value="${user.name}">
 			</div>
 			<br>
 			<div class="input-group">
 				<span class="input-group-addon"> <i><img
-						src='<c:url value="/images/icon_birth20.png"/>'></i></span> <input
+						src='<c:url value="/images/icon/icon_birth20.png"/>'></i></span> <input
 					id="age" type="number" class="form-control" name="age"
 					value="${user.age}">
 			</div>
 			<br>
 			<div class="input-group">
 				<span class="input-group-addon"> <i><img
-						src='<c:url value="/images/icon_birth20.png"/>'></i></span> 
+						src='<c:url value="/images/icon/icon_birth20.png"/>'></i></span> 
 				<c:choose>
 					<c:when test="${user.gender eq 0}">		
 						<input type="radio" name="gender" value="0" checked="checked">남자
@@ -72,7 +72,7 @@
 				<div class="input-group-btn">
 					<button class="btn btn-default" type="button"
 						id="buttonLoadPicture">
-						<i><img src='<c:url value="/images/icon_picture20.png"/>'></i>
+						<i><img src='<c:url value="/images/icon/icon_picture20.png"/>'></i>
 					</button>
 				</div>
 				<input id=file-upload name="file" class="file-upload" type="file" accept="image/*" style="display:none">
