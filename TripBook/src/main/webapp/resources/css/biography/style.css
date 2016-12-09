@@ -208,3 +208,20 @@
 	height: 0;
 	color: transparent;
 }
+
+.container{
+	max-width: 120%
+}
+
+.content{
+	margin-left:-10px;
+	max-width: 90%;
+}
+
+body {
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+
+
