@@ -107,7 +107,7 @@ create sequence notice_sequence nocache;
 CREATE TABLE notice_table
 (  
 	notice_no NUMBER primary key, -- 시퀀스
-	state VARCHAR2(1) NOT NULL, --(0:친구, 1:그룹, 2:공지, 3:게시물)
+	state VARCHAR2(1) NOT NULL, --(0:친구, 1:그룹, 2:공지, 3:게시물, 4:메세지 5:댓글)
 	sender VARCHAR2(50) references user_table(id) not null, -- 보내는 사람
 	receiver VARCHAR2(50) references user_table(id), -- 받는 사람
 	send_date DATE NOT NULL, -- 보낸 날짜
