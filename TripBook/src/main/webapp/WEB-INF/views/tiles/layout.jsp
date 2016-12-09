@@ -45,6 +45,8 @@
 		width:100%;
 		top:-50px;
 	}
+	
+	
 </style>
 
 
@@ -64,18 +66,19 @@
 			<li><a class="drawer-menu-item" href="<c:url value="/biography/biography"/>">Trip Biography</a></li>
 			<li><a class="drawer-menu-item" href='<c:url value="/friends/list"/>'>Friends</a></li>
 			<li class="drawer-dropdown">
-	          <a class="drawer-menu-item" data-target="#" href="#" data-toggle="dropdown" role="button" aria-expanded="false">
-	            Group <span class="drawer-caret"></span>
+	          <a class="drawer-menu-item drawerGroupList" data-target="#" href="#" data-toggle="dropdown" rolse="button" aria-expanded="false">
+	            	그룹 <span class="drawer-caret"></span>
 	          </a>
-	          <ul class="drawer-dropdown-menu">
-	            <li><a class="drawer-dropdown-menu-item" href="#">그룹추가</a></li>
-	            <li><a class="drawer-dropdown-menu-item" href="#">학교친구</a></li>
-	            <li><a class="drawer-dropdown-menu-item" href="#">직장동기</a></li>
+	          <ul class="drawer-dropdown-menu drawerGroupMenu">
+	            <li><a class="drawer-menu-item" href="#">Top</a></li>
+	            <li><a class="drawer-menu-item" href="#">Left</a></li>
+	            <li><a class="drawer-menu-item" href="#">Right</a></li>
 	          </ul>
 	        </li>
 	      </ul>
 	    </nav>
 	</div>
+	
 
 <div id='container'>
 
@@ -95,26 +98,25 @@
 	
 	
 <script src='<c:url value="/resources/js/bootstrap/bootstrap.min.js"/>' charset="utf-8"></script>	
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script> -->
-<script src='<c:url value="/resources/js/tiles/drawer.min.js"/>' charset="utf-8"></script>
+<script src='<c:url value="/resources/js/tiles/iscroll.min.js"/>'></script>
+<script src='<c:url value="/resources/js/tiles/drawer.min.js"/>'></script>
 
   <script>
     $(document).ready(function() {
       $('.drawer').drawer();
       
+      $(".drawerGroupList").click(function() {
+  		$(".drawerGroupMenu").slideToggle(500);
+  	  })
+  	  
       function error(){
     	  var errMessage = <%= request.getAttribute("errMessage") %>;
     	  if(errMessage!=null){
     		  alert("오류!");
     	  }
       }
-      
       error();
     });
   </script>	
-
-
 </body>
 </html>
