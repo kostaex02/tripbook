@@ -12,7 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into group_member_table(group_member_no,id,group_no)
 		values(group_member_sequence.nextval,#{friendId},#{groupNo})
 	</insert>
-	<select id="selectGroupMemeber" parameterType="String" resultType="int">
-		select group_no from group_member_table where id = {value}
+	<select id="selectGroupMember" parameterType="String" resultType="int">
+		select group_no from group_member_table where id = #{value}
 	</select>
 </mapper>

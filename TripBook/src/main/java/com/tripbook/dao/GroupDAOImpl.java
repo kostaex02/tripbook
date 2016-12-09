@@ -20,7 +20,7 @@ public class GroupDAOImpl implements GroupDAO {
 	}
 	@Override
 	public GroupDTO selectGroupByNo(int groupNo) {
-		return session.selectOne("groupMapper.selectGroupByName", groupNo);
+		return session.selectOne("groupMapper.selectGroupByNo", groupNo);
 	}
 
 }
