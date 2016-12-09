@@ -74,7 +74,7 @@ textarea {
 				<li id="${item.id } }" class="friendsProfile">
 					<div class="friendsPicture">
 						<img class="friendPictureImg"
-							src='<c:url value="/images/${item.id }/${item.fileName}"/>'>
+							src='<c:url value="/tripbook/user/${item.id }/${item.fileName}"/>'>
 					</div>
 					<div class="friendsNameId">
 						${item.name}
