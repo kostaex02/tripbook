@@ -32,20 +32,18 @@
 
 .jbTableRow {
 	display: table-row;
-	float: left;
+	width: 100%;
 }
 
 .jbTableCell {
 	display: table-cell;
+	margin-right: 10px;
 }
 
 .jbText {
 	width: 80%;
 }
 
-.jbSubmit {
-	width: 20%;
-}
 
 .jbText input[type="text"] {
 	width: 99%;
@@ -74,14 +72,13 @@
 }
 
 .calendarTrash{
-	position:absolute;
-	top:20%;
-	left:90%;
-	width:50px;
-	height:50px;
+	width:100px;
+	height:60px;
+	display: table-cell;
+	padding-left: 35px;
 }
 #trash{
-	display:none;
+	display:table-cell;
 }
 
 </style>
@@ -96,12 +93,10 @@
 			<div class="jbTableCell jbSubmit">
 				<input class="btn btn-default" type="submit" id="searchButton" value="검색">
 			</div>
-			
+		
+			<div class="calendarTrash" ><img id='trash' src='<c:url value="/images/trash.png"/>'></div>
 			</form>
 		</div>
-		
-		
-		<div class="calendarTrash" ><img id='trash' src='<c:url value="/images/trash.png"/>'></div>
 	</div>
 </body>
 </html>
