@@ -21,10 +21,10 @@ ul {
 }
 	ul li {
 		position: relative;
-		padding: 16px;
+		padding: 10px;
 		background: #eee;
 		color: #252525;
-		font-size: 18px;
+		font-size: 15px;
 		z-index: 2;
 
 		-webkit-transform: translateZ(0px);
