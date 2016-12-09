@@ -143,7 +143,7 @@
 			/* 관리자 메세지 */
 			$('.mypageLogStory').on('click','.noticeItem',function(){
 				alert($(this).parent().attr('id'));
-			})
+			}) 
 			/* 친구 게시물 알림 */
 			$('.mypageLogStory').on('click','.friendBoard',function(){
 				alert($(this).parent().attr('id'));
