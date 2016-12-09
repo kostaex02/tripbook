@@ -3,6 +3,7 @@ alter user tripbook account unlock;
 grant connect, resource to tripbook;
 grant create sequence to tripbook;
 
+
 CREATE TABLE user_table
 (  
 	id VARCHAR2(50) primary key, --아이디(이메일)
