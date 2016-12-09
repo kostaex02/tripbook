@@ -206,7 +206,7 @@
 					<c:choose>
 					<c:when test="${groupList ne null}">
 						<c:forEach items="${groupList }" var="item">
-							<dd id="${item.groupNo }">${groupName }</dd>
+							<dd id="${item.groupNo }">${item.groupName }</dd>
 						</c:forEach>
 					</c:when>
 					</c:choose>

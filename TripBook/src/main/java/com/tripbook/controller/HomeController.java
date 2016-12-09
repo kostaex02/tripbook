@@ -15,6 +15,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tripbook.dto.UserDTO;
+import com.tripbook.service.GroupService;
+import com.tripbook.service.GroupService;
 import com.tripbook.service.UserService;
 
 /**
@@ -24,6 +26,8 @@ import com.tripbook.service.UserService;
 public class HomeController {
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private GroupService groupService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
@@ -45,6 +49,7 @@ public class HomeController {
 			session.setAttribute("userName", tempUser.getName());
 			session.setAttribute("userFileName", tempUser.getFileName());
 			session.setAttribute("userState", tempUser.getState());
+			session.setAttribute("groupList", groupService.selectGroupList(tempUser.getId()));
 			return mv = new ModelAndView("redirect:loginResult");
 		}else{
 			mv=new ModelAndView("home");

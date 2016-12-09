@@ -29,10 +29,13 @@ public class FriendController {
 		HttpSession session = request.getSession();
 		String userId = (String) session.getAttribute("userId");
 		
-		
+		for(GroupDTO groupDTO:groupService.selectGroupList(userId)){
+			System.out.println(groupDTO);
+		}
 		ModelAndView mv = new ModelAndView("friends/friends");
 		mv.addObject("friendList", friendService.selectFriendList(userId, "1"));
-		mv.addObject("groupList", groupService.selectGroupList(userId));
+		
+		/*mv.addObject("groupList", groupService.selectGroupList(userId));*/
 		return mv;
 	}
 	
