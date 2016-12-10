@@ -191,10 +191,14 @@ hr {
 
 </style>
 
+
 <link rel="stylesheet"
 	href='<c:url value="/resources/css/main/example.css"/>'>
 <link rel="stylesheet"
 	href='<c:url value="/resources/css/main/stroll.css"/>'>
+
+<link rel="stylesheet" href="/resources/demos/style.css">
+<link href='<c:url value="/resources/js/calendar/lib/cupertino/jquery-ui.min.css"/>' rel='stylesheet' />
 
 
 
@@ -467,8 +471,11 @@ hr {
 								<textarea name="title" class="form-control" rows="5" id="mainExclusive_input"></textarea>
 							</div>
 							<hr>
-						<!-- 	<div class="calendar" style="width:90%"></div>
-						 --></div>
+							<label for="fromDate">From</label>
+							<input type="text" id="fromDate" name="fromDate">
+							<label for="toDate">to</label>
+							<input type="text" id="toDate" name="toDate">
+						</div>
 					</div>
 					<div class="modal-footer">
 						<select>
@@ -553,6 +560,10 @@ hr {
  	<script src="<c:url value="/resources/js/main/jQuery.MultiFile.min.js"/>"></script>
 
 	<script src='<c:url value="/resources/js/main/stroll.min.js"/>'></script>
+
+	<!-- 달력 -->
+	<script src='<c:url value="/resources/js/calendar/lib/jquery-ui.min.js"/>'></script>
+	
 	
 	<script>
 	//enter키 금지
@@ -687,6 +698,41 @@ hr {
 				searchPlaces();
 				return false;
 			});
+			
+			$('#calendarModal').on('shown.bs.modal', function () {
+			   $(".calendar").fullCalendar('render');
+			});
+			
+			//여행게시물 달력 기능
+			var dateFormat = "mm/dd/yy",
+		      from = $( "#fromDate" )
+		        .datepicker({
+		          minDate:-20,
+		          maxDate:"+1M+10D",
+		          defaultDate: "+1w",
+		          changeMonth: true,
+		        })
+		        .on( "change", function() {
+		          to.datepicker( "option", "minDate", getDate( this ) );
+		        }),
+		      to = $( "#toDate" ).datepicker({
+		    	maxDate:"+1M+10D",
+		        defaultDate: "+1w",
+		        changeMonth: true,
+		      })
+		      .on( "change", function() {
+		    	  from.datepicker( "option", "maxDate", getDate( this ) );
+		    });
+		 
+		    function getDate( element ) {
+		      	var date;
+		     	try {
+		        	date = $.datepicker.parseDate( dateFormat, element.value );
+		      	} catch( error ) {
+		        	date = null;
+		      	}
+		 		return date;
+		    }
 			
 		}); 
 					
