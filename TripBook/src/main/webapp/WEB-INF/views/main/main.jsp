@@ -204,7 +204,7 @@ hr {
 		게시글 작성 영역
 		<hr>
 		<input class="btn btn-primary btn-sm" type='button' value='일반게시물' data-toggle="modal" data-target="#addGeneralBoard" data-keyboard="false">
-		<input class="btn btn-primary btn-sm" type='button' value='여행게시물'>
+		<input class="btn btn-primary btn-sm" type='button' value='여행게시물' data-toggle="modal" data-target="#addTravelBoard" data-keyboard="false">
 	</div>
 	<hr>
 	<div class='mainAllBoard'>
@@ -432,6 +432,43 @@ hr {
 							<input type="hidden" id="resultLatitude" name="resultLatitude">
 							<input type="hidden" id="resultLongitude" name="resultLongitude">
  						</div>
+					</div>
+					<div class="modal-footer">
+						<select>
+							<option value="전체보기">전체보기</option>
+							<option value="친구보기">친구보기</option>
+							<option value="그룹보기">그룹보기</option>
+							<option value="비공개">비공개</option>
+						</select>
+						<button type="submit" class="btn btn-default btn-sm">등록</button>
+						<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">취소</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 여행게시물 modal -->
+	<div class="modal fade" id="addTravelBoard" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form name="generalForm" action="#" method="post" enctype="multipart/form-data" onkeydown="return captureReturnKey(event)">
+					<div class="modal-header">
+						여행게시물
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<div class="modal-body">
+						<div class="newTravelBoardContainer">
+							<div class="newGeneralBoardPicture">
+								<img class="newGeneralBoardPictureImg"
+									src='<c:url value="/images/img.jpg"/>'>
+							</div>
+							<div class="newGeneralBoardTitle">
+								<textarea name="title" class="form-control" rows="5" id="mainExclusive_input"></textarea>
+							</div>
+							<hr>
+						<!-- 	<div class="calendar" style="width:90%"></div>
+						 --></div>
 					</div>
 					<div class="modal-footer">
 						<select>
