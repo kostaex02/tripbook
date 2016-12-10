@@ -47,37 +47,72 @@
 	}
 	
 	
+	
+	
+	
+	
+	
+	.slideSideCover {
+		background-color:pink;
+	    position: absolute;
+	    z-index:7;
+	    width: 150px;
+	    height:2000px;
+	    top: -50;
+	    left: -50;
+	    right: 0;
+	    bottom: 0;
+	    -moz-transition: left 0.5s ease;
+	    transition: left 0.5s ease;
+	}
+	
+	input[type=checkbox] {
+	   display: none;
+	}
+	
+	input:checked ~ .slideSideCover { 
+	    left: -200;
+	}
+	input:checked ~ #slideLabel { 
+	    left: -50;
+	}
+	#slideLabel {
+	    z-index: 9;
+	    position: absolute;
+	    top: -50px;
+	    left: 100px;
+	    background-color: blue;
+	    -moz-transition: left 0.5s ease;
+	    transition: left 0.5s ease;
+	}
+	
+	.slideGroupMenu{
+		display: none;
+	}
 </style>
-
-
 </head>
-<body class="drawer drawer--left">
-<div id='slideBar'>
-		<button type="button" class="drawer-toggle drawer-hamburger">
-	      <span class="sr-only">toggle navigation</span>
-	      <span class="drawer-hamburger-icon"></span>
-	    </button>
-	    <nav class="drawer-nav" role="navigation">
-	      <ul class="drawer-menu">
-	      
-	        <li><a class="drawer-menu-item" href='<c:url value="/main/main"/>'>Home</a></li>
-			<li><a class="drawer-menu-item" href='<c:url value="/mypage/profile"/>'>My Page</a></li>
-			<li><a class="drawer-menu-item" href='<c:url value="/calendar/calendar"/>'>Schedule</a></li>
-			<li><a class="drawer-menu-item" href="<c:url value="/biography/biography"/>">Trip Biography</a></li>
-			<li><a class="drawer-menu-item" href='<c:url value="/friends/list"/>'>Friends</a></li>
-			<li class="drawer-dropdown">
-	          <a class="drawer-menu-item drawerGroupList" data-target="#" href="#" data-toggle="dropdown" rolse="button" aria-expanded="false">
-	            	그룹 <span class="drawer-caret"></span>
-	          </a>
-	          <ul class="drawer-dropdown-menu drawerGroupMenu">
-	            <li><a class="drawer-menu-item" href="#">Top</a></li>
-	            <li><a class="drawer-menu-item" href="#">Left</a></li>
-	            <li><a class="drawer-menu-item" href="#">Right</a></li>
-	          </ul>
-	        </li>
-	      </ul>
-	    </nav>
+<body>
+
+	
+	<div class="slideMenu">
+	    <input id="slideMenuButton" type="checkbox" role="button" checked/>
+	    <label id='slideLabel' for="slideMenuButton"><span>close</span></label>
+	    <div class="slideSideCover">
+	    	<a href='<c:url value="/main/main"/>'>Home</a><br>
+			<a href='<c:url value="/mypage/profile"/>'>My Page</a><br>
+			<a href='<c:url value="/calendar/calendar"/>'>Schedule</a><br>
+			<a href='<c:url value="/biography/biography"/>'>Trip Biography</a><br>
+			<a href='<c:url value="/friends/list"/>'>Friends</a><br>
+			<a href='#'><span id='slideGroupList'>Group</span></a><br>
+				<div class='slideGroupMenu'>
+					<span>+Add Group</span><br>
+					<span>학교친구</span><br>
+					<span>직장동료</span><br>
+				</div>
+	    </div>
 	</div>
+		
+	
 	
 
 <div id='container'>
@@ -103,10 +138,9 @@
 
   <script>
     $(document).ready(function() {
-      $('.drawer').drawer();
       
-      $(".drawerGroupList").click(function() {
-  		$(".drawerGroupMenu").slideToggle(500);
+      $("#slideGroupList").click(function() {
+  		$(".slideGroupMenu").slideToggle(500);
   	  })
   	  
       function error(){

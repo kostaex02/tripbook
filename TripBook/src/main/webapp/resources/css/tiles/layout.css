@@ -8,7 +8,7 @@
 		display: none;
 	}
 	
-	#slideBar{
+	.slideMenu{
 		display:inline;
 	}
 	
@@ -45,7 +45,7 @@
 		display: none;
 	}
 	
-	#slideBar{
+	.slideMenu{
 		display:inline;
 	}
 	
@@ -74,10 +74,10 @@
 		display: inline;
 	}
 	
-	#slideBar{
+	.slideMenu{
 		display:none;
-		
 	}
+	
 	#content, #header{
 		width:70%;
 	}
@@ -102,9 +102,10 @@
 		display: inline;
 	}
 	
-	#slideBar{
+	.slideMenu{
 		display:none;
 	}
+	
 	
 	#content, #header{
 		width:70%;
