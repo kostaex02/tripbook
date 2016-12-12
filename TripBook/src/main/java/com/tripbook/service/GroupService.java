@@ -35,7 +35,7 @@ public interface GroupService {
 	/**
 	 * 그룹에 속한 멤버 출력
 	 */
-	List<UserDTO> selectGroupMember(int groupNo);
+	List<UserDTO> selectGroupMember(int groupNo, String userId);
 	
 	/**
 	 * 그룹 선택

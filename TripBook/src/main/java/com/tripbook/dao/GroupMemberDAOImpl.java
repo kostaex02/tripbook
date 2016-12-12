@@ -22,8 +22,8 @@ public class GroupMemberDAOImpl implements GroupMemberDAO{
 		return session.selectList("groupMemberMapper.selectGroupMember", userId);
 	}
 	@Override
-	public List<UserDTO> selectGroupMemberByNo(int groupNo) {
-		return session.selectList("groupMemberMapper.selectGroupMemberByNo", groupNo);
+	public List<UserDTO> selectGroupMemberByNo(Map<String,Object> map) {
+		return session.selectList("groupMemberMapper.selectGroupMemberByNo", map);
 	}
 	@Override
 	public int deleteGroupMember(Map<String, Object> map) {

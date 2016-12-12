@@ -46,7 +46,7 @@ public class GroupController {
 		String userId = (String)session.getAttribute("userId");
 		ModelAndView mv = new ModelAndView("friends/group");
 		mv.addObject("group", groupService.selectGroup(groupNo));
-		mv.addObject("groupMemberList", groupService.selectGroupMember(groupNo));
+		mv.addObject("groupMemberList", groupService.selectGroupMember(groupNo,userId));
 		mv.addObject("notGroupMemberList", groupService.selectNotGroupMember(groupNo,userId,"1"));
 		return mv;
 	}

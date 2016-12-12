@@ -20,7 +20,7 @@ public interface GroupMemberDAO {
 	/**
 	 * 해당 그룹 멤버 출력
 	 */
-	List<UserDTO> selectGroupMemberByNo(int groupNo);
+	List<UserDTO> selectGroupMemberByNo(Map<String, Object> map);
 	
 	/**
 	 * 그룹에 멤버 삭제

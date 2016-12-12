@@ -18,7 +18,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectGroupMemberByNo" parameterType="int" resultType="userDTO">
 		select group_member_table.id id, name, file_name fileName 
 		from group_member_table join user_table on (group_member_table.id = user_table.id)
-		where group_no = #{value}
+		where group_no = #{groupNo} and group_member_table.id not in(#{userId})
 	</select>
 	<delete id="deleteGroupMember" parameterType="map">
 		delete from groupMember where id=#{friendId} and group_no=#{groupNo}

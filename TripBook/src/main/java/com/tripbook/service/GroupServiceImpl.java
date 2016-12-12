@@ -84,8 +84,11 @@ public class GroupServiceImpl implements GroupService {
 		return result;
 	}
 	@Override
-	public List<UserDTO> selectGroupMember(int groupNo) {
-		return groupMemberDAO.selectGroupMemberByNo(groupNo);
+	public List<UserDTO> selectGroupMember(int groupNo, String userId) {
+		Map<String,Object> map = new HashMap<>();
+		map.put("groupNo", groupNo);
+		map.put("userId", userId);
+		return groupMemberDAO.selectGroupMemberByNo(map);
 	}
 	@Override
 	public GroupDTO selectGroup(int groupNo) {
@@ -103,8 +106,11 @@ public class GroupServiceImpl implements GroupService {
 		Map<String,String> friendMap = new HashMap<>();
 		friendMap.put("userId", userId);
 		friendMap.put("state", state);
+		Map<String,Object> map = new HashMap<>();
+		map.put("groupNo", groupNo);
+		map.put("userId", userId);
 		List<FriendDTO> friendList = friendDAO.selectFriend(friendMap);
-		List<UserDTO> memberList = groupMemberDAO.selectGroupMemberByNo(groupNo);
+		List<UserDTO> memberList = groupMemberDAO.selectGroupMemberByNo(map);
 		List<UserDTO> userList = null;
 	
 		if(friendList!=null){
