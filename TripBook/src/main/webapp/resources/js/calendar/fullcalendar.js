@@ -97,9 +97,14 @@
             },
 		    selectable: true,
 			selectHelper: true,
-			select: function(start, end) {
+			select: function(start, end, allDay) {
 				//alert(moment(start).format('YYYY-MM-DD hh:mm'));
-				var title = prompt('제목을 입력하세요');
+				//var title = prompt('제목을 입력하세요');
+				$('#addTravelBoard').modal();
+				$('#fromDate').val(moment(start).format('YYYY-MM-DD'));
+				
+				var endDateDay=moment(end).format('DD')-1;
+				$('#toDate').val(moment(start).format('YYYY-MM-')+endDateDay);
 				
 				var eventData;
 				if (title) {
