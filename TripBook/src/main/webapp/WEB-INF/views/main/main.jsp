@@ -44,30 +44,30 @@ a {
 	height: 100px;
 }
 
-.newGeneralBoardContainer {
+.newBoardContainer {
 	border: 1px solid;
 	width: 100%;
 	display: inline-table;
 }
 
-.newGeneralBoardPicture {
+.newBoardPicture {
 	display: inline-table;
 }
 
-.newGeneralBoardPictureImg {
+.newBoardPictureImg {
 	width: 60px;
 	height: 60px;
 	margin: 10px;
 	display: inline-table;
 }
 
-.newGeneralBoardTitle {
+.newBoardTitle {
 	vertical-align: middle;
 	display: inline-block;
 	width: 80%;
 }
 
-.newGeneralBoardTitle input[type="text"] {
+.newBoardTitle input[type="text"] {
 	width: 100%;
 	border: none;
 	line-height: normal; /* line-height 초기화 */
@@ -78,7 +78,7 @@ a {
 	appearance: none;
 }
 
-.newGeneralBoardTitle label {
+.newBoardTitle label {
 	position: absolute;
 	padding: .6em .5em; /* input 요소의 padding 값 만큼 */
 	color: #999;
@@ -100,13 +100,13 @@ a {
 	vertical-align: middle;
 }
 
-.newGeneralBoardMap {
+.newBoardMap {
 	width: 64px;
 	margin-left: 10px;
 	display: inline-table;
 }
 
-.newGeneralBoardSelect {
+.newBoardSelect {
 	display: inline-block;
 	color: #999;
 	font-size: inherit;
@@ -115,7 +115,7 @@ a {
 	border: 1px solid pink;
 }
 
-.newGeneralBoardMultiList {
+.newBoardMultiList {
 	border: 2px solid #c9c9c9;
 	min-width: 80px;
 	min-height: 50px;
@@ -387,16 +387,16 @@ hr {
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 					</div>
 					<div class="modal-body">
-						<div class="newGeneralBoardContainer">
-							<div class="newGeneralBoardPicture">
-								<img class="newGeneralBoardPictureImg"
+						<div class="newBoardContainer">
+							<div class="newBoardPicture">
+								<img class="newBoardPictureImg"
 									src='<c:url value="/images/img.jpg"/>'>
 							</div>
-							<div class="newGeneralBoardTitle">
+							<div class="newBoardTitle">
 								<textarea name="title" class="form-control" rows="5" id="mainExclusive_input"></textarea>
 							</div>
 							<hr>
-							<div class="newGeneralBoardSelect">
+							<div class="newBoardSelect">
 								<div class="input-group-btn">
 									<button class="btn btn-default btn-sm" type="button" id="newGeneralBoardUploadImg">
 										<i><img src='<c:url value="/images/icon/icon_upload.png"/>' width="64px" height="64px"></i>
@@ -410,16 +410,16 @@ hr {
 									<button type="button" class="btn btn-default btn-sm" id="insideDaumMap" onclick="relayout()">국내</button>
 									<button type="button" class="btn btn-default btn-sm" id="insideGoogleMap" onclick="displayMap()">해외</button>
 								</div>
-								<div class="newGeneralBoardMultiList" name="newGeneralBoardMultiList"></div>
+								<div class="newBoardMultiList" name="newGeneralBoardMultiList"></div>
 								
 							</div>
-							<div id="newGeneralBoardGMap" class="newGeneralBoardMap" style="width:90%; display:none">
+							<div id="newGeneralBoardGMap" class="newBoardMap" style="width:90%; display:none">
 								<!-- map부분 -->
 								<input id="pac-input" class="controls" type="text" placeholder="Search Box">
     							<div id="map" style="width:90%; height:300px;"></div>
 							</div>
 							
-							<div id="newGeneralBoardDMap" class="newGeneralBoardMap" style="width:90%; display:none">
+							<div id="newGeneralBoardDMap" class="newBoardMap" style="width:90%; display:none">
 								<div id="menu_wrap" class="bg_white">
 								<div class="option">
 									<input type="text" id="keyword" size="15"> 
@@ -462,11 +462,11 @@ hr {
 					</div>
 					<div class="modal-body">
 						<div class="newTravelBoardContainer">
-							<div class="newGeneralBoardPicture">
-								<img class="newGeneralBoardPictureImg"
+							<div class="newBoardPicture">
+								<img class="newBoardPictureImg"
 									src='<c:url value="/images/img.jpg"/>'>
 							</div>
-							<div class="newGeneralBoardTitle">
+							<div class="newBoardTitle">
 								<textarea name="title" class="form-control" rows="5" id="mainExclusive_input"></textarea>
 							</div>
 							<hr>
@@ -648,7 +648,7 @@ hr {
 		$(document)
 				.ready(
 						function() {
-							var placeholderTarget = $('.newGeneralBoardTitle input[type="text"]');
+							var placeholderTarget = $('.newBoardTitle input[type="text"]');
 							
 							//포커스시
 							placeholderTarget.on('focus', function() {
@@ -680,7 +680,7 @@ hr {
 					//toomany : "업로드할 수 있는 최대 갯수는 $max개 입니다.",
 					//toobig : "$file 은 크기가 매우 큽니다. (max $size)"
 					},
-					list : ".newGeneralBoardMultiList" //파일목록을 출력할 요소 지정가능
+					list : ".newBoardMultiList" //파일목록을 출력할 요소 지정가능
 			});
 				 
 			
