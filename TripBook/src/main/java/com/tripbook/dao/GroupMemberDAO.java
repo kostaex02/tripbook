@@ -3,7 +3,6 @@ package com.tripbook.dao;
 import java.util.List;
 import java.util.Map;
 
-import com.tripbook.dto.GroupMemberDTO;
 import com.tripbook.dto.UserDTO;
 
 public interface GroupMemberDAO {

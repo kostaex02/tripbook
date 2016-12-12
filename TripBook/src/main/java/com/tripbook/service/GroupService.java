@@ -3,7 +3,6 @@ package com.tripbook.service;
 import java.util.List;
 
 import com.tripbook.dto.GroupDTO;
-import com.tripbook.dto.GroupMemberDTO;
 import com.tripbook.dto.UserDTO;
 
 public interface GroupService {

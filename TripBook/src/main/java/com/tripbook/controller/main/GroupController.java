@@ -1,7 +1,5 @@
 package com.tripbook.controller.main;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -11,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.tripbook.dto.UserDTO;
+import com.tripbook.service.FriendService;
 import com.tripbook.service.GroupService;
 
 @Controller
@@ -19,6 +17,8 @@ import com.tripbook.service.GroupService;
 public class GroupController {
 	@Autowired
 	private GroupService groupService;
+	@Autowired
+	private FriendService friendService;
 	
 	@RequestMapping("create")
 	@ResponseBody
@@ -49,6 +49,7 @@ public class GroupController {
 		mv.addObject("groupMemberList", groupService.selectGroupMember(groupNo,userId));
 		mv.addObject("notGroupMemberList", groupService.selectNotGroupMember(groupNo,userId,"1"));
 		mv.addObject("groupList", groupService.selectGroupList(userId));
+		mv.addObject("friendList", friendService.selectFriendList(userId, "1"));
 		return mv;
 	}
 	
