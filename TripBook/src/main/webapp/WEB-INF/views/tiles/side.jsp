@@ -202,11 +202,11 @@
 					<dd style="cursor: pointer">그룹</dd>
 				</dl>
 				<dl class="sideGroupMenu">
-					<dd><a class="sideAddGroupButton" data-toggle="modal" data-target="#myModal">+ 그룹 추가</a></dd>
+					<dd><a class="sideAddGroupButton" data-toggle="modal" data-target="#groupCreateModal">+ 그룹 추가</a></dd>
 					<c:choose>
 					<c:when test="${groupList ne null}">
 						<c:forEach items="${groupList }" var="item">
-							<a href='<c:url value="/group/list?groupNo=${item.groupNo}"/>'><div id='sideFriend'><dd id="${item.groupNo }">${item.groupName }</dd></div></a>
+							<a href='<c:url value="/group/list?groupNo=${item.groupNo}"/>'><div class='sideGroupList'><dd id="${item.groupNo }">${item.groupName }</dd></div></a>
 						</c:forEach>
 					</c:when>
 					</c:choose>
@@ -257,7 +257,7 @@ $(function(){
 		sessionStorage.setItem("pageName", $(this).children("div").attr("id"));
 	});
 	
-	$("#sideGroupMenu").on('click','.sideGroupList',function(){
+	$(".sideGroupMenu").on('click','.sideGroupList',function(){
 		sessionStorage.setItem("pageName", "sideFriend");
 	});
 	

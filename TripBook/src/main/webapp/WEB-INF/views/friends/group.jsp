@@ -81,7 +81,9 @@ textarea {
 	height: 300px;
 	border-radius: 5px;
 }
-
+.sideGroupMenu{
+	display: inline;
+}
 
 
 
@@ -91,7 +93,7 @@ textarea {
 	<div>
 		<h2>${group.groupName}</h2>
 			<input type="hidden" id="groupNo" name="groupNo" value='${group.groupNo}'>
-			<a href="#" class='btn btn-primary groupMemberAdd' data-toggle="modal" data-target="#myModal">그룹 초대</a>
+			<a href="#" class='btn btn-primary groupMemberAdd' data-toggle="modal" data-target="#groupMemberAddModal">그룹 초대</a>
 			<a href="#" class='btn btn-primary groupSecession'>그룹 탈퇴</a> 
 	</div>
 	<div class="groupMemberList">
@@ -112,9 +114,9 @@ textarea {
 		</ul>
 	</div>
 
-	<!-- 그룹생성에 따른 Modal -->
+	<!-- 그룹멤버 초대 Modal -->
 	<div class="friendsGroupContainer">
-		<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal fade" id="groupMemberAddModal" role="dialog">
 			<div class="modal-dialog">
 				<!-- Modal content-->
 				<div class="modal-content">
@@ -153,6 +155,49 @@ textarea {
 		</div>
 	</div>
 	
+	<!-- 그룹생성에 따른 Modal -->
+	<div class="friendsGroupContainer">
+		<div class="modal fade" id="groupCreateModal" role="dialog">
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						그룹추가
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<form action="" method="post">
+						<div class="modal-body">
+							<div class="friendsNameDivOfGroup">
+								<h2>그룹만들기</h2>
+								<br> <br> <input type="text"
+									class="form-control nameOfGroup"> <br> <br> <br>
+								<h4>멤버추가</h4>
+							</div>
+							<div class="friendsGroupList">
+								<div class="friendsGroupListBind">
+
+									<c:forEach items="${friendList}" var="friendsAddList">
+										<div class="friendsGroupMember">
+											<div class="friendsAddListDiv">
+												<img class="friendsAddListImg"
+													src='<c:url value="/tripbook/user/${friendsAddList.id}/${friendsAddList.fileName}"/>'>${friendsAddList.name}</div>
+											<input type="checkbox" name="friendsAddMemberList"
+												value="${friendsAddList.id}" />
+										</div>
+									</c:forEach>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default friendsGroup">등록</button>
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">취소</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
 	<!-- 메세지 보내기 Modal -->

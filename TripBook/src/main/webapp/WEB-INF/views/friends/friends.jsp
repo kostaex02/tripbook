@@ -107,7 +107,7 @@ textarea {
 
 	<!-- 그룹생성에 따른 Modal -->
 	<div class="friendsGroupContainer">
-		<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal fade" id="groupCreateModal" role="dialog">
 			<div class="modal-dialog">
 				<!-- Modal content-->
 				<div class="modal-content">
