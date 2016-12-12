@@ -11,35 +11,35 @@
 
 <title>Insert title here</title>
 <style type="text/css">
-.friendsList {
+.groupMemberList {
 	margin-top: 20px;
 }
 
-.friendsProfile {
+.groupFriendsProfile {
 	width: 100%;
 	display: inline-table;
 }
 
-.friendsPicture {
+.groupFriendsPicture {
 	display: table-cell;
 	width: 70px;
 }
 
-.friendsNameId {
+.groupFriendsNameId {
 	display: table-cell;
 	vertical-align: middle;
 	text-align: center;
 	width: 70%;
 }
 
-.friendPictureImg {
+.groupFriendPictureImg {
 	width: 70px;
 	height: 70px;
 	position: relative;
 	float: left;
 }
 
-.friendsButton {
+.groupFriendsButton {
 	display: table-cell;
 	vertical-align: middle;
 }
@@ -84,10 +84,29 @@ textarea {
 </style>
 </head>
 <body>
-	<div class="friendsList">
+	<div>
+		<h2>${item.groupName } 그룹명</h2>
+		<a href="#" class='btn btn-primary'>그룹 초대</a>
+		<a href="#" class='btn btn-primary'>그룹 탈퇴</a> 
+	</div>
+	<div class="groupMemberList">
 		<ul class="grow">
-			<c:forEach items="${friendList }" var="item">
-				<li id="${item.id }" class="friendsProfile">
+			<li id="${item.id } " class="groupFriendsProfile">
+				<div class="groupFriendsPicture">
+					<img class="groupFriendPictureImg"
+						src='<c:url value="/tripbook/user/${item.id }/${item.fileName}"/>'>
+				</div>
+				<div class="groupFriendsNameId">${item.name} 친구 이름</div>
+				<div class="groupFriendsButton">
+					<a href="#" class='btn btn-primary' data-toggle="modal"
+						data-target="#friendSendMessage">메세지 작성</a>
+
+				</div>
+			</li>
+		
+		
+			<%-- <c:forEach items="${friendList }" var="item">
+				<li id="${item.id } " class="friendsProfile">
 					<div class="friendsPicture">
 						<img class="friendPictureImg"
 							src='<c:url value="/tripbook/user/${item.id }/${item.fileName}"/>'>
@@ -101,52 +120,8 @@ textarea {
 
 					</div>
 				</li>
-			</c:forEach>
+			</c:forEach> --%>
 		</ul>
-	</div>
-
-	<!-- 그룹생성에 따른 Modal -->
-	<div class="friendsGroupContainer">
-		<div class="modal fade" id="myModal" role="dialog">
-			<div class="modal-dialog">
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						그룹추가
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-					</div>
-					<form action="" method="post">
-						<div class="modal-body">
-							<div class="friendsNameDivOfGroup">
-								<h2>그룹만들기</h2>
-								<br> <br> <input type="text"
-									class="form-control nameOfGroup"> <br> <br> <br>
-								<h4>멤버추가</h4>
-							</div>
-							<div class="friendsGroupList">
-								<div class="friendsGroupListBind">
-
-									<c:forEach items="${friendList}" var="friendsAddList">
-										<div class="friendsGroupMember">
-											<div class="friendsAddListDiv">
-												<img class="friendsAddListImg"
-													src='<c:url value="/tripbook/user/${friendsAddList.id}/${friendsAddList.fileName}"/>'>${friendsAddList.name}</div>
-											<input type="checkbox" name="friendsAddMemberList"
-												value="${friendsAddList.id}" />
-										</div>
-									</c:forEach>
-								</div>
-							</div>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-default friendsGroup">등록</button>
-							<button type="button" class="btn btn-default"
-								data-dismiss="modal">취소</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
 	</div>
 
 	<!-- 메세지 보내기 Modal -->
@@ -154,7 +129,7 @@ textarea {
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					메세지 보내기
+					메세지보내기
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 				</div>
 				<form action='' method="post">
@@ -215,14 +190,13 @@ textarea {
 					})
 			})
 		})
+		
+		
 	</script>
-
-
-
-
 	<script src='<c:url value="/resources/js/main/stroll.min.js"/>'></script>
-	<script>
+	<script type="text/javascript">
 		stroll.bind('ul');
 	</script>
+	
 </body>
 </html>

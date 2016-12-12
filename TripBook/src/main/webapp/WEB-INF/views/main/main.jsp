@@ -197,7 +197,6 @@ hr {
 <link rel="stylesheet"
 	href='<c:url value="/resources/css/main/stroll.css"/>'>
 
-<link rel="stylesheet" href="/resources/demos/style.css">
 <link href='<c:url value="/resources/js/calendar/lib/cupertino/jquery-ui.min.css"/>' rel='stylesheet' />
 
 
