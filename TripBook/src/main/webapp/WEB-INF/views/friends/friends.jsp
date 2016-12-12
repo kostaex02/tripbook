@@ -81,6 +81,7 @@ textarea {
 	height: 300px;
 	border-radius: 5px;
 }
+
 </style>
 </head>
 <body>
@@ -101,6 +102,7 @@ textarea {
 
 					</div>
 				</li>
+				
 			</c:forEach>
 		</ul>
 	</div>
