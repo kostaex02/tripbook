@@ -119,18 +119,23 @@ public class GroupServiceImpl implements GroupService {
 				int check = 0;
 				for(UserDTO u:memberList){
 					if(!f.getFriendId1().equals(userId)){
-						if(f.getFriendId1().equals(u)){
+						if(f.getFriendId1().equals(u.getId())){
 							check++;
 						}
 					}
 					else{
-						if(f.getFriendId2().equals(u)){
+						if(f.getFriendId2().equals(u.getId())){
 							check++;
 						}
 					}
 				}
 				if(check==0){
-					userList.add(userDAO.selectUser(f.getFriendId1()));
+					if(!f.getFriendId1().equals(userId)){
+						userList.add(userDAO.selectUser(f.getFriendId1()));
+					}
+					else{
+						userList.add(userDAO.selectUser(f.getFriendId2()));
+					}
 				}
 			}
 		}
