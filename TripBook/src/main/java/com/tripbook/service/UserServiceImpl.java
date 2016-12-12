@@ -73,11 +73,16 @@ public class UserServiceImpl implements UserService {
 		} else {
 			resultList = new ArrayList<>();
 			for (UserDTO userDTO : userList) {
+				int count = 0;
 				for (FriendDTO friendDTO : friendList) {
-					if (!friendDTO.getFriendId1().equals(userDTO.getId())
-							&& !friendDTO.getFriendId2().equals(userDTO.getId())) {
-						resultList.add(userDTO);
+					if (friendDTO.getFriendId1().equals(userDTO.getId())
+							|| friendDTO.getFriendId2().equals(userDTO.getId())) {
+						count++;
 					}
+				}
+
+				if(count==0){
+					resultList.add(userDTO);
 				}
 			}
 		}

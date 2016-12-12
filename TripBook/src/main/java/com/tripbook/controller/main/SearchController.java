@@ -31,6 +31,7 @@ public class SearchController {
 		HttpSession session = request.getSession();
 		List<UserDTO> userList = userService.searchUser((String)session.getAttribute("userId"),keyword);
 		ModelAndView mv = new ModelAndView("search/searchList");
+		
 		mv.addObject("userList", userList);
 		return mv;
 	}

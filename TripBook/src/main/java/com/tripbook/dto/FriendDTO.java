@@ -30,5 +30,10 @@ public class FriendDTO {
 	public void setFriendId2(String friendId2) {
 		this.friendId2 = friendId2;
 	}
+	@Override
+	public String toString() {
+		return "FriendDTO [friendNo=" + friendNo + ", state=" + state + ", friendId1=" + friendId1 + ", friendId2="
+				+ friendId2 + "]";
+	}
 	
 }
