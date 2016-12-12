@@ -37,4 +37,9 @@ public class NoticeDAOImpl implements NoticeDAO {
 		return session.selectOne("noticeMapper.selectNoticeByNo", noticeNo);
 	}
 
+	@Override
+	public String checkNotice(NoticeDTO noticeDTO) {
+		return session.selectOne("noticeMapper.checkNotice", noticeDTO);
+	}
+
 }

@@ -48,6 +48,7 @@ public class GroupController {
 		mv.addObject("group", groupService.selectGroup(groupNo));
 		mv.addObject("groupMemberList", groupService.selectGroupMember(groupNo,userId));
 		mv.addObject("notGroupMemberList", groupService.selectNotGroupMember(groupNo,userId,"1"));
+		mv.addObject("groupList", groupService.selectGroupList(userId));
 		return mv;
 	}
 	

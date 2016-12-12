@@ -27,7 +27,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 <select id="selectNoticeByAdmin" resultMap="selectNoticeMap">
 	 	select notice_no,notice_table.state state,sender,receiver,send_date,content,check_state,name,file_name
 		from notice_table join user_table on (notice_table.sender = user_table.id) 
-		where (receiver is null) and check_state in ('2') 
+		where (receiver is null) and notice_table.state in ('2') 
 		order by send_date desc
 	 </select>
 	 <delete id="deleteNoticeByNo" parameterType="int">
@@ -35,6 +35,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 </delete>
 	 <select id="selectNoticeByNo" parameterType="int" resultMap="selectNoticeMap">
 	 	select notice_no,state,sender,receiver,send_date,content,check_state
-		from notice_table join where notice_no=#{value}
+		from notice_table where notice_no=#{value}
+	 </select>
+	 <select id="checkNotice" parameterType="map" resultType="String">
+	 	select sender from notice_table 
+	 	where state = #{state} and receiver=#{receiver} and sender=#{sender}
+	 	<if test="content!=null">
+	 		and content = #{content}
+	 	</if>
 	 </select>
 </mapper>

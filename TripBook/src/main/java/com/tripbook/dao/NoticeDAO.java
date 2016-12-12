@@ -29,4 +29,9 @@ public interface NoticeDAO {
 	 * no로 공지사항 검색
 	 */
 	NoticeDTO selectNoticeById(int noticeNo);
+	
+	/**
+	 * 이미 신청된 사항인지 확인
+	 */
+	String checkNotice(NoticeDTO noticeDTO);
 }

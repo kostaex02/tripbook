@@ -79,7 +79,11 @@ public class GroupServiceImpl implements GroupService {
 	public int addGroupMember(int groupNo, String userId, String[] friendId) {
 		int result = 0;
 		for(String str:friendId){
-			result = noticeDAO.insertNotice(new NoticeDTO("1", userId, str,groupNo+""));
+			NoticeDTO temp = new NoticeDTO("1", userId, str,groupNo+"");
+			String tempString = noticeDAO.checkNotice(temp);
+			if(tempString==null){
+				result = noticeDAO.insertNotice(temp);
+			}
 		}
 		return result;
 	}
