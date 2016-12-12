@@ -45,6 +45,13 @@
 .file-upload {
 	display: none;
 }
+
+.form-control{
+	-webkit-appearance: none; /* 브라우저별 기본 스타일링 제거 */
+	-moz-appearance: none;
+	appearance: none;
+}
+
 </style>
 <body>
 	<div id="container" class="container intro-effect-fadeout">
@@ -79,9 +86,9 @@
 						</div>
 					</div>
 					<div class="form-login">
-						<div class="col-sm-offset-6 col-sm-6">
-							<a href="#registerModal" data-toggle="modal">회원가입</a> / <a
-								href="#">아이디 찾기</a> / <a href="#">비밀번호 찾기</a>
+						<div class="col-sm-offset-8 col-sm-4">
+							<a href="#" data-target="#registerModal" data-toggle="modal">회원가입</a> / 
+							<a href="#" data-target="#searchPassword" data-toggle="modal">비밀번호 찾기</a>  
 						</div>
 					</div>
 
@@ -95,7 +102,7 @@
 		<article class="content">
 		</article>
 		
-		<!-- Modal -->
+		<!-- Modal registerModal -->
 		<div class="modal fade" id="registerModal" role="dialog">
 			<div class="modal-dialog modal-sm">
 				<div class="modal-content">
@@ -166,7 +173,7 @@
 								<input id=file-upload name="file" class="file-upload" type="file" accept="image/*" style="display:none">
 								
 							</div>
-						
+						</div>
 						<div class="modal-footer">
 							<input type="submit" class="btn btn-primary" value="가입">
 							<button type="button" class="btn btn-default"
@@ -176,9 +183,39 @@
 				</div>
 			</div>
 		</div>
+		
+		
+		
+		<div class="modal fade" id="searchPassword" role="dialog">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">비밀번호 찾기</h4>
+					</div>
+					<form id="searchForm" action="" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+						<div class="modal-body">
+							<div id="inputEmail" class="input-group">
+								<span class="input-group-addon"> <i><img
+										src='<c:url value="/images/icon/icon_id20.png"/>'></i></span> 
+										<input id="email" type="email"
+									class="form-control" name="id"
+									placeholder="Email"> 
+									<span id="checkingID" aria-hidden="true"></span>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<input type="submit" class="btn btn-primary" value="찾기">
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">닫기</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
 	</div>
 
-
+	
 
 	<!-- /container -->
 	<!-- Bootstrap load -->

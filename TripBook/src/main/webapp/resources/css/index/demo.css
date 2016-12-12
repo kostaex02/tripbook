@@ -46,12 +46,12 @@ body {
 
 a {
 	outline: none;
-	color: #cf4a5c;
+	color: #69606b;
 	text-decoration: none;
 }
 
 a:hover, a:focus {
-	color: #69606b;
+	color: #cf4a5c;
 }
 
 .demo-4 a {
