@@ -235,7 +235,7 @@ textarea {
 					alert()
 				},
 				error : function() {
-					alert('error');
+					console.log('error');
 				}
 			})
 		});
@@ -253,7 +253,7 @@ textarea {
 						location.href='/controller/friends/list' 
 					},
 					error : function() {
-						alert('error');
+						console.log('error');
 					}
 				})
 			}
