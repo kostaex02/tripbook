@@ -81,48 +81,79 @@ textarea {
 	height: 300px;
 	border-radius: 5px;
 }
+
+
+
+
 </style>
 </head>
 <body>
 	<div>
-		<h2>${item.groupName } 그룹명</h2>
-		<a href="#" class='btn btn-primary'>그룹 초대</a>
-		<a href="#" class='btn btn-primary'>그룹 탈퇴</a> 
+		<h2>${group.groupName}</h2>
+			<input type="hidden" id="groupNo" name="groupNo" value='${group.groupNo}'>
+			<a href="#" class='btn btn-primary groupMemberAdd' data-toggle="modal" data-target="#myModal">그룹 초대</a>
+			<a href="#" class='btn btn-primary groupSecession'>그룹 탈퇴</a> 
 	</div>
 	<div class="groupMemberList">
 		<ul class="grow">
-			<li id="${item.id } " class="groupFriendsProfile">
-				<div class="groupFriendsPicture">
-					<img class="groupFriendPictureImg"
-						src='<c:url value="/tripbook/user/${item.id }/${item.fileName}"/>'>
-				</div>
-				<div class="groupFriendsNameId">${item.name} 친구 이름</div>
-				<div class="groupFriendsButton">
-					<a href="#" class='btn btn-primary' data-toggle="modal"
-						data-target="#friendSendMessage">메세지 작성</a>
-
-				</div>
-			</li>
-		
-		
-			<%-- <c:forEach items="${friendList }" var="item">
-				<li id="${item.id } " class="friendsProfile">
-					<div class="friendsPicture">
-						<img class="friendPictureImg"
+			<c:forEach items="${groupMemberList }" var="item">
+				<li id="${item.id } " class="groupFriendsProfile">
+					<div class="groupFriendsPicture">
+						<img class="groupFriendPictureImg"
 							src='<c:url value="/tripbook/user/${item.id }/${item.fileName}"/>'>
 					</div>
-					<div class="friendsNameId">${item.name}</div>
-					<div class="friendsButton">
+					<div class="groupFriendsNameId">${item.name}</div>
+					<div class="groupFriendsButton">
 						<a href="#" class='btn btn-primary' data-toggle="modal"
-							data-target="#friendSendMessage">메세지 작성</a> <a
-							href="/controller/friends/delete?friendId=${item.id }"
-							class='btn btn-primary' data-toggle="modal">친구 삭제</a>
-
+							data-target="#friendSendMessage">메세지 작성</a>
 					</div>
 				</li>
-			</c:forEach> --%>
+			</c:forEach>
 		</ul>
 	</div>
+
+	<!-- 그룹생성에 따른 Modal -->
+	<div class="friendsGroupContainer">
+		<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						그룹원 초대
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<form action="" method="post">
+						<div class="modal-body">
+							<div class="friendsNameDivOfGroup">
+								<h2>그룹 초대</h2>
+								<br> <br> <label>${group.groupName}그룹명</label><br> <br> <br>
+							</div>
+							<div class="friendsGroupList">
+								<div class="friendsGroupListBind">
+									<c:forEach items="${notGroupMemberList}" var="notGroupMemberAdd">
+										<div class="friendsGroupMember">
+											<div class="friendsAddListDiv">
+												<img class="friendsAddListImg"
+													src='<c:url value="/tripbook/user/${notGroupMemberAdd.id}/${notGroupMemberAdd.fileName}"/>'>${notGroupMemberAdd.name}</div>
+											<input type="checkbox" name="friendsAddMemberList"
+												value="${notGroupMemberAdd.id}" />
+										</div>
+									</c:forEach>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default friendsGroup">등록</button>
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">취소</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
 
 	<!-- 메세지 보내기 Modal -->
 	<div class="modal fade" id="friendSendMessage" role="dialog">
@@ -147,7 +178,7 @@ textarea {
 
 
 
-
+	<script src='<c:url value="/resources/js/main/stroll.min.js"/>'></script>
 	<script type="text/javascript">
 		$(function() {
 			$('.friendsGroupMember').click(function() {
@@ -191,11 +222,44 @@ textarea {
 			})
 		})
 		
-		
-	</script>
-	<script src='<c:url value="/resources/js/main/stroll.min.js"/>'></script>
-	<script type="text/javascript">
 		stroll.bind('ul');
+		
+		/* 그룹 멤버 추가 */
+		$('.groupMemberAdd').click(function(){
+			$.ajax({
+				url:"/controller/group/add",
+				type : "post",
+				data : "groupNo="+$('#groupNo').val(),
+				dataType : "text",
+				success : function(data) {
+					alert()
+				},
+				error : function() {
+					alert('error');
+				}
+			})
+		});
+		
+		/* 그룹 탈퇴 */
+		$('.groupSecession').click(function(){
+			if(confirm("그룹 탈퇴 할래?")){
+				$.ajax({
+					url:"/controller/group/delete",
+					type : "post",
+					data : "groupNo="+$('#groupNo').val(),
+					dataType : "text",
+					success : function(data) {
+						alert('탈퇴 되었습니다.')
+						location.href='/controller/friends/list' 
+					},
+					error : function() {
+						alert('error');
+					}
+				})
+			}
+		});
+		
+		
 	</script>
 	
 </body>
