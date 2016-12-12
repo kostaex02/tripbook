@@ -67,21 +67,20 @@
 	<script>
 		$(function(){
 			//여행게시물 달력 기능
-			var dateFormat = "yy/mm/dd/",
+			
 		      from = $( "#fromDate" )
 		        .datepicker({
-		          minDate:-1,
-		          maxDate:"+1D",
-		          defaultDate: new Date("2016/12/19"),
-		          changeMonth: true,
+		        	dateFormat: "yy-mm-dd",
+			        defaultDate: $('#fromDate').val(),
+		      		changeMonth: true
 		        })
 		        .on( "change", function() {
 		          to.datepicker( "option", "minDate", getDate( this ) );
 		        }),
 		      to = $( "#toDate" ).datepicker({
-		    	maxDate:"+1D",
-		        defaultDate: +7,
-		        changeMonth: true,
+		    	  dateFormat: "yy-mm-dd",
+		    	  defaultDate: $('#toDate').val(),
+		          changeMonth: true
 		      })
 			    .on( "change", function() {
 			      from.datepicker( "option", "maxDate", getDate( this ) );

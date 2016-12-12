@@ -107,7 +107,7 @@
 				$('#toDate').val(moment(start).format('YYYY-MM-')+endDateDay);
 				
 				var eventData;
-				if (title) {
+				/*if (title) {
 					eventData = {
 						id: title,
 						title: title,
@@ -115,7 +115,7 @@
 						end: end
 					};
 					$('.calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
-				}
+				}*/
 				$('.calendar').fullCalendar('unselect');
 			},
 		});
