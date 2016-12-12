@@ -97,6 +97,10 @@
 			    }
 			})
 			
+			function captureReturnKey(e) { 
+			    if(e.keyCode==13 && e.srcElement.type != 'textarea') 
+			    return false; 
+			} 
 	
 	</script>
 	
