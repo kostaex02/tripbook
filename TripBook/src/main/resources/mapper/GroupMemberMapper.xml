@@ -21,6 +21,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where group_no = #{groupNo} and group_member_table.id not in(#{userId})
 	</select>
 	<delete id="deleteGroupMember" parameterType="map">
-		delete from groupMember where id=#{friendId} and group_no=#{groupNo}
+		delete from Group_Member_table where id=#{friendId} and group_no=#{groupNo}
 	</delete>
 </mapper>
