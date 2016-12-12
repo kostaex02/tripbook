@@ -49,7 +49,6 @@ public class HomeController {
 			session.setAttribute("userName", tempUser.getName());
 			session.setAttribute("userFileName", tempUser.getFileName());
 			session.setAttribute("userState", tempUser.getState());
-			session.setAttribute("groupList", groupService.selectGroupList(tempUser.getId()));
 			return mv = new ModelAndView("redirect:loginResult");
 		}else{
 			mv=new ModelAndView("home");

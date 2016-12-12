@@ -46,4 +46,9 @@ public interface GroupService {
 	 * 그룹의 멤버 삭제
 	 */
 	int deleteGroupMember(int groupNo, String userId);
+	
+	/**
+	 * 그룹에 속하지 않은 멤버 출력
+	 */
+	List<UserDTO> selectNotGroupMember(int groupNo, String userId, String state);
 }

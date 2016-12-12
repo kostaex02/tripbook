@@ -31,8 +31,7 @@ public class FriendController {
 		
 		ModelAndView mv = new ModelAndView("friends/friends");
 		mv.addObject("friendList", friendService.selectFriendList(userId, "1"));
-		
-		/*mv.addObject("groupList", groupService.selectGroupList(userId));*/
+		mv.addObject("groupList", groupService.selectGroupList(userId));
 		return mv;
 	}
 	

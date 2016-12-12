@@ -42,9 +42,12 @@ public class GroupController {
 	
 	@RequestMapping("list")
 	public ModelAndView list(HttpServletRequest request,int groupNo){
+		HttpSession session = request.getSession();
+		String userId = (String)session.getAttribute("userId");
 		ModelAndView mv = new ModelAndView("friends/group");
 		mv.addObject("group", groupService.selectGroup(groupNo));
 		mv.addObject("groupMemberList", groupService.selectGroupMember(groupNo));
+		mv.addObject("notGroupMemberList", groupService.selectNotGroupMember(groupNo,userId,"1"));
 		return mv;
 	}
 	
