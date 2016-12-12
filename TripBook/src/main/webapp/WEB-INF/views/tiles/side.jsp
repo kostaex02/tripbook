@@ -206,7 +206,7 @@
 					<c:choose>
 					<c:when test="${groupList ne null}">
 						<c:forEach items="${groupList }" var="item">
-							<dd id="${item.groupNo }">${item.groupName }</dd>
+							<a href='<c:url value="/friends/group"/>'><div class='sideGroupList'><dd id="${item.groupNo }">${item.groupName }</dd></div></a>
 						</c:forEach>
 					</c:when>
 					</c:choose>
@@ -215,9 +215,9 @@
 			<hr>
 			<a class='sideProfileLink'href='<c:url value="/mypage/list"/>'><div id='sideProfile'>
 				<img class='profileImage' src='<c:url value="/tripbook/user/${friendUserId}/${friendUserFileName}"/>'>
-				<div class='userName'>friendUserName</div>
-				<a href='#'>게시물 보기</a><br>
-				<a href='#'>일대기 보기</a>
+				<div class='userName'>친구이름</div>
+				<a href='#'>게시물</a><br>
+				<a href='#'>일대기</a>
 				</div>
 				<hr id='friendAdd'>
 				<c:if test="${userName != null}">
@@ -251,9 +251,17 @@
 <script src='<c:url value="/resources/js/jquery-2.2.4.js"/>'></script>
 <script>
 $(function(){
+	console.log(sessionStorage.getItem("pageName"));
+	
 	$("a").click(function(){
 		sessionStorage.setItem("pageName", $(this).children("div").attr("id"));
 	});
+	
+	$("#sideGroupMenu").on('click','.sideGroupList',function(){
+		sessionStorage.setItem("pageName", "sideFriend");
+		console.log(sessionStorage.getItem("pageName"));
+	});
+	
 	
 	$("#searchButton").click(function(){
 		sessionStorage.setItem("pageName", $(this).children("div").attr("id"));
