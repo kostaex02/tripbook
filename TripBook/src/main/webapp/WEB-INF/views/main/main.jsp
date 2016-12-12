@@ -745,24 +745,40 @@ hr {
 			
 			//여행게시물 달력 기능
 			var dateFormat = "mm/dd/yy",
-		      from = $( "#editFromDate" )
+		      editFrom = $( "#editFromDate" )
 		        .datepicker({
-		          minDate:-20,
-		          maxDate:"+1M+10D",
 		          defaultDate: "+1w",
-		          changeMonth: true,
+		          changeMonth: true
 		        })
 		        .on( "change", function() {
-		          to.datepicker( "option", "minDate", getDate( this ) );
+		          editTo.datepicker( "option", "minDate", getDate( this ) );
 		        }),
-		      to = $( "#editToDate" ).datepicker({
-		    	maxDate:"+1M+10D",
-		        defaultDate: "+1w",
-		        changeMonth: true,
+		      editTo = $( "#editToDate" ).datepicker({
+		    	defaultDate: "+1w",
+		        changeMonth: true
 		      })
 		      .on( "change", function() {
-		    	  from.datepicker( "option", "maxDate", getDate( this ) );
+		    	  editFrom.datepicker( "option", "maxDate", getDate( this ) );
+		      }),
+		      addFrom = $("#addFromDate" )
+		      	.datepicker({
+		      		minDate:-20,
+			        maxDate:"+1M+10D",
+			        defaultDate: "+1w",
+		      		changeMonth: true
+		      	})
+		      	.on( "change" , function() {
+		      		addTo.datepicker("option", "minDate", getDate(this));
+		      	}),
+		      addTo = $("#addToDate").datepicker({
+		    	  	maxDate:"+1M+10D",
+			        defaultDate: "+1w",
+		    		changeMonth: true
+		      	})
+		      	.on( "change" , function() {
+		      		addFrom.datepicker("option", "maxDate", getDate(this));
 		    });
+		      	
 		 
 		    function getDate( element ) {
 		      	var date;
