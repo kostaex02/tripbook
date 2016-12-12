@@ -5,12 +5,14 @@
 <head>
 <link href='<c:url value="/resources/css/calendar/fullcalendar.css"/>' rel='stylesheet' />
 <link href='<c:url value="/resources/css/calendar/fullcalendar.print.css"/>' rel='stylesheet' media='print' />
+<link href='<c:url value="/resources/js/calendar/lib/cupertino/jquery-ui.min.css"/>' rel='stylesheet' />
 <script src='<c:url value="/resources/js/calendar/lib/moment.min.js"/>'></script>
 <script src='<c:url value="/resources/js/calendar/lib/jquery.min.js"/>'></script>
 <script src='<c:url value="/resources/js/calendar/lib/jquery-ui.min.js"/>'></script>
 <script src='<c:url value="/resources/js/calendar/fullcalendar.min.js"/>'></script>
 <script src='<c:url value="/resources/js/calendar/locale-all.js"/>'></script>
 <script src='<c:url value="/resources/js/calendar/fullcalendar.js"/>'></script>
+
 <title>달!력!</title>
 <style>
 	img{
@@ -61,5 +63,43 @@
 			</div>
 		</div>
 	</div>
+	
+	<script>
+		$(function(){
+			//여행게시물 달력 기능
+			var dateFormat = "yy/mm/dd/",
+		      from = $( "#fromDate" )
+		        .datepicker({
+		          minDate:-1,
+		          maxDate:"+1D",
+		          defaultDate: new Date("2016/12/19"),
+		          changeMonth: true,
+		        })
+		        .on( "change", function() {
+		          to.datepicker( "option", "minDate", getDate( this ) );
+		        }),
+		      to = $( "#toDate" ).datepicker({
+		    	maxDate:"+1D",
+		        defaultDate: +7,
+		        changeMonth: true,
+		      })
+			    .on( "change", function() {
+			      from.datepicker( "option", "maxDate", getDate( this ) );
+			    });
+			 
+			    function getDate( element ) {
+			      	var date;
+			     	try {
+			        	date = $.datepicker.parseDate( dateFormat, element.value );
+			      	} catch( error ) {
+			        	date = null;
+			      	}
+			 		return date;
+			    }
+			})
+			
+	
+	</script>
+	
 </body>
 </html>
