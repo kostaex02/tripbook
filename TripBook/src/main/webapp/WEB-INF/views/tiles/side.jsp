@@ -206,7 +206,7 @@
 					<c:choose>
 					<c:when test="${groupList ne null}">
 						<c:forEach items="${groupList }" var="item">
-							<a href='<c:url value="/group/list?groupNo=${item.groupNo}"/>'><div class='sideGroupList'><dd id="${item.groupNo }">${item.groupName }</dd></div></a>
+							<a href='<c:url value="/group/list?groupNo=${item.groupNo}"/>'><dd id="${item.groupNo }">${item.groupName }</dd></a>
 						</c:forEach>
 					</c:when>
 					</c:choose>
@@ -256,14 +256,9 @@ $(function(){
 	$("a").click(function(){
 		sessionStorage.setItem("pageName", $(this).children("div").attr("id"));
 	});
-	
-	$(".sideGroupMenu").on('click','.sideGroupList',function(){
+
+	$(".sideAddGroupButton, .sideGroupMenu, .groupMemberAdd, .groupSecession").click(function(){
 		sessionStorage.setItem("pageName", "sideFriend");
-	});
-	
-	
-	$("#searchButton").click(function(){
-		sessionStorage.setItem("pageName", $(this).children("div").attr("id"));
 	});
 	
 	$(".sideGroupHeader").click(function() {
