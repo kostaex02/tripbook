@@ -405,7 +405,7 @@ hr {
 										<i><img src='<c:url value="/images/icon/icon_map.png"/>' width="64px" height="64px"></i>
 									</button>
 								</div>
-								<input type="file" class="newGeneralBoardMulti with-preview" name="file" style="display:none" multiple/>
+								<input type="file" class="newBoardMulti with-preview" name="file" style="display:none" multiple/>
 								<div class="btn-group groupMap" role="group" style="display:none">
 									<button type="button" class="btn btn-default btn-sm" id="insideDaumMap" onclick="relayout()">국내</button>
 									<button type="button" class="btn btn-default btn-sm" id="insideGoogleMap" onclick="displayMap()">해외</button>
@@ -413,13 +413,13 @@ hr {
 								<div class="newBoardMultiList" name="newGeneralBoardMultiList"></div>
 								
 							</div>
-							<div id="newGeneralBoardGMap" class="newBoardMap" style="width:90%; display:none">
+							<div id="newGeneralBoardGMap" class="newBoardMap" style="width:95%; display:none">
 								<!-- map부분 -->
 								<input id="pac-input" class="controls" type="text" placeholder="Search Box">
-    							<div id="map" style="width:90%; height:300px;"></div>
+    							<div id="map" style="width:95%; height:300px;"></div>
 							</div>
 							
-							<div id="newGeneralBoardDMap" class="newBoardMap" style="width:90%; display:none">
+							<div id="newGeneralBoardDMap" class="newBoardMap" style="width:95%; display:none">
 								<div id="menu_wrap" class="bg_white">
 								<div class="option">
 									<input type="text" id="keyword" size="15"> 
@@ -427,7 +427,7 @@ hr {
 								</div>
 							</div>
 
-							<div id="daumMap" style="width:90%; height:300px"></div>
+							<div id="daumMap" style="width:95%; height:300px"></div>
 							</div>
 							<br>
 							<input type="hidden" id="resultKeyword" name="resultKeyword">
@@ -462,19 +462,60 @@ hr {
 					</div>
 					<div class="modal-body">
 						<div class="newTravelBoardContainer">
-							<div class="newBoardPicture">
-								<img class="newBoardPictureImg"
-									src='<c:url value="/images/img.jpg"/>'>
+							<ul class="nav nav-tabs nav-justified" role="tablist" style="height:50px">
+                        		<li role="presentation" class="active" style="padding:0;"><a href="#editSchedule" aria-controls="editSchedule" role="tab" data-toggle="tab">Edit</a>
+								</li>
+                        		<li role="presentation" style="padding:0"><a href="#addSchedule" aria-controls="addSchedule" role="tab" data-toggle="tab">Add</a>
+								</li>
+                    		</ul>
+                    		<div class="tab-content">
+                    			<div class="tab-pane active" id="editSchedule">
+                    				<input type="text" class="form-control" id="editSubject" name="subject" placeholder="제목">
+                    				<div class="col-md-12">
+										<div class="form-group row">
+											<label for="editFromDate" class="col-md-1 control-label">From</label>
+											<div class="col-md-5">
+												<input type="text" class="form-control" id="editFromDate" name="start_date">
+											</div>
+											<label for="editToDate" class="col-md-1 control-label">to</label>
+											<div class="col-md-5">
+												<input type="text" class="form-control" id="editToDate" name="end_date">
+											</div>
+										</div>
+									</div>
+									<hr>
+                    				<div class="newBoardPicture">
+										<img class="newBoardPictureImg" src='<c:url value="/images/img.jpg"/>'>
+									</div>
+									<div class="newBoardTitle">
+										<textarea name="title" class="form-control" rows="4" id="editComment"></textarea>
+									</div>
+									
+								</div>
+								<div class="tab-pane" id="addSchedule">
+									<input type="text" class="form-control" id="addSubject" name="subject" placeholder="제목">
+                    				<div class="col-md-12">
+										<div class="form-group row">
+											<label for="addFromDate" class="col-md-1 control-label">From</label>
+											<div class="col-md-5">
+												<input type="text" class="form-control" id="addFromDate" name="start_date">
+											</div>
+											<label for="addToDate" class="col-md-1 control-label">to</label>
+											<div class="col-md-5">
+												<input type="text" class="form-control" id="addToDate" name="end_date">
+											</div>
+										</div>
+									</div>
+									<hr>
+                    				<div class="newBoardPicture">
+										<img class="newBoardPictureImg" src='<c:url value="/images/img.jpg"/>'>
+									</div>
+									<div class="newBoardTitle">
+										<textarea name="title" class="form-control" rows="4" id="addComment"></textarea>
+									</div>
+								</div>
 							</div>
-							<div class="newBoardTitle">
-								<textarea name="title" class="form-control" rows="5" id="mainExclusive_input"></textarea>
-							</div>
-							<hr>
-							<label for="fromDate">From</label>
-							<input type="text" id="fromDate" name="fromDate">
-							<label for="toDate">to</label>
-							<input type="text" id="toDate" name="toDate">
-						</div>
+						</div>	
 					</div>
 					<div class="modal-footer">
 						<select>
@@ -666,7 +707,7 @@ hr {
 		
 		$(function() {
 			/* 멀티파일 설정 */
-			$('.newGeneralBoardMulti').MultiFile({
+			$('.newBoardMulti').MultiFile({
 					//max : 3, //업로드 최대 파일 갯수 (지정하지 않으면 무한대)
 					accept : 'jpg|png|gif', //허용할 확장자(지정하지 않으면 모든 확장자 허용)
 					//maxfile : 1024, //각 파일 최대 업로드 크기
@@ -686,10 +727,10 @@ hr {
 			
 			$('#newGeneralBoardUploadImg').click(function() {
 				$('.groupMap').hide();		
-				$('.newGeneralBoardMulti').show();
+				$('.newBoardMulti').show();
 			});
 			$('#newGeneralBoardMap').click(function(){
-				$('.newGeneralBoardMulti').hide();
+				$('.newBoardMulti').hide();
 				$('.groupMap').show();	
 			});
 			
@@ -704,7 +745,7 @@ hr {
 			
 			//여행게시물 달력 기능
 			var dateFormat = "mm/dd/yy",
-		      from = $( "#fromDate" )
+		      from = $( "#editFromDate" )
 		        .datepicker({
 		          minDate:-20,
 		          maxDate:"+1M+10D",
@@ -714,7 +755,7 @@ hr {
 		        .on( "change", function() {
 		          to.datepicker( "option", "minDate", getDate( this ) );
 		        }),
-		      to = $( "#toDate" ).datepicker({
+		      to = $( "#editToDate" ).datepicker({
 		    	maxDate:"+1M+10D",
 		        defaultDate: "+1w",
 		        changeMonth: true,
