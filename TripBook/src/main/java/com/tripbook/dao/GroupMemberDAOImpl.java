@@ -6,6 +6,9 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import com.tripbook.dto.GroupMemberDTO;
+import com.tripbook.dto.UserDTO;
 @Repository
 public class GroupMemberDAOImpl implements GroupMemberDAO{
 	@Autowired
@@ -17,6 +20,14 @@ public class GroupMemberDAOImpl implements GroupMemberDAO{
 	@Override
 	public List<Integer> selectGroupMember(String userId) {
 		return session.selectList("groupMemberMapper.selectGroupMember", userId);
+	}
+	@Override
+	public List<UserDTO> selectGroupMemberByNo(int groupNo) {
+		return session.selectList("groupMemberMapper.selectGroupMemberByNo", groupNo);
+	}
+	@Override
+	public int deleteGroupMember(Map<String, Object> map) {
+		return session.delete("groupMemberMapper.deleteGroupMember", map);
 	}
 
 }

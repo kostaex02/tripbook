@@ -12,7 +12,9 @@ import com.tripbook.dao.GroupDAO;
 import com.tripbook.dao.GroupMemberDAO;
 import com.tripbook.dao.NoticeDAO;
 import com.tripbook.dto.GroupDTO;
+import com.tripbook.dto.GroupMemberDTO;
 import com.tripbook.dto.NoticeDTO;
+import com.tripbook.dto.UserDTO;
 
 @Service
 public class GroupServiceImpl implements GroupService {
@@ -66,6 +68,29 @@ public class GroupServiceImpl implements GroupService {
 			resultList.add(groupDAO.selectGroupByNo(groupNo));
 		}
 		return resultList;
+	}
+	@Override
+	public int addGroupMember(int groupNo, String userId, String[] friendId) {
+		int result = 0;
+		for(String str:friendId){
+			result = noticeDAO.insertNotice(new NoticeDTO("1", userId, str,groupNo+""));
+		}
+		return result;
+	}
+	@Override
+	public List<UserDTO> selectGroupMember(int groupNo) {
+		return groupMemberDAO.selectGroupMemberByNo(groupNo);
+	}
+	@Override
+	public GroupDTO selectGroup(int groupNo) {
+		return groupDAO.selectGroupByNo(groupNo);
+	}
+	@Override
+	public int deleteGroupMember(int groupNo, String userId) {
+		Map<String,Object> map = new HashMap<>();
+		map.put("groupNo", groupNo);
+		map.put("friendId", userId);
+		return groupMemberDAO.deleteGroupMember(map);
 	}
 
 }
