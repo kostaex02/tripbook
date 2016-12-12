@@ -80,7 +80,7 @@ $(function(){
 					<div class="friendsPicture">
 						<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
 					</div>
-					<input type="hidden" value="${state.count}" id="${item.id}">
+					<input type="hidden" value="${item.id}" id="${item.id}">
 					<div class="friendsName">${item.name }</div>
 					<div class="friendsButton">
 						<input type="button" value="친구 신청">
