@@ -125,8 +125,8 @@ textarea {
 					<form action="" method="post">
 						<div class="modal-body">
 							<div class="friendsNameDivOfGroup">
-								<h2>그룹 초대</h2>
-								<br> <br> <label>${group.groupName}그룹명</label><br> <br> <br>
+								<h2>${group.groupName}</h2>
+								<hr>
 							</div>
 							<div class="friendsGroupList">
 								<div class="friendsGroupListBind">
@@ -180,6 +180,8 @@ textarea {
 
 	<script src='<c:url value="/resources/js/main/stroll.min.js"/>'></script>
 	<script type="text/javascript">
+	
+	/* 그룹 멤버 추가 */
 		$(function() {
 			$('.friendsGroupMember').click(function() {
 				//체크 박스 셀렉터 지정				
@@ -203,16 +205,16 @@ textarea {
 									friendId.push(item.value);
 						});
 						$.ajax({
-						url : "/controller/group/create",
+						url : "/controller/group/add",
 						type : "post",
-						data : 'groupName=' + $(".nameOfGroup").val()+'&friendId='+friendId,
+						data : 'groupNo=' + $("#groupNo").val()+'&friendId='+friendId,
 						dataType : "text",
 						success : function(data) {
 							if(data==1){
-								alert('그룹 생성 성공');
-								location.href='/controller/friends/list';
+								alert('그룹 초대 성공');
+								location.href='/controller/group/list?groupNo='+$("#groupNo").val();
 							}else{
-								alert('그룹 생성 실패');
+								alert('그룹 초대 실패');
 							}
 						},
 						error : function() {
@@ -221,24 +223,6 @@ textarea {
 					})
 			})
 		})
-		
-		stroll.bind('ul');
-		
-		/* 그룹 멤버 추가 */
-		$('.groupMemberAdd').click(function(){
-			$.ajax({
-				url:"/controller/group/add",
-				type : "post",
-				data : "groupNo="+$('#groupNo').val(),
-				dataType : "text",
-				success : function(data) {
-					alert()
-				},
-				error : function() {
-					console.log('error');
-				}
-			})
-		});
 		
 		/* 그룹 탈퇴 */
 		$('.groupSecession').click(function(){
@@ -249,8 +233,8 @@ textarea {
 					data : "groupNo="+$('#groupNo').val(),
 					dataType : "text",
 					success : function(data) {
-						alert('탈퇴 되었습니다.')
-						location.href='/controller/friends/list' 
+						alert('탈퇴 되었습니다.');
+						location.href='/controller/friends/list';
 					},
 					error : function() {
 						console.log('error');
@@ -259,6 +243,8 @@ textarea {
 			}
 		});
 		
+	/* 스크롤 효과 */
+	stroll.bind('ul');
 		
 	</script>
 	
