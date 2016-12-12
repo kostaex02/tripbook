@@ -85,7 +85,7 @@ a {
 	cursor: text;
 }
 
-.newGeneralBoardUpload {
+/* .newGeneralBoardUpload {
 	border: 1px solid pink;
 	width: 100%;
 	display: inline-table;
@@ -98,13 +98,13 @@ a {
 	display: inline-table;
 	cursor: pointer;
 	vertical-align: middle;
-}
-
+} *//* 
 .newBoardMap {
 	width: 64px;
 	margin-left: 10px;
 	display: inline-table;
-}
+} */
+
 
 .newBoardSelect {
 	display: inline-block;
@@ -393,24 +393,25 @@ hr {
 									src='<c:url value="/images/img.jpg"/>'>
 							</div>
 							<div class="newBoardTitle">
-								<textarea name="title" class="form-control" rows="5" id="mainExclusive_input"></textarea>
+								<textarea name="title" class="form-control" rows="4" id="mainExclusive_input"></textarea>
 							</div>
 							<hr>
 							<div class="newBoardSelect">
 								<div class="input-group-btn">
-									<button class="btn btn-default btn-sm" type="button" id="newGeneralBoardUploadImg">
+									<button class="btn btn-default btn-sm newBoardUploadImg" type="button" id="newGeneralBoardUploadImg">
 										<i><img src='<c:url value="/images/icon/icon_upload.png"/>' width="64px" height="64px"></i>
 									</button>
-									<button class="btn btn-default btn-sm" type="button" id="newGeneralBoardMap">
+									<button class="btn btn-default btn-sm newBoardMap" type="button" id="newGeneralBoardMap">
 										<i><img src='<c:url value="/images/icon/icon_map.png"/>' width="64px" height="64px"></i>
 									</button>
 								</div>
-								<input type="file" class="newBoardMulti with-preview" name="file" style="display:none" multiple/>
+								<input type="file" class="newBoardMulti with-preview" id="newGeneralBoardMulti" name="file" style="display:none" multiple/>
+								
 								<div class="btn-group groupMap" role="group" style="display:none">
 									<button type="button" class="btn btn-default btn-sm" id="insideDaumMap" onclick="relayout()">국내</button>
 									<button type="button" class="btn btn-default btn-sm" id="insideGoogleMap" onclick="displayMap()">해외</button>
 								</div>
-								<div class="newBoardMultiList" name="newGeneralBoardMultiList"></div>
+								<div class="newBoardMultiList" id="newGeneralBoardMultiList" name="newBoardMultiList"></div>
 								
 							</div>
 							<div id="newGeneralBoardGMap" class="newBoardMap" style="width:95%; display:none">
@@ -469,7 +470,8 @@ hr {
 								</li>
                     		</ul>
                     		<div class="tab-content">
-                    			<div class="tab-pane active" id="editSchedule">
+								<!-- EDIT -->
+								<div class="tab-pane active" id="editSchedule">
                     				<input type="text" class="form-control" id="editSubject" name="subject" placeholder="제목">
                     				<div class="col-md-12">
 										<div class="form-group row">
@@ -490,8 +492,27 @@ hr {
 									<div class="newBoardTitle">
 										<textarea name="title" class="form-control" rows="4" id="editComment"></textarea>
 									</div>
+									<div class="newBoardSelect">
+										<div class="input-group-btn">
+											<button class="btn btn-default btn-sm newBoardUploadImg" type="button">
+												<i><img src='<c:url value="/images/icon/icon_upload.png"/>' width="64px" height="64px"></i>
+											</button>
+											<button class="btn btn-default btn-sm newBoardMap" type="button">
+												<i><img src='<c:url value="/images/icon/icon_map.png"/>' width="64px" height="64px"></i>
+											</button>
+										</div>
+										<input type="file" class="newBoardMulti with-preview" id="newEditTravelBoardMulti" name="file" style="display:none" multiple/>
+										<div class="btn-group groupMap" role="group" style="display:none">
+											<button type="button" class="btn btn-default btn-sm" onclick="documentMap()">국내</button>
+											<button type="button" class="btn btn-default btn-sm" onclick="oversee()">해외</button>
+										</div>
+									 	<div class="newBoardMultiList" id="newEditTravelBoardMultiList" name="newBoardMultiList"></div>
+									 </div>
+									 <div class="newBoardMapList" id="newBoardMapList" name="newBoardMapList"></div>
 									
 								</div>
+								
+								<!-- ADD -->
 								<div class="tab-pane" id="addSchedule">
 									<input type="text" class="form-control" id="addSubject" name="subject" placeholder="제목">
                     				<div class="col-md-12">
@@ -513,6 +534,24 @@ hr {
 									<div class="newBoardTitle">
 										<textarea name="title" class="form-control" rows="4" id="addComment"></textarea>
 									</div>
+									
+									<div class="newBoardSelect">
+										<div class="input-group-btn">
+											<button class="btn btn-default btn-sm newBoardUploadImg" type="button">
+												<i><img src='<c:url value="/images/icon/icon_upload.png"/>' width="64px" height="64px"></i>
+											</button>
+											<button class="btn btn-default btn-sm newBoardMap" type="button">
+												<i><img src='<c:url value="/images/icon/icon_map.png"/>' width="64px" height="64px"></i>
+											</button>
+										</div>
+										<input type="file" class="newBoardMulti with-preview" id="newAddTravelBoardMulti" name="file" style="display:none" multiple/>
+										<div class="btn-group groupMap" role="group" style="display:none">
+											<button type="button" class="btn btn-default btn-sm">국내</button>
+											<button type="button" class="btn btn-default btn-sm">해외</button>
+										</div>
+										<div class="newBoardMultiList" id="newAddTravelBoardMultiList" name="newBoardMultiList"></div>
+									</div>
+							 		
 								</div>
 							</div>
 						</div>	
@@ -680,7 +719,7 @@ hr {
 		    map.fitBounds(bounds);
 		  });
 		  // [END region_getplaces]
-		} 
+		}
 	
 	/* 스크롤 효과 */
 	stroll.bind('.mainAllBoard ul');
@@ -707,7 +746,7 @@ hr {
 		
 		$(function() {
 			/* 멀티파일 설정 */
-			$('.newBoardMulti').MultiFile({
+			$('#newGeneralBoardMulti').MultiFile({
 					//max : 3, //업로드 최대 파일 갯수 (지정하지 않으면 무한대)
 					accept : 'jpg|png|gif', //허용할 확장자(지정하지 않으면 모든 확장자 허용)
 					//maxfile : 1024, //각 파일 최대 업로드 크기
@@ -721,15 +760,36 @@ hr {
 					//toomany : "업로드할 수 있는 최대 갯수는 $max개 입니다.",
 					//toobig : "$file 은 크기가 매우 큽니다. (max $size)"
 					},
-					list : ".newBoardMultiList" //파일목록을 출력할 요소 지정가능
+					list : "#newGeneralBoardMultiList" //파일목록을 출력할 요소 지정가능
 			});
-				 
 			
-			$('#newGeneralBoardUploadImg').click(function() {
+			$('#newEditTravelBoardMulti').MultiFile({
+				accept : 'jpg|png|gif', //허용할 확장자(지정하지 않으면 모든 확장자 허용)
+				STRING : { //Multi-lingual support : 메시지 수정 가능
+					remove : "제거", //추가한 파일 제거 문구, 이미태그를 사용하면 이미지사용가능
+						duplicate : "$file 은 이미 선택된 파일입니다.",
+					denied : "$ext 는(은) 업로드 할수 없는 파일확장자입니다.",
+					selected : '$file 을 선택했습니다.',
+				},
+				list : "#newEditTravelBoardMultiList" //파일목록을 출력할 요소 지정가능
+			});
+
+			$('#newAddTravelBoardMulti').MultiFile({
+				accept : 'jpg|png|gif', //허용할 확장자(지정하지 않으면 모든 확장자 허용)
+				STRING : { //Multi-lingual support : 메시지 수정 가능
+					remove : "제거", //추가한 파일 제거 문구, 이미태그를 사용하면 이미지사용가능
+						duplicate : "$file 은 이미 선택된 파일입니다.",
+					denied : "$ext 는(은) 업로드 할수 없는 파일확장자입니다.",
+					selected : '$file 을 선택했습니다.',
+				},
+				list : "#newAddTravelBoardMultiList" //파일목록을 출력할 요소 지정가능
+			});
+			
+			$('.newBoardUploadImg').click(function() {
 				$('.groupMap').hide();		
 				$('.newBoardMulti').show();
 			});
-			$('#newGeneralBoardMap').click(function(){
+			$('.newBoardMap').click(function(){
 				$('.newBoardMulti').hide();
 				$('.groupMap').show();	
 			});
@@ -791,12 +851,25 @@ hr {
 		    }
 			
 		}); 
-					
+		
 		function displayMap(){
 			document.getElementById('newGeneralBoardDMap').style.display="none";
 		    document.getElementById('newGeneralBoardGMap').style.display="block";
 			google.maps.event.trigger(map, "resize");
 		}
+		
+		function documentMap(){
+			var list = document.getElementById('newBoardMapList');
+			list.append("<div id='daumMap' style='width:95%; height:300px'></div>");
+			daumMap.relayout();
+			relayout();
+			
+		}
+		
+		function oversee(){
+			
+		}
+		
 	</script>
 	<!-- google API Key -->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBv7i1sbKKdVRfbilHi8obuYThFnE3P9ZA&libraries=places&callback=initAutocomplete"
@@ -805,7 +878,7 @@ hr {
     <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=3bae0d1bca94080850d3d2451479c7ee&libraries=services"></script>
 	
 	<script>
-
+	
 	var daumMarkers = [];
 
 	// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
