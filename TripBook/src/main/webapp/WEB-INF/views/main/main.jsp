@@ -408,8 +408,8 @@ hr {
 								<input type="file" class="newBoardMulti with-preview" id="newGeneralBoardMulti" name="file" style="display:none" multiple/>
 								
 								<div class="btn-group groupMap" role="group" style="display:none">
-									<button type="button" class="btn btn-default btn-sm" id="insideDaumMap" onclick="relayout()">국내</button>
-									<button type="button" class="btn btn-default btn-sm" id="insideGoogleMap" onclick="displayMap()">해외</button>
+									<button type="button" class="btn btn-default btn-sm" id="insideGeneralDaumMap">국내</button>
+									<button type="button" class="btn btn-default btn-sm" id="insideGeneralGoogleMap" onclick="displayMap()">해외</button>
 								</div>
 								<div class="newBoardMultiList" id="newGeneralBoardMultiList" name="newBoardMultiList"></div>
 								
@@ -503,8 +503,8 @@ hr {
 										</div>
 										<input type="file" class="newBoardMulti with-preview" id="newEditTravelBoardMulti" name="file" style="display:none" multiple/>
 										<div class="btn-group groupMap" role="group" style="display:none">
-											<button type="button" class="btn btn-default btn-sm" onclick="documentMap()">국내</button>
-											<button type="button" class="btn btn-default btn-sm" onclick="oversee()">해외</button>
+											<button type="button" class="btn btn-default btn-sm" >국내</button>
+											<button type="button" class="btn btn-default btn-sm" >해외</button>
 										</div>
 									 	<div class="newBoardMultiList" id="newEditTravelBoardMultiList" name="newBoardMultiList"></div>
 									 </div>
@@ -794,6 +794,10 @@ hr {
 				$('.groupMap').show();	
 			});
 			
+			$('#insideGeneralDaumMap').click(function(){
+				createDaumMap(1);
+			});
+			
 			$('#daumSearch').click(function(){
 				searchPlaces();
 				return false;
@@ -884,20 +888,30 @@ hr {
 	// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
 	var daumInfowindow = new daum.maps.InfoWindow({zIndex:1});
 
-	var mapContainer = document.getElementById('daumMap'), // 지도를 표시할 div 
-	    mapOption = {
-	        center: new daum.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
-	        level: 3 // 지도의 확대 레벨
-	    };  
 
-	// 지도를 생성합니다    
-	var daumMap = new daum.maps.Map(mapContainer, mapOption);
 	
 	var daumMarker;
 
 	// 장소 검색 객체를 생성합니다
 	var daumPs = new daum.maps.services.Places(); 
-
+	
+	function createDaumMap(state){
+		if(state==1){
+			var mapContainer = document.getElementById('daumMap'), // 지도를 표시할 div 
+		    mapOption = {
+		        center: new daum.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
+		        level: 3 // 지도의 확대 레벨
+		    };  
+		}
+		
+		// 지도를 생성합니다    
+		var daumMap = new daum.maps.Map(mapContainer, mapOption);
+	    document.getElementById('newGeneralBoardGMap').style.display="none";
+	    document.getElementById('newGeneralBoardDMap').style.display="block";
+	    daumMap.relayout();
+	
+	}
+	
 	//키워드 검색을 요청하는 함수입니다
 	function searchPlaces() {
 		
@@ -920,12 +934,7 @@ hr {
 	        // LatLngBounds 객체에 좌표를 추가합니다
 	        var daumBounds = new daum.maps.LatLngBounds();
 			
-	/*         for (var i=0; i<data.places.length; i++) {
-	            displayMarker(data.places[i]);    
-	            bounds.extend(new daum.maps.LatLng(data.places[i].latitude, data.places[i].longitude));
-	        }       
-	 */
-	 		daumMap = new daum.maps.Map(mapContainer, mapOption);
+	        daumMap = new daum.maps.Map(mapContainer, mapOption);
 	 		displayMarker(data.places[0]);
 	 		daumBounds.extend(new daum.maps.LatLng(data.places[0].latitude, data.places[0].longitude));
 	        // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
@@ -942,10 +951,6 @@ hr {
 	        map: daumMap,
 	        position: new daum.maps.LatLng(place.latitude, place.longitude) 
 	    });
-		
-		/* alert(place.latitude);
-		alert(place.longitude); */ //경도, 위도
-		//alert(place.address)
 		
 		// 경도, 위도, 주소 폼에 입력
 		document.getElementById("resultAddress").value = place.address;
@@ -971,14 +976,7 @@ hr {
 	    daumMarkers = [];
 	}
 
-	function relayout() {    
-	    // 지도를 표시하는 div 크기를 변경한 이후 지도가 정상적으로 표출되지 않을 수도 있습니다
-	    // 크기를 변경한 이후에는 반드시  map.relayout 함수를 호출해야 합니다 
-	    // window의 resize 이벤트에 의한 크기변경은 map.relayout 함수가 자동으로 호출됩니다
-	    document.getElementById('newGeneralBoardGMap').style.display="none";
-	    document.getElementById('newGeneralBoardDMap').style.display="block";
-	    daumMap.relayout();
-	}
+	
 	function validateForm() {
 		var textArea = document.forms["generalForm"]["title"].value;
 	    var keyword = document.forms["generalForm"]["resultKeyword"].value;
