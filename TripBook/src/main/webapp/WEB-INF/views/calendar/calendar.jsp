@@ -126,12 +126,13 @@
 				dataType : "json",
 				success : function(data) {
 					 $.each(data, function(index, item) {
-						 eventData = {
-									id: item.scheduleNo,
-									title: item.subject,
-									start: item.startDate,
-									end: item.endDate
-						};
+						eventData = {
+								id: item.scheduleNo,
+								title: item.subject,
+								start: item.startDate,
+								end: item.endDate
+						};		 
+					
 						$('.calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
 				     });
 				},

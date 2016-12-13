@@ -78,7 +78,7 @@ $(function(){
 			<c:forEach items="${userList }" var="item" varStatus="state">
 				<li class="friendsProfile">
 					<div class="friendsPicture">
-						<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
+						<img class="friendPictureImg" src='<c:url value="/tripbook/user/${item.id}/${item.fileName }"/>'>
 					</div>
 					<input type="hidden" value="${item.id}" id="${item.id}">
 					<div class="friendsName">${item.name }</div>

@@ -131,7 +131,7 @@
 					$('.calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
 				}*/
 				$('.calendar').fullCalendar('unselect');
-			},
+			}
 		});
 		//----------------------------------------------------
 
