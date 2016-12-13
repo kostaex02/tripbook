@@ -45,6 +45,9 @@
 							<option value="0">전체보기</option>
 							<option value="1">친구보기</option>
 							<option value="2">비공개</option>
+							<c:forEach items="${groupList }" var="item">
+								<option value="${item.groupNo }">${item.groupName }</option>
+							</c:forEach>
 						</select>
 						<button id="calenderSubmit" type="button" class="btn btn-default btn-sm">등록</button>
 						<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">취소</button>
@@ -98,7 +101,6 @@
 						if(data==1){
 							alert('일정 등록 성공');
 							initCalendar();
-					        $('.calendar').fullCalendar('removeEvents');
 							$('#addTravelBoard').modal('hide');
 						}else{
 							alert('일정 등록 실패');
@@ -117,6 +119,7 @@
 		} 
 		
 		function initCalendar(){
+	        $('.calendar').fullCalendar('removeEvents');
 			$.ajax({
 	    		url : "/controller/calendar/init",
 				type : "post",

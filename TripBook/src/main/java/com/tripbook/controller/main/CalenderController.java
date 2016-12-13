@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.tripbook.dto.GroupDTO;
 import com.tripbook.dto.ScheduleDTO;
 import com.tripbook.service.GroupService;
 import com.tripbook.service.ScheduleService;
@@ -38,6 +39,7 @@ public class CalenderController {
 	public ModelAndView list(HttpServletRequest request){
 		HttpSession session = request.getSession();
 		ModelAndView mv = new ModelAndView("calendar/calendar");
+		
 		mv.addObject("groupList", groupService.selectGroupList((String)session.getAttribute("userId")));
 		return mv;
 	}
@@ -47,5 +49,12 @@ public class CalenderController {
 	public List<ScheduleDTO> init(HttpServletRequest request){
 		HttpSession session = request.getSession();
 		return scheduleService.selectSchedule((String)session.getAttribute("userId"));
+	}
+	
+	@RequestMapping("delete")
+	@ResponseBody
+	public int delete(HttpServletRequest request,int scheduleNo)
+	{
+		return scheduleService.deleteSchedule(scheduleNo);
 	}
 }

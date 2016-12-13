@@ -116,7 +116,7 @@ CREATE TABLE notice_table
 	content VARCHAR2(4000),
 	check_state VARCHAR2(1) NOT NULL -- 읽음 유무(0:읽지 않음,1:읽음)
 );
-select
+
 create sequence reply_sequence nocache;
 CREATE TABLE reply_table
 (  

@@ -15,4 +15,14 @@ public interface ScheduleDAO {
 	 * 일정 출력
 	 */
 	List<ScheduleDTO> selectSchedule(Map<String, Object> map);
+	
+	/**
+	 * 일정 삭제
+	 */
+	int deleteSchedule(int scheduleNo);
+	
+	/**
+	 * 일정 선택
+	 */
+	ScheduleDTO selectScheduleByNo(int scheduleNo);
 }

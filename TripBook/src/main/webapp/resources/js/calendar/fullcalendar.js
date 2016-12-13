@@ -92,7 +92,22 @@
 			    var y2 = ofs.top + trashEl.outerHeight(true);
 			    if (jsEvent.pageX >= x1 && jsEvent.pageX<= x2 &&
 			        jsEvent.pageY >= y1 && jsEvent.pageY <= y2) {
-			        $('.calendar').fullCalendar('removeEvents', event.id);
+			    	$.ajax({
+			    		url:'/controller/calendar/delete',
+			    		type : "post",
+			    		data:"scheduleNo="+event.id,
+						dataType : "json",
+						success:function(data){
+							if(data>0){
+						        $('.calendar').fullCalendar('removeEvents', event.id);
+							}else{
+								alert(data);
+							}
+						},
+						error:function(error){
+							alert('error');
+						}
+			    	})
 			    }
             },
 		    selectable: true,

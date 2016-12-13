@@ -57,4 +57,11 @@ public class ScheduleServiceImpl implements ScheduleService {
 		return scheduleDAO.selectSchedule(map);
 	}
 
+	@Override
+	public int deleteSchedule(int scheduleNo) {
+		ScheduleDTO scheduleDTO = scheduleDAO.selectScheduleByNo(scheduleNo);
+		
+		return scheduleDAO.deleteSchedule(scheduleNo);
+	}
+
 }

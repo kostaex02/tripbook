@@ -24,4 +24,14 @@ public class ScheduleDAOImpl implements ScheduleDAO{
 		return session.selectList("scheduleMapper.selectSchedule",map);
 	}
 
+	@Override
+	public int deleteSchedule(int scheduleNo) {
+		return session.delete("scheduleMapper.deleteSchedule", scheduleNo);
+	}
+
+	@Override
+	public ScheduleDTO selectScheduleByNo(int scheduleNo) {
+		return session.selectOne("scheduleMapper.selectScheduleByNo",scheduleNo);
+	}
+
 }
