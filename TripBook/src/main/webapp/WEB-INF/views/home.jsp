@@ -57,11 +57,11 @@
 	<div id="container" class="container intro-effect-fadeout">
 		<header class="header">
 			<div class="bg-img">
-				<img src='<c:url value="/images/1.jpg"/>' alt="Background Image" />
+				<img src='<c:url value="/images/background/tripBookLogin.png"/>' alt="Background Image" style="margin-top: -100px;"/>
 			</div>
 			<div class="title">
 
-				<h1>TripBook</h1>
+				<h1></h1>
 				<p class="subline">By Team 너나들이
 				<form class="form-horizontal" method="post" action='<c:url value="/login"/>'
 					id="mainForm">
@@ -185,7 +185,7 @@
 		</div>
 		
 		
-		
+		<!-- Modal searchPasswordModal -->
 		<div class="modal fade" id="searchPassword" role="dialog">
 			<div class="modal-dialog modal-sm">
 				<div class="modal-content">
@@ -198,10 +198,10 @@
 							<div id="inputEmail" class="input-group">
 								<span class="input-group-addon"> <i><img
 										src='<c:url value="/images/icon/icon_id20.png"/>'></i></span> 
-										<input id="email" type="email"
+										<input id="searchEmail" type="email"
 									class="form-control" name="id"
 									placeholder="Email"> 
-									<span id="checkingID" aria-hidden="true"></span>
+									<span id="searchCheckingID" aria-hidden="true"></span>
 							</div>
 						</div>
 						<div class="modal-footer">
@@ -401,6 +401,33 @@
 						}else{
 							$('#inputId').removeClass('has-error has-feedback').addClass('has-success has-feedback');
 							$('#checkingID').removeClass('glyphicon glyphicon-remove form-control-feedback').addClass('glyphicon glyphicon-ok form-control-feedback');
+						}
+					},
+					error : function() {
+						alert('error')
+					}
+				})
+				}
+			});
+			
+			//email 찾기
+			$('#searchEmail').keyup(function() {
+				if($(this).val()==""){
+					$('#inputEmail').removeClass('has-success has-feedback').addClass('has-error has-feedback');
+					$('#seachCheckingID').removeClass('glyphicon glyphicon-ok form-control-feedback').addClass('glyphicon glyphicon-remove form-control-feedback');
+				}else{
+				$.ajax({
+					url : "/controller/checkId",
+					type : "post",
+					data : 'userId=' + $(this).val(),
+					dataType : "text",
+					success : function(data) {
+						if (data > 0) {
+							$('#inputEmail').removeClass('has-error has-feedback').addClass('has-success has-feedback');
+							$('#seachCheckingID').removeClass('glyphicon glyphicon-remove form-control-feedback').addClass('glyphicon glyphicon-ok form-control-feedback');
+						}else{
+							$('#inputEmail').removeClass('has-success has-feedback').addClass('has-error has-feedback');
+							$('#seachCheckingID').removeClass('glyphicon glyphicon-ok form-control-feedback').addClass('glyphicon glyphicon-remove form-control-feedback');
 						}
 					},
 					error : function() {
