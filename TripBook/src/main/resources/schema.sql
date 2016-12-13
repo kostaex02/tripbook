@@ -43,6 +43,8 @@ CREATE TABLE schedule_table
 	writer VARCHAR2(50) references user_table(id) not null -- ÀÛ¼ºÀÚ
 );
 
+select * from schedule_table;
+
 create sequence board_sequence nocache;
 CREATE TABLE board_table
 (  

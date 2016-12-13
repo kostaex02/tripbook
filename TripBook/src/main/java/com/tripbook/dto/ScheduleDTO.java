@@ -8,6 +8,12 @@ public class ScheduleDTO {
 	private String writeDate;
 	private String state;
 	private String writer;
+	
+	@Override
+	public String toString() {
+		return "ScheduleDTO [scheduleNo=" + scheduleNo + ", subject=" + subject + ", startDate=" + startDate
+				+ ", endDate=" + endDate + ", writeDate=" + writeDate + ", state=" + state + ", writer=" + writer + "]";
+	}
 	public int getScheduleNo() {
 		return scheduleNo;
 	}

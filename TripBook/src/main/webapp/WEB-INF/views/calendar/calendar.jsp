@@ -14,12 +14,7 @@
 <script src='<c:url value="/resources/js/calendar/fullcalendar.js"/>'></script>
 
 <title>달!력!</title>
-<style>
-	img{
-		width:60px;
-		height:60px;
-	}
-</style>
+
 </head>
 <body>
 	<div class='calendar' style='height:1000px;'></div>
@@ -28,35 +23,30 @@
 	<div class="modal fade" id="addTravelBoard" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form name="generalForm" action="#" method="post" enctype="multipart/form-data" onkeydown="return captureReturnKey(event)">
+				<form id="generalForm" name="generalForm" action="calendar/add" method="post" enctype="multipart/form-data" onkeydown="return captureReturnKey(event)">
 					<div class="modal-header">
-						여행게시물
+						여행 일정
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 					</div>
 					<div class="modal-body">
 						<div class="newTravelBoardContainer">
-							<div class="newGeneralBoardPicture">
-								<img class="newGeneralBoardPictureImg"
-									src='<c:url value="/images/img.jpg"/>'>
-							</div>
 							<div class="newGeneralBoardTitle">
-								<textarea name="title" class="form-control" rows="5" id="mainExclusive_input"></textarea>
+								<textarea name="subject" class="form-control" rows="5" id="mainExclusive_input"></textarea>
 							</div>
 							<hr>
 							<label for="fromDate">From</label>
-							<input type="text" id="fromDate" name="fromDate">
+							<input type="text" id="fromDate" name="startDate">
 							<label for="toDate">to</label>
-							<input type="text" id="toDate" name="toDate">
+							<input type="text" id="toDate" name="endDate">
 						</div>
 					</div>
 					<div class="modal-footer">
-						<select>
-							<option value="전체보기">전체보기</option>
-							<option value="친구보기">친구보기</option>
-							<option value="그룹보기">그룹보기</option>
-							<option value="비공개">비공개</option>
+						<select name = "state">
+							<option value="0">전체보기</option>
+							<option value="1">친구보기</option>
+							<option value="2">비공개</option>
 						</select>
-						<button type="submit" class="btn btn-default btn-sm">등록</button>
+						<button id="calenderSubmit" type="button" class="btn btn-default btn-sm">등록</button>
 						<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">취소</button>
 					</div>
 				</form>
@@ -68,40 +58,83 @@
 		$(function(){
 			//여행게시물 달력 기능
 			
-		      from = $( "#fromDate" )
-		        .datepicker({
-		        	dateFormat: "yy-mm-dd",
-			        defaultDate: $('#fromDate').val(),
-		      		changeMonth: true
-		        })
-		        .on( "change", function() {
-		          to.datepicker( "option", "minDate", getDate( this ) );
-		        }),
-		      to = $( "#toDate" ).datepicker({
-		    	  dateFormat: "yy-mm-dd",
-		    	  defaultDate: $('#toDate').val(),
-		          changeMonth: true
-		      })
-			    .on( "change", function() {
-			      from.datepicker( "option", "maxDate", getDate( this ) );
-			    });
-			 
-			    function getDate( element ) {
-			      	var date;
-			     	try {
-			        	date = $.datepicker.parseDate( dateFormat, element.value );
-			      	} catch( error ) {
-			        	date = null;
-			      	}
-			 		return date;
-			    }
-			})
+	      from = $( "#fromDate" )
+	        .datepicker({
+	        	dateFormat: "yy-mm-dd",
+		        defaultDate: $('#fromDate').val(),
+	      		changeMonth: true
+	        })
+	        .on( "change", function() {
+	          to.datepicker( "option", "minDate", getDate( this ) );
+	        }),
+	      to = $( "#toDate" ).datepicker({
+	    	  dateFormat: "yy-mm-dd",
+	    	  defaultDate: $('#toDate').val(),
+	          changeMonth: true
+	      })
+		    .on( "change", function() {
+		      from.datepicker( "option", "maxDate", getDate( this ) );
+		    });
+		 
+		    function getDate( element ) {
+		      	var date;
+		     	try {
+		        	date = $.datepicker.parseDate( dateFormat, element.value );
+		      	} catch( error ) {
+		        	date = null;
+		      	}
+		 		return date;
+		    }
+		    
+		    initCalendar();
+		    
+		    $("#calenderSubmit").click(function(){
+		    	$.ajax({
+		    		url : "/controller/calendar/add",
+					type : "post",
+					data : $('#generalForm').serialize(),
+					dataType : "text",
+					success : function(data) {
+						if(data==1){
+							alert('일정 등록 성공');
+							href="/controller/calendar/list";
+						}else{
+							alert('일정 등록 실패');
+						}
+					},
+					error : function() {
+						alert('error')
+					}
+		    	});
+		    });
+		})
 			
-			function captureReturnKey(e) { 
-			    if(e.keyCode==13 && e.srcElement.type != 'textarea') 
-			    return false; 
-			} 
-	
+		function captureReturnKey(e) { 
+		    if(e.keyCode==13 && e.srcElement.type != 'textarea') 
+		    return false; 
+		} 
+		
+		function initCalendar(){
+			$.ajax({
+	    		url : "/controller/calendar/init",
+				type : "post",
+				dataType : "json",
+				success : function(data) {
+					 $.each(data, function(index, item) {
+						 eventData = {
+									id: item.scheduleNo,
+									title: item.subject,
+									start: item.startDate,
+									end: item.endDate
+						};
+						$('.calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
+				     });
+				},
+				error : function() {
+					alert('error')
+				}
+	    	});
+		}
 	</script>
 	
 </body>

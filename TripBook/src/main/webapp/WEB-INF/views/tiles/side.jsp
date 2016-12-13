@@ -192,7 +192,7 @@
 				<a class='logout' href='<c:url value="/main/logout"/>'>로그아웃</a>
 				</div>
 			</a>
-			<a href='<c:url value="/calendar/calendar"/>'><div id='sideSchedule'>스케줄</div></a>
+			<a href='<c:url value="/calendar/list"/>'><div id='sideSchedule'>스케줄</div></a>
 			<a href='<c:url value="/main/main"/>'><div id='sideHome'>Home</div></a>
 			<a href='<c:url value="/biography/biography"/>'><div id='sideBiography'>여행일대기</div></a>
 			<a href='<c:url value="/friends/list"/>'><div id='sideFriend'>친구</div></a>

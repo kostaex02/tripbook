@@ -1,13 +1,18 @@
 package com.tripbook.controller.main;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.tripbook.dto.ScheduleDTO;
+import com.tripbook.service.GroupService;
 import com.tripbook.service.ScheduleService;
 
 @Controller
@@ -15,6 +20,8 @@ import com.tripbook.service.ScheduleService;
 public class CalenderController {
 	@Autowired
 	private ScheduleService scheduleService;
+	@Autowired
+	private GroupService groupService;
 	
 	@RequestMapping("{pageName}")
 	public void page(HttpServletRequest request){}
@@ -22,6 +29,23 @@ public class CalenderController {
 	@RequestMapping("add")
 	@ResponseBody
 	public int add(HttpServletRequest request,ScheduleDTO scheduleDTO){
+		HttpSession session = request.getSession();
+		scheduleDTO.setWriter((String)session.getAttribute("userId"));
 		return scheduleService.addSchedule(scheduleDTO);
+	}
+	
+	@RequestMapping("list")
+	public ModelAndView list(HttpServletRequest request){
+		HttpSession session = request.getSession();
+		ModelAndView mv = new ModelAndView("calendar/calendar");
+		mv.addObject("groupList", groupService.selectGroupList((String)session.getAttribute("userId")));
+		return mv;
+	}
+	
+	@RequestMapping("init")
+	@ResponseBody
+	public List<ScheduleDTO> init(HttpServletRequest request){
+		HttpSession session = request.getSession();
+		return scheduleService.selectSchedule((String)session.getAttribute("userId"));
 	}
 }

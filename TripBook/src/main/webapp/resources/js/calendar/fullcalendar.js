@@ -25,7 +25,7 @@
 						 var dt_end = moment(event.end).format('YYYY-MM-DD hh:mm');
 				 		alert("시작날짜 : "+dt_start+" / 종료날짜 : "+dt_end);
 				   },
-			events: [
+			/*events: [
 				{
 					id: 11,
 					title: 'All Day Event',
@@ -82,7 +82,7 @@
 					url: 'http://google.com/',
 					start: '2016-12-28'
 				}
-			],
+			],*/
 			eventDragStop: function(event, jsEvent, ui, view) { 
 				var trashEl = jQuery('.calendarTrash');
 			    var ofs = trashEl.offset();

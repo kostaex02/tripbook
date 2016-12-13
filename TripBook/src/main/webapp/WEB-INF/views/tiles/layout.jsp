@@ -100,7 +100,7 @@
 	    <div class="slideSideCover">
 	    	<a href='<c:url value="/main/main"/>'>Home</a><br>
 			<a href='<c:url value="/mypage/profile"/>'>My Page</a><br>
-			<a href='<c:url value="/calendar/calendar"/>'>Schedule</a><br>
+			<a href='<c:url value="/calendar/list"/>'>Schedule</a><br>
 			<a href='<c:url value="/biography/biography"/>'>Trip Biography</a><br>
 			<a href='<c:url value="/friends/list"/>'>Friends</a><br>
 			<a href='#'><span id='slideGroupList'>Group</span></a><br>
