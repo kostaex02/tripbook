@@ -97,7 +97,9 @@
 					success : function(data) {
 						if(data==1){
 							alert('일정 등록 성공');
-							location.href="/controller/calendar/list";
+							initCalendar();
+					        $('.calendar').fullCalendar('removeEvents');
+							$('#addTravelBoard').modal('hide');
 						}else{
 							alert('일정 등록 실패');
 						}
