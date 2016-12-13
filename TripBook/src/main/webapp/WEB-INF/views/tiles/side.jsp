@@ -74,7 +74,7 @@
 		float:left;
 		width:50%;
 		height:130px;
-		border-radius: 10px;
+		border-top-left-radius: 10px;
 	}
 	.friendProfile{
 		position: relative;

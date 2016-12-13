@@ -54,7 +54,7 @@
 	-webkit-appearance: none; /* 브라우저별 기본 스타일링 제거 */
 	-moz-appearance: none;
 	appearance: none;
-	outline-style: inherit; 
+	outline-style: inherit;
 	
 }
 
@@ -80,7 +80,13 @@
 #trash{
 	display:table-cell;
 }
-
+.btn-img{
+	width: 23px;
+	height: 23px;
+}
+#searchButton{
+	border-radius: 10px;
+}
 </style>
 </head>
 <body>
@@ -90,8 +96,8 @@
 			<div class="jbTableCell jbText">
 				<label for="exclusive_input">검색을 입력하세요</label> <input type="text" id="exclusive_input" name="keyword">
 			</div>
-			<div class="jbTableCell jbSubmit">
-				<input class="btn btn-default" type="submit" id="searchButton" value="검색">
+			<div class="jbTableCell">
+				<button class="btn btn-default" type="submit" id="searchButton"><img class="btn-img" src="<c:url value="/images/icon/icon_searchButton.png"/>"></button>
 			</div>
 		
 			<div class="calendarTrash" ><img id='trash' src='<c:url value="/images/trash.png"/>'></div>
