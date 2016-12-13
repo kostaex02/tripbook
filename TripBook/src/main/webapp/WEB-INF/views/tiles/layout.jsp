@@ -12,7 +12,7 @@
 <title>Insert title here</title>
 <style>
 	body{
-		background: url('<c:url value="/images/clean.png"/>') no-repeat center center fixed;
+		background: url('<c:url value="/images/background/clean.png"/>') no-repeat center center fixed;
 		-webkit-background-size: cover;
 		-moz-background-size: cover;
 		-o-background-size: cover;

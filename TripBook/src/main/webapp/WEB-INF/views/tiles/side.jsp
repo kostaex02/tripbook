@@ -15,7 +15,6 @@
 		line-height: 55px;
 		height:auto;
 		color:white;
-		border-radius: 10px;
 	} 
 	
 	#sideProfile{
@@ -25,7 +24,8 @@
 		padding:0px;
 		background-color:maroon;
 		width:96%;
-		border-radius: 10px;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
 	}
 	 
 	#sideSchedule{
@@ -52,6 +52,8 @@
 	#sideFriend{
 		background-color:silver;
 		width:96%;
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
 	}
 	
 	#sideNav{
@@ -75,8 +77,13 @@
 		border-radius: 10px;
 	}
 	.friendProfile{
-		
-			
+		position: relative;
+		line-height: 40px;
+		height:130px;
+		padding:0px;
+		background-color:maroon;
+		width:96%;
+		border-radius: 10px;	
 	}
 	
 	#friendAdd{
@@ -213,7 +220,7 @@
 				</dl>
 			</div>
 			<hr>
-			<a class='sideProfileLink'href='<c:url value="/mypage/list"/>'><div id='sideProfile'>
+			<a class='sideProfileLink'href='<c:url value="/mypage/list"/>'><div id='friendsProfile'>
 				<img class='profileImage' src='<c:url value="/tripbook/user/${friendUserId}/${friendUserFileName}"/>'>
 				<div class='userName'>친구이름</div>
 				<a href='#'>게시물</a><br>

@@ -65,7 +65,7 @@
 				<p class="subline">By Team 너나들이
 				<form class="form-horizontal" method="post" action='<c:url value="/login"/>'
 					id="mainForm">
-					<div class="form-login" id="content1">
+					<div class="form-login" id="content1"> 
 						<label for="inputEmail3" class="col-sm-8 control-label">Email</label>
 						<div class="col-sm-4">
 							<input type="email" class="form-control" name="id"
