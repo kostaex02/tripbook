@@ -57,7 +57,7 @@
 	<div id="container" class="container intro-effect-fadeout">
 		<header class="header">
 			<div class="bg-img">
-				<img src='<c:url value="/images/background/tripBookLogin.png"/>' alt="Background Image" style="margin-top: -100px;"/>
+				<img src='<c:url value="/images/background/tripBookLogin5.png"/>' alt="Background Image" style="margin-top: -100px;"/>
 			</div>
 			<div class="title">
 
