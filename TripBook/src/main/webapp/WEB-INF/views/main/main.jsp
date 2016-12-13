@@ -421,10 +421,11 @@ hr {
 							</div>
 							
 							<div id="newGeneralBoardDMap" class="newBoardMap" style="width:95%; display:none">
-								<div id="menu_wrap" class="bg_white">
+								<div id="menu_wrap" class="bg_white menu_wrap">
 								<div class="option">
-									<input type="text" id="keyword" size="15"> 
-									<button id="daumSearch" type="button">검색하기</button> 
+									<input type="text" id="generalKeyword" class="keyword" size="15"> 
+									<button id="generalDaumSearch" class="daumSearch"type="button">검색하기</button> 
+								
 								</div>
 							</div>
 
@@ -508,8 +509,7 @@ hr {
 										</div>
 									 	<div class="newBoardMultiList" id="newEditTravelBoardMultiList" name="newBoardMultiList"></div>
 									 </div>
-									 <div class="newBoardMapList" id="newBoardMapList" name="newBoardMapList"></div>
-									
+									 
 								</div>
 								
 								<!-- ADD -->
@@ -798,7 +798,7 @@ hr {
 				createDaumMap(1);
 			});
 			
-			$('#daumSearch').click(function(){
+			$('.daumSearch').click(function(){
 				searchPlaces();
 				return false;
 			});
@@ -897,7 +897,7 @@ hr {
 	
 	function createDaumMap(state){
 		if(state==1){
-			var mapContainer = document.getElementById('daumMap'), // 지도를 표시할 div 
+			mapContainer = document.getElementById('daumMap'); // 지도를 표시할 div 
 		    mapOption = {
 		        center: new daum.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
 		        level: 3 // 지도의 확대 레벨
@@ -915,7 +915,7 @@ hr {
 	//키워드 검색을 요청하는 함수입니다
 	function searchPlaces() {
 		
-	    var keyword = $('#keyword').val();
+	    var keyword = $('.keyword').val();
 	    if (!keyword.replace(/^\s+|\s+$/g, '')) {
 	        alert('키워드를 입력해주세요!');
 	        return false;
