@@ -14,9 +14,10 @@
 <div class="container" >
 		<div class="content" >
 			<div class="grid">
-				<div class="grid__item" data-size="1280x853">
-					<a href="<c:url value="/images/test/1.jpg"/>" class="img-wrap"><img
-						src="<c:url value="/images/test/1.jpg"/>" alt="img01" /> </a>
+				<div class="grid__item" data-size="1280x853"> 
+					<a href="#" data-toggle="modal" data-target="#detailPicture" class="img-wrap">
+					<img src="<c:url value="/images/img.jpg"/>" alt="img01" /> 
+					</a>
 				</div>
 				<div class="grid__item" data-size="958x1280">
 					<a href="<c:url value="/images/test/2.jpg"/>" class="img-wrap"><img
@@ -58,7 +59,6 @@
 					<a href="<c:url value="/images/test/11.jpg"/>" class="img-wrap"><img
 						src="<c:url value="/images/test/11.jpg"/>" alt="img11" /> </a>
 				</div>
-
 			</div>
 			<!-- /grid -->
 			<div class="preview">
@@ -70,10 +70,110 @@
 			<!-- /preview -->
 		</div>
 		<!-- /content -->
-	
-		
 	</div>
 	<!-- /container -->
+	
+	
+	<!-- Modal -->
+	<div class="modal fade" id="detailPicture" role="dialog" tabindex='-1'>
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">detail information</h4>
+				</div>
+				<div class="modal-body">
+					<div id="myCarousel" class="carousel slide" data-ride="carousel"
+						data-interval="0">
+						<!-- Indicators -->
+						<ol class="carousel-indicators">
+						<!-- class="active" 첫번째로 나오는 화면 -->
+							<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+							<li data-target="#myCarousel" data-slide-to="1"></li>
+							<li data-target="#myCarousel" data-slide-to="2"></li>
+							<li data-target="#myCarousel" data-slide-to="3"></li>
+							<li data-target="#myCarousel" data-slide-to="4"></li>
+							<li data-target="#myCarousel" data-slide-to="5"></li>
+							<li data-target="#myCarousel" data-slide-to="6"></li>
+							<li data-target="#myCarousel" data-slide-to="7"></li>
+							<li data-target="#myCarousel" data-slide-to="8"></li>
+							<li data-target="#myCarousel" data-slide-to="9"></li>
+						</ol>
+
+						<!-- Wrapper for slides -->
+						<div class="carousel-inner" role="listbox">
+							<div class="item active">
+								<div>게시물1</div>
+								<img src='<c:url value="/images/img.jpg"/>' alt="Chania">
+							</div>
+
+							<div class="item">
+								<div>게시물2</div>
+								<img src='<c:url value="/images/img.jpg"/>' alt="Chania">
+							</div>
+
+							<div class="item">
+								<div>게시물3</div>
+								<img src='<c:url value="/images/img.jpg"/>' alt="Flower">
+							</div>
+
+							<div class="item">
+								<div>게시물4</div>
+								<img src='<c:url value="/images/img.jpg"/>' alt="Flower">
+							</div>
+							
+							<div class="item">
+								<div>게시물5</div>
+								<img src='<c:url value="/images/img.jpg"/>' alt="Flower">
+							</div>
+							
+							<div class="item">
+								<div>게시물6</div>
+								<img src='<c:url value="/images/img.jpg"/>' alt="Flower">
+							</div>
+							
+							<div class="item">
+								<div>게시물7</div>
+								<img src='<c:url value="/images/img.jpg"/>' alt="Flower">
+							</div>
+							
+							<div class="item">
+								<div>게시물8</div>
+								<img src='<c:url value="/images/img.jpg"/>' alt="Flower">
+							</div>
+							
+							<div class="item">
+								<div>게시물9</div>
+								<img src='<c:url value="/images/img.jpg"/>' alt="Flower">
+							</div>
+							
+							<div class="item">
+								<div>게시물10</div>
+								<img src='<c:url value="/images/img.jpg"/>' alt="Flower">
+							</div>
+						</div>
+
+						<!-- Left and right controls -->
+						<a class="left carousel-control" href="#myCarousel" role="button"
+							data-slide="prev"> <span
+							class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+						</a> <a class="right carousel-control" href="#myCarousel"
+							role="button" data-slide="next"> <span
+							class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</a>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
 	
 	<script src="<c:url value="/resources/js/biography/imagesloaded.pkgd.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/biography/masonry.pkgd.min.js"/>"></script>
@@ -81,7 +181,10 @@
 	<script src="<c:url value="/resources/js/biography/main.js"/>"></script>
 	
 	<script>
-		(function() {
+		$(function() {
+			$(".grid").on(".grid__item","click",function(){
+				$(".original").attr("display","none");
+			});
 			// create SVG circle overlay and append it to the preview element
 			function createCircleOverlay(previewEl) {
 				var dummy = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -124,7 +227,7 @@
 					}
 				}
 			});
-		})();
+		});
 	</script>
 </body>
 </html>
