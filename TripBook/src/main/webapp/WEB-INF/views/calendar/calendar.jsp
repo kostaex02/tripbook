@@ -130,7 +130,7 @@
 					 $.each(data, function(index, item) {
 						 if(item.state>2){//그룹
 							 scheduleColor="pink";
-						 }else if(item.writer==<%=session.getAttribute("userId") %>){//내꺼
+						 }else if(item.writer=='<%=session.getAttribute("userId") %>'){//내꺼
 							 scheduleColor="red";
 						 }else{
 							 scheduleColor="green";//친구
