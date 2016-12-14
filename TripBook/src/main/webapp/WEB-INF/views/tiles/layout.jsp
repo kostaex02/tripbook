@@ -40,9 +40,9 @@
 		left:2%;
 	}
 	#container{
-		background-color: #E1F5FE;
 		width:100%;
-		top:-50px;
+		height:100%;
+		background-color: #E1F5FE;
 	}
 	
 	
