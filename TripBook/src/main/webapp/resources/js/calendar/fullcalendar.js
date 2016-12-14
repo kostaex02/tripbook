@@ -110,6 +110,25 @@
 			    	})
 			    }
             },
+            eventDrop: function(event, delta, revertFunc) {
+            	$.ajax({
+		    		url:'/controller/calendar/update',
+		    		type : "post",
+		    		data:"scheduleNo="+event.id+"&startDate="+event.start+"&endDate="+event.end,
+					dataType : "json",
+					success:function(data){
+						/*if(data>0){
+					        $('.calendar').fullCalendar ('rerenderEvents');
+						}else{
+							alert(data);
+						}*/
+					},
+					error:function(error){
+						alert('error');
+					}
+		    	})
+
+            },
 		    selectable: true,
 			selectHelper: true,
 			select: function(start, end) {
