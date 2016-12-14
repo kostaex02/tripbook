@@ -25,4 +25,9 @@ public interface ScheduleDAO {
 	 * 일정 선택
 	 */
 	ScheduleDTO selectScheduleByNo(int scheduleNo);
+	
+	/**
+	 * 일정 수정
+	 */
+	int updateSchedule(ScheduleDTO scheduleDTO);
 }

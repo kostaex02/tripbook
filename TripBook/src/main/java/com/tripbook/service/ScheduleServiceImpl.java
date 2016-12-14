@@ -58,10 +58,27 @@ public class ScheduleServiceImpl implements ScheduleService {
 	}
 
 	@Override
-	public int deleteSchedule(int scheduleNo) {
+	public int deleteSchedule(int scheduleNo,String userId) {
+		ScheduleDTO scheduleDTO = scheduleDAO.selectScheduleByNo(scheduleNo);
+
+		if(Integer.parseInt(scheduleDTO.getState())>2||scheduleDTO.getWriter().equals(userId)){
+			return scheduleDAO.deleteSchedule(scheduleNo);
+		}else{
+			return 0;
+		}
+	}
+
+	@Override
+	public int updateSchedule(int scheduleNo, String startDate, String endDate, String userId) {
 		ScheduleDTO scheduleDTO = scheduleDAO.selectScheduleByNo(scheduleNo);
 		
-		return scheduleDAO.deleteSchedule(scheduleNo);
+		if(Integer.parseInt(scheduleDTO.getState())>2||scheduleDTO.getWriter().equals(userId)){
+			scheduleDTO.setStartDate(startDate);
+			scheduleDTO.setEndDate(endDate);
+			return scheduleDAO.updateSchedule(scheduleDTO);
+		}else{
+			return 0;
+		}
 	}
 
 }

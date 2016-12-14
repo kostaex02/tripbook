@@ -14,6 +14,11 @@ public class ScheduleDTO {
 		return "ScheduleDTO [scheduleNo=" + scheduleNo + ", subject=" + subject + ", startDate=" + startDate
 				+ ", endDate=" + endDate + ", writeDate=" + writeDate + ", state=" + state + ", writer=" + writer + "]";
 	}
+	
+	public ScheduleDTO() {
+		super();
+	}
+
 	public int getScheduleNo() {
 		return scheduleNo;
 	}

@@ -18,5 +18,10 @@ public interface ScheduleService {
 	/**
 	 * 달력에 저장되어있는 스케줄 삭제
 	 */
-	int deleteSchedule(int scheduleNo);
+	int deleteSchedule(int scheduleNo, String userId);
+	
+	/**
+	 * 스케줄 수정
+	 */
+	int updateSchedule(int scheduleNo, String startDate, String endDate, String userId);
 }

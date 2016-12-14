@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.tripbook.dto.GroupDTO;
 import com.tripbook.dto.ScheduleDTO;
 import com.tripbook.service.GroupService;
 import com.tripbook.service.ScheduleService;
@@ -53,8 +52,17 @@ public class CalenderController {
 	
 	@RequestMapping("delete")
 	@ResponseBody
-	public int delete(HttpServletRequest request,int scheduleNo)
-	{
-		return scheduleService.deleteSchedule(scheduleNo);
+	public int delete(HttpServletRequest request,int scheduleNo){
+		HttpSession session = request.getSession();
+		String userId = (String)session.getAttribute("userId");
+		return scheduleService.deleteSchedule(scheduleNo,userId);
+	}
+	
+	@RequestMapping("update")
+	@ResponseBody
+	public int update(HttpServletRequest request,int scheduleNo,String startDate,String endDate){
+		HttpSession session = request.getSession();
+		String userId = (String)session.getAttribute("userId");
+		return scheduleService.updateSchedule(scheduleNo,startDate,endDate,userId);
 	}
 }

@@ -34,4 +34,9 @@ public class ScheduleDAOImpl implements ScheduleDAO{
 		return session.selectOne("scheduleMapper.selectScheduleByNo",scheduleNo);
 	}
 
+	@Override
+	public int updateSchedule(ScheduleDTO scheduleDTO) {
+		return session.update("scheduleMapper.updateSchedule", scheduleDTO);
+	}
+
 }

@@ -40,4 +40,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select schedule_no,subject,to_char(start_date,'YYYY-MM-DD') start_date,to_char(end_date,'YYYY-MM-DD') end_date,state,writer
 		from schedule_table where schedule_no=#{value}		
 	</select>
+	<update id="updateSchedule" parameterType="scheduleDTO">
+		update schedule_table 
+		set subject=#{subject}, start_date=#{startDate}, end_date=#{endDate}, state=#{state}, writet=#{writer}
+		where schedule_no=#{scheduleNo}
+	</update>
 </mapper>
