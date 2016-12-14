@@ -128,14 +128,12 @@
 					 var scheduleColor;
 					 
 					 $.each(data, function(index, item) {
-						 if(item.state=='0'){
-							 scheduleColor="blue";
-						 }else if(item.state=='1'){
+						 if(item.state>2){//그룹
 							 scheduleColor="pink";
-						 }else if(item.state=='2'){
+						 }else if(item.state=='1' && item.writer==<%=session.getAttribute("userName") %>){//내꺼
 							 scheduleColor="red";
 						 }else{
-							 scheduleColor="green";
+							 scheduleColor="green";//친구
 						 };
 						 
 						eventData = {
