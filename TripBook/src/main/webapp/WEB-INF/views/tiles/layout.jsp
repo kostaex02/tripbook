@@ -12,11 +12,8 @@
 <title>Insert title here</title>
 <style>
 	body{
-		background: url('<c:url value="/images/background/clean.png"/>') no-repeat center center fixed;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
+		background-color: white;
+	
 	}
 	
 	div{
@@ -36,12 +33,14 @@
 	}
 	
 	#side{
+		background-color: #E1F5FE;
 		float:left;
 		width:20%;
 		height:auto;
-		left:5%;
+		left:2%;
 	}
 	#container{
+		background-color: #E1F5FE;
 		width:100%;
 		top:-50px;
 	}
@@ -117,14 +116,14 @@
 
 <div id='container'>
 
-	<div id='side'>
-		<tiles:insertAttribute name="side"/>
-	</div>
-	
 	<div id='header'>
 		<tiles:insertAttribute name="header"/>
 	</div>
-	
+
+	<div id='side'>
+		<tiles:insertAttribute name="side"/>
+	</div>
+
 	<div id='content'>
 		<tiles:insertAttribute name="content"/>
 	</div>

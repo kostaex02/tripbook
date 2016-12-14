@@ -61,8 +61,6 @@
 			</div>
 			<div class="title">
 
-				<h1></h1>
-				<p class="subline">By Team 너나들이
 				<form class="form-horizontal" method="post" action='<c:url value="/login"/>'
 					id="mainForm">
 					<div class="form-login" id="content1"> 
