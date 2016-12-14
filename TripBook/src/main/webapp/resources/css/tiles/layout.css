@@ -44,6 +44,7 @@ li{
 	
 	#content, #header{
 		position: relative;
+		width:100%;
 	}
 	
 	#side{
@@ -57,10 +58,6 @@ li{
 	#header{
 		margin-top:20px;
 		margin-bottom: 20px;
-	}
-	
-	#header, #content{
-		width:100%;
 	}
 	
 	::-webkit-scrollbar {
