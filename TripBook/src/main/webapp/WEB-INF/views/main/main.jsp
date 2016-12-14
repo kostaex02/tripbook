@@ -213,6 +213,12 @@ hr {
     z-index: 10;        
 }
 
+.likeCount, .heart{
+	float:left;
+	top:-15px;
+	margin-right: 10px;
+}
+
 #general_menu_wrap {position:absolute;top:0;left:0;bottom:0;width:250px;height:25px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 2;font-size:12px;border-radius: 10px;}
 .bg_white {background:#fff;}
 #general_menu_wrap .option{text-align: center;}
@@ -239,7 +245,8 @@ hr {
 
 <link href='<c:url value="/resources/js/calendar/lib/cupertino/jquery-ui.min.css"/>' rel='stylesheet' />
 
-
+<!-- 하트 효과 -->
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/main/heart.css"/>"/>
 
 </head>
 <body>
@@ -269,7 +276,9 @@ hr {
 							<b>User ID</b> 12월 03일 오전 11:41<br> -> 나도 놀러갈래!
 						</div>
 						<div>
-							<input type='button' value='좋아요'></span><a href='#'>댓글달기</a>
+							<div class="heart " id="like1" rel="like"></div> 
+							<div class="likeCount" id="likeCount1">14</div>
+							<a href='#'>댓글달기</a>
 						</div>
 					</div>
 				</li>
@@ -680,6 +689,30 @@ hr {
 	<script src='<c:url value="/resources/js/calendar/lib/jquery-ui.min.js"/>'></script>
 	
 	<script>
+	
+	/* 하트 효과 */
+	$(document).ready(function(){
+		$('body').on("click",'.heart',function(){
+	    	var A=$(this).attr("id");
+	    	var B=A.split("like");
+	        var messageID=B[1];
+	        var C=parseInt($("#likeCount"+messageID).html());
+	    	$(this).css("background-position","")
+	        var D=$(this).attr("rel");
+	       
+	        if(D === 'like'){      
+		        $("#likeCount"+messageID).html(C+1);
+		        $(this).addClass("heartAnimation").attr("rel","unlike");
+	        }else{
+		        $("#likeCount"+messageID).html(C-1);
+		        $(this).removeClass("heartAnimation").attr("rel","like");
+		        $(this).css("background-position","left");
+	        }
+	    });
+	});
+	
+	
+	
 	//enter키 금지
 	function captureReturnKey(e) { 
 	    if(e.keyCode==13 && e.srcElement.type != 'textarea') 
