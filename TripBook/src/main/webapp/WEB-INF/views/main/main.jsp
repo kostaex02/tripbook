@@ -421,7 +421,7 @@ hr {
 	<div class="modal fade" id="addGeneralBoard" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form name="generalForm" action="#" method="post" enctype="multipart/form-data" onkeydown="return captureReturnKey(event)" onsubmit="return validateForm()">
+				<form name="generalForm" action="#" method="post" enctype="multipart/form-data" onkeydown="return captureReturnKey(event)" onsubmit="return validateForm(0)">
 					<div class="modal-header">
 						일반게시물
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -448,14 +448,15 @@ hr {
 								<input type="file" class="newBoardMulti with-preview" id="newGeneralBoardMulti" name="file" style="display:none" multiple/>
 								
 								<div class="btn-group groupMap" role="group" style="display:none">
-									<button type="button" class="btn btn-default btn-sm" onClick="createMap(0,1)">국내</button>
-									<button type="button" class="btn btn-default btn-sm" onClick="createMap(0,2)">해외</button>
+									<button type="button" class="btn btn-default btn-sm" onClick="createMap(0,0)">국내</button>
+									<button type="button" class="btn btn-default btn-sm" onClick="createMap(0,1)">해외</button>
 								</div>
 								<div class="newBoardMultiList" id="newGeneralBoardMultiList" name="newBoardMultiList"></div>
 								
 							</div>
 							<div name="mapChoice" class="mapChoice" style="width:95%"></div>
 							<input type="text" name="keyword" id="resultKeyword0"><br>
+							<input type="text" name="region" id="resultRegion0"><br>
 							<input type="text" name="address" id="resultAddress0"><br>
 							<input type="text" name="location_lat" id="resultLatitude0"><br>
 							<input type="text" name="location_lng" id="resultLongitude0"> 
@@ -527,14 +528,15 @@ hr {
 										</div>
 										<input type="file" class="newBoardMulti with-preview" id="newEditTravelBoardMulti" name="file" style="display:none" multiple/>
 										<div class="btn-group groupMap" role="group" style="display:none">
-											<button type="button" class="btn btn-default btn-sm" onClick="createMap(1,1)">국내</button>
-											<button type="button" class="btn btn-default btn-sm" onClick="createMap(1,2)">해외</button>
+											<button type="button" class="btn btn-default btn-sm" onClick="createMap(1,0)">국내</button>
+											<button type="button" class="btn btn-default btn-sm" onClick="createMap(1,1)">해외</button>
 										</div>
 									 	<div class="newBoardMultiList" id="newEditTravelBoardMultiList" name="newBoardMultiList"></div>
 									 </div>
 									 
 									 <div name="mapChoice" class="mapChoice" style="width:95%"></div>
 									 <input type="text" name="keyword" id="resultKeyword1"><br>
+									 <input type="text" name="region" id="resultRegion1"><br>
 									 <input type="text" name="address" id="resultAddress1"><br>
 									 <input type="text" name="location_lat" id="resultLatitude1"><br>
 									 <input type="text" name="location_lng" id="resultLongitude1"> 
@@ -574,18 +576,14 @@ hr {
 										</div>
 										<input type="file" class="newBoardMulti with-preview" id="newAddTravelBoardMulti" name="file" style="display:none" multiple/>
 										<div class="btn-group groupMap" role="group" style="display:none">
-											<button type="button" class="btn btn-default btn-sm" onClick="createMap(2,1)">국내</button>
-											<button type="button" class="btn btn-default btn-sm" onClick="createMap(2,2)">해외</button>
+											<button type="button" class="btn btn-default btn-sm" onClick="createMap(2,0)">국내</button>
+											<button type="button" class="btn btn-default btn-sm" onClick="createMap(2,1)">해외</button>
 										</div>
 										<div class="newBoardMultiList" id="newAddTravelBoardMultiList" name="newBoardMultiList"></div>
 									</div>
-									<div id="newTravelAddBoardGMap" class="newBoardGMap" style="width:95%; display:none">
-									<!-- map부분 -->
-									<input id="travelAdd_pac-input" class="controls" name="pac-input" type="text" placeholder="Search Box">
-									<div id="travelAddGoogleMap" style="width:95%; height:300px;"></div>
-									</div>
-							 		<div name="mapChoice" class="mapChoice" style="width:95%"></div>
+									<div name="mapChoice" class="mapChoice" style="width:95%"></div>
 							 		<input type="text" name="keyword" id="resultKeyword2"><br>
+							 		<input type="text" name="region" id="resultRegion2"><br>
 									<input type="text" name="address" id="resultAddress2"><br>
 									<input type="text" name="location_lat" id="resultLatitude2"><br>
 									<input type="text" name="location_lng" id="resultLongitude2"> 
@@ -599,7 +597,7 @@ hr {
 							<option value="그룹보기">그룹보기</option>
 							<option value="비공개">비공개</option>
 						</select>
-						<button type="submit" class="btn btn-default btn-sm">등록</button>
+						<button type="button" class="btn btn-default btn-sm" onClick="validateForm(count)">등록</button>
 						<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">취소</button>
 					</div>
 				</form>
@@ -759,9 +757,6 @@ hr {
 				$('.newBoardMulti').hide();
 				$('.groupMap').show();	
 			});
-			/* $('.mapChoice').on("#search","click",function(){
-				alert(1);
-			}); */
 			
 			//여행게시물 달력 기능
 			var dateFormat = "mm/dd/yy",
@@ -834,7 +829,7 @@ hr {
 		
 		alert("create");
 		
-		if(area==1){	//국내
+		if(area==0){	//국내
 			// 지도 검색창
 			var searchDiv = document.createElement("div");
 			var buttonText = document.createTextNode("검색하기");
@@ -926,7 +921,7 @@ hr {
 					document.getElementById("resultAddress" + board).value = place.formatted_address;
 					document.getElementById("resultLatitude" + board).value = place.geometry.location.lat();
 					document.getElementById("resultLongitude" + board).value = place.geometry.location.lng();
-				      
+					regionCheck(place.geometry.location.lat(), place.geometry.location.lng(), board);
 				});
 				//viewport를 설정
 				map.fitBounds(bounds);
@@ -968,13 +963,52 @@ hr {
 	    		document.getElementById("resultAddress" + board).value = result.places[0].address;
 	    		document.getElementById("resultLatitude" + board).value = result.places[0].latitude;
 	    		document.getElementById("resultLongitude" + board).value = result.places[0].longitude;
-	    		
+	    		regionCheck(result.places[0].latitude, result.places[0].longitude, board);
 	        	// 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
 	        	map.setBounds(bounds);
 		    }
 		};
 
 		places.keywordSearch(keyword.value, callback);
+	}
+	
+	function kindBoard(){
+		
+	}
+	
+	function validateForm(board) {
+		if(board==0){
+			var resultTextArea = document.forms["generalForm"]["title"].value;
+			var resultKeyword = document.forms["generalForm"]["resultKeyword" + board].value;
+			var resultRegion = document.forms["generalForm"]["resultRegion" + board].value;
+			var resultAddress = document.forms["generalForm"]["resultAddress" + board].value;
+			var resultLatitude = document.forms["generalForm"]["resultLatitude" + board].value;
+			var resultLongitude = document.forms["generalForm"]["resultLongitude" + board].value;
+			
+			alert(resultTextArea + "," + resultKeyword +","+ resultRegion + "," + resultAddress + "," + resultLatitude + "," + resultLongitude);
+			
+		}else{
+			//alert(1);
+			for(var i=1;i<=2;i++){
+				resultTextArea[i] = document.forms["generalForm"]["title[0]"].value;
+				resultSubject[i] = document.forms["generalForm"]["subject[0]"].value;
+				resultKeyword[i] = document.forms["generalForm"]["resultKeyword" + i].value;
+				resultRegion[i] = document.forms["generalForm"]["resultRegion" + i].value;
+				resultAddress[i] = document.forms["generalForm"]["resultAddress" + i].value;
+				resultLatitude[i] = document.forms["generalForm"]["resultLatitude" + i].value;
+				resultLongitude[i] = document.forms["generalForm"]["resultLongitude" + i].value;
+				
+			}
+			alert(resultTextArea[0]);
+		}
+	}
+	
+	function regionCheck(latitude, longitude, board){
+		if((latitude <= 43 && latitude>=33.06) && (longitude <=131.52 && longitude >= 124.11)){
+			document.getElementById('resultRegion' + board).value = 0;
+		}else{
+			document.getElementById('resultRegion' + board).value = 1;
+		}
 	}
 	
 	</script>
