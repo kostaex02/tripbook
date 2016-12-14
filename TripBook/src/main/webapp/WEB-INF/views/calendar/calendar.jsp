@@ -125,12 +125,25 @@
 				type : "post",
 				dataType : "json",
 				success : function(data) {
+					 var scheduleColor;
+					 
 					 $.each(data, function(index, item) {
+						 if(item.state=='0'){
+							 scheduleColor="blue";
+						 }else if(item.state=='1'){
+							 scheduleColor="pink";
+						 }else if(item.state=='2'){
+							 scheduleColor="red";
+						 }else{
+							 scheduleColor="green";
+						 };
+						 
 						eventData = {
 								id: item.scheduleNo,
 								title: item.subject,
 								start: item.startDate,
-								end: item.endDate
+								end: item.endDate,
+								color:scheduleColor
 						};		 
 					
 						$('.calendar').fullCalendar('renderEvent', eventData, true); // stick? = true

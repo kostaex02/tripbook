@@ -30,58 +30,15 @@
 					id: 11,
 					title: 'All Day Event',
 					start: '2016-12-01',
-					color: 'red'
+					color: calendarColor
 				},
 				{
 					title: 'Long Event',
 					start: '2016-12-07',
-					end: '2016-12-10'
-				},
-				{
-					id: 999,
-					title: 'Repeating Event',
-					start: '2016-12-09'
-				},
-				{
-					id: 999,
-					title: 'Repeating Event',
-					start: '2016-12-16'
-				},
-				{
-					title: 'Conference',
-					start: '2016-12-11',
-					end: '2016-12-13'
-				},
-				{
-					title: 'Meeting',
-					start: '2016-12-12',
-					end: '2016-12-12'
-				},
-				{
-					title: 'Lunch',
-					start: '2016-12-12'
-				},
-				{
-					title: 'Meeting',
-					start: '2016-12-12'
-				},
-				{
-					title: 'Happy Hour',
-					start: '2016-12-12'
-				},
-				{
-					title: 'Dinner',
-					start: '2016-12-12'
-				},
-				{
-					title: 'Birthday Party',
-					start: '2016-12-13'
-				},
-				{
-					title: 'Click for Google',
-					url: 'http://google.com/',
-					start: '2016-12-28'
+					end: '2016-12-10',
+					color: 'pink'
 				}
+				
 			],*/
 			eventDragStop: function(event, jsEvent, ui, view) { 
 				var trashEl = jQuery('.calendarTrash');
@@ -124,7 +81,7 @@
 						}*/
 					},
 					error:function(error){
-						alert('error');
+						revertFunc();
 					}
 		    	})
 
