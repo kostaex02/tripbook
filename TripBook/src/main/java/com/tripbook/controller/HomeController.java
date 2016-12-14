@@ -15,8 +15,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tripbook.dto.UserDTO;
-import com.tripbook.service.GroupService;
-import com.tripbook.service.GroupService;
 import com.tripbook.service.UserService;
 
 /**
@@ -26,8 +24,6 @@ import com.tripbook.service.UserService;
 public class HomeController {
 	@Autowired
 	private UserService userService;
-	@Autowired
-	private GroupService groupService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
