@@ -137,7 +137,7 @@ hr {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-#pac-input {
+#general_pac-input {
   background-color: #fff;
   font-family: Roboto;
   font-size: 15px;
@@ -148,7 +148,37 @@ hr {
   width: 300px;
 }
 
-#pac-input:focus {
+#general_pac-input:focus {
+  border-color: #4d90fe;
+}
+
+#travelEdit_pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 300px;
+}
+
+#travelEdit_pac-input:focus {
+  border-color: #4d90fe;
+}
+
+#travelAdd_pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 300px;
+}
+
+#travelAdd_pac-input:focus {
   border-color: #4d90fe;
 }
 
@@ -418,34 +448,17 @@ hr {
 								<input type="file" class="newBoardMulti with-preview" id="newGeneralBoardMulti" name="file" style="display:none" multiple/>
 								
 								<div class="btn-group groupMap" role="group" style="display:none">
-									<button type="button" class="btn btn-default btn-sm" id="insideGeneralDaumMap">국내</button>
-									<button type="button" class="btn btn-default btn-sm" id="insideGeneralGoogleMap">해외</button>
+									<button type="button" class="btn btn-default btn-sm" onClick="createMap(0,1)">국내</button>
+									<button type="button" class="btn btn-default btn-sm" onClick="createMap(0,2)">해외</button>
 								</div>
 								<div class="newBoardMultiList" id="newGeneralBoardMultiList" name="newBoardMultiList"></div>
 								
 							</div>
-							<div id="newGeneralBoardGMap" class="newBoardGMap" style="width:95%; display:none">
-								<!-- map부분 -->
-								<input id="pac-input" class="controls" type="text" placeholder="Search Box">
-    							<div id="map" style="width:95%; height:300px;"></div>
-							</div>
-							
-							<div id="newGeneralBoardDMap" class="newBoardDMap" style="width:95%; display:none">
-								<div id="general_menu_wrap" class="bg_white">
-								<div class="option">
-									<input type="text" id="generalKeyword" size="15"> 
-									<button id="generalDaumSearch" type="button">검색하기</button> 
-								
-								</div>
-							</div>
-
-							<div id="generalDaumMap" style="width:95%; height:300px"></div>
-							</div>
-							<br>
-							<input type="hidden" id="resultKeyword" name="resultKeyword">
-							<input type="hidden" id="resultAddress" name="resultAddress">
-							<input type="hidden" id="resultLatitude" name="resultLatitude">
-							<input type="hidden" id="resultLongitude" name="resultLongitude">
+							<div name="mapChoice" class="mapChoice" style="width:95%"></div>
+							<input type="text" name="keyword" id="resultKeyword0"><br>
+							<input type="text" name="address" id="resultAddress0"><br>
+							<input type="text" name="location_lat" id="resultLatitude0"><br>
+							<input type="text" name="location_lng" id="resultLongitude0"> 
  						</div>
 					</div>
 					<div class="modal-footer">
@@ -514,22 +527,18 @@ hr {
 										</div>
 										<input type="file" class="newBoardMulti with-preview" id="newEditTravelBoardMulti" name="file" style="display:none" multiple/>
 										<div class="btn-group groupMap" role="group" style="display:none">
-											<button type="button" class="btn btn-default btn-sm" id="insideTravelEditDaumMap">국내</button>
-											<button type="button" class="btn btn-default btn-sm" >해외</button>
+											<button type="button" class="btn btn-default btn-sm" onClick="createMap(1,1)">국내</button>
+											<button type="button" class="btn btn-default btn-sm" onClick="createMap(1,2)">해외</button>
 										</div>
 									 	<div class="newBoardMultiList" id="newEditTravelBoardMultiList" name="newBoardMultiList"></div>
 									 </div>
-									<div id="newTravelEditBoardDMap" class="newBoardDMap" style="width:95%; display:none">
-									<div id="travelEdit_menu_wrap" class="bg_white">
-									<div class="option">
-										<input type="text" id="travelEditKeyword" size="15"> 
-										<button id="travelEditDaumSearch" type="button">검색하기</button> 
-									</div>
-									</div>
-	
-									<div id="travelEditDaumMap" style="width:95%; height:300px"></div>
-									</div>
-							</div>
+									 
+									 <div name="mapChoice" class="mapChoice" style="width:95%"></div>
+									 <input type="text" name="keyword" id="resultKeyword1"><br>
+									 <input type="text" name="address" id="resultAddress1"><br>
+									 <input type="text" name="location_lat" id="resultLatitude1"><br>
+									 <input type="text" name="location_lng" id="resultLongitude1"> 
+								</div>
 								
 								<!-- ADD -->
 								<div class="tab-pane" id="addSchedule">
@@ -565,22 +574,21 @@ hr {
 										</div>
 										<input type="file" class="newBoardMulti with-preview" id="newAddTravelBoardMulti" name="file" style="display:none" multiple/>
 										<div class="btn-group groupMap" role="group" style="display:none">
-											<button type="button" class="btn btn-default btn-sm" id="insideTravelAddDaumMap">국내</button>
-											<button type="button" class="btn btn-default btn-sm">해외</button>
+											<button type="button" class="btn btn-default btn-sm" onClick="createMap(2,1)">국내</button>
+											<button type="button" class="btn btn-default btn-sm" onClick="createMap(2,2)">해외</button>
 										</div>
 										<div class="newBoardMultiList" id="newAddTravelBoardMultiList" name="newBoardMultiList"></div>
 									</div>
-							 		<div id="newTravelAddBoardDMap" class="newBoardDMap" style="width:95%; display:none">
-									<div id="travelAdd_menu_wrap" class="bg_white">
-									<div class="option">
-										<input type="text" id="travelAddKeyword" size="15"> 
-										<button id="travelAddDaumSearch" type="button">검색하기</button> 
+									<div id="newTravelAddBoardGMap" class="newBoardGMap" style="width:95%; display:none">
+									<!-- map부분 -->
+									<input id="travelAdd_pac-input" class="controls" name="pac-input" type="text" placeholder="Search Box">
+									<div id="travelAddGoogleMap" style="width:95%; height:300px;"></div>
 									</div>
-									</div>
-	
-									<div id="travelAddDaumMap" style="width:95%; height:300px"></div>
-									</div>
-								</div>
+							 		<div name="mapChoice" class="mapChoice" style="width:95%"></div>
+							 		<input type="text" name="keyword" id="resultKeyword2"><br>
+									<input type="text" name="address" id="resultAddress2"><br>
+									<input type="text" name="location_lat" id="resultLatitude2"><br>
+									<input type="text" name="location_lng" id="resultLongitude2"> 
 							</div>
 						</div>	
 					</div>
@@ -671,83 +679,13 @@ hr {
 	<!-- 달력 -->
 	<script src='<c:url value="/resources/js/calendar/lib/jquery-ui.min.js"/>'></script>
 	
-	
 	<script>
 	//enter키 금지
 	function captureReturnKey(e) { 
 	    if(e.keyCode==13 && e.srcElement.type != 'textarea') 
 	    return false; 
 	} 
-	
-	
-	//구글 map API
-	function initAutocomplete() {
-		  
-		  var map = new google.maps.Map(document.getElementById('map'), {
-		    center: {lat: -33.8688, lng: 151.2195},
-		    zoom: 13,
-		    mapTypeId: google.maps.MapTypeId.ROADMAP
-		  });
 
-		  var infowindow = new google.maps.InfoWindow(); // 정보 상세창 올리기
-		  // Create the search box and link it to the UI element.
-		  var input = document.getElementById('pac-input');
-		  var searchBox = new google.maps.places.SearchBox(input);
-		  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-		  
-		  // Bias the SearchBox results towards current map's viewport.
-		  map.addListener('bounds_changed', function() {
-		    searchBox.setBounds(map.getBounds());
-		  });
-
-		  var markers = [];
-		  // [START region_getplaces]
-		  // Listen for the event fired when the user selects a prediction and retrieve
-		  // more details for that place.
-		  searchBox.addListener('places_changed', function() {
-		    var places = searchBox.getPlaces();
-			if (places.length == 0) {
-		      return;
-		    }
-			// Clear out the old markers.
-		    markers.forEach(function(marker) {
-		      marker.setMap(null);
-		    });
-		    markers = [];
-
-		    // For each place, get the icon, name and location.
-		    var bounds = new google.maps.LatLngBounds();
-		    places.forEach(function(place) {
-		      
-		      //키워드, 주소, 위도, 경도 텍스트로
-		      document.getElementById('resultKeyword').value=input.value;
-		      document.getElementById("resultAddress").value = place.formatted_address;
-			  document.getElementById("resultLatitude").value = place.geometry.location.lat();
-			  document.getElementById("resultLongitude").value = place.geometry.location.lng();
-		      
-		      // Create a marker for each place.
-		      markers.push(new google.maps.Marker({
-		        map: map,
-		        title: place.name,
-		        position: place.geometry.location
-		      }));
-		      
-		      google.maps.event.addListener(markers,'click',function(){
-		    	 infowindow.setContent(place.name);
-		    	 infowindow.open(map, this);
-		      });
-		      
-		      if (place.geometry.viewport) {
-		        // Only geocodes have viewport.
-		        bounds.union(place.geometry.viewport);
-		      } else {
-		        bounds.extend(place.geometry.location);
-		      }
-		    });
-		    map.fitBounds(bounds);
-		  });
-		  // [END region_getplaces]
-		}
 	
 	/* 스크롤 효과 */
 	stroll.bind('.mainAllBoard ul');
@@ -821,37 +759,9 @@ hr {
 				$('.newBoardMulti').hide();
 				$('.groupMap').show();	
 			});
-			
-			$('#insideGeneralDaumMap').click(function(){
-				createDaumMap(1);
-			});
-			$('#insideTravelEditDaumMap').click(function(){
-				createDaumMap(2);
-			});
-			$('#insideTravelAddDaumMap').click(function(){
-				createDaumMap(3);
-			})
-			
-			$('#generalDaumSearch').click(function(){
-				searchPlaces(1);
-				return false;
-			});
-			$('#travelEditDaumSearch').click(function(){
-				searchPlaces(2);
-				return false;
-			});
-			$('#travelAddDaumSearch').click(function(){
-				searchPlaces(3);
-				return false;
-			})
-			
-			$('#insideGeneralGoogleMap').click(function(){
-				displayMap();
-			})
-			
-			$('#calendarModal').on('shown.bs.modal', function () {
-			   $(".calendar").fullCalendar('render');
-			});
+			/* $('.mapChoice').on("#search","click",function(){
+				alert(1);
+			}); */
 			
 			//여행게시물 달력 기능
 			var dateFormat = "mm/dd/yy",
@@ -902,146 +812,171 @@ hr {
 			
 		}); 
 		
-		function displayMap(){
-			document.getElementById('newGeneralBoardDMap').style.display="none";
-		    document.getElementById('newGeneralBoardGMap').style.display="block";
-			google.maps.event.trigger(map, "resize");
-		}
-		
-		
 		
 	</script>
 	<!-- google API Key -->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBv7i1sbKKdVRfbilHi8obuYThFnE3P9ZA&libraries=places&callback=initAutocomplete"
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBv7i1sbKKdVRfbilHi8obuYThFnE3P9ZA&libraries=places"
          async defer></script>
     <!-- daum API Key -->
     <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=3bae0d1bca94080850d3d2451479c7ee&libraries=services"></script>
 	
 	<script>
+	var map;
 	
-	var daumMarkers = [];
-
-	// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
-	var daumInfowindow = new daum.maps.InfoWindow({zIndex:1});
-
-
-	
-	var daumMarker;
-
-	// 장소 검색 객체를 생성합니다
-	var daumPs = new daum.maps.services.Places(); 
-	
-	function createDaumMap(state){
-		if(state==1){
-			mapContainer = document.getElementById('generalDaumMap'); // 지도를 표시할 div 
-		}else if(state==2){
-			mapContainer = document.getElementById('travelEditDaumMap');
-		}else{
-			mapContainer = document.getElementById('travelAddDaumMap');
-		}
+	function createMap(board, area){
+		var mapDiv = document.createElement("div");
+		var container, options;
+		mapDiv.setAttribute("id","map"+board);
+		mapDiv.style.width="100%";
+		mapDiv.style.height="300px";
 		
-		mapOption = {
-		        center: new daum.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
-		        level: 3 // 지도의 확대 레벨
-		};    
+		var mapChoice = document.getElementsByName('mapChoice');
 		
-		// 지도를 생성합니다    
-		var daumMap = new daum.maps.Map(mapContainer, mapOption);
-	    document.getElementById('newGeneralBoardGMap').style.display="none";
-	    document.getElementById('newGeneralBoardDMap').style.display="block";
-	    
-	    //document.getElementById('newTravelEditBoardGMap').style.display="none";
-	    document.getElementById('newTravelEditBoardDMap').style.display="block";
-	    
-	    document.getElementById('newTravelAddBoardDMap').style.display='block';
-	    
-	    daumMap.relayout();
-	
-	}
-	
-	//키워드 검색을 요청하는 함수입니다
-	function searchPlaces(state) {
-		if(state==1){
-			var keyword = $('#generalKeyword').val();
-		}else if(state==2){
-			var keyword = $('#travelEditKeyword').val();
-		}else{
-			var keyword = $('#travelAddKeyword').val();
-		}
-	    
-		if (!keyword.replace(/^\s+|\s+$/g, '')) {
-	        alert('키워드를 입력해주세요!');
-	        return false;
-	    }
-	    document.getElementById('resultKeyword').value=keyword;
+		alert("create");
 		
-	    // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
-	    daumPs.keywordSearch( keyword, placesSearchCB); 
-	}
-
-	// 키워드 검색 완료 시 호출되는 콜백함수 입니다
-	function placesSearchCB (status, data, pagination) {
-	    if (status === daum.maps.services.Status.OK) {
-
-	        // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-	        // LatLngBounds 객체에 좌표를 추가합니다
-	        var daumBounds = new daum.maps.LatLngBounds();
+		if(area==1){	//국내
+			// 지도 검색창
+			var searchDiv = document.createElement("div");
+			var buttonText = document.createTextNode("검색하기");
+			var searchStr="";
+			searchStr += "<input type='text' id='keyword" + board + "' size='15'>";
+			searchStr += "<button type='button' id='search" + board + "' onclick=searchPlaces("+ board +")>검색하기";
+			searchDiv.id = "menu_wrap"+board;
+			searchDiv.innerHTML = searchStr;
+			if(mapChoice[board].hasChildNodes){
+				//mapChoice[board].removeChild(mapChoice[board].childNodes[0]);
+				mapChoice[board].innerHTML="";
+			}
+			mapChoice[board].appendChild(searchDiv);
+			mapChoice[board].appendChild(mapDiv);		
 			
-	        daumMap = new daum.maps.Map(mapContainer, mapOption);
-	 		displayMarker(data.places[0]);
-	 		daumBounds.extend(new daum.maps.LatLng(data.places[0].latitude, data.places[0].longitude));
-	        // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
-	        daumMap.setBounds(daumBounds);
-	    } 
-	}
-
-	// 지도에 마커를 표시하는 함수입니다
-	function displayMarker(place) {
-		
-		removeMarker();
-		// 마커를 생성하고 지도에 표시합니다
-	    daumMarker = new daum.maps.Marker({
-	        map: daumMap,
-	        position: new daum.maps.LatLng(place.latitude, place.longitude) 
-	    });
-		
-		// 경도, 위도, 주소 폼에 입력
-		document.getElementById("resultAddress").value = place.address;
-		document.getElementById("resultLatitude").value = place.latitude;
-		document.getElementById("resultLongitude").value = place.longitude;
 			
-		daumMarker.setMap(daumMap);
-		daumMarkers.push(daumMarker);
-
-	    // 마커에 클릭이벤트를 등록합니다
-	    daum.maps.event.addListener(daumMarker, 'click', function() {
-	        // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
-	        daumInfowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.title + '</div>');
-	        daumInfowindow.open(daumMap, daumMarker);
-	    });
-		    
+			container = document.getElementById('map' + board);
+			options = {
+					center : new daum.maps.LatLng(33.450701, 126.570667),
+					level : 3
+			}
+			//지도 생성
+			map = new daum.maps.Map(container, options);
+			
+			
+			
+		}else{
+			var searchStr = "";
+			searchStr += "<input id='pac-input"+ board +"' class='controls' type='text' placeholder='검색하기'>";
+			if(mapChoice[board].hasChildNodes){
+				//mapChoice[board].removeChild(mapChoice[board].childNodes[0]);
+				mapChoice[board].innerHTML="";
+			}
+			mapChoice[board].innerHTML = searchStr;
+			mapChoice[board].appendChild(mapDiv);
+			
+			container = document.getElementById('map' + board);
+			options = {
+					center: {lat: -34.397, lng: 150.644},
+					zoom : 12
+			}
+			
+			map = new google.maps.Map(container, options);
+			
+			var input = document.getElementById('pac-input' + board);
+			//input을 받아와서 google place의 searchBox에 연결.
+			var searchBox = new google.maps.places.SearchBox(input);
+			//SearchBox를 맨위 좌측에 위치
+			map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+			
+			//검색창에서 검색값 변경시 추천맵 지도 변화
+			map.addListener('bounds_changed', function(){
+				searchBox.setBounds(map.getBounds());
+			});
+			//마커 생성
+			var markers = [];
+			
+			// 서치박스에서 장소입력 후 엔터 이벤트
+			searchBox.addListener('places_changed',function(){
+				var places = searchBox.getPlaces();
+				//장소가 없으면 return
+				if(places.length == 0){
+					return;
+				}
+				//마커 초기화
+				markers.forEach(function(marker){
+					marker.setMap(null);
+				});
+				markers = [];
+				
+				var bounds = new google.maps.LatLngBounds();
+				places.forEach(function(place){
+					//마커 입력
+					markers.push(new google.maps.Marker({
+						map: map,
+						title : place.name,
+						position : place.geometry.location
+					}));
+					
+					//지도에 나타냄
+					if(place.geometry.viewport){
+						bounds.union(place.geometry.viewport);
+					}else{//bound된 좌표를 갖고와서 확장.
+						bounds.extend(place.geometry.location);
+					}
+					
+					//키워드, 주소, 위도, 경도 텍스트로
+					document.getElementById('resultKeyword'+ board).value = input.value;
+					document.getElementById("resultAddress" + board).value = place.formatted_address;
+					document.getElementById("resultLatitude" + board).value = place.geometry.location.lat();
+					document.getElementById("resultLongitude" + board).value = place.geometry.location.lng();
+				      
+				});
+				//viewport를 설정
+				map.fitBounds(bounds);
+			});
+		}
 	}
+	function searchPlaces(board){
+		
+		//검색에서 키워드
+		var keyword = document.getElementById('keyword' + board);
+		//장소 갖고오기
+		var places = new daum.maps.services.Places();
+		//마커 생성
+		var markers = [];
+		
+		var callback = function(status, result) {
+		    if (status === daum.maps.services.Status.OK) {
+		        console.log(result.places[0].title);
+		        //마커 초기화
+		        for(var i=0; i<markers.length;i++){
+					markers[i].setMap(null);
+				}
+				markers=[];
+				var position = new daum.maps.LatLng(result.places[0].latitude , result.places[0].longitude);
+	        	var bounds = new daum.maps.LatLngBounds();
+	        	var marker = new daum.maps.Marker({
+					map : map,
+					position : position
+				});
+				//마커 입력
+				marker.setMap(map);
+				markers.push(marker);
+			
+				//bounds의 범위에서 확장
+	       		bounds.extend(position);
+				
+	       		// 경도, 위도, 주소 폼에 입력
+	       		document.getElementById('resultKeyword' + board).value = keyword.value;
+	    		document.getElementById("resultAddress" + board).value = result.places[0].address;
+	    		document.getElementById("resultLatitude" + board).value = result.places[0].latitude;
+	    		document.getElementById("resultLongitude" + board).value = result.places[0].longitude;
+	    		
+	        	// 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+	        	map.setBounds(bounds);
+		    }
+		};
 
-	function removeMarker() {
-	    for ( var i = 0; i < daumMarkers.length; i++ ) {
-	        daumMarkers[i].setMap(null);
-	    }   
-	    daumMarkers = [];
+		places.keywordSearch(keyword.value, callback);
 	}
-
 	
-	function validateForm() {
-		var textArea = document.forms["generalForm"]["title"].value;
-	    var keyword = document.forms["generalForm"]["resultKeyword"].value;
-	    var address = document.forms["generalForm"]["resultAddress"].value;
-	    var latitude = document.forms["generalForm"]["resultLatitude"].value;
-	    var longitude = document.forms["generalForm"]["resultLongitude"].value;
-	    
-	    alert(textArea + "," + keyword + "," + address + "," + latitude + "," + longitude);
-	    
-	}
 	</script>
-
-
 </body>
 </html>
