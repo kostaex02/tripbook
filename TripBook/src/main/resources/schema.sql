@@ -46,6 +46,19 @@ CREATE TABLE schedule_table
 select * from schedule_table;
 
 create sequence board_sequence nocache;
+drop table reply_table;
+drop table board_picture_table;
+drop table grade_table;
+drop table board_table;
+drop table keyword_table;
+select b.board_no,b.content,b.write_date,b.trip_date,b.location,b.location_lat,b.location_lng,u.id,u.name,u.file_name,b.state,
+b.schedule_no,bp.board_picture_no,bp.file_name,r.reply_no,r.content,r.writer_date,ru.id,ru.name,ru.file_name
+from board_table b
+left join board_picture_table bp on b.board_no=bp.board_no
+left join reply_table r on b.board_no= r.board_no
+join user_table u on b.writer= u.id
+join user_table ru on r.writer = ru.id;
+
 CREATE TABLE board_table
 (  
 	board_no NUMBER primary key, -- 시퀀스
@@ -57,7 +70,7 @@ CREATE TABLE board_table
 	location_lng NUMBER(4,16), -- 경도
 	writer VARCHAR2(50) references user_table(id) not null, -- 작성자
 	state NUMBER not null, --권한
-	schedule_no references schedule_table(schedule_no) not null -- 여행 시퀀스
+	schedule_no references schedule_table(schedule_no) on delete cascade -- 여행 시퀀스
 );
 
 create sequence board_picture_sequence nocache;
@@ -65,7 +78,7 @@ CREATE TABLE board_picture_table
 (  
 	board_picture_no NUMBER primary key, -- 시퀀스
 	file_name VARCHAR2(250) NOT NULL, -- 파일 이름
-	board_no NUMBER references schedule_table(schedule_no) not null -- 게시글 시퀀스
+	board_no NUMBER references schedule_table(schedule_no) on delete cascade not null -- 게시글 시퀀스
 );
 
 create sequence grade_sequence nocache;
@@ -74,7 +87,7 @@ CREATE TABLE grade_table
 	grade_no NUMBER primary key, -- 시퀀스
 	grade NUMBER(2) NOT NULL, -- 점수
 	id VARCHAR2(50) references user_table(id) not null, -- 아이디
-	board_no NUMBER references board_table(board_no) not null -- 게시글
+	board_no NUMBER references board_table(board_no) on delete cascade not null -- 게시글
 );
 
 create sequence group_sequence nocache;
@@ -102,7 +115,7 @@ CREATE TABLE keyword_table
 (  
 	keyword_no NUMBER primary key, --시퀀스
 	keyword VARCHAR2(100) NOT NULL, -- 키워드
-	schedule_no NUMBER NOT NULL -- 여행 시퀀스
+	schedule_no NUMBER references schedule_table(schedule_no) on delete cascade NOT NULL -- 여행 시퀀스
 );
 
 create sequence notice_sequence nocache;
@@ -124,7 +137,7 @@ CREATE TABLE reply_table
 	content VARCHAR2(200) NOT NULL ,
 	writer_date DATE NOT NULL,
 	writer VARCHAR2(50) references user_table(id),
-	board_no NUMBER references board_table(board_no)
+	board_no NUMBER references board_table(board_no) on delete cascade
 );
 select * from notice_table
 delete from group_table;

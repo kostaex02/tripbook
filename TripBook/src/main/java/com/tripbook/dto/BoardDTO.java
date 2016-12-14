@@ -1,16 +1,40 @@
 package com.tripbook.dto;
 
+import java.util.List;
+
 public class BoardDTO {
 	private int boardNo;
 	private String content;
 	private String tripDate;
 	private String location;
-	private double location_lat;
-	private double location_lng;
+	private double locationLat;
+	private double locationLng;
 	private String writer;
 	private int state;
 	private int scheduleNo;
+	private UserDTO user;
+	private List<ReplyDTO> replys;
+	private List<BoardPictureDTO> boardPictures;
 	
+	
+	public UserDTO getUser() {
+		return user;
+	}
+	public void setUser(UserDTO user) {
+		this.user = user;
+	}
+	public List<ReplyDTO> getReplys() {
+		return replys;
+	}
+	public void setReplys(List<ReplyDTO> replys) {
+		this.replys = replys;
+	}
+	public List<BoardPictureDTO> getBoardPictures() {
+		return boardPictures;
+	}
+	public void setBoardPictures(List<BoardPictureDTO> boardPictures) {
+		this.boardPictures = boardPictures;
+	}
 	public int getBoardNo() {
 		return boardNo;
 	}
@@ -35,17 +59,17 @@ public class BoardDTO {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	public double getLocation_lat() {
-		return location_lat;
+	public double getLocationLat() {
+		return locationLat;
 	}
-	public void setLocation_lat(double location_lat) {
-		this.location_lat = location_lat;
+	public void setLocationLat(double locationLat) {
+		this.locationLat = locationLat;
 	}
-	public double getLocation_lng() {
-		return location_lng;
+	public double getLocationLng() {
+		return locationLng;
 	}
-	public void setLocation_lng(double location_lng) {
-		this.location_lng = location_lng;
+	public void setLocationLng(double locationLng) {
+		this.locationLng = locationLng;
 	}
 	public String getWriter() {
 		return writer;

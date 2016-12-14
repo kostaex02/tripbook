@@ -3,5 +3,76 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="boardMapper">
+	<resultMap type="userDTO" id="selectUserMap">
+		<id column="id" property="id"/>
+		<result column="password" property="password"/>
+		<result column="name" property="name"/>
+		<result column="age" property="age"/>
+		<result column="gender" property="gender"/>
+		<result column="register_date" property="registerDate"/>
+		<result column="update_date" property="updateDate"/>
+		<result column="file_name" property="fileName"/>
+		<result column="state" property="state"/>
+	</resultMap>
+
+	<resultMap type="boardPictureDTO" id="selectBoardPictureMap">
+		<id column="board_picture_no" property="boardPictureNo"/>
+		<result column="file_name" property="fileName"/>
+		<result column="board_no" property="boardNo"/>
+	</resultMap>
 	
+	<resultMap type="gradeDTO" id="selectGradeMap">
+		<id column="grade_no" property="gradeNo"/>
+		<result column="grade" property="grade"/>
+		<result column="id" property="id"/>
+		<result column="board_no" property="boardNo"/>
+	</resultMap>
+
+	<resultMap type="replyDTO" id="selectReplyMap">
+		<id column="reply_no" property="replyNo"/>
+		<result column="content" property="content"/>
+		<result column="writer_date" property="writerDate"/>
+		<result column="writer" property="writer"/>
+		<result column="board_no" property="boardNo"/>
+		<association property="user" javaType="userDTO" resultMap="selectUserMap" />
+	</resultMap>
+
+	<resultMap type="boardDTO" id="selectBoardMap">
+		<id column="board_no" property="boardNo"/>
+		<result column="content" property="content"/>
+		<result column="write_date" property="writeDate"/>
+		<result column="trip_date" property="tripDate"/>
+		<result column="location" property="location"/>
+		<result column="location_lat" property="locationLat"/>
+		<result column="location_lng" property="locationLng"/>
+		<result column="writer" property="writer"/>
+		<result column="state" property="state"/>
+		<result column="schedule_no" property="scheduleNo"/>
+		<association property="user" javaType="userDTO" resultMap="selectUserMap" />
+		<collection property="replys" javaType="replyDTO" resultMap="selectReplyMap" />
+		<collection property="boardPictures" javaType="boardPictureDTO" resultMap="selectBoardPictureMap" />
+	</resultMap>
+	
+	<select id="selectBoard" parameterType="map" resultMap="selectBoardMap">
+		select b.board_no,b.content,b.write_date,b.trip_date,b.location,b.location_lat,b.location_lng,u.id,u.name,u.file_name,b.state,
+		s.schedule_no,bp.board_picture_no,bp.file_name,r.reply_no,r.content,r.writer_date,ru.id,ru.name,ru.file_name
+		from board_table b 
+		left join board_picture_table bp on b.board_no=bp.board_no
+		left join reply_table r on b.board_no= r.board_no
+		join user_table u on b.writer= u.id
+		join user_table ru on r.writer = ru.id
+		where ru.state='0' and ((b.writer=#{userId}) or ((b.state='1' or b.state='0') and b.writer in 
+		<foreach collection="friendList" item="friend" open="(" separator=","
+			close=")">
+			#{friend}
+		</foreach>
+		)
+		<if test="groupList.size()!=0">  or (state in 
+			<foreach collection="groupList" item="group" open="(" separator=","
+			close=")">
+			#{group}
+			</foreach>
+		))
+		</if>
+	</select>
 </mapper>
