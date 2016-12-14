@@ -112,12 +112,12 @@
 			});
 			// show grid after all images (thumbs) are loaded
 			classie.add(self.gridEl, 'grid--loaded');
-			// init/bind events
+			/*// init/bind events
 			self._initEvents();
 			// create the large image and append it to the DOM
 			self._setOriginal();
 			// create the clone image and append it to the DOM
-			self._setClone();
+			self._setClone();*/
 		});
 	};
 
