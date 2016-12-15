@@ -50,12 +50,6 @@
 		background-color: #E1F5FE;
 	}
 	
-	
-	
-	
-	
-	
-	
 	.slideSideCover {
 		background-color:pink;
 	    position: absolute;

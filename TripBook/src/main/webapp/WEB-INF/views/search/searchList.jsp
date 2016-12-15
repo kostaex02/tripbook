@@ -27,7 +27,7 @@ $(function(){
 		})
 	})	
 })
-	/* 친구정보 alert */
+	/* 친구정보 메세지 */
 	$(function(){
 		$('.friendsProfile').on('click', ".friendPictureImg", function(){
 			var str= $(this).parent().siblings("input").attr('id');

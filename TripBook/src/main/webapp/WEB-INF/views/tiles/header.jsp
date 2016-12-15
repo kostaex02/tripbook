@@ -71,6 +71,10 @@
 	
 }
 
+#trash{
+	display: inline !important;
+}
+
 .calendarTrash{
 	width:100px;
 	height:60px;
@@ -93,7 +97,7 @@
 			<div class="jbTableCell jbText">
 				<label for="exclusive_input">검색을 입력하세요</label> <input type="text" id="exclusive_input" name="keyword">
 			</div>
-			<div class="jbTableCell">
+			<div class="jbTableCell" >
 				<button class="btn btn-default" type="submit" id="searchButton"><img class="btn-img" src="<c:url value="/images/icon/icon_searchButton.png"/>"></button>
 			</div>
 		
