@@ -45,7 +45,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<update id="updateSchedule" parameterType="scheduleDTO">
 		update schedule_table 
-		set subject=#{subject}, start_date=#{startDate}, end_date=#{endDate}, state=#{state}, writet=#{writer}
+		set subject=#{subject}, start_date=#{startDate}, end_date=#{endDate}, state=#{state}, writer=#{writer}
 		where schedule_no=#{scheduleNo}
 	</update>
 </mapper>

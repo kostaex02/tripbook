@@ -482,7 +482,7 @@
 		
 		function error(){
 	    	  var errMessage = '<%= request.getAttribute("errMessage") %>';
-	    	  if(errMessage!=null){
+	    	  if(errMessage!='null'){
 	    		  alert(errMessage);
 	    	  }
 	     }
