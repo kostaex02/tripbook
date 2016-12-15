@@ -13,7 +13,7 @@
 <style>
 	body{
 		background-color: white;
-	
+		margin: 0px;
 	}
 	
 	div{
@@ -24,15 +24,15 @@
 		float:right;
 		height:auto;
 		padding:5px;
-		top:-10%;
-		left:-5%;
+		top:0;
+		left:0%;
 	}
 	
 	#content{
 		float:right;
 		height:auto;
 		padding:5px;
-		top:-15%;
+		top:0%;
 		left:-5%;
 	}
 	
