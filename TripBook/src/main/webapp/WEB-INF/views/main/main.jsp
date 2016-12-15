@@ -137,7 +137,7 @@ hr {
 	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-#general_pac-input {
+#pac-input0 {
 	background-color: #fff;
 	font-family: Roboto;
 	font-size: 15px;
@@ -148,11 +148,10 @@ hr {
 	width: 300px;
 }
 
-#general_pac-input:focus {
+#pac-input0:focus {
 	border-color: #4d90fe;
 }
-
-#travelEdit_pac-input {
+#pac-input1 {
 	background-color: #fff;
 	font-family: Roboto;
 	font-size: 15px;
@@ -163,11 +162,10 @@ hr {
 	width: 300px;
 }
 
-#travelEdit_pac-input:focus {
+#pac-input1:focus {
 	border-color: #4d90fe;
 }
-
-#travelAdd_pac-input {
+#pac-input2 {
 	background-color: #fff;
 	font-family: Roboto;
 	font-size: 15px;
@@ -178,7 +176,7 @@ hr {
 	width: 300px;
 }
 
-#travelAdd_pac-input:focus {
+#pac-input2:focus {
 	border-color: #4d90fe;
 }
 
@@ -221,7 +219,7 @@ hr {
 	margin-right: 10px;
 }
 
-#general_menu_wrap {
+#menu_wrap {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -241,77 +239,19 @@ hr {
 	background: #fff;
 }
 
-#general_menu_wrap .option {
+#menu_wrap .option {
 	text-align: center;
 }
 
-#general_menu_wrap .option p {
+#menu_wrap .option p {
 	margin: 10px 0;
 }
 
-#general_menu_wrap .option button {
+#menu_wrap .option button {
 	margin-left: 5px;
 }
 
-​
-
-#travelEdit_menu_wrap {
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	width: 250px;
-	height: 25px;
-	margin: 10px 0 30px 10px;
-	padding: 5px;
-	overflow-y: auto;
-	background: rgba(255, 255, 255, 0.7);
-	z-index: 2;
-	font-size: 12px;
-	border-radius: 10px;
-}
-
-#travelEdit_menu_wrap .option {
-	text-align: center;
-}
-
-#travelEdit_menu_wrap .option p {
-	margin: 10px 0;
-}
-
-#travelEdit_menu_wrap .option button {
-	margin-left: 5px;
-}
-
-#travelAdd_menu_wrap {
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	width: 250px;
-	height: 25px;
-	margin: 10px 0 30px 10px;
-	padding: 5px;
-	overflow-y: auto;
-	background: rgba(255, 255, 255, 0.7);
-	z-index: 2;
-	font-size: 12px;
-	border-radius: 10px;
-}
-
-#travelAdd_menu_wrap .option {
-	text-align: center;
-}
-
-#travelAdd_menu_wrap .option p {
-	margin: 10px 0;
-}
-
-#travelAdd_menu_wrap .option button {
-	margin-left: 5px;
-}
-
-#mainExclusive_input {
+​#mainExclusive_input {
 	resize: none;
 }
 
@@ -400,26 +340,6 @@ hr {
 						</div>
 						</p>
 						<div class='picture'>
-							<a href="#" data-toggle="modal" data-target="#detailPicture" >
-							<img class='boardPicture' src='<c:url value="/images/img.jpg"/>'></a>
-							<div class='boardContent'>여기는 내용 영역!!!<br>여기는 내용 영역!!!<br>여기는 내용 영역!!!</div>
-						</div>
-						<div>
-							<div class="heart " id="like1" rel="like"></div>
-							<div class="likeCount" id="likeCount1">14</div>
-							<a href='#'>댓글달기</a>
-							<div class='replysCount'>댓글 100개</div>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class='mainRecentBoard'>
-						<p>
-						<div class='profile'><img class='writerProfileImage' src='<c:url value="/images/img.jpg"/>'>
-						<b>User ID</b> 12월 03일 오전 11:41
-						</div>
-						</p>
-						<div class='picture'>
 							<a href="#" data-toggle="modal" data-target="#detailPicture">
 							<img class='boardPicture' src='<c:url value="/images/img.jpg"/>'></a>
 							<div class='boardContent'>여기는 내용 영역!!!<br>여기는 내용 영역!!!<br>여기는 내용 영역!!!</div>
@@ -435,84 +355,143 @@ hr {
 				<li>
 					<div class='mainRecentBoard'>
 						<p>
-						<div class='profile'><img class='writerProfileImage' src='<c:url value="/images/img.jpg"/>'>
+						<div class='profile'>미니 프로필 사진</div>
 						<b>User ID</b> 12월 03일 오전 11:41
-						</div>
 						</p>
 						<div class='picture'>
-							<a href="#" data-toggle="modal" data-target="#detailPicture">
-							<img class='boardPicture' src='<c:url value="/images/img.jpg"/>'></a>
-							<div class='boardContent'>여기는 내용 영역!!!<br>여기는 내용 영역!!!<br>여기는 내용 영역!!!</div>
+							<a href="#" data-toggle="modal" data-target="#detailPicture"><img
+								src='<c:url value="/images/img.jpg"/>' style="width: 100px"></a>
+						</div>
+						<div class='replys'>
+							댓글 영역<br>
+							<div class='profile'>미니 프로필 사진</div>
+							<b>User ID</b> 12월 03일 오전 11:41<br> -> 나도 놀러갈래!
 						</div>
 						<div>
-							<div class="heart " id="like1" rel="like"></div>
-							<div class="likeCount" id="likeCount1">14</div>
-							<a href='#'>댓글달기</a>
-							<div class='replysCount'>댓글 100개</div>
+							<input type='button' value='좋아요'><a href='#'>댓글달기</a>
 						</div>
 					</div>
 				</li>
 				<li>
 					<div class='mainRecentBoard'>
 						<p>
-						<div class='profile'><img class='writerProfileImage' src='<c:url value="/images/img.jpg"/>'>
+						<div class='profile'>미니 프로필 사진</div>
 						<b>User ID</b> 12월 03일 오전 11:41
-						</div>
 						</p>
 						<div class='picture'>
-							<a href="#" data-toggle="modal" data-target="#detailPicture">
-							<img class='boardPicture' src='<c:url value="/images/img.jpg"/>'></a>
-							<div class='boardContent'>여기는 내용 영역!!!<br>여기는 내용 영역!!!<br>여기는 내용 영역!!!</div>
+							<a href="#" data-toggle="modal" data-target="#detailPicture"><img
+								src='<c:url value="/images/img.jpg"/>' style="width: 100px"></a>
+						</div>
+						<div class='replys'>
+							댓글 영역<br>
+							<div class='profile'>미니 프로필 사진</div>
+							<b>User ID</b> 12월 03일 오전 11:41<br> -> 나도 놀러갈래!
 						</div>
 						<div>
-							<div class="heart " id="like1" rel="like"></div>
-							<div class="likeCount" id="likeCount1">14</div>
-							<a href='#'>댓글달기</a>
-							<div class='replysCount'>댓글 100개</div>
+							<input type='button' value='좋아요'><a href='#'>댓글달기</a>
 						</div>
 					</div>
 				</li>
 				<li>
 					<div class='mainRecentBoard'>
 						<p>
-						<div class='profile'><img class='writerProfileImage' src='<c:url value="/images/img.jpg"/>'>
+						<div class='profile'>미니 프로필 사진</div>
 						<b>User ID</b> 12월 03일 오전 11:41
-						</div>
 						</p>
 						<div class='picture'>
-							<a href="#" data-toggle="modal" data-target="#detailPicture">
-							<img class='boardPicture' src='<c:url value="/images/img.jpg"/>'></a>
-							<div class='boardContent'>여기는 내용 영역!!!<br>여기는 내용 영역!!!<br>여기는 내용 영역!!!</div>
+							<a href="#" data-toggle="modal" data-target="#detailPicture"><img
+								src='<c:url value="/images/img.jpg"/>' style="width: 100px"></a>
+						</div>
+						<div class='replys'>
+							댓글 영역<br>
+							<div class='profile'>미니 프로필 사진</div>
+							<b>User ID</b> 12월 03일 오전 11:41<br> -> 나도 놀러갈래!
 						</div>
 						<div>
-							<div class="heart " id="like1" rel="like"></div>
-							<div class="likeCount" id="likeCount1">14</div>
-							<a href='#'>댓글달기</a>
-							<div class='replysCount'>댓글 100개</div>
+							<input type='button' value='좋아요'><a href='#'>댓글달기</a>
 						</div>
 					</div>
 				</li>
 				<li>
 					<div class='mainRecentBoard'>
 						<p>
-						<div class='profile'><img class='writerProfileImage' src='<c:url value="/images/img.jpg"/>'>
+						<div class='profile'>미니 프로필 사진</div>
 						<b>User ID</b> 12월 03일 오전 11:41
-						</div>
 						</p>
 						<div class='picture'>
-							<a href="#" data-toggle="modal" data-target="#detailPicture">
-							<img class='boardPicture' src='<c:url value="/images/img.jpg"/>'></a>
-							<div class='boardContent'>여기는 내용 영역!!!<br>여기는 내용 영역!!!<br>여기는 내용 영역!!!</div>
+							<a href="#" data-toggle="modal" data-target="#detailPicture"><img
+								src='<c:url value="/images/img.jpg"/>' style="width: 100px"></a>
+						</div>
+						<div class='replys'>
+							댓글 영역<br>
+							<div class='profile'>미니 프로필 사진</div>
+							<b>User ID</b> 12월 03일 오전 11:41<br> -> 나도 놀러갈래!
 						</div>
 						<div>
-							<div class="heart " id="like1" rel="like"></div>
-							<div class="likeCount" id="likeCount1">14</div>
-							<a href='#'>댓글달기</a>
-							<div class='replysCount'>댓글 100개</div>
+							<input type='button' value='좋아요'><a href='#'>댓글달기</a>
 						</div>
 					</div>
 				</li>
-				
+				<li>
+					<div class='mainRecentBoard'>
+						<p>
+						<div class='profile'>미니 프로필 사진</div>
+						<b>User ID</b> 12월 03일 오전 11:41
+						</p>
+						<div class='picture'>
+							<a href="#" data-toggle="modal" data-target="#detailPicture"><img
+								src='<c:url value="/images/img.jpg"/>' style="width: 100px"></a>
+						</div>
+						<div class='replys'>
+							댓글 영역<br>
+							<div class='profile'>미니 프로필 사진</div>
+							<b>User ID</b> 12월 03일 오전 11:41<br> -> 나도 놀러갈래!
+						</div>
+						<div>
+							<input type='button' value='좋아요'><a href='#'>댓글달기</a>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class='mainRecentBoard'>
+						<p>
+						<div class='profile'>미니 프로필 사진</div>
+						<b>User ID</b> 12월 03일 오전 11:41
+						</p>
+						<div class='picture'>
+							<a href="#" data-toggle="modal" data-target="#detailPicture"><img
+								src='<c:url value="/images/img.jpg"/>' style="width: 100px"></a>
+						</div>
+						<div class='replys'>
+							댓글 영역<br>
+							<div class='profile'>미니 프로필 사진</div>
+							<b>User ID</b> 12월 03일 오전 11:41<br> -> 나도 놀러갈래!
+						</div>
+						<div>
+							<input type='button' value='좋아요'><a href='#'>댓글달기</a>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class='mainRecentBoard'>
+						<p>
+						<div class='profile'>미니 프로필 사진</div>
+						<b>User ID</b> 12월 03일 오전 11:41
+						</p>
+						<div class='picture'>
+							<a href="#" data-toggle="modal" data-target="#detailPicture"><img
+								src='<c:url value="/images/img.jpg"/>' style="width: 100px"></a>
+						</div>
+						<div class='replys'>
+							댓글 영역<br>
+							<div class='profile'>미니 프로필 사진</div>
+							<b>User ID</b> 12월 03일 오전 11:41<br> -> 나도 놀러갈래!
+						</div>
+						<div>
+							<input type='button' value='좋아요'><a href='#'>댓글달기</a>
+						</div>
+					</div>
+				</li>
 			</ul>
 		</div>
 	</div>
@@ -606,7 +585,7 @@ hr {
 			<div class="modal-content">
 				<form name="generalForm" action="#" method="post"
 					enctype="multipart/form-data"
-					onkeydown="return captureReturnKey(event)">
+					onkeydown="return captureReturnKey(event)" onsubmit="return kindBoard()">
 					<div class="modal-header">
 						<div class="newBoardPicture">
 								<img class="newBoardPictureImg"
@@ -769,8 +748,8 @@ hr {
 								<option value="그룹보기">그룹보기</option>
 								<option value="비공개">비공개</option>
 							</select>
-							<button type="button" class="btn btn-default btn-sm"
-								onClick="validateForm(count)">등록</button>
+							<button type="submit" class="btn btn-default btn-sm"
+								>등록</button>
 							<button type="button" class="btn btn-default btn-sm"
 								data-dismiss="modal">취소</button>
 						</div>
@@ -1020,7 +999,7 @@ hr {
 		src="//apis.daum.net/maps/maps3.js?apikey=3bae0d1bca94080850d3d2451479c7ee&libraries=services"></script>
 
 	<script>
-	var map;
+var map;
 	
 	function createMap(board, area){
 		var mapDiv = document.createElement("div");
@@ -1028,9 +1007,10 @@ hr {
 		mapDiv.setAttribute("id","map"+board);
 		mapDiv.style.width="100%";
 		mapDiv.style.height="300px";
-		
+		var board = board;
 		var mapChoice = document.getElementsByName('mapChoice');
 		
+		alert("create");
 		
 		if(area==0){	//국내
 			// 지도 검색창
@@ -1049,7 +1029,7 @@ hr {
 			mapChoice[board].appendChild(mapDiv);		
 			
 			
-			container = document.getElementById('map' + board);
+			container = document.getElementById('map' + board );
 			options = {
 					center : new daum.maps.LatLng(33.450701, 126.570667),
 					level : 3
@@ -1059,31 +1039,39 @@ hr {
 			
 			
 			
-		}else{
+		}else if(area==1){
 			var searchStr = "";
 			searchStr += "<input id='pac-input"+ board +"' class='controls' type='text' placeholder='검색하기'>";
-			if(mapChoice[board].hasChildNodes){
-				//mapChoice[board].removeChild(mapChoice[board].childNodes[0]);
-				mapChoice[board].innerHTML="";
-			}
+			if(mapChoice[board].children.length > 0 ){
+				//검색 자동완성 div태그 초기화
+				var head = document.getElementsByTagName('head')[0];
+				head.firstChild.remove();
+				$('.pac-container').remove();
+				
+				//mapChoice[board].removeChild('map'+board);
+				mapChoice[board].firstChild.remove();
+			} 
+			
 			mapChoice[board].innerHTML = searchStr;
 			mapChoice[board].appendChild(mapDiv);
 			
 			container = document.getElementById('map' + board);
 			options = {
-					center: {lat: -34.397, lng: 150.644},
-					zoom : 12
+					center: {lat: -33.86, lng: 151.209},
+					zoom : 13,
+					mapTypeControl: false
 			}
 			
 			map = new google.maps.Map(container, options);
 			
-			var input = document.getElementById('pac-input' + board);
+			var input = (document.getElementById('pac-input' + board));
+			
 			//input을 받아와서 google place의 searchBox에 연결.
 			var searchBox = new google.maps.places.SearchBox(input);
 			//SearchBox를 맨위 좌측에 위치
 			map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 			
-			//검색창에서 검색값 변경시 추천맵 지도 변화
+			//맵에서 지역과 가까운곳으로...
 			map.addListener('bounds_changed', function(){
 				searchBox.setBounds(map.getBounds());
 			});
@@ -1175,35 +1163,22 @@ hr {
 		places.keywordSearch(keyword.value, callback);
 	}
 	
-	function kindBoard(){
+	function validateForm(board) {
+			var resultTextArea = document.getElementById('title'+ board ).value;
+			var resultKeyword = document.getElementById('resultKeyword'+ board).value;
+			var resultRegion = document.getElementById('resultRegion'+ board).value;
+			var resultAddress = document.getElementById('resultAddress'+ board).value;
+			var resultLatitude = document.getElementById('resultLatitude'+ board).value;
+			var resultLongitude = document.getElementById('resultLongitude'+ board).value;
+			
+			alert(resultTextArea + "," + resultKeyword +","+ resultRegion + "," + resultAddress + "," + resultLatitude + "," + resultLongitude);
 		
 	}
 	
-	function validateForm(board) {
-		if(board==0){
-			var resultTextArea = document.forms["generalForm"]["title"].value;
-			var resultKeyword = document.forms["generalForm"]["resultKeyword" + board].value;
-			var resultRegion = document.forms["generalForm"]["resultRegion" + board].value;
-			var resultAddress = document.forms["generalForm"]["resultAddress" + board].value;
-			var resultLatitude = document.forms["generalForm"]["resultLatitude" + board].value;
-			var resultLongitude = document.forms["generalForm"]["resultLongitude" + board].value;
-			
-			alert(resultTextArea + "," + resultKeyword +","+ resultRegion + "," + resultAddress + "," + resultLatitude + "," + resultLongitude);
-			
-		}else{
-			//alert(1);
-			for(var i=1;i<=2;i++){
-				resultTextArea[i] = document.forms["generalForm"]["title[0]"].value;
-				resultSubject[i] = document.forms["generalForm"]["subject[0]"].value;
-				resultKeyword[i] = document.forms["generalForm"]["resultKeyword" + i].value;
-				resultRegion[i] = document.forms["generalForm"]["resultRegion" + i].value;
-				resultAddress[i] = document.forms["generalForm"]["resultAddress" + i].value;
-				resultLatitude[i] = document.forms["generalForm"]["resultLatitude" + i].value;
-				resultLongitude[i] = document.forms["generalForm"]["resultLongitude" + i].value;
-				
-			}
-			alert(resultTextArea[0]);
-		}
+	function kindBoard(){
+		var board = $(".travel.active")[0].id;
+		
+		validateForm(board);
 	}
 	
 	function regionCheck(latitude, longitude, board){
