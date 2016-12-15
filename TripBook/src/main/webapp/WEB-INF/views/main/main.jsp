@@ -317,7 +317,9 @@ hr {
 <!-- 하트 효과 -->
 <link rel="stylesheet" type="text/css"
 	href="<c:url value="/resources/css/main/heart.css"/>" />
-
+<!-- datetimepicker -->
+<link rel="stylesheet" type="text/css"
+	href="<c:url value="/resources/css/bootstrap/bootstrap-datetimepicker.css"/>" />
 
 </head>
 <body>
@@ -524,7 +526,7 @@ hr {
 							
 							<div class="newBoardTitle">
 								<textarea name="title" class="form-control" rows="4"
-									id="mainExclusive_input" placeholder="내용을 입력해 주세요"></textarea>
+									id="title0" placeholder="내용을 입력해 주세요"></textarea>
 							</div>
 							<hr>
 							<div class="newBoardSelect">
@@ -584,9 +586,9 @@ hr {
 	<div class="modal fade" id="addTravelBoard" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form name="generalForm" action="#" method="post"
+				<form name="generalForm" action="#" method="post" onsubmit="kindBoard()"
 					enctype="multipart/form-data"
-					onkeydown="return captureReturnKey(event)" onsubmit="return kindBoard()">
+					onkeydown="return captureReturnKey(event)" >
 					<div class="modal-header">
 						<div class="newBoardPicture">
 								<img class="newBoardPictureImg"
@@ -605,10 +607,10 @@ hr {
 						<div class="newTravelBoardContainer">
 							<ul class="nav nav-tabs nav-justified" role="tablist"
 								style="height: 50px; width:200px;">
-								<li role="presentation" class="active" style="padding: 0;"><a
+								<li role="presentation" class="travel active" id="1" style="padding: 0;"><a
 									href="#editSchedule" aria-controls="editSchedule" role="tab"
 									data-toggle="tab">신규 일정</a></li>
-								<li role="presentation" style="padding: 0"><a
+								<li role="presentation" class="travel" id="2" style="padding: 0"><a
 									href="#addSchedule" aria-controls="addSchedule" role="tab"
 									data-toggle="tab">기존 일정</a></li>
 							</ul>
@@ -616,23 +618,23 @@ hr {
 								<!-- EDIT -->
 								<div class="tab-pane active" id="editSchedule">
 								<hr>
-									<input type="text" class="form-control" id="editSubject"
+									<input type="text" class="form-control" id="subject1"
 										name="subject" placeholder="제목을 입력하세요">
 										<div class="newBoardTitle">
 										<hr>
 										<textarea name="title" class="form-control" rows="4"
-											id="editComment"></textarea>
+											id="title1"></textarea>
 									</div>
 									<div class="col-md-12">
 										<div class="form-group row">
 											<label class='dateLabel'>출발일</label>
 											<div class="col-md-5">
-												<input type="text" class="form-control dateControlBox" id="editFromDate"
+												<input type="text" class="form-control dateControlBox" id="fromDate1"
 													name="start_date">
 											</div>
 											<label class='dateLabel'>종료일</label>
 											<div class="col-md-5">
-												<input type="text" class="form-control dateControlBox" id="editToDate"
+												<input type="text" class="form-control dateControlBox" id="toDate1"
 													name="end_date">
 											</div>
 										</div>
@@ -640,12 +642,9 @@ hr {
 									<hr>
 									
 									<div class="form-group">
-                						<div class='input-group date' id='datetimepicker1'>
-                    					<input type='text' class="form-control" />
-                    					<span class="input-group-addon">
-                        				<span class="glyphicon glyphicon-calendar"></span>
-                   						</span>
-                						</div>
+                						<div class='input-group date'>
+                    					<input type='text' class="form-control datetimepicker" id='datetimepicker1' name="datetime" placeholder="스케줄"/>
+                    					</div>
             						</div>
 									
 									<div class="newBoardSelect">
@@ -688,33 +687,40 @@ hr {
 
 								<!-- ADD -->
 								<div class="tab-pane" id="addSchedule">
-									<input type="text" class="form-control" id="addSubject"
-										name="subject" placeholder="제목">
-									<br>	
 									<select class="form-control">
 										<option>1</option>
 										<option>2</option>									
 									</select>
+									<br>
+									<input type="text" class="form-control" id="subject2"
+										name="subject" placeholder="제목" disabled>
 									
 									<div class="col-md-12">
 										<div class="form-group row">
 											<label class='dateLabel'>출발일</label>
 											<div class="col-md-5">
-												<input type="text" class="form-control dateControlBox" id="addFromDate"
-													name="start_date">
+												<input type="text" class="form-control dateControlBox" id="fromDate2"
+													name="start_date" disabled>
 											</div>
 											<label class='dateLabel'>종료일</label>
 											<div class="col-md-5">
-												<input type="text" class="form-control dateControlBox" id="addToDate"
-													name="end_date">
+												<input type="text" class="form-control dateControlBox" id="toDate2"
+													name="end_date" disabled>
 											</div>
 										</div>
 									</div>
+									
+									<div class="form-group">
+                						<div class='input-group date'>
+                    					<input type='text' class="form-control datetimepicker" id='datetimepicker2' name="datetime" placeholder="스케줄"/>
+                    					</div>
+            						</div>
+            						
 									<hr>
 									
 									<div class="newBoardTitle">
 										<textarea name="title" class="form-control" rows="4"
-											id="addComment"></textarea>
+											id="title2"></textarea>
 									</div>
 
 									<div class="newBoardSelect">
@@ -763,7 +769,7 @@ hr {
 								<option value="그룹보기">그룹보기</option>
 								<option value="비공개">비공개</option>
 							</select>
-							<button type="submit" class="btn btn-default btn-sm"
+							<button type="submit" class="btn btn-default btn-sm" 
 								>등록</button>
 							<button type="button" class="btn btn-default btn-sm"
 								data-dismiss="modal">취소</button>
@@ -848,7 +854,11 @@ hr {
 	<!-- 달력 -->
 	<script
 		src='<c:url value="/resources/js/calendar/lib/jquery-ui.min.js"/>'></script>
-
+	
+	<!-- date -->
+	<script src='<c:url value="/resources/js/bootstrap/moment.js"/>'></script>
+	<script src='<c:url value="/resources/js/bootstrap/bootstrap-datetimepicker.min.js"/>'></script>
+	
 	<script>
 	
 	/* 하트 효과 */
@@ -906,7 +916,7 @@ hr {
 		
 		$(function() {
 			// 시간.
-			$('#datetimepicker1').datetimepicker();
+			$('.datetimepicker').datetimepicker();
 			/* 멀티파일 설정 */
 			$('#newGeneralBoardMulti').MultiFile({
 					//max : 3, //업로드 최대 파일 갯수 (지정하지 않으면 무한대)
@@ -958,7 +968,7 @@ hr {
 			
 			//여행게시물 달력 기능
 			var dateFormat = "mm/dd/yy",
-		      editFrom = $( "#editFromDate" )
+		      editFrom = $( "#fromDate1" )
 		        .datepicker({
 		          defaultDate: "+1w",
 		          changeMonth: true
@@ -966,14 +976,14 @@ hr {
 		        .on( "change", function() {
 		          editTo.datepicker( "option", "minDate", getDate( this ) );
 		        }),
-		      editTo = $( "#editToDate" ).datepicker({
+		      editTo = $( "#toDate1" ).datepicker({
 		    	defaultDate: "+1w",
 		        changeMonth: true
 		      })
 		      .on( "change", function() {
 		    	  editFrom.datepicker( "option", "maxDate", getDate( this ) );
 		      }),
-		      addFrom = $("#addFromDate" )
+		      addFrom = $("#fromDate2" )
 		      	.datepicker({
 		      		minDate:-20,
 			        maxDate:"+1M+10D",
@@ -983,7 +993,7 @@ hr {
 		      	.on( "change" , function() {
 		      		addTo.datepicker("option", "minDate", getDate(this));
 		      	}),
-		      addTo = $("#addToDate").datepicker({
+		      addTo = $("#toDate2").datepicker({
 		    	  	maxDate:"+1M+10D",
 			        defaultDate: "+1w",
 		    		changeMonth: true
@@ -1181,14 +1191,23 @@ var map;
 	}
 	
 	function validateForm(board) {
-			var resultTextArea = document.getElementById('title'+ board ).value;
-			var resultKeyword = document.getElementById('resultKeyword'+ board).value;
-			var resultRegion = document.getElementById('resultRegion'+ board).value;
-			var resultAddress = document.getElementById('resultAddress'+ board).value;
-			var resultLatitude = document.getElementById('resultLatitude'+ board).value;
-			var resultLongitude = document.getElementById('resultLongitude'+ board).value;
+		alert(board);
+		var resultTextArea = document.getElementById('title'+ board ).value;
+		var resultKeyword = document.getElementById('resultKeyword'+ board).value;
+		var resultRegion = document.getElementById('resultRegion'+ board).value;
+		var resultAddress = document.getElementById('resultAddress'+ board).value;
+		var resultLatitude = document.getElementById('resultLatitude'+ board).value;
+		var resultLongitude = document.getElementById('resultLongitude'+ board).value;
+		if(board != 0){
+			var resultSubject = document.getElementById('subject'+board ).value;
+			var resultFromDate = document.getElementById('fromDate' + board ).value;
+			var resultToDate = document.getElementById('toDate' + board ).value;
+			var resultDateTime = document.getElementById('datetimepicker' + board).value;
 			
-			alert(resultTextArea + "," + resultKeyword +","+ resultRegion + "," + resultAddress + "," + resultLatitude + "," + resultLongitude);
+			alert("제목 : " + resultSubject + " \n출발일 : " + resultFromDate + " \n도착일 " + resultToDate + " \n계획 " + resultDateTime);
+		}
+		
+		alert("코멘트 : " + resultTextArea + "\n키워드 : " + resultKeyword + "\n국내해외 : "+ resultRegion + "\n주소 : " + resultAddress + "\n위도 : " + resultLatitude + "\n경도 : " + resultLongitude);
 		
 	}
 	
