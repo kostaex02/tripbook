@@ -30,6 +30,7 @@ public class CalenderController {
 	@ResponseBody
 	public int add(HttpServletRequest request,ScheduleDTO scheduleDTO){
 		HttpSession session = request.getSession();
+		System.out.println(scheduleDTO.getEndDate());
 		scheduleDTO.setWriter((String)session.getAttribute("userId"));
 		return scheduleService.addSchedule(scheduleDTO);
 	}
