@@ -42,6 +42,7 @@ a {
 .picture {
 	border: 1px solid red;
 	height: auto;
+	min-height:300px;
 	text-align: center;
 }
 
@@ -356,6 +357,7 @@ hr {
 	width:100%;
 	height:300px;
 	max-width: 300px;
+	float: left;
 }
 .replysCount{
 	text-align: right;
@@ -400,6 +402,7 @@ hr {
 						<div class='picture'>
 							<a href="#" data-toggle="modal" data-target="#detailPicture">
 							<img class='boardPicture' src='<c:url value="/images/img.jpg"/>'></a>
+							<div class='boardContent'>여기는 내용 영역!!!<br>여기는 내용 영역!!!<br>여기는 내용 영역!!!</div>
 						</div>
 						<div>
 							<div class="heart " id="like1" rel="like"></div>
