@@ -95,8 +95,8 @@ textarea {
 					</div>
 					<div class="friendsNameId">${item.name}</div>
 					<div class="friendsButton">
-						<a href="#" class='btn btn-primary' data-toggle="modal"
-							data-target="#friendSendMessage">메세지 작성</a> <a
+						<input type="button" class='btn btn-primary friendSendMessageButton' data-toggle="modal"
+							data-target="#friendSendMessage" value="메세지 작성"> <a
 							href="/controller/friends/delete?friendId=${item.id }"
 							class='btn btn-primary' data-toggle="modal">친구 삭제</a>
 
@@ -127,7 +127,6 @@ textarea {
 							</div>
 							<div class="friendsGroupList">
 								<div class="friendsGroupListBind">
-
 									<c:forEach items="${friendList}" var="friendsAddList">
 										<div class="friendsGroupMember">
 											<div class="friendsAddListDiv">
@@ -159,12 +158,13 @@ textarea {
 					메세지 보내기
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 				</div>
-				<form action='' method="post">
+				<form id="sendMessageForm" action='' method="post">
+					<input type ="hidden" name="receiver" id="messageReceiverId">
 					<div class="modal-body">
-						<textarea placeholder="메세지를 입력하세요" name="message"></textarea>
+						<textarea placeholder="메세지를 입력하세요" name="content"></textarea>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-default" id="submit">등록</button>
+						<button type="button" class="btn btn-default" id="sendMessage">전송</button>
 						<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
 					</div>
 				</form>
@@ -216,6 +216,24 @@ textarea {
 						}
 					})
 			})
+			$(".friendSendMessageButton").click(function(){
+				$("#messageReceiverId").val($(this).parents().parents().attr('id'));
+			});
+			
+			$("#sendMessage").click(function(){
+				$.ajax({
+					url : "/controller/main/send",
+					type : "post",
+					data : $("#sendMessageForm").serialize(),
+					dataType : "text",
+					success : function(data) {
+						alert(data)
+					},
+					error : function() {
+						alert('error')
+					}
+				})
+			});
 		})
 	</script>
 

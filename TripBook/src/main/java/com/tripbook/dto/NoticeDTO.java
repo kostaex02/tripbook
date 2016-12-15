@@ -82,5 +82,11 @@ public class NoticeDTO {
 	public void setCheckState(String checkState) {
 		this.checkState = checkState;
 	}
+	@Override
+	public String toString() {
+		return "NoticeDTO [noticeNo=" + noticeNo + ", state=" + state + ", sender=" + sender + ", receiver=" + receiver
+				+ ", sendDate=" + sendDate + ", content=" + content + ", checkState=" + checkState + ", fileName="
+				+ fileName + ", name=" + name + "]";
+	}
 	
 }
