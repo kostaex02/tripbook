@@ -36,12 +36,13 @@ a {
 .profile {
 	border: 1px solid blue;
 	position: relative;
-	float: left;
+	
 }
 
 .picture {
 	border: 1px solid red;
-	height: 100px;
+	height: auto;
+	text-align: center;
 }
 
 .newBoardContainer {
@@ -347,6 +348,17 @@ hr {
 .newBoardMap{
 	float:left;
 }
+.writerProfileImage{
+	width:60px;
+	height:60px;
+}
+.boardPicture{
+	width:300px;
+	height:300px;
+}
+.replysCount{
+	text-align: right;
+}
 </style>
 
 
@@ -380,22 +392,19 @@ hr {
 				<li>
 					<div class='mainRecentBoard'>
 						<p>
-						<div class='profile'>미니 프로필 사진</div>
+						<div class='profile'><img class='writerProfileImage' src='<c:url value="/images/img.jpg"/>'>
 						<b>User ID</b> 12월 03일 오전 11:41
+						</div>
 						</p>
 						<div class='picture'>
-							<a href="#" data-toggle="modal" data-target="#detailPicture"><img
-								src='<c:url value="/images/img.jpg"/>' style="width: 100px"></a>
-						</div>
-						<div class='replys'>
-							댓글 영역<br>
-							<div class='profile'>미니 프로필 사진</div>
-							<b>User ID</b> 12월 03일 오전 11:41<br> -> 나도 놀러갈래!
+							<a href="#" data-toggle="modal" data-target="#detailPicture">
+							<img class='boardPicture' src='<c:url value="/images/img.jpg"/>'></a>
 						</div>
 						<div>
 							<div class="heart " id="like1" rel="like"></div>
 							<div class="likeCount" id="likeCount1">14</div>
 							<a href='#'>댓글달기</a>
+							<div class='replysCount'>댓글 100개</div>
 						</div>
 					</div>
 				</li>
