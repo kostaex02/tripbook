@@ -93,8 +93,7 @@
 				//var title = prompt('제목을 입력하세요');
 				$('#addTravelBoard').modal();
 				$('#fromDate').val(moment(start).format('YYYY-MM-DD'));
-				var endDateDay=moment(end).format('DD')-1;
-				$('#toDate').val(moment(end).format('YYYY-MM-')+endDateDay);
+				$('#toDate').val(moment(end-(24*60*60*1000)).format('YYYY-MM-DD'));
 				$('#hiddenToDate').val(moment(end).format('YYYY-MM-DD'));
 	
 				/*var eventData;
