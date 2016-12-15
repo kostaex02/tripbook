@@ -639,6 +639,14 @@ hr {
 									</div>
 									<hr>
 									
+									<div class="form-group">
+                						<div class='input-group date' id='datetimepicker1'>
+                    					<input type='text' class="form-control" />
+                    					<span class="input-group-addon">
+                        				<span class="glyphicon glyphicon-calendar"></span>
+                   						</span>
+                						</div>
+            						</div>
 									
 									<div class="newBoardSelect">
 										<div class="input-group-btn">
@@ -897,6 +905,8 @@ hr {
 
 		
 		$(function() {
+			// 시간.
+			$('#datetimepicker1').datetimepicker();
 			/* 멀티파일 설정 */
 			$('#newGeneralBoardMulti').MultiFile({
 					//max : 3, //업로드 최대 파일 갯수 (지정하지 않으면 무한대)
