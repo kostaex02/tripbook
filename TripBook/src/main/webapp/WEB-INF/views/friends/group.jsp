@@ -208,10 +208,10 @@ textarea {
 					메세지보내기
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 				</div>
-				<form action='' method="post">
+				<form id="sendMessageForm" action='' method="post">
 					<input type ="hidden" name="receiver" id="messageReceiverId">
 					<div class="modal-body">
-						<textarea placeholder="메세지를 입력하세요" name="message"></textarea>
+						<textarea placeholder="메세지를 입력하세요" name="content"></textarea>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" id="sendMessage">등록</button>
@@ -269,25 +269,26 @@ textarea {
 					})
 			})
 			$('.groupSendMessageButton').click(function(){
-				$("#sendMessage").click(function(){
-					$.ajax({
-						url : "/controller/main/send",
-						type : "post",
-						data : $("#sendMessageForm").serialize(),
-						dataType : "text",
-						success : function(data) {
-							if(data>0){
-								$("#friendSendMessage").hide();
-							}else{
-								alert("전송 실패");
-							}
-						},
-						error : function() {
-							alert('error')
-						}
-					})
-				});
+				$("#messageReceiverId").val($(this).parents().parents().attr('id'));
 			})
+			$("#sendMessage").click(function(){
+				$.ajax({
+					url : "/controller/main/send",
+					type : "post",
+					data : $("#sendMessageForm").serialize(),
+					dataType : "text",
+					success : function(data) {
+						if(data>0){
+							$("#friendSendMessage").hide();
+						}else{
+							alert("전송 실패");
+						}
+					},
+					error : function() {
+						alert('error')
+					}
+				})
+			});
 		})
 		
 		/* 그룹 탈퇴 */
