@@ -37,7 +37,8 @@
 							<label for="fromDate">From</label>
 							<input type="text" id="fromDate" name="startDate">
 							<label for="toDate">to</label>
-							<input type="text" id="toDate" name="endDate">
+							<input type="text" id="toDate">
+							<input type="hidden" id="hiddenToDate" name="endDate" value="">
 						</div>
 					</div>
 					<div class="modal-footer">

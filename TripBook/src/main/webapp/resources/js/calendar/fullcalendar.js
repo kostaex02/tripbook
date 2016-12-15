@@ -71,7 +71,7 @@
             	$.ajax({
 		    		url:'/controller/calendar/update',
 		    		type : "post",
-		    		data:"scheduleNo="+event.id+"&startDate="+event.start+"&endDate="+event.end,
+		    		data:"scheduleNo="+event.id+"&startDate="+moment(event.start).format('YYYY-MM-DD')+"&endDate="+moment(event.end).format('YYYY-MM-DD'),
 					dataType : "json",
 					success:function(data){
 						/*if(data>0){
@@ -94,7 +94,8 @@
 				$('#addTravelBoard').modal();
 				$('#fromDate').val(moment(start).format('YYYY-MM-DD'));
 				var endDateDay=moment(end).format('DD')-1;
-				$('#toDate').val(moment(start).format('YYYY-MM-')+endDateDay);
+				$('#toDate').val(moment(end).format('YYYY-MM-')+endDateDay);
+				$('#hiddenToDate').val(moment(end).format('YYYY-MM-DD'));
 	
 				/*var eventData;
 				if (addSchedule) {

@@ -3786,6 +3786,7 @@ textarea.input-group-sm>.form-control,textarea.input-group-sm>.input-group-addon
 
 .nav>li>a {
 	position: relative;
+	float:left;
 	display: block;
 	padding: 10px 15px
 }
@@ -3846,7 +3847,7 @@ textarea.input-group-sm>.form-control,textarea.input-group-sm>.input-group-addon
 	{
 	color: #555555;
 	background-color: #ffffff;
-	border: 1px solid #dddddd;
+	border: 1px solid #ffffff;
 	border-bottom-color: transparent;
 	cursor: default
 }

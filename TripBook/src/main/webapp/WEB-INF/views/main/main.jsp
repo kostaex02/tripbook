@@ -352,8 +352,7 @@ hr {
 </head>
 <body>
 	<div id='mainNewBoard'>
-		게시글 작성 영역
-		<hr>
+		
 		<input class="btn btn-primary btn-sm" type='button' value='일반게시물'
 			data-toggle="modal" data-target="#addGeneralBoard"
 			data-keyboard="false"> <input class="btn btn-primary btn-sm"
@@ -612,6 +611,7 @@ hr {
 		</div>
 	</div>
 
+
 	<!-- 여행게시물 modal -->
 	<div class="modal fade" id="addTravelBoard" role="dialog">
 		<div class="modal-dialog">
@@ -620,33 +620,43 @@ hr {
 					enctype="multipart/form-data"
 					onkeydown="return captureReturnKey(event)">
 					<div class="modal-header">
-						여행게시물
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<div class="newBoardPicture">
+								<img class="newBoardPictureImg"
+									src='<c:url value="/images/img.jpg"/>'>
+							</div><div>${userName}</div>
+							
+						<select>
+							<option value="전체보기">전체보기</option>
+							<option value="친구보기">친구보기</option>
+							<option value="그룹보기">그룹보기</option>
+							<option value="비공개">비공개</option>
+						</select>
+						
 					</div>
 					<div class="modal-body">
 						<div class="newTravelBoardContainer">
 							<ul class="nav nav-tabs nav-justified" role="tablist"
-								style="height: 50px">
+								style="height: 50px; width:200px;">
 								<li role="presentation" class="active" style="padding: 0;"><a
 									href="#editSchedule" aria-controls="editSchedule" role="tab"
-									data-toggle="tab">Edit</a></li>
+									data-toggle="tab">신규 일정</a></li>
 								<li role="presentation" style="padding: 0"><a
 									href="#addSchedule" aria-controls="addSchedule" role="tab"
-									data-toggle="tab">Add</a></li>
+									data-toggle="tab">기존 일정</a></li>
 							</ul>
 							<div class="tab-content">
 								<!-- EDIT -->
 								<div class="tab-pane active" id="editSchedule">
 									<input type="text" class="form-control" id="editSubject"
-										name="subject" placeholder="제목">
+										name="subject" placeholder="제목을 입력하세요">
 									<div class="col-md-12">
 										<div class="form-group row">
-											<label for="editFromDate" class="col-md-1 control-label">From</label>
+											<label for="editFromDate" class="col-md-1 control-label">출발일</label>
 											<div class="col-md-5">
 												<input type="text" class="form-control" id="editFromDate"
 													name="start_date">
 											</div>
-											<label for="editToDate" class="col-md-1 control-label">to</label>
+											<label for="editToDate" class="col-md-1 control-label">종료일</label>
 											<div class="col-md-5">
 												<input type="text" class="form-control" id="editToDate"
 													name="end_date">
