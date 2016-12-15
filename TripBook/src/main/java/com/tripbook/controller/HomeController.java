@@ -48,6 +48,7 @@ public class HomeController {
 			return mv = new ModelAndView("redirect:loginResult");
 		}else{
 			mv=new ModelAndView("home");
+			mv.addObject("errMessage", "아이디와 비밀번호가 틀렸습니다.");
 		}
 		return mv;
 	}

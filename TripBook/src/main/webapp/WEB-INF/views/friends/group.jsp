@@ -106,8 +106,8 @@ textarea {
 					</div>
 					<div class="groupFriendsNameId">${item.name}</div>
 					<div class="groupFriendsButton">
-						<a href="#" class='btn btn-primary' data-toggle="modal"
-							data-target="#friendSendMessage">메세지 작성</a>
+						<input type="button" class='btn btn-primary groupSendMessageButton' data-toggle="modal"
+							data-target="#friendSendMessage" value="메세지 작성">
 					</div>
 				</li>
 			</c:forEach>
@@ -209,11 +209,12 @@ textarea {
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 				</div>
 				<form action='' method="post">
+					<input type ="hidden" name="receiver" id="messageReceiverId">
 					<div class="modal-body">
 						<textarea placeholder="메세지를 입력하세요" name="message"></textarea>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-default" id="submit">등록</button>
+						<button type="button" class="btn btn-default" id="sendMessage">등록</button>
 						<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
 					</div>
 				</form>
@@ -266,6 +267,26 @@ textarea {
 							alert('error')
 						}
 					})
+			})
+			$('.groupSendMessageButton').click(function(){
+				$("#sendMessage").click(function(){
+					$.ajax({
+						url : "/controller/main/send",
+						type : "post",
+						data : $("#sendMessageForm").serialize(),
+						dataType : "text",
+						success : function(data) {
+							if(data>0){
+								$("#friendSendMessage").hide();
+							}else{
+								alert("전송 실패");
+							}
+						},
+						error : function() {
+							alert('error')
+						}
+					})
+				});
 			})
 		})
 		

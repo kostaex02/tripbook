@@ -227,7 +227,11 @@ textarea {
 					data : $("#sendMessageForm").serialize(),
 					dataType : "text",
 					success : function(data) {
-						alert(data)
+						if(data>0){
+							$("#friendSendMessage").hide();
+						}else{
+							alert("실패");
+						}
 					},
 					error : function() {
 						alert('error')

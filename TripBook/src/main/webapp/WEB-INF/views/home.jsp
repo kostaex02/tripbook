@@ -366,6 +366,8 @@
 		})();
 
 		$(function() {
+			error();
+			
 			$(".input-group #file-upload").on('change', function(){
 					 if(window.FileReader){  // modern browser
 				      var filename = $(this)[0].files[0].name;
@@ -477,6 +479,13 @@
 				return false;		
 			}
 		}
+		
+		function error(){
+	    	  var errMessage = '<%= request.getAttribute("errMessage") %>';
+	    	  if(errMessage!=null){
+	    		  alert(errMessage);
+	    	  }
+	     }
 	</script>
 
 </body>
