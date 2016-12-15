@@ -141,3 +141,6 @@ CREATE TABLE reply_table
 );
 select * from notice_table
 delete from group_table;
+
+select schedule_no,subject,to_char(start_date,'YYYY-MM-DD') start_date,to_char(end_date-1,'YYYY-MM-DD') end_date,state,writer
+		from schedule_table;
