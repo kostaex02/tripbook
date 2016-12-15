@@ -332,7 +332,21 @@ hr {
 	float: left;
 	margin-top:-10px;
 }
+.dateControlBox{
+	width:200px;
+	
+}
 
+.dateLabel{
+	float:left;
+	margin-top:10px;
+}
+.form-group{
+	margin-top:20px;
+}
+.newBoardMap{
+	float:left;
+}
 </style>
 
 
@@ -647,31 +661,31 @@ hr {
 							<div class="tab-content">
 								<!-- EDIT -->
 								<div class="tab-pane active" id="editSchedule">
+								<hr>
 									<input type="text" class="form-control" id="editSubject"
 										name="subject" placeholder="제목을 입력하세요">
+										<div class="newBoardTitle">
+										<hr>
+										<textarea name="title" class="form-control" rows="4"
+											id="editComment"></textarea>
+									</div>
 									<div class="col-md-12">
 										<div class="form-group row">
-											<label for="editFromDate" class="col-md-1 control-label">출발일</label>
+											<label class='dateLabel'>출발일</label>
 											<div class="col-md-5">
-												<input type="text" class="form-control" id="editFromDate"
+												<input type="text" class="form-control dateControlBox" id="editFromDate"
 													name="start_date">
 											</div>
-											<label for="editToDate" class="col-md-1 control-label">종료일</label>
+											<label class='dateLabel'>종료일</label>
 											<div class="col-md-5">
-												<input type="text" class="form-control" id="editToDate"
+												<input type="text" class="form-control dateControlBox" id="editToDate"
 													name="end_date">
 											</div>
 										</div>
 									</div>
 									<hr>
-									<div class="newBoardPicture">
-										<img class="newBoardPictureImg"
-											src='<c:url value="/images/img.jpg"/>'>
-									</div>
-									<div class="newBoardTitle">
-										<textarea name="title" class="form-control" rows="4"
-											id="editComment"></textarea>
-									</div>
+									
+									
 									<div class="newBoardSelect">
 										<div class="input-group-btn">
 											<button class="btn btn-default btn-sm newBoardUploadImg"
@@ -680,24 +694,26 @@ hr {
 													src='<c:url value="/images/icon/icon_upload.png"/>'
 													width="64px" height="64px"></i>
 											</button>
-											<button class="btn btn-default btn-sm newBoardMap"
-												type="button">
-												<i><img src='<c:url value="/images/icon/icon_map.png"/>'
-													width="64px" height="64px"></i>
-											</button>
 										</div>
 										<input type="file" class="newBoardMulti with-preview"
 											id="newEditTravelBoardMulti" name="file"
 											style="display: none" multiple />
+											<div class="newBoardMultiList"
+											id="newEditTravelBoardMultiList" name="newBoardMultiList"></div>
+										<button class="btn btn-default btn-sm newBoardMap"
+												type="button">
+												<i><img src='<c:url value="/images/icon/icon_map.png"/>'
+													width="64px" height="64px"></i>
+											</button>
 										<div class="btn-group groupMap" role="group"
 											style="display: none">
+											
 											<button type="button" class="btn btn-default btn-sm"
 												onClick="createMap(1,0)">국내</button>
 											<button type="button" class="btn btn-default btn-sm"
 												onClick="createMap(1,1)">해외</button>
 										</div>
-										<div class="newBoardMultiList"
-											id="newEditTravelBoardMultiList" name="newBoardMultiList"></div>
+										
 									</div>
 
 									<div name="mapChoice" class="mapChoice" style="width: 95%"></div>
