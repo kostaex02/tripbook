@@ -45,7 +45,6 @@ a {
 }
 
 .newBoardContainer {
-	border: 1px solid;
 	width: 100%;
 	display: inline-table;
 }
@@ -64,7 +63,7 @@ a {
 .newBoardTitle {
 	vertical-align: middle;
 	display: inline-block;
-	width: 80%;
+	width: 100%;
 }
 
 .newBoardTitle input[type="text"] {
@@ -98,142 +97,241 @@ a {
 	display: inline-table;
 	cursor: pointer;
 	vertical-align: middle;
-} *//* 
+} */ /* 
 .newBoardMap {
 	width: 64px;
 	margin-left: 10px;
 	display: inline-table;
 } */
-
-
 .newBoardSelect {
 	display: inline-block;
 	color: #999;
 	font-size: inherit;
 	line-height: normal;
 	background-color: #fdfdfd;
-	border: 1px solid pink;
+	width: 100%;
 }
 
 .newBoardMultiList {
-	border: 2px solid #c9c9c9;
-	min-width: 80px;
-	min-height: 50px;
+	height: auto;
+	width:100%;
 	display: inline-block;
+	margin-bottom: 20px;
 }
 
 hr {
 	margin-top: 0px;
+	visibility: hidden;
 }
 
 .controls {
-  margin-top: 10px;
-  border: 1px solid transparent;
-  border-radius: 2px 0 0 2px;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  height: 32px;
-  outline: none;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+	margin-top: 10px;
+	border: 1px solid transparent;
+	border-radius: 2px 0 0 2px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	height: 32px;
+	outline: none;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 #general_pac-input {
-  background-color: #fff;
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: 300;
-  margin-left: 12px;
-  padding: 0 11px 0 13px;
-  text-overflow: ellipsis;
-  width: 300px;
+	background-color: #fff;
+	font-family: Roboto;
+	font-size: 15px;
+	font-weight: 300;
+	margin-left: 12px;
+	padding: 0 11px 0 13px;
+	text-overflow: ellipsis;
+	width: 300px;
 }
 
 #general_pac-input:focus {
-  border-color: #4d90fe;
+	border-color: #4d90fe;
 }
 
 #travelEdit_pac-input {
-  background-color: #fff;
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: 300;
-  margin-left: 12px;
-  padding: 0 11px 0 13px;
-  text-overflow: ellipsis;
-  width: 300px;
+	background-color: #fff;
+	font-family: Roboto;
+	font-size: 15px;
+	font-weight: 300;
+	margin-left: 12px;
+	padding: 0 11px 0 13px;
+	text-overflow: ellipsis;
+	width: 300px;
 }
 
 #travelEdit_pac-input:focus {
-  border-color: #4d90fe;
+	border-color: #4d90fe;
 }
 
 #travelAdd_pac-input {
-  background-color: #fff;
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: 300;
-  margin-left: 12px;
-  padding: 0 11px 0 13px;
-  text-overflow: ellipsis;
-  width: 300px;
+	background-color: #fff;
+	font-family: Roboto;
+	font-size: 15px;
+	font-weight: 300;
+	margin-left: 12px;
+	padding: 0 11px 0 13px;
+	text-overflow: ellipsis;
+	width: 300px;
 }
 
 #travelAdd_pac-input:focus {
-  border-color: #4d90fe;
+	border-color: #4d90fe;
 }
 
 .pac-container {
-  font-family: Roboto;
-  background-color: #FFF;
-    z-index: 20;
-    position: fixed;
-    display: inline-block;
-    float: left;
+	font-family: Roboto;
+	background-color: #FFF;
+	z-index: 20;
+	position: fixed;
+	display: inline-block;
+	float: left;
 }
 
 #type-selector {
-  color: #fff;
-  background-color: #4d90fe;
-  padding: 5px 11px 0px 11px;
+	color: #fff;
+	background-color: #4d90fe;
+	padding: 5px 11px 0px 11px;
 }
 
 #type-selector label {
-  font-family: Roboto;
-  font-size: 13px;
-  font-weight: 300;
+	font-family: Roboto;
+	font-size: 13px;
+	font-weight: 300;
 }
+
 #target {
-        width: 345px;
+	width: 345px;
 }
 
-.modal{
-    z-index: 20;   
-}
-.modal-backdrop{
-    z-index: 10;        
+.modal {
+	z-index: 20;
 }
 
-.likeCount, .heart{
-	float:left;
-	top:-15px;
+.modal-backdrop {
+	z-index: 10;
+}
+
+.likeCount, .heart {
+	float: left;
+	top: -15px;
 	margin-right: 10px;
 }
 
-#general_menu_wrap {position:absolute;top:0;left:0;bottom:0;width:250px;height:25px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 2;font-size:12px;border-radius: 10px;}
-.bg_white {background:#fff;}
-#general_menu_wrap .option{text-align: center;}
-#general_menu_wrap .option p {margin:10px 0;}  
-#general_menu_wrap .option button {margin-left:5px;}​
+#general_menu_wrap {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 250px;
+	height: 25px;
+	margin: 10px 0 30px 10px;
+	padding: 5px;
+	overflow-y: auto;
+	background: rgba(255, 255, 255, 0.7);
+	z-index: 2;
+	font-size: 12px;
+	border-radius: 10px;
+}
 
-#travelEdit_menu_wrap {position:absolute;top:0;left:0;bottom:0;width:250px;height:25px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 2;font-size:12px;border-radius: 10px;}
-#travelEdit_menu_wrap .option{text-align: center;}
-#travelEdit_menu_wrap .option p {margin:10px 0;}  
-#travelEdit_menu_wrap .option button {margin-left:5px;}
+.bg_white {
+	background: #fff;
+}
 
-#travelAdd_menu_wrap {position:absolute;top:0;left:0;bottom:0;width:250px;height:25px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 2;font-size:12px;border-radius: 10px;}
-#travelAdd_menu_wrap .option{text-align: center;}
-#travelAdd_menu_wrap .option p {margin:10px 0;}  
-#travelAdd_menu_wrap .option button {margin-left:5px;}
+#general_menu_wrap .option {
+	text-align: center;
+}
+
+#general_menu_wrap .option p {
+	margin: 10px 0;
+}
+
+#general_menu_wrap .option button {
+	margin-left: 5px;
+}
+
+​
+
+#travelEdit_menu_wrap {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 250px;
+	height: 25px;
+	margin: 10px 0 30px 10px;
+	padding: 5px;
+	overflow-y: auto;
+	background: rgba(255, 255, 255, 0.7);
+	z-index: 2;
+	font-size: 12px;
+	border-radius: 10px;
+}
+
+#travelEdit_menu_wrap .option {
+	text-align: center;
+}
+
+#travelEdit_menu_wrap .option p {
+	margin: 10px 0;
+}
+
+#travelEdit_menu_wrap .option button {
+	margin-left: 5px;
+}
+
+#travelAdd_menu_wrap {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 250px;
+	height: 25px;
+	margin: 10px 0 30px 10px;
+	padding: 5px;
+	overflow-y: auto;
+	background: rgba(255, 255, 255, 0.7);
+	z-index: 2;
+	font-size: 12px;
+	border-radius: 10px;
+}
+
+#travelAdd_menu_wrap .option {
+	text-align: center;
+}
+
+#travelAdd_menu_wrap .option p {
+	margin: 10px 0;
+}
+
+#travelAdd_menu_wrap .option button {
+	margin-left: 5px;
+}
+
+#mainExclusive_input {
+	resize: none;
+}
+
+.MultiFile-title{
+	display: none;
+}
+
+.MultiFile-preview{
+	float:left;
+}
+
+.MultiFile-remove{
+	float:left;
+}
+
+.modal-header{
+	height:100px;
+}
+.newBoardPicture{
+	float: left;
+	margin-top:-10px;
+}
 
 </style>
 
@@ -243,18 +341,24 @@ hr {
 <link rel="stylesheet"
 	href='<c:url value="/resources/css/main/stroll.css"/>'>
 
-<link href='<c:url value="/resources/js/calendar/lib/cupertino/jquery-ui.min.css"/>' rel='stylesheet' />
+<link
+	href='<c:url value="/resources/js/calendar/lib/cupertino/jquery-ui.min.css"/>'
+	rel='stylesheet' />
 
 <!-- 하트 효과 -->
-<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/main/heart.css"/>"/>
+<link rel="stylesheet" type="text/css"
+	href="<c:url value="/resources/css/main/heart.css"/>" />
 
 </head>
 <body>
 	<div id='mainNewBoard'>
 		게시글 작성 영역
 		<hr>
-		<input class="btn btn-primary btn-sm" type='button' value='일반게시물' data-toggle="modal" data-target="#addGeneralBoard" data-keyboard="false">
-		<input class="btn btn-primary btn-sm" type='button' value='여행게시물' data-toggle="modal" data-target="#addTravelBoard" data-keyboard="false">
+		<input class="btn btn-primary btn-sm" type='button' value='일반게시물'
+			data-toggle="modal" data-target="#addGeneralBoard"
+			data-keyboard="false"> <input class="btn btn-primary btn-sm"
+			type='button' value='여행게시물' data-toggle="modal"
+			data-target="#addTravelBoard" data-keyboard="false">
 	</div>
 	<hr>
 	<div class='mainAllBoard'>
@@ -276,7 +380,7 @@ hr {
 							<b>User ID</b> 12월 03일 오전 11:41<br> -> 나도 놀러갈래!
 						</div>
 						<div>
-							<div class="heart " id="like1" rel="like"></div> 
+							<div class="heart " id="like1" rel="like"></div>
 							<div class="likeCount" id="likeCount1">14</div>
 							<a href='#'>댓글달기</a>
 						</div>
@@ -298,7 +402,7 @@ hr {
 							<b>User ID</b> 12월 03일 오전 11:41<br> -> 나도 놀러갈래!
 						</div>
 						<div>
-							<input type='button' value='좋아요'></span><a href='#'>댓글달기</a>
+							<input type='button' value='좋아요'><a href='#'>댓글달기</a>
 						</div>
 					</div>
 				</li>
@@ -318,7 +422,7 @@ hr {
 							<b>User ID</b> 12월 03일 오전 11:41<br> -> 나도 놀러갈래!
 						</div>
 						<div>
-							<input type='button' value='좋아요'></span><a href='#'>댓글달기</a>
+							<input type='button' value='좋아요'><a href='#'>댓글달기</a>
 						</div>
 					</div>
 				</li>
@@ -338,7 +442,7 @@ hr {
 							<b>User ID</b> 12월 03일 오전 11:41<br> -> 나도 놀러갈래!
 						</div>
 						<div>
-							<input type='button' value='좋아요'></span><a href='#'>댓글달기</a>
+							<input type='button' value='좋아요'><a href='#'>댓글달기</a>
 						</div>
 					</div>
 				</li>
@@ -358,7 +462,7 @@ hr {
 							<b>User ID</b> 12월 03일 오전 11:41<br> -> 나도 놀러갈래!
 						</div>
 						<div>
-							<input type='button' value='좋아요'></span><a href='#'>댓글달기</a>
+							<input type='button' value='좋아요'><a href='#'>댓글달기</a>
 						</div>
 					</div>
 				</li>
@@ -378,7 +482,7 @@ hr {
 							<b>User ID</b> 12월 03일 오전 11:41<br> -> 나도 놀러갈래!
 						</div>
 						<div>
-							<input type='button' value='좋아요'></span><a href='#'>댓글달기</a>
+							<input type='button' value='좋아요'><a href='#'>댓글달기</a>
 						</div>
 					</div>
 				</li>
@@ -398,7 +502,7 @@ hr {
 							<b>User ID</b> 12월 03일 오전 11:41<br> -> 나도 놀러갈래!
 						</div>
 						<div>
-							<input type='button' value='좋아요'></span><a href='#'>댓글달기</a>
+							<input type='button' value='좋아요'><a href='#'>댓글달기</a>
 						</div>
 					</div>
 				</li>
@@ -418,7 +522,7 @@ hr {
 							<b>User ID</b> 12월 03일 오전 11:41<br> -> 나도 놀러갈래!
 						</div>
 						<div>
-							<input type='button' value='좋아요'></span><a href='#'>댓글달기</a>
+							<input type='button' value='좋아요'><a href='#'>댓글달기</a>
 						</div>
 					</div>
 				</li>
@@ -430,185 +534,246 @@ hr {
 	<div class="modal fade" id="addGeneralBoard" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form name="generalForm" action="#" method="post" enctype="multipart/form-data" onkeydown="return captureReturnKey(event)" onsubmit="return validateForm(0)">
+				<form name="generalForm" action="#" method="post"
+					enctype="multipart/form-data"
+					onkeydown="return captureReturnKey(event)"
+					onsubmit="return validateForm(0)">
 					<div class="modal-header">
-						일반게시물
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-					</div>
-					<div class="modal-body">
-						<div class="newBoardContainer">
-							<div class="newBoardPicture">
+						<div class="newBoardPicture">
 								<img class="newBoardPictureImg"
 									src='<c:url value="/images/img.jpg"/>'>
-							</div>
-							<div class="newBoardTitle">
-								<textarea name="title" class="form-control" rows="4" id="mainExclusive_input"></textarea>
-							</div>
-							<hr>
-							<div class="newBoardSelect">
-								<div class="input-group-btn">
-									<button class="btn btn-default btn-sm newBoardUploadImg" type="button" id="newGeneralBoardUploadImg">
-										<i><img src='<c:url value="/images/icon/icon_upload.png"/>' width="64px" height="64px"></i>
-									</button>
-									<button class="btn btn-default btn-sm newBoardMap" type="button" id="newGeneralBoardMap">
-										<i><img src='<c:url value="/images/icon/icon_map.png"/>' width="64px" height="64px"></i>
-									</button>
-								</div>
-								<input type="file" class="newBoardMulti with-preview" id="newGeneralBoardMulti" name="file" style="display:none" multiple/>
-								
-								<div class="btn-group groupMap" role="group" style="display:none">
-									<button type="button" class="btn btn-default btn-sm" onClick="createMap(0,0)">국내</button>
-									<button type="button" class="btn btn-default btn-sm" onClick="createMap(0,1)">해외</button>
-								</div>
-								<div class="newBoardMultiList" id="newGeneralBoardMultiList" name="newBoardMultiList"></div>
-								
-							</div>
-							<div name="mapChoice" class="mapChoice" style="width:95%"></div>
-							<input type="text" name="keyword" id="resultKeyword0"><br>
-							<input type="text" name="region" id="resultRegion0"><br>
-							<input type="text" name="address" id="resultAddress0"><br>
-							<input type="text" name="location_lat" id="resultLatitude0"><br>
-							<input type="text" name="location_lng" id="resultLongitude0"> 
- 						</div>
-					</div>
-					<div class="modal-footer">
+							</div><div>${userName}</div>
+							
 						<select>
 							<option value="전체보기">전체보기</option>
 							<option value="친구보기">친구보기</option>
 							<option value="그룹보기">그룹보기</option>
 							<option value="비공개">비공개</option>
 						</select>
+						
+					</div>
+					<div class="modal-body">
+						<div class="newBoardContainer">
+							
+							<div class="newBoardTitle">
+								<textarea name="title" class="form-control" rows="4"
+									id="mainExclusive_input" placeholder="내용을 입력해 주세요"></textarea>
+							</div>
+							<hr>
+							<div class="newBoardSelect">
+								<div class="input-group-btn">
+									<button class="btn btn-default btn-sm newBoardUploadImg"
+										type="button" id="newGeneralBoardUploadImg">
+										<i><img
+											src='<c:url value="/images/icon/icon_upload.png"/>'
+											width="64px" height="64px"></i>
+									</button>
+									<hr>
+								</div>
+
+								<input type="file" class="newBoardMulti with-preview"
+									id="newGeneralBoardMulti" name="file" style="display: none"
+									multiple />
+								<div class="newBoardMultiList" id="newGeneralBoardMultiList"
+									name="newBoardMultiList"></div>
+								<div>
+									<button class="btn btn-default btn-sm newBoardMap"
+										type="button" id="newGeneralBoardMap">
+										<i><img src='<c:url value="/images/icon/icon_map.png"/>'
+											width="64px" height="64px"></i>
+									</button>
+								</div>
+								<div class="btn-group groupMap" role="group"
+									style="display: none">
+									<button type="button" class="btn btn-default btn-sm"
+										onClick="createMap(0,0)">국내</button>
+									<button type="button" class="btn btn-default btn-sm"
+										onClick="createMap(0,1)">해외</button>
+								</div>
+
+
+							</div>
+							<div name="mapChoice" class="mapChoice" style="width: 95%"></div>
+							<input type="hidden" name="keyword" id="resultKeyword0"><br>
+							<input type="hidden" name="region" id="resultRegion0"><br>
+							<input type="hidden" name="address" id="resultAddress0"><br>
+							<input type="hidden" name="location_lat" id="resultLatitude0"><br>
+							<input type="hidden" name="location_lng" id="resultLongitude0">
+						</div>
+					</div>
+					<div class="modal-footer">
+						
 						<button type="submit" class="btn btn-default btn-sm">등록</button>
-						<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">취소</button>
+						<button type="button" class="btn btn-default btn-sm"
+							data-dismiss="modal">취소</button>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- 여행게시물 modal -->
 	<div class="modal fade" id="addTravelBoard" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form name="generalForm" action="#" method="post" enctype="multipart/form-data" onkeydown="return captureReturnKey(event)">
+				<form name="generalForm" action="#" method="post"
+					enctype="multipart/form-data"
+					onkeydown="return captureReturnKey(event)">
 					<div class="modal-header">
 						여행게시물
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 					</div>
 					<div class="modal-body">
 						<div class="newTravelBoardContainer">
-							<ul class="nav nav-tabs nav-justified" role="tablist" style="height:50px">
-                        		<li role="presentation" class="active" style="padding:0;"><a href="#editSchedule" aria-controls="editSchedule" role="tab" data-toggle="tab">Edit</a>
-								</li>
-                        		<li role="presentation" style="padding:0"><a href="#addSchedule" aria-controls="addSchedule" role="tab" data-toggle="tab">Add</a>
-								</li>
-                    		</ul>
-                    		<div class="tab-content">
+							<ul class="nav nav-tabs nav-justified" role="tablist"
+								style="height: 50px">
+								<li role="presentation" class="active" style="padding: 0;"><a
+									href="#editSchedule" aria-controls="editSchedule" role="tab"
+									data-toggle="tab">Edit</a></li>
+								<li role="presentation" style="padding: 0"><a
+									href="#addSchedule" aria-controls="addSchedule" role="tab"
+									data-toggle="tab">Add</a></li>
+							</ul>
+							<div class="tab-content">
 								<!-- EDIT -->
 								<div class="tab-pane active" id="editSchedule">
-                    				<input type="text" class="form-control" id="editSubject" name="subject" placeholder="제목">
-                    				<div class="col-md-12">
+									<input type="text" class="form-control" id="editSubject"
+										name="subject" placeholder="제목">
+									<div class="col-md-12">
 										<div class="form-group row">
 											<label for="editFromDate" class="col-md-1 control-label">From</label>
 											<div class="col-md-5">
-												<input type="text" class="form-control" id="editFromDate" name="start_date">
+												<input type="text" class="form-control" id="editFromDate"
+													name="start_date">
 											</div>
 											<label for="editToDate" class="col-md-1 control-label">to</label>
 											<div class="col-md-5">
-												<input type="text" class="form-control" id="editToDate" name="end_date">
+												<input type="text" class="form-control" id="editToDate"
+													name="end_date">
 											</div>
 										</div>
 									</div>
 									<hr>
-                    				<div class="newBoardPicture">
-										<img class="newBoardPictureImg" src='<c:url value="/images/img.jpg"/>'>
+									<div class="newBoardPicture">
+										<img class="newBoardPictureImg"
+											src='<c:url value="/images/img.jpg"/>'>
 									</div>
 									<div class="newBoardTitle">
-										<textarea name="title" class="form-control" rows="4" id="editComment"></textarea>
+										<textarea name="title" class="form-control" rows="4"
+											id="editComment"></textarea>
 									</div>
 									<div class="newBoardSelect">
 										<div class="input-group-btn">
-											<button class="btn btn-default btn-sm newBoardUploadImg" type="button">
-												<i><img src='<c:url value="/images/icon/icon_upload.png"/>' width="64px" height="64px"></i>
+											<button class="btn btn-default btn-sm newBoardUploadImg"
+												type="button">
+												<i><img
+													src='<c:url value="/images/icon/icon_upload.png"/>'
+													width="64px" height="64px"></i>
 											</button>
-											<button class="btn btn-default btn-sm newBoardMap" type="button">
-												<i><img src='<c:url value="/images/icon/icon_map.png"/>' width="64px" height="64px"></i>
+											<button class="btn btn-default btn-sm newBoardMap"
+												type="button">
+												<i><img src='<c:url value="/images/icon/icon_map.png"/>'
+													width="64px" height="64px"></i>
 											</button>
 										</div>
-										<input type="file" class="newBoardMulti with-preview" id="newEditTravelBoardMulti" name="file" style="display:none" multiple/>
-										<div class="btn-group groupMap" role="group" style="display:none">
-											<button type="button" class="btn btn-default btn-sm" onClick="createMap(1,0)">국내</button>
-											<button type="button" class="btn btn-default btn-sm" onClick="createMap(1,1)">해외</button>
+										<input type="file" class="newBoardMulti with-preview"
+											id="newEditTravelBoardMulti" name="file"
+											style="display: none" multiple />
+										<div class="btn-group groupMap" role="group"
+											style="display: none">
+											<button type="button" class="btn btn-default btn-sm"
+												onClick="createMap(1,0)">국내</button>
+											<button type="button" class="btn btn-default btn-sm"
+												onClick="createMap(1,1)">해외</button>
 										</div>
-									 	<div class="newBoardMultiList" id="newEditTravelBoardMultiList" name="newBoardMultiList"></div>
-									 </div>
-									 
-									 <div name="mapChoice" class="mapChoice" style="width:95%"></div>
-									 <input type="text" name="keyword" id="resultKeyword1"><br>
-									 <input type="text" name="region" id="resultRegion1"><br>
-									 <input type="text" name="address" id="resultAddress1"><br>
-									 <input type="text" name="location_lat" id="resultLatitude1"><br>
-									 <input type="text" name="location_lng" id="resultLongitude1"> 
+										<div class="newBoardMultiList"
+											id="newEditTravelBoardMultiList" name="newBoardMultiList"></div>
+									</div>
+
+									<div name="mapChoice" class="mapChoice" style="width: 95%"></div>
+									<input type="hidden" name="keyword" id="resultKeyword1"><br>
+									<input type="hidden" name="region" id="resultRegion1"><br>
+									<input type="hidden" name="address" id="resultAddress1"><br>
+									<input type="hidden" name="location_lat" id="resultLatitude1"><br>
+									<input type="hidden" name="location_lng" id="resultLongitude1">
 								</div>
-								
+
 								<!-- ADD -->
 								<div class="tab-pane" id="addSchedule">
-									<input type="text" class="form-control" id="addSubject" name="subject" placeholder="제목">
-                    				<div class="col-md-12">
+									<input type="text" class="form-control" id="addSubject"
+										name="subject" placeholder="제목">
+									<div class="col-md-12">
 										<div class="form-group row">
 											<label for="addFromDate" class="col-md-1 control-label">From</label>
 											<div class="col-md-5">
-												<input type="text" class="form-control" id="addFromDate" name="start_date">
+												<input type="text" class="form-control" id="addFromDate"
+													name="start_date">
 											</div>
 											<label for="addToDate" class="col-md-1 control-label">to</label>
 											<div class="col-md-5">
-												<input type="text" class="form-control" id="addToDate" name="end_date">
+												<input type="text" class="form-control" id="addToDate"
+													name="end_date">
 											</div>
 										</div>
 									</div>
 									<hr>
-                    				<div class="newBoardPicture">
-										<img class="newBoardPictureImg" src='<c:url value="/images/img.jpg"/>'>
+									<div class="newBoardPicture">
+										<img class="newBoardPictureImg"
+											src='<c:url value="/images/img.jpg"/>'>
 									</div>
 									<div class="newBoardTitle">
-										<textarea name="title" class="form-control" rows="4" id="addComment"></textarea>
+										<textarea name="title" class="form-control" rows="4"
+											id="addComment"></textarea>
 									</div>
-									
+
 									<div class="newBoardSelect">
 										<div class="input-group-btn">
-											<button class="btn btn-default btn-sm newBoardUploadImg" type="button">
-												<i><img src='<c:url value="/images/icon/icon_upload.png"/>' width="64px" height="64px"></i>
+											<button class="btn btn-default btn-sm newBoardUploadImg"
+												type="button">
+												<i><img
+													src='<c:url value="/images/icon/icon_upload.png"/>'
+													width="64px" height="64px"></i>
 											</button>
-											<button class="btn btn-default btn-sm newBoardMap" type="button">
-												<i><img src='<c:url value="/images/icon/icon_map.png"/>' width="64px" height="64px"></i>
+											<button class="btn btn-default btn-sm newBoardMap"
+												type="button">
+												<i><img src='<c:url value="/images/icon/icon_map.png"/>'
+													width="64px" height="64px"></i>
 											</button>
 										</div>
-										<input type="file" class="newBoardMulti with-preview" id="newAddTravelBoardMulti" name="file" style="display:none" multiple/>
-										<div class="btn-group groupMap" role="group" style="display:none">
-											<button type="button" class="btn btn-default btn-sm" onClick="createMap(2,0)">국내</button>
-											<button type="button" class="btn btn-default btn-sm" onClick="createMap(2,1)">해외</button>
+										<input type="file" class="newBoardMulti with-preview"
+											id="newAddTravelBoardMulti" name="file" style="display: none"
+											multiple />
+										<div class="btn-group groupMap" role="group"
+											style="display: none">
+											<button type="button" class="btn btn-default btn-sm"
+												onClick="createMap(2,0)">국내</button>
+											<button type="button" class="btn btn-default btn-sm"
+												onClick="createMap(2,1)">해외</button>
 										</div>
-										<div class="newBoardMultiList" id="newAddTravelBoardMultiList" name="newBoardMultiList"></div>
+										<div class="newBoardMultiList" id="newAddTravelBoardMultiList"
+											name="newBoardMultiList"></div>
 									</div>
-									<div name="mapChoice" class="mapChoice" style="width:95%"></div>
-							 		<input type="text" name="keyword" id="resultKeyword2"><br>
-							 		<input type="text" name="region" id="resultRegion2"><br>
-									<input type="text" name="address" id="resultAddress2"><br>
-									<input type="text" name="location_lat" id="resultLatitude2"><br>
-									<input type="text" name="location_lng" id="resultLongitude2"> 
+									<div name="mapChoice" class="mapChoice" style="width: 95%"></div>
+									<input type="hidden" name="keyword" id="resultKeyword2"><br>
+									<input type="hidden" name="region" id="resultRegion2"><br>
+									<input type="hidden" name="address" id="resultAddress2"><br>
+									<input type="hidden" name="location_lat" id="resultLatitude2"><br>
+									<input type="hidden" name="location_lng" id="resultLongitude2">
+								</div>
 							</div>
-						</div>	
-					</div>
-					<div class="modal-footer">
-						<select>
-							<option value="전체보기">전체보기</option>
-							<option value="친구보기">친구보기</option>
-							<option value="그룹보기">그룹보기</option>
-							<option value="비공개">비공개</option>
-						</select>
-						<button type="button" class="btn btn-default btn-sm" onClick="validateForm(count)">등록</button>
-						<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">취소</button>
-					</div>
+						</div>
+						<div class="modal-footer">
+							<select>
+								<option value="전체보기">전체보기</option>
+								<option value="친구보기">친구보기</option>
+								<option value="그룹보기">그룹보기</option>
+								<option value="비공개">비공개</option>
+							</select>
+							<button type="button" class="btn btn-default btn-sm"
+								onClick="validateForm(count)">등록</button>
+							<button type="button" class="btn btn-default btn-sm"
+								data-dismiss="modal">취소</button>
+						</div>
 				</form>
 			</div>
 		</div>
@@ -622,7 +787,8 @@ hr {
 			<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
 					<h4 class="modal-title">detail information</h4>
 				</div>
 				<div class="modal-body">
@@ -630,7 +796,7 @@ hr {
 						data-interval="0">
 						<!-- Indicators -->
 						<ol class="carousel-indicators">
-						<!-- class="active" 첫번째로 나오는 화면. -->
+							<!-- class="active" 첫번째로 나오는 화면. -->
 							<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 							<li data-target="#myCarousel" data-slide-to="1"></li>
 							<li data-target="#myCarousel" data-slide-to="2"></li>
@@ -670,7 +836,8 @@ hr {
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary btn-sm"
+						data-dismiss="modal">Close</button>
 				</div>
 			</div>
 		</div>
@@ -679,13 +846,15 @@ hr {
 
 
 	<script src='<c:url value="/resources/js/calendar/lib/jquery.min.js"/>'></script>
- 	<script src="<c:url value="/resources/js/main/jQuery.MultiFile.min.js"/>"></script>
+	<script
+		src="<c:url value="/resources/js/main/jQuery.MultiFile.min.js"/>"></script>
 
 	<script src='<c:url value="/resources/js/main/stroll.min.js"/>'></script>
 
 	<!-- 달력 -->
-	<script src='<c:url value="/resources/js/calendar/lib/jquery-ui.min.js"/>'></script>
-	
+	<script
+		src='<c:url value="/resources/js/calendar/lib/jquery-ui.min.js"/>'></script>
+
 	<script>
 	
 	/* 하트 효과 */
@@ -764,7 +933,7 @@ hr {
 				accept : 'jpg|png|gif', //허용할 확장자(지정하지 않으면 모든 확장자 허용)
 				STRING : { //Multi-lingual support : 메시지 수정 가능
 					remove : "제거", //추가한 파일 제거 문구, 이미태그를 사용하면 이미지사용가능
-						duplicate : "$file 은 이미 선택된 파일입니다.",
+					duplicate : "$file 은 이미 선택된 파일입니다.",
 					denied : "$ext 는(은) 업로드 할수 없는 파일확장자입니다.",
 					selected : '$file 을 선택했습니다.',
 				},
@@ -775,7 +944,7 @@ hr {
 				accept : 'jpg|png|gif', //허용할 확장자(지정하지 않으면 모든 확장자 허용)
 				STRING : { //Multi-lingual support : 메시지 수정 가능
 					remove : "제거", //추가한 파일 제거 문구, 이미태그를 사용하면 이미지사용가능
-						duplicate : "$file 은 이미 선택된 파일입니다.",
+					duplicate : "$file 은 이미 선택된 파일입니다.",
 					denied : "$ext 는(은) 업로드 할수 없는 파일확장자입니다.",
 					selected : '$file 을 선택했습니다.',
 				},
@@ -843,11 +1012,13 @@ hr {
 		
 	</script>
 	<!-- google API Key -->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBv7i1sbKKdVRfbilHi8obuYThFnE3P9ZA&libraries=places"
-         async defer></script>
-    <!-- daum API Key -->
-    <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=3bae0d1bca94080850d3d2451479c7ee&libraries=services"></script>
-	
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBv7i1sbKKdVRfbilHi8obuYThFnE3P9ZA&libraries=places"
+		async defer></script>
+	<!-- daum API Key -->
+	<script type="text/javascript"
+		src="//apis.daum.net/maps/maps3.js?apikey=3bae0d1bca94080850d3d2451479c7ee&libraries=services"></script>
+
 	<script>
 	var map;
 	
@@ -860,7 +1031,6 @@ hr {
 		
 		var mapChoice = document.getElementsByName('mapChoice');
 		
-		alert("create");
 		
 		if(area==0){	//국내
 			// 지도 검색창
