@@ -151,7 +151,7 @@
 }
 
 #friendAdd {
-	visibility: hidden;
+	visibility: visible;
 }
 
 /* a 태그 밑줄 제거 */
@@ -248,6 +248,9 @@ dl {
 	margin-bottom: 5px;
 }
 
+#sideFriendProfile{
+	visibility: hidden;
+}
 
 </style>
 
@@ -295,25 +298,38 @@ dl {
 						<c:choose>
 							<c:when test="${groupList ne null}">
 								<c:forEach items="${groupList }" var="item">
-									<a href='<c:url value="/group/list?groupNo=${item.groupNo}"/>'><dd
-											id="${item.groupNo }">${item.groupName }</dd></a>
+									<a href='<c:url value="/group/list?groupNo=${item.groupNo}"/>'>
+									<dd	id="${item.groupNo }">${item.groupName }</dd></a>
 								</c:forEach>
 							</c:when>
 						</c:choose>
 					</dl>
 				</div>
+				
+				<!-- 클릭시 생성 -->
+				<div id="sideFriendProfile">
 				<hr>
-				<a class='sideProfileLink' href='<c:url value="/mypage/list"/>'><div
-						id='friendsProfile'>
-						<img class='profileImage'
+				<a class='sideProfileLink' href='<c:url value="/mypage/list"/>'>
+					<div id="friendsProfile">
+						<img class='profileImage friendsImage'
 							src='<c:url value="/tripbook/user/${friendUserId}/${friendUserFileName}"/>'>
-						<div class='userName'>친구이름</div>
+						<input type="hidden" class="friendsUserId" value="">	<!-- input value에 아이디 저장-->
+						<div class='friendsUserName'>이름</div>
 						<a href='#'>게시물</a><br> <a href='#'>일대기</a>
 					</div>
-					<hr id='friendAdd'> <c:if test="${userName != null}">
+				</a>
+				<!-- 친구 상태값에 따른 버튼 변경 -->
+				<c:choose>
+					<c:when test="${friendState == null}">
+						<input class="btn btn-primary" type='button' value='메세지'>
+					</c:when>
+					<c:when test="${friendState == null}">
+						<hr id='friendAdd'>
 						<input class="btn btn-primary" type='button' value='친구 신청'>
-					</c:if> </a>
-			</div>
+					</c:when>
+				</c:choose>
+				</div>
+			</div>			
 		</c:when>
 		<c:when test="${userState eq '1'}">
 			<div id='adminSideNav'>

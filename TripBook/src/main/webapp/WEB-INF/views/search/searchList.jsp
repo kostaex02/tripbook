@@ -27,7 +27,15 @@ $(function(){
 		})
 	})	
 })
-	
+	/* 친구정보 alert */
+	$(function(){
+		$('.friendsProfile').on('click', ".friendPictureImg", function(){
+			var str= $(this).parent().siblings("input").attr('id');
+			$('.friendsUserId').attr("value", str);
+			
+			$('#sideFriendProfile').css('visibility', 'visible');
+		});
+	})
 </script>
 <style type="text/css">
 .friendsList {
@@ -71,6 +79,8 @@ $(function(){
 }
 
 </style>
+<link rel="stylesheet"
+	href='<c:url value="/resources/css/main/stroll.css"/>'>
 </head>
 <body>
 	<div class="friendsList">
