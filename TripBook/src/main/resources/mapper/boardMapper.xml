@@ -61,18 +61,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		left join reply_table r on b.board_no= r.board_no
 		join user_table u on b.writer= u.id
 		join user_table ru on r.writer = ru.id
-		where ru.state='0' and ((b.writer=#{userId}) or ((b.state='1' or b.state='0') and b.writer in 
+		where ru.state='0' and ((b.writer=#{userId})where (writer=#{userId})
+		<if test="friendList.size()!=0">
+		 or ((b.state='1' or b.state='0') and writer in 
 		<foreach collection="friendList" item="friend" open="(" separator=","
 			close=")">
 			#{friend}
 		</foreach>
 		)
-		<if test="groupList.size()!=0">  or (state in 
+		</if>
+		<if test="groupList.size()!=0">  or (b.state in 
 			<foreach collection="groupList" item="group" open="(" separator=","
 			close=")">
 			#{group}
 			</foreach>
-		))
+		)
 		</if>
 	</select>
 </mapper>

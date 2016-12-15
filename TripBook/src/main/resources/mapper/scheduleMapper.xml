@@ -19,12 +19,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectSchedule" parameterType="map" resultMap="selectScheduleMap">
 		select schedule_no,subject,to_char(start_date,'YYYY-MM-DD') start_date,to_char(end_date,'YYYY-MM-DD') end_date,state,writer
 		from schedule_table 
-		where (writer=#{userId}) or ((state='1' or state='0') and writer in 
+		where (writer=#{userId})
+		<if test="friendList.size()!=0">
+		 or ((state='1' or state='0') and writer in 
 		<foreach collection="friendList" item="friend" open="(" separator=","
 			close=")">
 			#{friend}
 		</foreach>
 		)
+		</if>
 		<if test="groupList.size()!=0">  or (state in 
 			<foreach collection="groupList" item="group" open="(" separator=","
 			close=")">
