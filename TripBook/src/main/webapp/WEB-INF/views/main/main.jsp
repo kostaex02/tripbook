@@ -682,25 +682,28 @@ hr {
 								<div class="tab-pane" id="addSchedule">
 									<input type="text" class="form-control" id="addSubject"
 										name="subject" placeholder="제목">
+									<br>	
+									<select class="form-control">
+										<option>1</option>
+										<option>2</option>									
+									</select>
+									
 									<div class="col-md-12">
 										<div class="form-group row">
-											<label for="addFromDate" class="col-md-1 control-label">From</label>
+											<label class='dateLabel'>출발일</label>
 											<div class="col-md-5">
-												<input type="text" class="form-control" id="addFromDate"
+												<input type="text" class="form-control dateControlBox" id="addFromDate"
 													name="start_date">
 											</div>
-											<label for="addToDate" class="col-md-1 control-label">to</label>
+											<label class='dateLabel'>종료일</label>
 											<div class="col-md-5">
-												<input type="text" class="form-control" id="addToDate"
+												<input type="text" class="form-control dateControlBox" id="addToDate"
 													name="end_date">
 											</div>
 										</div>
 									</div>
 									<hr>
-									<div class="newBoardPicture">
-										<img class="newBoardPictureImg"
-											src='<c:url value="/images/img.jpg"/>'>
-									</div>
+									
 									<div class="newBoardTitle">
 										<textarea name="title" class="form-control" rows="4"
 											id="addComment"></textarea>
@@ -714,15 +717,18 @@ hr {
 													src='<c:url value="/images/icon/icon_upload.png"/>'
 													width="64px" height="64px"></i>
 											</button>
-											<button class="btn btn-default btn-sm newBoardMap"
-												type="button">
-												<i><img src='<c:url value="/images/icon/icon_map.png"/>'
-													width="64px" height="64px"></i>
-											</button>
+											
 										</div>
 										<input type="file" class="newBoardMulti with-preview"
 											id="newAddTravelBoardMulti" name="file" style="display: none"
 											multiple />
+										<div class="newBoardMultiList" id="newAddTravelBoardMultiList"
+											name="newBoardMultiList"></div>
+										<button class="btn btn-default btn-sm newBoardMap"
+												type="button">
+												<i><img src='<c:url value="/images/icon/icon_map.png"/>'
+													width="64px" height="64px"></i>
+										</button>
 										<div class="btn-group groupMap" role="group"
 											style="display: none">
 											<button type="button" class="btn btn-default btn-sm"
@@ -730,9 +736,9 @@ hr {
 											<button type="button" class="btn btn-default btn-sm"
 												onClick="createMap(2,1)">해외</button>
 										</div>
-										<div class="newBoardMultiList" id="newAddTravelBoardMultiList"
-											name="newBoardMultiList"></div>
+										
 									</div>
+								
 									<div name="mapChoice" class="mapChoice" style="width: 95%"></div>
 									<input type="hidden" name="keyword" id="resultKeyword2"><br>
 									<input type="hidden" name="region" id="resultRegion2"><br>
