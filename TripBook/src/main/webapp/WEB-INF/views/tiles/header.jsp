@@ -71,15 +71,19 @@
 	
 }
 
-#trash{
+#trashImg{
+	position:absolute;
+	left:450%;
+	z-index:6;
+	top:-60%;
 	display: inline !important;
 }
 
 .calendarTrash{
-	width:100px;
-	height:60px;
-	display: table-cell;
-	padding-left: 35px;
+	background-image:url("../images/trash.png");
+	width:48px;
+	height:48px;
+	margin:10px;
 }
 .btn-img{
 	width: 23px;
@@ -100,8 +104,7 @@
 			<div class="jbTableCell" >
 				<button class="btn btn-default" type="submit" id="searchButton"><img class="btn-img" src="<c:url value="/images/icon/icon_searchButton.png"/>"></button>
 			</div>
-		
-			<div class="calendarTrash" ><img id='trash' src='<c:url value="/images/trash.png"/>'></div>
+			<div class="jbTableCell calendarTrash"></div>
 			</form>
 		</div>
 	</div>
