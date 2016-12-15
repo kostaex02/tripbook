@@ -5,15 +5,20 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.tripbook.dto.NoticeDTO;
 import com.tripbook.service.BoardService;
+import com.tripbook.service.NoticeService;
 
 @Controller
 @RequestMapping("main")
 public class MainController {
 	@Autowired
 	private BoardService boardService;
+	@Autowired
+	private NoticeService noticeService;
 	
 	@RequestMapping("{pageName}")
 	public void page(HttpServletRequest request){}
@@ -31,5 +36,14 @@ public class MainController {
 		ModelAndView mv = new ModelAndView("main/main");
 		mv.addObject("boardList", boardService.selectBoard(userId));
 		return mv;
+	}
+	
+	@RequestMapping("send")
+	@ResponseBody
+	public int send(HttpServletRequest request,NoticeDTO noticeDTO){
+		String userId = (String)request.getSession().getAttribute("userId");
+		noticeDTO.setSender(userId);
+		noticeDTO.setState("4");
+		return noticeService.insertNotice(noticeDTO);
 	}
 }
