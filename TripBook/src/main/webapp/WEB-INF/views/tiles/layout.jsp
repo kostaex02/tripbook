@@ -37,17 +37,17 @@
 	}
 	
 	#side{
-		background-color: #E1F5FE;
+		background-color: white;
 		float:left;
 		width:20%;
 		height:auto;
-		top:-10%;
-		left:-3%;
+		top: 11px;
+		left:0;
 	}
 	#container{
 		width:100%;
 		height:100%;
-		background-color: #E1F5FE;
+		background-color: white;
 	}
 	
 	.slideSideCover {

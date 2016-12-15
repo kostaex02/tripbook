@@ -231,7 +231,7 @@ a {
 
 /* 그룹관련 css */
 .sideGroupHeader {
-	background-color: black;
+	background-color: #84D4E4;
 	position: relative;
 	line-height: 30px;
 	height: auto;
@@ -242,6 +242,10 @@ a {
 
 .sideGroupMenu {
 	display: none;
+}
+
+dd{
+	color: black;
 }
 
 dl {
