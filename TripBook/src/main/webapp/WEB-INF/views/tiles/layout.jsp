@@ -24,12 +24,16 @@
 		float:right;
 		height:auto;
 		padding:5px;
+		top:-10%;
+		left:-10%;
 	}
 	
 	#content{
 		float:right;
 		height:auto;
 		padding:5px;
+		top:-15%;
+		left:-10%;
 	}
 	
 	#side{
@@ -37,7 +41,8 @@
 		float:left;
 		width:20%;
 		height:auto;
-		left:2%;
+		top:-10%;
+		left:-3%;
 	}
 	#container{
 		width:100%;

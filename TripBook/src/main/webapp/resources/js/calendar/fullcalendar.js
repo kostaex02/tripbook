@@ -74,11 +74,9 @@
 		    		data:"scheduleNo="+event.id+"&startDate="+moment(event.start).format('YYYY-MM-DD')+"&endDate="+moment(event.end).format('YYYY-MM-DD'),
 					dataType : "json",
 					success:function(data){
-						/*if(data>0){
-					        $('.calendar').fullCalendar ('rerenderEvents');
-						}else{
-							alert(data);
-						}*/
+						if(data==0){
+							revertFunc();
+						}
 					},
 					error:function(error){
 						revertFunc();

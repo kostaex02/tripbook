@@ -353,8 +353,9 @@ hr {
 	height:60px;
 }
 .boardPicture{
-	width:300px;
+	width:100%;
 	height:300px;
+	max-width: 300px;
 }
 .replysCount{
 	text-align: right;
