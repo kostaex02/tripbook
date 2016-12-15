@@ -25,7 +25,7 @@
 		height:auto;
 		padding:5px;
 		top:-10%;
-		left:-10%;
+		left:-5%;
 	}
 	
 	#content{
@@ -33,7 +33,7 @@
 		height:auto;
 		padding:5px;
 		top:-15%;
-		left:-10%;
+		left:-5%;
 	}
 	
 	#side{

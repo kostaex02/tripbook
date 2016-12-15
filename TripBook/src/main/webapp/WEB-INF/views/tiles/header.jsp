@@ -77,9 +77,6 @@
 	display: table-cell;
 	padding-left: 35px;
 }
-#trash{
-	display:table-cell;
-}
 .btn-img{
 	width: 23px;
 	height: 23px;
