@@ -503,7 +503,7 @@ hr {
 	<div class="modal fade" id="addGeneralBoard" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form name="generalForm" action="#" method="post"
+				<form name="generalForm" action="/controller/board/insert" method="post"
 					enctype="multipart/form-data"
 					onkeydown="return captureReturnKey(event)"
 					onsubmit="return validateForm(0)">
@@ -513,11 +513,10 @@ hr {
 									src='<c:url value="/images/img.jpg"/>'>
 							</div><div>${userName}</div>
 							
-						<select>
-							<option value="전체보기">전체보기</option>
-							<option value="친구보기">친구보기</option>
-							<option value="그룹보기">그룹보기</option>
-							<option value="비공개">비공개</option>
+						<select name="state">
+							<option value="0">전체보기</option>
+							<option value="1">친구보기</option>
+							<option value="2">비공개</option>
 						</select>
 						
 					</div>
@@ -525,7 +524,7 @@ hr {
 						<div class="newBoardContainer">
 							
 							<div class="newBoardTitle">
-								<textarea name="title" class="form-control" rows="4"
+								<textarea name="content" class="form-control" rows="4"
 									id="title0" placeholder="내용을 입력해 주세요"></textarea>
 							</div>
 							<hr>
@@ -539,10 +538,10 @@ hr {
 									</button>
 									<hr>
 								</div>
-
+								
 								<input type="file" class="newBoardMulti with-preview"
-									id="newGeneralBoardMulti" name="file" style="display: none"
-									multiple />
+									id="newGeneralBoardMulti"  name= "file[]" style="display: none"
+									multiple="multiple" />
 								<div class="newBoardMultiList" id="newGeneralBoardMultiList"
 									name="newBoardMultiList"></div>
 								<div>
@@ -564,10 +563,10 @@ hr {
 							</div>
 							<div name="mapChoice" class="mapChoice" style="width: 95%"></div>
 							<input type="hidden" name="keyword" id="resultKeyword0"><br>
-							<input type="hidden" name="region" id="resultRegion0"><br>
+							<input type="hidden" name="location" id="resultRegion0"><br>
 							<input type="hidden" name="address" id="resultAddress0"><br>
-							<input type="hidden" name="location_lat" id="resultLatitude0"><br>
-							<input type="hidden" name="location_lng" id="resultLongitude0">
+							<input type="hidden" name="locationLat" id="resultLatitude0"><br>
+							<input type="hidden" name="locationLng" id="resultLongitude0">
 						</div>
 					</div>
 					<div class="modal-footer">

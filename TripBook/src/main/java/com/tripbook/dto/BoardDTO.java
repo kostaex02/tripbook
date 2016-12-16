@@ -17,6 +17,13 @@ public class BoardDTO {
 	private List<BoardPictureDTO> boardPictures;
 	
 	
+	@Override
+	public String toString() {
+		return "BoardDTO [boardNo=" + boardNo + ", content=" + content + ", tripDate=" + tripDate + ", location="
+				+ location + ", locationLat=" + locationLat + ", locationLng=" + locationLng + ", writer=" + writer
+				+ ", state=" + state + ", scheduleNo=" + scheduleNo + ", user=" + user + ", replys=" + replys
+				+ ", boardPictures=" + boardPictures + "]";
+	}
 	public UserDTO getUser() {
 		return user;
 	}
