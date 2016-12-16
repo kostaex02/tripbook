@@ -5,6 +5,14 @@ public class BoardPictureDTO {
 	private String fileName;
 	private int boardNo;
 	
+	public BoardPictureDTO() {
+		super();
+	}
+	public BoardPictureDTO(String fileName, int boardNo) {
+		super();
+		this.fileName = fileName;
+		this.boardNo = boardNo;
+	}
 	public int getBoardPictureNo() {
 		return boardPictureNo;
 	}

@@ -19,4 +19,15 @@ public class BoardDAOImpl implements BoardDAO {
 		return session.selectList("boardMapper.selectBoard", map);
 	}
 
+	@Override
+	public int insertBoard(BoardDTO boardDTO) {
+		return session.insert("boardMapper.insertBoard",boardDTO);
+	}
+
+	@Override
+	public int selectBoardById(String writer) {
+		List<Integer> list = session.selectList("boardMapper.selectBoardById", writer);
+		return list.get(0);
+	}
+
 }

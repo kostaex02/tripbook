@@ -22,5 +22,13 @@ public class KeywordDTO {
 	public void setScheduleNo(int scheduleNo) {
 		this.scheduleNo = scheduleNo;
 	}
+	public KeywordDTO(String keyword, int scheduleNo) {
+		super();
+		this.keyword = keyword;
+		this.scheduleNo = scheduleNo;
+	}
+	public KeywordDTO() {
+		super();
+	}
 	
 }

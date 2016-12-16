@@ -72,7 +72,7 @@ CREATE TABLE board_table
 	state NUMBER not null, --권한
 	schedule_no references schedule_table(schedule_no) on delete cascade -- 여행 시퀀스
 );
-
+select * from board_table
 create sequence board_picture_sequence nocache;
 CREATE TABLE board_picture_table
 (  

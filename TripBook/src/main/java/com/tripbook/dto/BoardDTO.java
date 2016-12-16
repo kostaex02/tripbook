@@ -5,6 +5,7 @@ import java.util.List;
 public class BoardDTO {
 	private int boardNo;
 	private String content;
+	private String writeDate;
 	private String tripDate;
 	private String location;
 	private double locationLat;
@@ -17,6 +18,12 @@ public class BoardDTO {
 	private List<BoardPictureDTO> boardPictures;
 	
 	
+	public String getWriteDate() {
+		return writeDate;
+	}
+	public void setWriteDate(String writeDate) {
+		this.writeDate = writeDate;
+	}
 	@Override
 	public String toString() {
 		return "BoardDTO [boardNo=" + boardNo + ", content=" + content + ", tripDate=" + tripDate + ", location="

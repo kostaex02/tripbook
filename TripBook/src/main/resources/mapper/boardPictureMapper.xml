@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="boardPictureMapper">
+	<insert id="insertBoardPicture" parameterType="boardPictureDTO">
+		insert into board_picture_table(board_picture_no,file_name,board_no) values(board_picture_sequence.nextval,#{fileName},#{boardNo})
+	</insert>
+</mapper>

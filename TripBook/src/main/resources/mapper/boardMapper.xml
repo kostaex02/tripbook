@@ -78,4 +78,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		)
 		</if>
 	</select>
+	<insert id="insertBoard" parameterType="boardDTO">
+		insert into board_table(board_no,content,write_date,trip_date,location,
+		location_lat,location_lng,writer,state)
+		values(board_sequence.nextval,#{content},sysdate,#{tripDate,jdbcType=VARCHAR},
+		#{location,jdbcType=VARCHAR},#{locationLat},#{locationLng},#{writer},#{state})
+	</insert>
+	<select id="selectBoardById" parameterType="String" resultType="int">
+		select board_no from board_table where writer=#{value} order by write_date desc
+ 	</select>
 </mapper>

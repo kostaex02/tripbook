@@ -9,4 +9,9 @@ public interface BoardService {
 	 * 사용자 아이디에 해당하는 게시물 출력
 	 */
 	List<BoardDTO> selectBoard(String userId);
+
+	/**
+	 * 게시물 등록
+	 */
+	int insertBoard(BoardDTO boardDTO, String keyword, String address);
 }

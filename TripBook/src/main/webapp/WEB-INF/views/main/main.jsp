@@ -503,7 +503,7 @@ hr {
 	<div class="modal fade" id="addGeneralBoard" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form name="generalForm" action="/controller/board/insert" method="post"
+				<form id="generalForm" name="generalForm" action="/controller/board/insert" method="post"
 					enctype="multipart/form-data"
 					onkeydown="return captureReturnKey(event)"
 					onsubmit="return validateForm(0)">
@@ -540,8 +540,8 @@ hr {
 								</div>
 								
 								<input type="file" class="newBoardMulti with-preview"
-									id="newGeneralBoardMulti"  name= "file[]" style="display: none"
-									multiple="multiple" />
+									id="newGeneralBoardMulti"  name= "file" style="display: none"
+									multiple/>
 								<div class="newBoardMultiList" id="newGeneralBoardMultiList"
 									name="newBoardMultiList"></div>
 								<div>
@@ -562,11 +562,11 @@ hr {
 
 							</div>
 							<div name="mapChoice" class="mapChoice" style="width: 95%"></div>
-							<input type="hidden" name="keyword" id="resultKeyword0"><br>
-							<input type="hidden" name="location" id="resultRegion0"><br>
-							<input type="hidden" name="address" id="resultAddress0"><br>
-							<input type="hidden" name="locationLat" id="resultLatitude0"><br>
-							<input type="hidden" name="locationLng" id="resultLongitude0">
+							<input type="hidden" name="keyword" id="resultKeyword0" value="10">
+							<input type="hidden" name="location" id="resultRegion0" value="10">
+							<input type="hidden" name="address" id="resultAddress0" value="10">
+							<input type="hidden" name="locationLat" id="resultLatitude0" value="10">
+							<input type="hidden" name="locationLng" id="resultLongitude0" value="10">
 						</div>
 					</div>
 					<div class="modal-footer">
@@ -677,10 +677,10 @@ hr {
 									</div>
 
 									<div name="mapChoice" class="mapChoice" style="width: 95%"></div>
-									<input type="hidden" name="keyword" id="resultKeyword1"><br>
-									<input type="hidden" name="region" id="resultRegion1"><br>
-									<input type="hidden" name="address" id="resultAddress1"><br>
-									<input type="hidden" name="location_lat" id="resultLatitude1"><br>
+									<input type="hidden" name="keyword" id="resultKeyword1">
+									<input type="hidden" name="region" id="resultRegion1">
+									<input type="hidden" name="address" id="resultAddress1">
+									<input type="hidden" name="location_lat" id="resultLatitude1">
 									<input type="hidden" name="location_lng" id="resultLongitude1">
 								</div>
 
@@ -1012,7 +1012,7 @@ hr {
 		      	}
 		 		return date;
 		    }
-			
+		    
 		}); 
 		
 		

@@ -11,8 +11,10 @@ import org.springframework.stereotype.Service;
 import com.tripbook.dao.BoardDAO;
 import com.tripbook.dao.FriendDAO;
 import com.tripbook.dao.GroupMemberDAO;
+import com.tripbook.dao.KeywordDAO;
 import com.tripbook.dto.BoardDTO;
 import com.tripbook.dto.FriendDTO;
+import com.tripbook.dto.KeywordDTO;
 
 @Service
 public class BoardServiceImpl implements BoardService{
@@ -22,6 +24,8 @@ public class BoardServiceImpl implements BoardService{
 	private FriendDAO friendDAO;
 	@Autowired
 	private GroupMemberDAO groupMemberDAO;
+	@Autowired
+	private KeywordDAO keywordDAO;
 	
 	@Override
 	public List<BoardDTO> selectBoard(String userId) {
@@ -51,5 +55,17 @@ public class BoardServiceImpl implements BoardService{
 		
 		return boardDAO.selectBoard(map);
 	}
+
+	@Override
+	public int insertBoard(BoardDTO boardDTO, String keyword, String address) {
+		boardDAO.insertBoard(boardDTO);
+		int boardNo = boardDAO.selectBoardById(boardDTO.getWriter());
+		String [] keywords = address.split(" ");
+		if(boardDTO.getScheduleNo()>0){
+			keywordDAO.insertKeyword(new KeywordDTO(keyword, boardDTO.getScheduleNo()));			
+		}
+		return boardNo;
+	}
+
 
 }
