@@ -272,9 +272,9 @@ dl {
 					</div>
 				</a> <a href='<c:url value="/calendar/list"/>'>
 					<div id="sideSchedule">
-						<a href="<c:url value="/calendar/calendar"/>"> <img alt="스케줄"
+						<a href="<c:url value="/calendar/calendar"/>"><div id='schedulePage'> <img alt="스케줄"
 							src="<c:url value="/images/icon/icon_schedule48.png"/>"
-							class="hover">
+							class="hover"></div>
 							<div class="text">스케줄</div>
 					</div>
 				</a>
@@ -385,8 +385,9 @@ dl {
 				$(".sideGroupMenu").slideToggle(500);
 			})
 
-			var trash = document.getElementById("trashImg");
-			if (sessionStorage.getItem("pageName") != "sideSchedule") {
+			var trash = document.getElementById("trash");
+			
+			if (sessionStorage.getItem("pageName") != "schedulePage") {
 				trash.style.display = 'none';
 			} else {
 				trash.style.display = 'inline';

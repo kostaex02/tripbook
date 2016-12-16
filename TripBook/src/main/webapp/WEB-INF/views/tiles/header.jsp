@@ -41,7 +41,7 @@
 }
 
 .jbText {
-	width: 80%;
+	width: 87%;
 }
 
 
@@ -68,29 +68,24 @@
 	padding: .6em .5em; /* input 요소의 padding 값 만큼 */
 	color: #999;
 	cursor: text;
-	
 }
 
-#trashImg{
-	position:absolute;
-	left:450%;
-	z-index:6;
-	top:-60%;
-	display: inline !important;
-}
+
 
 .calendarTrash{
-	background-image:url("../images/trash.png");
 	width:48px;
 	height:48px;
-	margin:10px;
 }
+
 .btn-img{
 	width: 23px;
 	height: 23px;
 }
 #searchButton{
 	border-radius: 10px;
+}
+#trash{
+	margin-left:50px;
 }
 </style>
 </head>
@@ -104,7 +99,8 @@
 			<div class="jbTableCell" >
 				<button class="btn btn-default" type="submit" id="searchButton"><img class="btn-img" src="<c:url value="/images/icon/icon_searchButton.png"/>"></button>
 			</div>
-			<div class="jbTableCell calendarTrash"></div>
+			<div class="jbTableCell calendarTrash"><img id='trash' src='<c:url value="/images/trash.png"/>'></div>
+			
 			</form>
 		</div>
 	</div>
