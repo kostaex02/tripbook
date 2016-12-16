@@ -45,4 +45,9 @@ public interface UserService {
 	 * id,state값을 이용하여 아이디 검색
 	 */
 	int selectIdState(String userId, String state);
+	
+	/**
+	 * 유저 검색
+	 */
+	UserDTO selectUser(String friendId);
 }

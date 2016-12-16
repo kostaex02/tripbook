@@ -44,7 +44,6 @@ public class MainController {
 		String userId = (String)request.getSession().getAttribute("userId");
 		noticeDTO.setSender(userId);
 		noticeDTO.setState("4");
-		System.out.println(noticeDTO);
 		return noticeService.insertNotice(noticeDTO);
 	}
 }

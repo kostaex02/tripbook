@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.tripbook.dto.UserDTO;
 import com.tripbook.service.FriendService;
 import com.tripbook.service.GroupService;
+import com.tripbook.service.UserService;
 
 @Controller
 @RequestMapping("friends")
@@ -19,6 +21,8 @@ public class FriendController {
 	private FriendService friendService;
 	@Autowired
 	private GroupService groupService;
+	@Autowired
+	private UserService userService;
 	
 	@RequestMapping("{pageName}")
 	public void page(HttpServletRequest request){}
@@ -52,5 +56,17 @@ public class FriendController {
 		HttpSession session = request.getSession();
 		friendService.deleteFriend((String)session.getAttribute("userId"),friendId);
 		return "friends/list";
+	}
+	@RequestMapping("board")
+	public String board(HttpServletRequest request,String friendId){
+		HttpSession session = request.getSession();
+		String userId = (String)session.getAttribute("userId");
+		String state = friendService.selectFriend(userId, friendId);
+		UserDTO friend = userService.selectUser(friendId);
+		session.setAttribute("friendUserId", friend.getId());
+		session.setAttribute("friendUserName", friend.getName());
+		session.setAttribute("friendUserFileName", friend.getFileName());
+		session.setAttribute("friendUserState", state);
+		return "friend/friendMain";
 	}
 }

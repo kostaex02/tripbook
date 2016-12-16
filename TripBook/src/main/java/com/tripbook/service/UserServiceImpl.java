@@ -99,5 +99,10 @@ public class UserServiceImpl implements UserService {
 		return userDao.deleteUser(userId);
 	}
 
+	@Override
+	public UserDTO selectUser(String friendId) {
+		return userDao.selectUser(friendId);
+	}
+
 
 }

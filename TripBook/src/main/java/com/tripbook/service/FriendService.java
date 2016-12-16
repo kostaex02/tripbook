@@ -30,4 +30,9 @@ public interface FriendService {
 	 * 模备 包拌甫 瘤快扁
 	 */
 	int deleteFriend(String userId, String friendId);
+	
+	/**
+	 * 模备 包拌 犬牢
+	 */
+	String selectFriend(String userId, String friendId);
 }
