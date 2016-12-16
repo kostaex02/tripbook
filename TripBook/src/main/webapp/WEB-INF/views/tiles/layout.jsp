@@ -24,15 +24,15 @@
 		float:right;
 		height:auto;
 		padding:5px;
-		top:-1%;
-		left:-5%;
+		top:0;
+		left:0%;
 	}
 	
 	#content{
 		float:right;
 		height:auto;
 		padding:5px;
-		top:-3%;
+		top:0%;
 		left:-5%;
 	}
 	
@@ -41,8 +41,8 @@
 		float:left;
 		width:20%;
 		height:auto;
-		top: 0%;
-		left:2%;
+		top: 11px;
+		left:0;
 	}
 	#container{
 		width:100%;
@@ -56,8 +56,8 @@
 	    z-index:7;
 	    width: 150px;
 	    height:2000px;
-	    top: 0;
-	    left: 0;
+	    top: -50;
+	    left: -50;
 	    right: 0;
 	    bottom: 0;
 	    -moz-transition: left 0.5s ease;
@@ -69,16 +69,16 @@
 	}
 	
 	input:checked ~ .slideSideCover { 
-	    left: -150;
+	    left: -200;
 	}
 	input:checked ~ #slideLabel { 
-	    left: 0;
+	    left: -50;
 	}
 	#slideLabel {
 	    z-index: 9;
 	    position: absolute;
-	    top: 0px;
-	    left: 150px;
+	    top: -50px;
+	    left: 100px;
 	    background-color: blue;
 	    -moz-transition: left 0.5s ease;
 	    transition: left 0.5s ease;
@@ -91,7 +91,7 @@
 </head>
 <body>
 
-	<!-- 모바일, 작은 화면 사이드 메뉴 -->
+	
 	<div class="slideMenu">
 	    <input id="slideMenuButton" type="checkbox" role="button" checked/>
 	    <label id='slideLabel' for="slideMenuButton"><span>close</span></label>

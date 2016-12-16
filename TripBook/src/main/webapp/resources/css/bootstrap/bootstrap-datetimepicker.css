@@ -75,6 +75,7 @@
 }
 .bootstrap-datetimepicker-widget a[data-action] {
   padding: 6px 0;
+  color:blue;
 }
 .bootstrap-datetimepicker-widget a[data-action]:active {
   box-shadow: none;
@@ -90,6 +91,9 @@
 .bootstrap-datetimepicker-widget button[data-action] {
   padding: 6px;
 }
+
+
+
 .bootstrap-datetimepicker-widget .btn[data-action="incrementHours"]::after {
   position: absolute;
   width: 1px;

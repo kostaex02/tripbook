@@ -254,6 +254,7 @@ dl {
 #sideFriendProfile {
 	visibility: hidden;
 }
+
 </style>
 
 </head>
@@ -275,7 +276,7 @@ dl {
 						<a href="<c:url value="/calendar/calendar"/>"><div id='schedulePage'> <img alt="스케줄"
 							src="<c:url value="/images/icon/icon_schedule48.png"/>"
 							class="hover"></div>
-							<div class="text">스케줄</div>
+							<div class="text">스케줄</div></a>
 					</div>
 				</a>
 				<div id="sideHome">
@@ -316,14 +317,14 @@ dl {
 				<!-- 클릭시 생성 -->
 				<div id="sideFriendProfile">
 					<hr>
-					<a class='sideProfileLink' href='<c:url value="/mypage/list"/>'>
+					<a class='sideProfileLink' href='<c:url value="/friends/friendMain"/>'>
 						<div id="friendsProfile">
 							<img class='profileImage friendsImage'
 								src='<c:url value="/tripbook/user/${friendUserId}/${friendUserFileName}"/>'>
 							<input type="hidden" class="friendsUserId" value="">
 							<!-- input value에 아이디 저장-->
 							<div class='friendsUserName'>이름</div>
-							<a href='#'>게시물</a><br> <a href='#'>일대기</a>
+							<a href='#'>게시물</a><br> <a href='<c:url value="/friends/friendBiography"/>'>일대기</a>
 						</div>
 					</a>
 					<!-- 친구 상태값에 따른 버튼 변경 -->
@@ -380,7 +381,7 @@ dl {
 					.click(function() {
 						sessionStorage.setItem("pageName", "sideFriend");
 					});
-
+			
 			$(".sideGroupHeader").click(function() {
 				$(".sideGroupMenu").slideToggle(500);
 			})
