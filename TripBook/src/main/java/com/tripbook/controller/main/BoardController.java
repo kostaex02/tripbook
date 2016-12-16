@@ -31,6 +31,7 @@ public class BoardController {
 		HttpSession session = request.getSession();
 		String userId = (String)session.getAttribute("userId");
 		boardDTO.setWriter(userId);
+		boardDTO.setContent(boardDTO.getContent().replace("\r\n","<br>"));
 		if(boardDTO.getLocation().equals("10")){
 			boardDTO.setLocation(null);
 			boardDTO.setLocationLat(0);
