@@ -56,8 +56,8 @@
 	    z-index:7;
 	    width: 150px;
 	    height:2000px;
-	    top: -50;
-	    left: -50;
+	    top: 0;
+	    left: 0;
 	    right: 0;
 	    bottom: 0;
 	    -moz-transition: left 0.5s ease;
@@ -69,16 +69,16 @@
 	}
 	
 	input:checked ~ .slideSideCover { 
-	    left: -200;
+	    left: -150;
 	}
 	input:checked ~ #slideLabel { 
-	    left: -50;
+	    left: 0;
 	}
 	#slideLabel {
 	    z-index: 9;
 	    position: absolute;
-	    top: -50px;
-	    left: 100px;
+	    top: 0px;
+	    left: 150px;
 	    background-color: blue;
 	    -moz-transition: left 0.5s ease;
 	    transition: left 0.5s ease;
@@ -91,7 +91,7 @@
 </head>
 <body>
 
-	
+	<!-- 모바일, 작은 화면 사이드 메뉴 -->
 	<div class="slideMenu">
 	    <input id="slideMenuButton" type="checkbox" role="button" checked/>
 	    <label id='slideLabel' for="slideMenuButton"><span>close</span></label>

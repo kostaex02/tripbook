@@ -391,7 +391,6 @@ hr {
 	
 
 	<script src='<c:url value="/resources/js/calendar/lib/jquery.min.js"/>'></script>
-	<script src="<c:url value="/resources/js/main/jQuery.MultiFile.min.js"/>"></script>
 
 	<script src='<c:url value="/resources/js/main/stroll.min.js"/>'></script>
 	<script>
