@@ -24,15 +24,15 @@
 		float:right;
 		height:auto;
 		padding:5px;
-		top:30px;
+		top:3%;
 		left:-2%;
 	}
 	
 	#content{
 		float:right;
-		height:480px;
+		height:530px;
 		padding:5px;
-		top:0%;
+		top:-1%;
 		left:-2%;
 		overflow: hidden;
 	}
@@ -42,7 +42,7 @@
 		float:left;
 		width:20%;
 		height:auto;
-		top: 8%;
+		top: 4%;
 		left:3.5%;
 	}
 	#container{
