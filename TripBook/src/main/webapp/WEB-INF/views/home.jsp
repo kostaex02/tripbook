@@ -52,6 +52,36 @@
 	appearance: none;
 }
 
+.modal-header{
+	background: #00838F;
+}
+.modal-title{
+	color:white;
+}
+
+.input-group{
+	width:100%;
+}
+
+.input_register{
+    border: none;
+    border-bottom: 2px solid #00838F;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding-left: 40px;
+}
+
+.btn span.glyphicon {    			
+	opacity: 0;				
+}
+.btn.active span.glyphicon {				
+	opacity: 1;				
+}
+.input-group-addon{
+	padding: 0px;
+}
+
+
 </style>
 <body>
 	<div id="container" class="container intro-effect-fadeout">
@@ -111,69 +141,66 @@
 					<form id="registerForm" action="<c:url value="/register"/>" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
 						<div class="modal-body">
 							<div id="inputId" class="input-group">
-								<span class="input-group-addon"> <i><img
-										src='<c:url value="/images/icon/icon_id20.png"/>'></i></span> 
-										<input id="email" type="email"
-									class="form-control" name="id"
-									placeholder="Email"> 
-									<span id="checkingID" aria-hidden="true"></span>
-
+								<input id="email" type="email"
+									class="form-control input_register" name="id"
+									placeholder="Email" style="background-image: url('<c:url value="/images/icon/icon_id20.png"/>')"> 
+								<span id="checkingID" aria-hidden="true"></span>
 							</div>
 							<br>
-							<div class="input-group">
-								<span class="input-group-addon"> <i><img
-										src='<c:url value="/images/icon/icon_password20.png"/>'></i></span> <input
-									id="password" type="password" class="form-control"
-									name="password" placeholder="Password">
+							<div id="inputPassword" class="input-group">
+								<input id="password" type="password" class="form-control input_register"
+									name="password" placeholder="Password" style="background-image: url('<c:url value="/images/icon/icon_password20.png"/>')">
+								<span id="checkingPassword" aria-hidden="true"></span>
 							</div>
 							<br>
 							<div id="inputPasswordCheck" class="input-group">
-								<span class="input-group-addon"> <i><img
-										src='<c:url value="/images/icon/icon_passwordCheck20.png"/>'></i></span>
-								<input id="passwordCheck" type="password" class="form-control"
-									name="passwordCheck" placeholder="Password check">
+								<input id="passwordCheck" type="password" class="form-control input_register"
+									name="passwordCheck" placeholder="Password check" style="background-image: url('<c:url value="/images/icon/icon_passwordCheck20.png"/>')">
 									<span id="checkingPasswordCheck" aria-hidden="true"></span>
 							</div>
 							<br>
 							<div id="inputName" class="input-group">
-								<span class="input-group-addon"> <i><img
-										src='<c:url value="/images/icon/icon_user20.png"/>'></i></span> <input
-									id="name" type="text" class="form-control" name="name"
-									placeholder="이름">
+								<input id="name" type="text" class="form-control input_register" name="name"
+									placeholder="이름" style="background-image: url('<c:url value="/images/icon/icon_user20.png"/>')">
 									<span id="checkingName" aria-hidden="true"></span>
 							</div>
 							<br>
 							<div id="inputAge" class="input-group">
-								<span class="input-group-addon"> <i><img
-										src='<c:url value="/images/icon/icon_birth20.png"/>'></i></span> <input
-									id="age" type="number" class="form-control" name="age"
-									placeholder="나이">
+								<input id="age" type="number" class="form-control input_register" name="age"
+									placeholder="나이" style="background-image: url('<c:url value="/images/icon/icon_birth20.png"/>')">
 									<span id="checkingAge" aria-hidden="true"></span>
 							</div>
 							<br>
 							<div class="input-group">
-								<span class="input-group-addon"> <i><img
-										src='<c:url value="/images/icon/icon_birth20.png"/>'></i></span> <input
-									type="radio" name="gender" value="0" checked="checked">남자
-								<input type="radio" name="gender" value="1">여자
+								<div class="btn-group" data-toggle="buttons">
+									<label class="btn btn-default active gender" style="background: #00838F; color:white">
+										<input type="radio" name="gender" autocomplete="off" value="0" checked>남자
+										<span class="glyphicon glyphicon-ok"></span>
+									</label>
+									<label class="btn btn-default" style="background: #00838F; color:white">
+										<input type="radio" name="gender" autocomplete="off" value="1">여자
+										<span class="glyphicon glyphicon-ok"></span>
+									</label>
+									
+								</div>
 							</div>
 							<br>
 							<div class="input-group">
 								
 								<input id="picture" type="text" class="form-control"
 									value="사진선택" disabled>
-								<div class="input-group-btn">
+								<span class="input-group-addon">
 									<button class="btn btn-default" type="button"
 										id="buttonLoadPicture">
-										<i><img src='<c:url value="/images/icon/icon_picture20.png"/>'></i>
+										<img src='<c:url value="/images/icon/icon_picture20.png"/>'>
 									</button>
-								</div>
+								</span>
 								<input id=file-upload name="file" class="file-upload" type="file" accept="image/*" style="display:none">
 								
 							</div>
 						</div>
 						<div class="modal-footer">
-							<input type="submit" class="btn btn-primary" value="가입">
+							<button type="submit" class="btn btn-default" style="background:#00838F; color:white">가입</button>
 							<button type="button" class="btn btn-default"
 								data-dismiss="modal">닫기</button>
 						</div>
@@ -471,11 +498,7 @@
 		})
 		
 		function validateForm(){
- 			/* var id = document.forms["registerForm"]["id"].value;
-			var password = document.forms["registerForm"]["password"].value;
-			var passwordCheck = document.forms["registerForm"]["passwordCheck"].value;
-			 */
-			 if($("span").hasClass("glyphicon-remove")){
+ 			if($("span").hasClass("glyphicon-remove")){
 				return false;		
 			}
 		}
