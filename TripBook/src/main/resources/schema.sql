@@ -51,13 +51,23 @@ drop table board_picture_table;
 drop table grade_table;
 drop table board_table;
 drop table keyword_table;
-select b.board_no,b.content,b.write_date,b.trip_date,b.location,b.location_lat,b.location_lng,u.id,u.name,u.file_name,b.state,
-b.schedule_no,bp.board_picture_no,bp.file_name,r.reply_no,r.content,r.writer_date,ru.id,ru.name,ru.file_name
-from board_table b
+select b.board_no,b.content,b.write_date,b.trip_date,b.location,b.location_lat,b.location_lng,b.writer,b.state,b.schedule_no
+,u.id,u.name,u.file_name,bp.board_Picture_no,bp.file_name,bp.board_no,r.reply_no,r.writer,r.writer_date
+from board_table b join user_table u on b.writer=u.id
 left join board_picture_table bp on b.board_no=bp.board_no
-left join reply_table r on b.board_no= r.board_no
-join user_table u on b.writer= u.id
-join user_table ru on r.writer = ru.id;
+left join reply_table r join user_table ru on r.writer = ru.id on r.board_no = b.board_no
+
+where (b.writer='test3@test.com') or ((b.state='1' or b.state='0') 
+and b.writer in ('test4@test.com', 'test2@test.com', 'kwi1222@naver.com', 'yoo@tripbook.com', 'jisu2@test.com'))
+or (b.state in (6,7,12))
+select b.board_no,b.content,b.write_date,b.trip_date,b.location,b.location_lat,b.location_lng,b.writer,u.id,u.name,u.file_name,b.state,
+		bp.board_picture_no,bp.file_name,r.reply_no,r.content,r.writer_date,r.writer,ru.id,ru.name,ru.file_name
+		from board_table b 
+		left join board_picture_table bp on b.board_no=bp.board_no
+		left join reply_table r on b.board_no= r.board_no
+		join user_table u on b.writer= u.id
+		join user_table ru on r.writer = ru.id
+		where (b.writer=#{userId})
 
 CREATE TABLE board_table
 (  

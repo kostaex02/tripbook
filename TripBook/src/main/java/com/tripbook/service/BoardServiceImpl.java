@@ -52,7 +52,7 @@ public class BoardServiceImpl implements BoardService{
 		map.put("userId", userId);
 		map.put("friendList", userList);
 		map.put("groupList", list);
-		
+		System.out.println(map);
 		return boardDAO.selectBoard(map);
 	}
 

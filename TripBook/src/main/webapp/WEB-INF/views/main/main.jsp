@@ -335,166 +335,35 @@ hr {
 	<div class='mainAllBoard'>
 		<div class='mainScrollHidden'>
 			<ul class="grow">
-				<li>
-					<div class='mainRecentBoard'>
-						<p>
-						<div class='profile'><img class='writerProfileImage' src='<c:url value="/images/img.jpg"/>'>
-						<b>User ID</b> 12월 03일 오전 11:41
-						</div>
-						</p>
-						<div class='picture'>
-							<a href="#" data-toggle="modal" data-target="#detailPicture">
-							<img class='boardPicture' src='<c:url value="/images/img.jpg"/>'></a>
-							<div>내용은 여기!</div>
-						</div>
-						<div>
-							<div class="heart " id="like1" rel="like"></div>
-							<div class="likeCount" id="likeCount1">14</div>
-							<a href='#'>댓글달기</a>
-							<div class='replysCount'>댓글 100개</div>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class='mainRecentBoard'>
-						<p>
-						<div class='profile'><img class='writerProfileImage' src='<c:url value="/images/img.jpg"/>'>
-						<b>User ID</b> 12월 03일 오전 11:41
-						</div>
-						</p>
-						<div class='picture'>
-							<a href="#" data-toggle="modal" data-target="#detailPicture">
-							<img class='boardPicture' src='<c:url value="/images/img.jpg"/>'></a>
-							<div>내용은 여기!</div>
-						</div>
-						<div>
-							<div class="heart " id="like1" rel="like"></div>
-							<div class="likeCount" id="likeCount1">14</div>
-							<a href='#'>댓글달기</a>
-							<div class='replysCount'>댓글 100개</div>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class='mainRecentBoard'>
-						<p>
-						<div class='profile'><img class='writerProfileImage' src='<c:url value="/images/img.jpg"/>'>
-						<b>User ID</b> 12월 03일 오전 11:41
-						</div>
-						</p>
-						<div class='picture'>
-							<a href="#" data-toggle="modal" data-target="#detailPicture">
-							<img class='boardPicture' src='<c:url value="/images/img.jpg"/>'></a>
-							<div>내용은 여기!</div>
-						</div>
-						<div>
-							<div class="heart " id="like1" rel="like"></div>
-							<div class="likeCount" id="likeCount1">14</div>
-							<a href='#'>댓글달기</a>
-							<div class='replysCount'>댓글 100개</div>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class='mainRecentBoard'>
-						<p>
-						<div class='profile'><img class='writerProfileImage' src='<c:url value="/images/img.jpg"/>'>
-						<b>User ID</b> 12월 03일 오전 11:41
-						</div>
-						</p>
-						<div class='picture'>
-							<a href="#" data-toggle="modal" data-target="#detailPicture">
-							<img class='boardPicture' src='<c:url value="/images/img.jpg"/>'></a>
-							<div>내용은 여기!</div>
-						</div>
-						<div>
-							<div class="heart " id="like1" rel="like"></div>
-							<div class="likeCount" id="likeCount1">14</div>
-							<a href='#'>댓글달기</a>
-							<div class='replysCount'>댓글 100개</div>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class='mainRecentBoard'>
-						<p>
-						<div class='profile'><img class='writerProfileImage' src='<c:url value="/images/img.jpg"/>'>
-						<b>User ID</b> 12월 03일 오전 11:41
-						</div>
-						</p>
-						<div class='picture'>
-							<a href="#" data-toggle="modal" data-target="#detailPicture">
-							<img class='boardPicture' src='<c:url value="/images/img.jpg"/>'></a>
-							<div>내용은 여기!</div>
-						</div>
-						<div>
-							<div class="heart " id="like1" rel="like"></div>
-							<div class="likeCount" id="likeCount1">14</div>
-							<a href='#'>댓글달기</a>
-							<div class='replysCount'>댓글 100개</div>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class='mainRecentBoard'>
-						<p>
-						<div class='profile'><img class='writerProfileImage' src='<c:url value="/images/img.jpg"/>'>
-						<b>User ID</b> 12월 03일 오전 11:41
-						</div>
-						</p>
-						<div class='picture'>
-							<a href="#" data-toggle="modal" data-target="#detailPicture">
-							<img class='boardPicture' src='<c:url value="/images/img.jpg"/>'></a>
-							<div>내용은 여기!</div>
-						</div>
-						<div>
-							<div class="heart " id="like1" rel="like"></div>
-							<div class="likeCount" id="likeCount1">14</div>
-							<a href='#'>댓글달기</a>
-							<div class='replysCount'>댓글 100개</div>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class='mainRecentBoard'>
-						<p>
-						<div class='profile'><img class='writerProfileImage' src='<c:url value="/images/img.jpg"/>'>
-						<b>User ID</b> 12월 03일 오전 11:41
-						</div>
-						</p>
-						<div class='picture'>
-							<a href="#" data-toggle="modal" data-target="#detailPicture">
-							<img class='boardPicture' src='<c:url value="/images/img.jpg"/>'></a>
-							<div>내용은 여기!</div>
-						</div>
-						<div>
-							<div class="heart " id="like1" rel="like"></div>
-							<div class="likeCount" id="likeCount1">14</div>
-							<a href='#'>댓글달기</a>
-							<div class='replysCount'>댓글 100개</div>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class='mainRecentBoard'>
-						<p>
-						<div class='profile'><img class='writerProfileImage' src='<c:url value="/images/img.jpg"/>'>
-						<b>User ID</b> 12월 03일 오전 11:41
-						</div>
-						</p>
-						<div class='picture'>
-							<a href="#" data-toggle="modal" data-target="#detailPicture">
-							<img class='boardPicture' src='<c:url value="/images/img.jpg"/>'></a>
-							<div>내용은 여기!</div>
-						</div>
-						<div>
-							<div class="heart " id="like1" rel="like"></div>
-							<div class="likeCount" id="likeCount1">14</div>
-							<a href='#'>댓글달기</a>
-							<div class='replysCount'>댓글 100개</div>
-						</div>
-					</div>
-				</li>
+				<c:choose>
+					<c:when test="${boardList==null }">
+						입력된 내용이 없습니다.
+					</c:when>
+					<c:otherwise>
+						<c:forEach items="${boardList}" var="item">
+							<li>
+								<div class='mainRecentBoard'>
+									<p>
+									<div class='profile'><img class='writerProfileImage' src='<c:url value="/tripbook/user/${item.user.id }/${item.user.fileName}"/>'>
+									<b>${item.writer }</b> ${item.writeDate }
+									</div>
+									</p>
+									<div class='picture'>
+										<a href="#" data-toggle="modal" data-target="#detailPicture">
+										<img class='boardPicture' src='<c:url value="/images/img.jpg"/>'></a>
+										<div>${item.content }</div>
+									</div>
+									<div>
+										<div class="heart " id="like1" rel="like"></div>
+										<div class="likeCount" id="likeCount1">14</div>
+										<a href='#'>댓글달기</a>
+										<div class='replysCount'>댓글 100개</div>
+									</div>
+								</div>
+							</li>			
+						</c:forEach>
+					</c:otherwise>
+				</c:choose>
 			</ul>
 		</div>
 	</div>

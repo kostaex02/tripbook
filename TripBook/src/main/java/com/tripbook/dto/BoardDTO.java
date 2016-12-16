@@ -17,7 +17,6 @@ public class BoardDTO {
 	private List<ReplyDTO> replys;
 	private List<BoardPictureDTO> boardPictures;
 	
-	
 	public String getWriteDate() {
 		return writeDate;
 	}

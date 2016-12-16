@@ -1,5 +1,7 @@
 package com.tripbook.controller.main;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.tripbook.dto.BoardDTO;
 import com.tripbook.dto.NoticeDTO;
 import com.tripbook.service.BoardService;
 import com.tripbook.service.NoticeService;
@@ -34,7 +37,11 @@ public class MainController {
 	public ModelAndView home(HttpServletRequest request){
 		String userId = (String)request.getSession().getAttribute("userId");
 		ModelAndView mv = new ModelAndView("main/main");
-		mv.addObject("boardList", boardService.selectBoard(userId));
+		List<BoardDTO> list = boardService.selectBoard(userId);
+		for(BoardDTO b:list){
+			System.out.println(b);
+		}
+		mv.addObject("boardList", list);
 		return mv;
 	}
 	

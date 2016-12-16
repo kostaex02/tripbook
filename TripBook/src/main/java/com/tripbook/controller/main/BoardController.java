@@ -64,6 +64,6 @@ public class BoardController {
 				}
 			}
 		}
-		return "main/main";
+		return "redirect:main/home";
 	}
 }

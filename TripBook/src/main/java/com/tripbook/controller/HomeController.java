@@ -56,7 +56,7 @@ public class HomeController {
 	@RequestMapping("loginResult")
 	public String loginResult(){
 		
-		return "main/main";
+		return "redirect:main/home";
 	}
 	
 	@RequestMapping("checkId")
