@@ -24,8 +24,8 @@
 		float:right;
 		height:auto;
 		padding:5px;
-		top:0;
-		left:0%;
+		top:30px;
+		left:10%;
 	}
 	
 	#content{
@@ -41,13 +41,16 @@
 		float:left;
 		width:20%;
 		height:auto;
-		top: 11px;
-		left:0;
+		top: 8%;
+		left:7%;
 	}
 	#container{
 		width:100%;
-		height:100%;
-		background-color: white;
+		height: 100%;
+		background-image: url('../images/background/album.png');
+		background-repeat: no-repeat;
+		background-size: 100% 100%; 
+		
 	}
 	
 	.slideSideCover {
