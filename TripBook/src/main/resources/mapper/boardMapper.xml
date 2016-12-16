@@ -75,6 +75,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</foreach>
 		)
 		</if>
+		order by b.write_date desc,r.writer_date desc
 	</select>
 	<insert id="insertBoard" parameterType="boardDTO">
 		insert into board_table(board_no,content,write_date,trip_date,location,
