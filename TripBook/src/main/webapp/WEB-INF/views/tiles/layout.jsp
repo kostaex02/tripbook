@@ -25,15 +25,16 @@
 		height:auto;
 		padding:5px;
 		top:30px;
-		left:10%;
+		left:-2%;
 	}
 	
 	#content{
 		float:right;
-		height:auto;
+		height:480px;
 		padding:5px;
 		top:0%;
-		left:-5%;
+		left:-2%;
+		overflow: hidden;
 	}
 	
 	#side{
@@ -42,7 +43,7 @@
 		width:20%;
 		height:auto;
 		top: 8%;
-		left:7%;
+		left:3.5%;
 	}
 	#container{
 		width:100%;
