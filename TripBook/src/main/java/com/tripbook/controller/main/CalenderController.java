@@ -40,6 +40,7 @@ public class CalenderController {
 		HttpSession session = request.getSession();
 		ModelAndView mv = new ModelAndView("calendar/calendar");
 		
+		System.out.println(groupService.selectGroupList((String)session.getAttribute("userId")));
 		mv.addObject("groupList", groupService.selectGroupList((String)session.getAttribute("userId")));
 		return mv;
 	}

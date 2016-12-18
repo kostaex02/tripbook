@@ -54,13 +54,12 @@ public class BoardController {
 			}
 			if(file.getFile()!=null&&file.getFile().size()>0&&file.getFile().get(0).getOriginalFilename().length()>0){
 				for(MultipartFile mf:file.getFile()){
-					if(boardPictureService.insertBoardPicture(new BoardPictureDTO(mf.getOriginalFilename(), boardNo))>0){
-						try {
-							mf.transferTo(new File(saveDir+mf.getOriginalFilename()));
-						} catch (IllegalStateException | IOException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
+					try {
+						mf.transferTo(new File(saveDir+mf.getOriginalFilename()));
+						boardPictureService.insertBoardPicture(new BoardPictureDTO(mf.getOriginalFilename(), boardNo));
+					} catch (IllegalStateException | IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
 					}
 				}
 			}

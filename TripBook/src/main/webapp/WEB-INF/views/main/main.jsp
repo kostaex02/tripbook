@@ -336,7 +336,7 @@ hr {
 		<div class='mainScrollHidden'>
 			<ul class="grow">
 				<c:choose>
-					<c:when test="${boardList==null }">
+					<c:when test="${boardList==null||boardList.size()==0 }">
 						입력된 내용이 없습니다.
 					</c:when>
 					<c:otherwise>
@@ -349,8 +349,11 @@ hr {
 									</div>
 									</p>
 									<div class='picture'>
-										<a href="#" data-toggle="modal" data-target="#detailPicture">
-										<img class='boardPicture' src='<c:url value="/images/img.jpg"/>'></a>
+										<c:forEach items="${item.boardPictures }" var="boardPicture">
+											<a href="#" data-toggle="modal" data-target="#detailPicture">
+											<img class='boardPicture' src='<c:url value="/tripbook/board/${item.boardNo }/${boardPicture.fileName }"/>'/>
+											</a>
+										</c:forEach>
 										<div>${item.content }</div>
 									</div>
 									<div>

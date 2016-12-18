@@ -76,13 +76,12 @@ CREATE TABLE board_table
 	write_date DATE NOT NULL , -- 작성일
 	trip_date DATE, -- 시행일
 	location VARCHAR2(1), -- 위치(0:국내,1:국외)
-	location_lat NUMBER(4,16), -- 위도
-	location_lng NUMBER(4,16), -- 경도
+	location_lat NUMBER(24,20), -- 위도
+	location_lng NUMBER(24,20), -- 경도
 	writer VARCHAR2(50) references user_table(id) not null, -- 작성자
 	state NUMBER not null, --권한
 	schedule_no references schedule_table(schedule_no) on delete cascade -- 여행 시퀀스
 );
-select * from board_table
 create sequence board_picture_sequence nocache;
 CREATE TABLE board_picture_table
 (  
@@ -139,7 +138,8 @@ CREATE TABLE notice_table
 	content VARCHAR2(4000),
 	check_state VARCHAR2(1) NOT NULL -- 읽음 유무(0:읽지 않음,1:읽음)
 );
-
+drop table notice_table;
+drop table notice_content_table
 create sequence reply_sequence nocache;
 CREATE TABLE reply_table
 (  
@@ -149,7 +149,7 @@ CREATE TABLE reply_table
 	writer VARCHAR2(50) references user_table(id),
 	board_no NUMBER references board_table(board_no) on delete cascade
 );
-select * from notice_table
+select * from notice_table;
 delete from group_table;
 
 select schedule_no,subject,to_char(start_date,'YYYY-MM-DD') start_date,to_char(end_date-1,'YYYY-MM-DD') end_date,state,writer

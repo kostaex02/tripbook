@@ -273,14 +273,14 @@ dl {
 					</div>
 				</a> <a href='<c:url value="/calendar/list"/>'>
 					<div id="sideSchedule">
-						<a href="<c:url value="/calendar/calendar"/>"><div id='schedulePage'> <img alt="스케줄"
+						<a href="<c:url value="/calendar/list"/>"><div id='schedulePage'> <img alt="스케줄"
 							src="<c:url value="/images/icon/icon_schedule48.png"/>"
 							class="hover"></div>
 							<div class="text">스케줄</div></a>
 					</div>
 				</a>
 				<div id="sideHome">
-					<a href='<c:url value="/main/main"/>'> <img alt="홈"
+					<a href='<c:url value="/main/home"/>'> <img alt="홈"
 						src="<c:url value="/images/icon/icon_home48.png"/>" class="hover">
 						<div class='text'>홈</div></a>
 				</div>
