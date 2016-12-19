@@ -36,10 +36,17 @@ $(function(){
 			$('#sideFriendProfile').css('visibility', 'visible');
 		});
 	})
+	
+	/* 스크롤 효과 */
+	stroll.bind('.friendsList ul');
+	
 </script>
 <style type="text/css">
 .friendsList {
 	margin-top: 20px;
+	height:470px;
+	overflow: scroll;
+	
 }
 
 .friendsProfile {
@@ -77,6 +84,8 @@ $(function(){
 	display: table-cell;
 	vertical-align: middle;
 }
+
+
 
 </style>
 <link rel="stylesheet"
