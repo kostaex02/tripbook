@@ -14,10 +14,13 @@
 <script src='<c:url value="/resources/js/calendar/fullcalendar.js"/>'></script>
 
 <title>달!력!</title>
-
+<style>
+	
+	
+</style>
 </head>
 <body>
-	<div class='calendar' style='height:1000px;'></div>
+	<div class='calendar' ></div>
 	
 	<!-- 여행게시물 modal -->
 	<div class="modal fade" id="addTravelBoard" role="dialog">

@@ -79,6 +79,7 @@ $(function(){
 	vertical-align: middle;
 	text-align: center;
 	width: 70%;
+
 }
 
 .friendPictureImg {

@@ -105,6 +105,10 @@ a {
 	margin-left: 10px;
 	display: inline-table;
 } */
+.mainAllBoard{
+	height:450px;
+	overflow: hidden;
+}
 .newBoardSelect {
 	display: inline-block;
 	color: #999;
