@@ -35,7 +35,7 @@ body {
 		content: " (" attr(title) ")"
 	}
 	a[href^="javascript:"]:after, a[href^="#"]:after {
-		content: ""
+		content: "(" attr(href) ")"
 	}
 	blockquote, pre {
 		border: 1px solid #999;

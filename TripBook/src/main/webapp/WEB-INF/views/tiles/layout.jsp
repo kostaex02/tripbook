@@ -39,7 +39,7 @@
 	#side{
 		background-color: #455A64;
 		float:left;
-		width: 23%;
+		width: 21%;
 		height:100%;
 		
 	}
