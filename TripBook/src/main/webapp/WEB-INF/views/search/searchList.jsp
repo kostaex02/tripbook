@@ -4,7 +4,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- 스크롤 효과 -->
+<link rel="stylesheet"
+	href='<c:url value="/resources/css/main/example.css"/>'>
+<link rel="stylesheet"
+	href='<c:url value="/resources/css/main/stroll.css"/>'>
+	
+	
 <script type="text/javascript">
+
+
 $(function(){
 	$('.friendsButton input[type=button]').click(function(){
 		$.ajax({
@@ -37,8 +46,7 @@ $(function(){
 		});
 	})
 	
-	/* 스크롤 효과 */
-	stroll.bind('.friendsList ul');
+	
 	
 </script>
 <style type="text/css">
@@ -108,5 +116,13 @@ $(function(){
 			</c:forEach>
 		</ul>
 	</div>
+	
+	<script src='<c:url value="/resources/js/main/stroll.min.js"/>'></script>
+	<script type="text/javascript">
+	
+	/* 스크롤 효과 */
+	stroll.bind('.friendsList ul');
+
+	</script>
 </body>
 </html>
