@@ -22,7 +22,6 @@
 	line-height: 40px;
 	top: 30px;
 	height: 130px;
-	
 }
 
 #sideSchedule {
@@ -36,7 +35,6 @@
 	position: relative;
 	margin-left: 20px;
 	float: left;
-	
 }
 
 #sideSchedule .text {
@@ -120,6 +118,7 @@
 #sideFriend:hover {
 	position: relative;
 	background-color: #455A64;
+	border-right: 3px threedhighlight red;
 }
 
 #sideNav {
@@ -406,6 +405,7 @@ dl {
 				trash.style.display = 'none';
 			} else {
 				trash.style.display = 'inline';
+				$('#sideSchedule').css('border-right', '5px solid #69F0AE');
 			}
 
 			var group = document.getElementById("sideGroup");
@@ -414,6 +414,7 @@ dl {
 					group.style.display = 'none';
 				} else {
 					group.style.display = 'inline';
+					$('#sideFriend').css('border-right', '5px solid #69F0AE');
 				}
 			}
 
@@ -423,6 +424,7 @@ dl {
 					friendProfile.style.display = 'none';
 				} else {
 					friendProfile.style.display = 'inline';
+					$('#friendProfile').css('border-right', '5px solid #69F0AE');
 				}
 			}
 			
