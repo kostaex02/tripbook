@@ -12,7 +12,7 @@
 #sideSchedule, #sideHome, #sideBiography, #sideFriend {
 	position: relative;
 	line-height: 55px;
-	height: auto;
+	height: 50px;
 	color: white;
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
@@ -26,92 +26,100 @@
 }
 
 #sideSchedule {
-	background-color: #4AACCC;
-	top: 60px;
+	background-color: #546E7A;
+	top: 90px;
 	float: left;
 	width: 100%;
 }
 
 #sideSchedule .hover {
-	position: absolute;
-	margin: 2 0 0 -23px;
+	position: relative;
+	margin-left: 20px;
+	float: left;
+	
 }
 
 #sideSchedule .text {
-	visibility: hidden;
 	position: relative;
+	float: right;
+	margin-right: 20px;
 }
 
-#sideSchedule:hover .hover {
-	visibility: hidden;
-	position: absolute;
-}
-
-#sideSchedule:hover .text {
-	visibility: visible;
+#sideSchedule:hover {
 	position: relative;
+	background-color: #455A64;
 }
 
 #sideHome {
-	background-color: #84D4E4;
-	top: 60px;
+	background-color: #546E7A;
+	top: 90px;
 	float: left;
 	width: 100%;
 }
 
 #sideHome .hover {
-	position: absolute;
-	margin: 2 0 0 -23px;
-	width: 48px;
-	height: 48px;
+	position: relative;
+	float: left;
+	margin-left: 20px;
 }
 
 #sideHome .text {
-	visibility: hidden;
 	position: relative;
+	float: right;
+	margin-right: 24px;
 }
 
-#sideHome:hover .hover {
-	visibility: hidden;
-	position: absolute;
+#sideHome:hover {
+	position: relative;
+	background-color: #455A64;
 }
 
-#sideHome:hover .text {
-	visibility: visible;
-	position: relative;
-}
 
 #sideBiography {
-	background-color: #71B2D7;
-	top: 60px;
+	background-color: #546E7A;
+	top: 90px;
 	width: 100%;
 	clear: both;
 }
 
 #sideBiography .hover {
-	position: absolute;
-	margin: 2 0 0 -23px;
+	position: relative;
+	float: left;
+	margin-left: 20px;	
 }
 
 #sideBiography .text {
-	visibility: hidden;
 	position: relative;
+	float: right;
+	margin-right: 20px;
 }
 
-#sideBiography :hover .hover {
-	visibility: hidden;
-	position: absolute;
-}
-
-#sideBiography :hover .text {
-	visibility: visible;
+#sideBiography:hover {
 	position: relative;
+	background-color: #455A64;
 }
 
 #sideFriend {
-	background-color: #84D4E4;
-	top: 60px;
+	background-color: #546E7A;
+	top: 90px;
 	width: 100%;
+}
+
+#sideFriend .hover {
+	position: relative;
+	float: left;
+	margin-left: 20px;
+}
+
+#sideFriend .text {
+	
+	float: right;
+	margin-right: -70px;
+}
+
+#sideFriend:hover {
+	position: relative;
+	background-color: #455A64;
 }
 
 #sideNav {
@@ -120,7 +128,13 @@
 	position: relative;
 }
 
+#sideNav div{
+	cursor: pointer;
+}
+
 #sideGroup {
+	position: relative;
+	top: 90px;
 	height: 50px;
 	display: none;
 	color: black;
@@ -258,36 +272,40 @@ dl {
 	<c:choose>
 		<c:when test="${userState eq '0'}">
 			<div id='sideNav'>
-				<a class='sideProfileLink' href='<c:url value="/mypage/list"/>'>
-					<div id='sideProfile'>
-						<img class='profileImage'
-							src='<c:url value="/tripbook/user/${userId}/${userFileName}"/>'>
+				<a class="sideProfileLink" href="<c:url value="/mypage/list"/>">
+					<div id="sideProfile">
+						<img class="profileImage"
+							src="<c:url value="/tripbook/user/${userId}/${userFileName}"/>">
 						<div class='userName'>${userName}</div>
-						<a class='logout' href='<c:url value="/mypage/profile"/>'>정보수정</a><br>
-						<a class='logout' href='<c:url value="/main/logout"/>'>로그아웃</a>
+						<a class="logout" href="<c:url value="/mypage/profile"/>">정보수정</a><br>
+						<a class="logout" href="<c:url value="/main/logout"/>">로그아웃</a>
 					</div>
 				</a>
+				<a href="<c:url value="/main/home"/>">
 				<div id="sideHome">
-					<a href='<c:url value="/main/home"/>'> <img alt="홈"
+					 <img alt="홈"
 						src="<c:url value="/images/icon/icon_home48.png"/>" class="hover">
-						<div class='text'>홈</div></a>
-				</div>
-				 <a href='<c:url value="/calendar/list"/>'>
+						<div class='text'>홈</div>
+				</div></a>
+				<a href='<c:url value="/calendar/list"/>'>
 					<div id="sideSchedule">
-						<a href="<c:url value="/calendar/list"/>"><div id='schedulePage'> <img alt="스케줄"
-							src="<c:url value="/images/icon/icon_schedule48.png"/>"
-							class="hover"></div>
-							<div class="text">스케줄</div></a>
+						<img alt="스케줄"
+							src="<c:url value="/images/icon/icon_schedule48.png"/>"	class="hover">
+							<div class="text">스케줄</div>
+					</div></a>
+				<a href='<c:url value="/biography/biography"/>'>
+					<div id="sideBiography">
+						<img alt="여행일대기"
+							src="<c:url value="/images/icon/icon_tripbook48.png"/>" class="hover">
+						<div class="text">여행일대기</div>
 					</div>
 				</a>
-				<div id="sideBiography">
-					<a href='<c:url value="/biography/biography"/>'> <img
-						alt="여행일대기"
-						src="<c:url value="/images/icon/icon_tripbook48.png"/>"
-						class="hover">
-						<div class='text'>여행일대기</div></a>
-				</div>
-				<a href='<c:url value="/friends/list"/>'><div id='sideFriend'>친구</div></a>
+				<a href='<c:url value="/friends/list"/>'>
+					<div id='sideFriend'>
+						<img alt="친구"
+							src="<c:url value="/images/icon/icon_tripbook48.png"/>" class="hover">
+						<div class="text">친구</div>
+					</div></a>
 				<p>
 				<div id='sideGroup'>
 					<dl class="sideGroupHeader">
@@ -384,7 +402,7 @@ dl {
 
 			var trash = document.getElementById("trash");
 			
-			if (sessionStorage.getItem("pageName") != "schedulePage") {
+			if (sessionStorage.getItem("pageName") != "sideSchedule") {
 				trash.style.display = 'none';
 			} else {
 				trash.style.display = 'inline';
@@ -407,6 +425,8 @@ dl {
 					friendProfile.style.display = 'inline';
 				}
 			}
+			
+			
 		})
 	</script>
 </body>
