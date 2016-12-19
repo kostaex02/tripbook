@@ -34,21 +34,19 @@
 		padding:5px;
 		top:-1%;
 		left:-2%;
-		overflow: hidden;
 	}
 	
 	#side{
-		background-color: white;
+		background-color: #455A64;
 		float:left;
-		width:20%;
-		height:auto;
-		top: 4%;
-		left:3.5%;
+		width: 23%;
+		height:100%;
+		
 	}
 	#container{
 		width:100%;
 		height: 100%;
-		background-image: url('../images/background/album.png');
+		/* background-image: url('../images/background/album.png'); */
 		background-repeat: no-repeat;
 		background-size: 100% 100%; 
 		

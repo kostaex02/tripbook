@@ -18,22 +18,18 @@
 }
 
 #sideProfile {
-	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 	position: relative;
 	line-height: 40px;
+	top: 30px;
 	height: 130px;
-	padding: 0px;
-	background-color: #84D4E4;
-	width: 96%;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
+	
 }
 
 #sideSchedule {
 	background-color: #4AACCC;
+	top: 60px;
 	float: left;
-	width: 48%;
-	left: 0%
+	width: 100%;
 }
 
 #sideSchedule .hover {
@@ -57,10 +53,10 @@
 }
 
 #sideHome {
-	background-color: #4AACCC;
+	background-color: #84D4E4;
+	top: 60px;
 	float: left;
-	width: 48%;
-	left: 0%
+	width: 100%;
 }
 
 #sideHome .hover {
@@ -87,7 +83,8 @@
 
 #sideBiography {
 	background-color: #71B2D7;
-	width: 96%;
+	top: 60px;
+	width: 100%;
 	clear: both;
 }
 
@@ -113,16 +110,14 @@
 
 #sideFriend {
 	background-color: #84D4E4;
-	width: 96%;
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
+	top: 60px;
+	width: 100%;
 }
 
 #sideNav {
 	text-align: center;
 	clear: both;
 	position: relative;
-	color: white;
 }
 
 #sideGroup {
@@ -271,7 +266,13 @@ dl {
 						<a class='logout' href='<c:url value="/mypage/profile"/>'>정보수정</a><br>
 						<a class='logout' href='<c:url value="/main/logout"/>'>로그아웃</a>
 					</div>
-				</a> <a href='<c:url value="/calendar/list"/>'>
+				</a>
+				<div id="sideHome">
+					<a href='<c:url value="/main/home"/>'> <img alt="홈"
+						src="<c:url value="/images/icon/icon_home48.png"/>" class="hover">
+						<div class='text'>홈</div></a>
+				</div>
+				 <a href='<c:url value="/calendar/list"/>'>
 					<div id="sideSchedule">
 						<a href="<c:url value="/calendar/list"/>"><div id='schedulePage'> <img alt="스케줄"
 							src="<c:url value="/images/icon/icon_schedule48.png"/>"
@@ -279,11 +280,6 @@ dl {
 							<div class="text">스케줄</div></a>
 					</div>
 				</a>
-				<div id="sideHome">
-					<a href='<c:url value="/main/home"/>'> <img alt="홈"
-						src="<c:url value="/images/icon/icon_home48.png"/>" class="hover">
-						<div class='text'>홈</div></a>
-				</div>
 				<div id="sideBiography">
 					<a href='<c:url value="/biography/biography"/>'> <img
 						alt="여행일대기"
