@@ -278,13 +278,7 @@ hr {
 	float: left;
 	margin-top:-10px;
 }
-.dateControlBox{
-	width:200px;
-	
-}
-
 .dateLabel{
-	float:left;
 	margin-top:10px;
 }
 .form-group{
@@ -500,20 +494,16 @@ hr {
 										<textarea name="title" class="form-control" rows="4"
 											id="title1"></textarea>
 									</div>
-									<div class="col-md-12">
-										<div class="form-group row">
-											<label class='dateLabel'>출발일</label>
-											<div class="col-md-5">
-												<input type="text" class="form-control dateControlBox" id="fromDate1"
-													name="start_date">
-											</div>
-											<label class='dateLabel'>종료일</label>
-											<div class="col-md-5">
-												<input type="text" class="form-control dateControlBox" id="toDate1"
-													name="end_date">
-											</div>
-										</div>
+									
+									<hr>
+									
+									<div class="form-inline">
+										<span class="dateLabel">출발일</span>
+										<input type="text" class="form-control" id="fromDate1" name="start_date">
+										<span class="dateLabel">종료일</span>
+										<input type="text" class="form-control" id="toDate1" name="end_date">
 									</div>
+									
 									<hr>
 									
 									<div class="form-group">
@@ -570,19 +560,14 @@ hr {
 									<input type="text" class="form-control" id="subject2"
 										name="subject" placeholder="제목" disabled>
 									
-									<div class="col-md-12">
-										<div class="form-group row">
-											<label class='dateLabel'>출발일</label>
-											<div class="col-md-5">
-												<input type="text" class="form-control dateControlBox" id="fromDate2"
-													name="start_date" disabled>
-											</div>
-											<label class='dateLabel'>종료일</label>
-											<div class="col-md-5">
-												<input type="text" class="form-control dateControlBox" id="toDate2"
-													name="end_date" disabled>
-											</div>
-										</div>
+									<hr>
+									
+									<div class="form-inline">
+										<span class="dateLabel">출발일</span>
+										<input type="text" class="form-control" id="fromDate2" name="start_date" disabled>
+										<span class="dateLabel">종료일</span>
+										<input type="text" class="form-control" id="toDate2" name="end_date" disabled>
+										
 									</div>
 									
 									<div class="form-group">
