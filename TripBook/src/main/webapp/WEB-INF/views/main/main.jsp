@@ -634,12 +634,6 @@ hr {
 							</div>
 						</div>
 						<div class="modal-footer">
-							<select>
-								<option value="전체보기">전체보기</option>
-								<option value="친구보기">친구보기</option>
-								<option value="그룹보기">그룹보기</option>
-								<option value="비공개">비공개</option>
-							</select>
 							<button type="submit" class="btn btn-default btn-sm" 
 								>등록</button>
 							<button type="button" class="btn btn-default btn-sm"
