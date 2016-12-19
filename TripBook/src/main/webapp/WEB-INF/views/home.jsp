@@ -485,7 +485,7 @@
 			})
 			
 			$('#age').keyup(function(){
-				if($(this).val() == ""){
+				if($(this).val() == "" || $(this).val() <= 0){
 					$('#inputAge').removeClass('has-success has-feedback').addClass('has-error has-feedback');
 					$('#checkingAge').removeClass('glyphicon glyphicon-ok form-control-feedback').addClass('glyphicon glyphicon-remove form-control-feedback');
 				}else{
