@@ -81,7 +81,6 @@
 	padding: 0px;
 }
 
-
 </style>
 <body>
 	<div id="container" class="container intro-effect-fadeout">
@@ -171,19 +170,19 @@
 									<span id="checkingAge" aria-hidden="true"></span>
 							</div>
 							<br>
-							<div class="input-group">
-								<div class="btn-group" data-toggle="buttons">
-									<label class="btn btn-default active gender" style="background: #00838F; color:white">
-										<input type="radio" name="gender" autocomplete="off" value="0" checked>남자
+							<div>
+								<div class="btn-group btn-group-justified" data-toggle="buttons">
+									<label class="btn btn-default active">
+										<input type="radio" name="gender" autocomplete="off" value="0" checked ><img src='<c:url value="/images/icon/male_24.png"/>'>
 										<span class="glyphicon glyphicon-ok"></span>
 									</label>
-									<label class="btn btn-default" style="background: #00838F; color:white">
-										<input type="radio" name="gender" autocomplete="off" value="1">여자
+									<label class="btn btn-default">
+										<input type="radio" name="gender" autocomplete="off" value="1"><img src='<c:url value="/images/icon/female_24.png"/>'>
 										<span class="glyphicon glyphicon-ok"></span>
 									</label>
-									
-								</div>
+								</div>	
 							</div>
+							
 							<br>
 							<div class="input-group">
 								
