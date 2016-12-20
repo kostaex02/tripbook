@@ -43,6 +43,7 @@
 
 .jbText {
 	width: 87%;
+	display: inline-flex;
 }
 
 
@@ -51,7 +52,7 @@
 	line-height: normal; /* line-height 초기화 */
 	padding: .8em .1em; /* 원하는 여백 설정, 상하단 여백으로 높이를 조절 */
 	border: 1px solid white;
-	border-radius: 10px;
+	border-radius: 10px 0 0 10px;
 	-webkit-appearance: none; /* 브라우저별 기본 스타일링 제거 */
 	-moz-appearance: none;
 	appearance: none;
@@ -83,7 +84,8 @@
 	height: 23px;
 }
 #searchButton{
-	border-radius: 10px;
+	border-radius: 0 10px 10px 0;
+	background-color: white;
 }
 #trash{
 	margin-left:50px;
@@ -96,8 +98,6 @@
 			<form action="<c:url value="/search/list"/>">
 			<div class="jbTableCell jbText">
 				<label for="exclusive_input">검색을 입력하세요</label> <input type="text" id="exclusive_input" name="keyword">
-			</div>
-			<div class="jbTableCell" >
 				<button class="btn btn-default" type="submit" id="searchButton"><img class="btn-img" src="<c:url value="/images/icon/icon_searchButton.png"/>"></button>
 			</div>
 			<div class="jbTableCell calendarTrash"><img id='trash' src='<c:url value="/images/trash.png"/>'></div>
