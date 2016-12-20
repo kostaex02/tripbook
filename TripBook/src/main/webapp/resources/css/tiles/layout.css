@@ -2,6 +2,11 @@ li{
 	margin-bottom: 10px;
 }
 
+	@font-face {
+    	font-family: 'NanumPen';
+    	src: url(NanumPen.ttf) format('truetype');
+	}
+
 /* 화면 크기에 따른 설정 */
 @media screen and (max-width:399px) {
 	body{
