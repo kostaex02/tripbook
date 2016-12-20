@@ -14,7 +14,16 @@
 	line-height: 55px;
 	height: 50px;
 	color: white;
+	
+}
+
+/* 버튼 음영효과 */
+#sideFriend{
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+#sideHome{
+	box-shadow: 0px -5px 6px rgba(0, 0, 0, 0.16), 0 3px 9px rgba(0, 2, 0, 0.23)
 }
 
 #sideProfile {
