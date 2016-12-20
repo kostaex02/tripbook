@@ -120,7 +120,6 @@
 #sideFriend:hover {
 	position: relative;
 	background-color: #455A64;
-	border-right: 3px threedhighlight red;
 }
 
 #sideNav {
