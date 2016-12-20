@@ -99,11 +99,6 @@ a {
 	display: inline-table;
 	cursor: pointer;
 	vertical-align: middle;
-} */ /* 
-.newBoardMap {
-	width: 64px;
-	margin-left: 10px;
-	display: inline-table;
 } */
 .mainAllBoard{
 	height:450px;
@@ -130,6 +125,8 @@ hr {
 	visibility: hidden;
 }
 
+
+/* 구글 지도 관련 CSS */
 .controls {
 	margin-top: 10px;
 	border: 1px solid transparent;
@@ -140,8 +137,7 @@ hr {
 	outline: none;
 	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
-
-#pac-input0 {
+.pac-input{
 	background-color: #fff;
 	font-family: Roboto;
 	font-size: 15px;
@@ -151,38 +147,9 @@ hr {
 	text-overflow: ellipsis;
 	width: 300px;
 }
-
-#pac-input0:focus {
+.pac-input:focus{
 	border-color: #4d90fe;
-}
-#pac-input1 {
-	background-color: #fff;
-	font-family: Roboto;
-	font-size: 15px;
-	font-weight: 300;
-	margin-left: 12px;
-	padding: 0 11px 0 13px;
-	text-overflow: ellipsis;
-	width: 300px;
-}
-
-#pac-input1:focus {
-	border-color: #4d90fe;
-}
-#pac-input2 {
-	background-color: #fff;
-	font-family: Roboto;
-	font-size: 15px;
-	font-weight: 300;
-	margin-left: 12px;
-	padding: 0 11px 0 13px;
-	text-overflow: ellipsis;
-	width: 300px;
-}
-
-#pac-input2:focus {
-	border-color: #4d90fe;
-}
+} 
 
 .pac-container {
 	font-family: Roboto;
@@ -209,21 +176,8 @@ hr {
 	width: 345px;
 }
 
-.modal {
-	z-index: 20;
-}
-
-.modal-backdrop {
-	z-index: 10;
-}
-
-.likeCount, .heart {
-	float: left;
-	top: -15px;
-	margin-right: 10px;
-}
-
-#menu_wrap {
+/* 다음지도 CSS */
+.menu_wrap {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -243,16 +197,48 @@ hr {
 	background: #fff;
 }
 
-#menu_wrap .option {
+.menu_wrap .option {
 	text-align: center;
 }
 
-#menu_wrap .option p {
+.menu_wrap .option p {
 	margin: 10px 0;
 }
 
-#menu_wrap .option button {
+.menu_wrap .option button {
 	margin-left: 5px;
+}
+
+/* 모달 CSS */
+.modal-content{
+	background: #00AAC1;
+}
+.modal-body{
+	background: white;
+}
+.modal-footer{
+	padding-bottom: 0;
+}
+.userName{
+	color:white;
+}
+.select{
+	width:100px;
+	height:25px;
+}
+
+.modal {
+	z-index: 20;
+}
+
+.modal-backdrop {
+	z-index: 10;
+}
+
+.likeCount, .heart {
+	float: left;
+	top: -15px;
+	margin-right: 10px;
 }
 
 ​#mainExclusive_input {
@@ -278,9 +264,7 @@ hr {
 	float: left;
 	margin-top:-10px;
 }
-.dateLabel{
-	margin-top:10px;
-}
+
 .form-group{
 	margin-top:20px;
 }
@@ -293,13 +277,14 @@ hr {
 }
 .boardPicture{
 	width:100%;
-	height:300px;
+	height:300px ;
 	max-width: 300px;
 	float: left;
 }
 .replysCount{
 	text-align: right;
 }
+
 </style>
 
 
@@ -381,9 +366,9 @@ hr {
 						<div class="newBoardPicture">
 								<img class="newBoardPictureImg"
 									src='<c:url value="/images/img.jpg"/>'>
-							</div><div>${userName}</div>
+							</div><div class="userName">${userName}</div>
 							
-						<select name="state">
+						<select name="state" class="select">
 							<option value="0">전체보기</option>
 							<option value="1">친구보기</option>
 							<option value="2">비공개</option>
@@ -462,82 +447,73 @@ hr {
 						<div class="newBoardPicture">
 								<img class="newBoardPictureImg"
 									src='<c:url value="/images/img.jpg"/>'>
-							</div><div>${userName}</div>
-							
-						<select>
-							<option value="전체보기">전체보기</option>
-							<option value="친구보기">친구보기</option>
-							<option value="그룹보기">그룹보기</option>
-							<option value="비공개">비공개</option>
-						</select>
+							</div><div class="userName">${userName}</div>
+						<div>
+							<select class="select">
+								<option value="전체보기">전체보기</option>
+								<option value="친구보기">친구보기</option>
+								<option value="그룹보기">그룹보기</option>
+								<option value="비공개">비공개</option>
+							</select>
+						</div>
 						
 					</div>
 					<div class="modal-body">
 						<div class="newTravelBoardContainer">
 							<ul class="nav nav-tabs nav-justified" role="tablist"
 								style="height: 50px; width:200px;">
-								<li role="presentation" class="travel active" id="1" style="padding: 0;"><a
-									href="#editSchedule" aria-controls="editSchedule" role="tab"
-									data-toggle="tab">신규 일정</a></li>
-								<li role="presentation" class="travel" id="2" style="padding: 0"><a
-									href="#addSchedule" aria-controls="addSchedule" role="tab"
-									data-toggle="tab">기존 일정</a></li>
+								<li role="presentation" class="travel active" id="1" style="padding: 0;">
+								<a href="#editSchedule" aria-controls="editSchedule" role="tab" data-toggle="tab">신규 일정</a></li>
+								<li role="presentation" class="travel" id="2" style="padding: 0">
+								<a href="#addSchedule" aria-controls="addSchedule" role="tab" data-toggle="tab">기존 일정</a></li>
 							</ul>
 							<div class="tab-content">
 								<!-- EDIT -->
 								<div class="tab-pane active" id="editSchedule">
 								<hr>
-									<input type="text" class="form-control" id="subject1"
-										name="subject" placeholder="제목을 입력하세요">
-										<div class="newBoardTitle">
-										<hr>
-										<textarea name="title" class="form-control" rows="4"
-											id="title1"></textarea>
+									<div class="form-inline row">
+										<div class="col-sm-6">
+											<label for="fromDate1">출발일</label>
+											<input type="text" class="form-control" id="fromDate1" name="start_date" style="width:100%">
+										</div>
+										<div class="col-sm-6">
+											<label for="toDate1">종료일</label>
+											<input type="text" class="form-control" id="toDate1" name="end_date" style="width:100%">
+										</div>
 									</div>
 									
-									<hr>
-									
-									<div class="form-inline">
-										<span class="dateLabel">출발일</span>
-										<input type="text" class="form-control" id="fromDate1" name="start_date">
-										<span class="dateLabel">종료일</span>
-										<input type="text" class="form-control" id="toDate1" name="end_date">
-									</div>
-									
-									<hr>
-									
-									<div class="form-group">
-                						<div class='input-group date'>
-                    					<input type='text' class="form-control datetimepicker" id='datetimepicker1' name="datetime" placeholder="스케줄"/>
-                    					</div>
+									<div class="form-inline row">
+										<div class="col-sm-8">
+											<label for="subject1">제목</label>
+											<input type="text" class="form-control" id="subject1" name="subject" style="width:100%">
+										</div>
+										<div class="col-sm-4">
+											<label for="datetimepicker1">스케줄</label>
+                    						<input type='text' class="form-control datetimepicker" id='datetimepicker1' name="datetime" style="width:100%"/>
+            							</div>
             						</div>
+            						<hr>
+									
+									<div class="newBoardTitle">
+									<textarea name="title" class="form-control" rows="4" id="title1" placeholder="내용"></textarea>
+									</div>
+									<hr>
 									
 									<div class="newBoardSelect">
 										<div class="input-group-btn">
-											<button class="btn btn-default btn-sm newBoardUploadImg"
-												type="button">
-												<i><img
-													src='<c:url value="/images/icon/icon_upload.png"/>'
-													width="64px" height="64px"></i>
+											<button class="btn btn-default btn-sm newBoardUploadImg" type="button">
+												<i><img src='<c:url value="/images/icon/icon_upload.png"/>' width="64px" height="64px"></i>
 											</button>
 										</div>
-										<input type="file" class="newBoardMulti with-preview"
-											id="newEditTravelBoardMulti" name="file"
-											style="display: none" multiple />
-											<div class="newBoardMultiList"
-											id="newEditTravelBoardMultiList" name="newBoardMultiList"></div>
-										<button class="btn btn-default btn-sm newBoardMap"
-												type="button">
-												<i><img src='<c:url value="/images/icon/icon_map.png"/>'
-													width="64px" height="64px"></i>
-											</button>
-										<div class="btn-group groupMap" role="group"
-											style="display: none">
-											
-											<button type="button" class="btn btn-default btn-sm"
-												onClick="createMap(1,0)">국내</button>
-											<button type="button" class="btn btn-default btn-sm"
-												onClick="createMap(1,1)">해외</button>
+										<input type="file" class="newBoardMulti with-preview" id="newEditTravelBoardMulti" name="file" style="display: none" multiple />
+										<div class="newBoardMultiList" id="newEditTravelBoardMultiList" name="newBoardMultiList"></div>
+										<button class="btn btn-default btn-sm newBoardMap" type="button">
+											<i><img src='<c:url value="/images/icon/icon_map.png"/>' width="64px" height="64px"></i>
+										</button>
+										
+										<div class="btn-group groupMap" role="group" style="display: none">
+											<button type="button" class="btn btn-default btn-sm" onClick="createMap(1,0)">국내</button>
+											<button type="button" class="btn btn-default btn-sm" onClick="createMap(1,1)">해외</button>
 										</div>
 										
 									</div>
@@ -549,66 +525,60 @@ hr {
 									<input type="hidden" name="location_lat" id="resultLatitude1">
 									<input type="hidden" name="location_lng" id="resultLongitude1">
 								</div>
-
+								
 								<!-- ADD -->
 								<div class="tab-pane" id="addSchedule">
+								<hr>
 									<select class="form-control">
 										<option>1</option>
 										<option>2</option>									
 									</select>
-									<br>
-									<input type="text" class="form-control" id="subject2"
-										name="subject" placeholder="제목" disabled>
-									
 									<hr>
 									
-									<div class="form-inline">
-										<span class="dateLabel">출발일</span>
-										<input type="text" class="form-control" id="fromDate2" name="start_date" disabled>
-										<span class="dateLabel">종료일</span>
-										<input type="text" class="form-control" id="toDate2" name="end_date" disabled>
-										
+									<div class="form-inline row">
+										<div class="col-sm-6">
+											<label for="fromDate2">출발일</label>
+											<input type="text" class="form-control" id="fromDate2" name="start_date" style="width:100%" disabled>
+										</div>
+										<div class="col-sm-6">
+											<label for="toDate2">종료일</label>
+											<input type="text" class="form-control" id="toDate2" name="end_date" style="width:100%" disabled>
+										</div>
 									</div>
 									
-									<div class="form-group">
-                						<div class='input-group date'>
-                    					<input type='text' class="form-control datetimepicker" id='datetimepicker2' name="datetime" placeholder="스케줄"/>
+									<div class="form-inline row">
+										<div class="col-sm-8">
+											<label for="subject2">제목</label>
+											<input type="text" class="form-control" id="subject2" name="subject" style="width:100%" disabled>
+										</div>
+										<div class="col-sm-4">
+											<label for="datetimepicker2">스케줄</label>
+                    						<input type='text' class="form-control datetimepicker" id='datetimepicker2' name="datetime" style="width:100%" />
                     					</div>
             						</div>
-            						
-									<hr>
+            						<hr>
 									
 									<div class="newBoardTitle">
-										<textarea name="title" class="form-control" rows="4"
-											id="title2"></textarea>
+										<textarea name="title" class="form-control" rows="4" id="title2" placeholder="내용"></textarea>
 									</div>
+									<hr>
 
 									<div class="newBoardSelect">
 										<div class="input-group-btn">
-											<button class="btn btn-default btn-sm newBoardUploadImg"
-												type="button">
-												<i><img
-													src='<c:url value="/images/icon/icon_upload.png"/>'
-													width="64px" height="64px"></i>
+											<button class="btn btn-default btn-sm newBoardUploadImg" type="button">
+												<i><img src='<c:url value="/images/icon/icon_upload.png"/>' width="64px" height="64px"></i>
 											</button>
-											
 										</div>
-										<input type="file" class="newBoardMulti with-preview"
-											id="newAddTravelBoardMulti" name="file" style="display: none"
-											multiple />
-										<div class="newBoardMultiList" id="newAddTravelBoardMultiList"
-											name="newBoardMultiList"></div>
-										<button class="btn btn-default btn-sm newBoardMap"
-												type="button">
-												<i><img src='<c:url value="/images/icon/icon_map.png"/>'
-													width="64px" height="64px"></i>
+										
+										<input type="file" class="newBoardMulti with-preview" id="newAddTravelBoardMulti" name="file" style="display: none" multiple />
+										<div class="newBoardMultiList" id="newAddTravelBoardMultiList" name="newBoardMultiList"></div>
+										<button class="btn btn-default btn-sm newBoardMap" type="button">
+											<i><img src='<c:url value="/images/icon/icon_map.png"/>' width="64px" height="64px"></i>
 										</button>
-										<div class="btn-group groupMap" role="group"
-											style="display: none">
-											<button type="button" class="btn btn-default btn-sm"
-												onClick="createMap(2,0)">국내</button>
-											<button type="button" class="btn btn-default btn-sm"
-												onClick="createMap(2,1)">해외</button>
+										
+										<div class="btn-group groupMap" role="group"style="display: none">
+											<button type="button" class="btn btn-default btn-sm" onClick="createMap(2,0)">국내</button>
+											<button type="button" class="btn btn-default btn-sm" onClick="createMap(2,1)">해외</button>
 										</div>
 										
 									</div>
@@ -622,82 +592,15 @@ hr {
 								</div>
 							</div>
 						</div>
-						<div class="modal-footer">
-							<button type="submit" class="btn btn-default btn-sm" 
-								>등록</button>
-							<button type="button" class="btn btn-default btn-sm"
-								data-dismiss="modal">취소</button>
-						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-default btn-sm" >등록</button>
+						<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">취소</button>
+					</div>
 				</form>
 			</div>
 		</div>
 	</div>
-
-	<!-- 이미지 Modal -->
-
-	<div class="modal fade" id="detailPicture" role="dialog" tabindex='-1'>
-		<div class="modal-dialog">
-
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-hidden="true">&times;</button>
-					<h4 class="modal-title">detail information</h4>
-				</div>
-				<div class="modal-body">
-					<div id="myCarousel" class="carousel slide" data-ride="carousel"
-						data-interval="0">
-						<!-- Indicators -->
-						<ol class="carousel-indicators">
-							<!-- class="active" 첫번째로 나오는 화면. -->
-							<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-							<li data-target="#myCarousel" data-slide-to="1"></li>
-							<li data-target="#myCarousel" data-slide-to="2"></li>
-							<li data-target="#myCarousel" data-slide-to="3"></li>
-						</ol>
-
-						<!-- Wrapper for slides -->
-						<div class="carousel-inner" role="listbox">
-							<div class="item active">
-								<img src='<c:url value="/images/img.jpg"/>' class="img-rounded"
-									alt="Chania">
-							</div>
-
-							<div class="item">
-								<img src='<c:url value="/images/img.jpg"/>' alt="Chania">
-							</div>
-
-							<div class="item">
-								<img src='<c:url value="/images/img.jpg"/>' alt="Flower">
-							</div>
-
-							<div class="item">
-								<img src='<c:url value="/images/img.jpg"/>' alt="Flower">
-							</div>
-						</div>
-
-						<!-- Left and right controls -->
-						<a class="left carousel-control" href="#myCarousel" role="button"
-							data-slide="prev"> <span
-							class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-							<span class="sr-only">Previous</span>
-						</a> <a class="right carousel-control" href="#myCarousel"
-							role="button" data-slide="next"> <span
-							class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-							<span class="sr-only">Next</span>
-						</a>
-					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-primary btn-sm"
-						data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
 
 	<script src='<c:url value="/resources/js/calendar/lib/jquery.min.js"/>'></script>
 	<script src='<c:url value="/resources/js/main/jquery.form.js"/>'></script>
@@ -822,7 +725,7 @@ hr {
 			});
 			
 			//여행게시물 달력 기능
-			var dateFormat = "mm/dd/yy",
+			var dateFormat = "yy-mm-dd",
 		      editFrom = $( "#fromDate1" )
 		        .datepicker({
 		          defaultDate: "+1w",
@@ -902,6 +805,7 @@ var map;
 			searchStr += "<input type='text' id='keyword" + board + "' size='15'>";
 			searchStr += "<button type='button' id='search" + board + "' onclick=searchPlaces("+ board +")>검색하기";
 			searchDiv.id = "menu_wrap"+board;
+			searchDiv.setAttribute("class","menu_wrap");
 			searchDiv.innerHTML = searchStr;
 			if(mapChoice[board].hasChildNodes){
 				//mapChoice[board].removeChild(mapChoice[board].childNodes[0]);
@@ -923,7 +827,7 @@ var map;
 			
 		}else if(area==1){
 			var searchStr = "";
-			searchStr += "<input id='pac-input"+ board +"' class='controls' type='text' placeholder='검색하기'>";
+			searchStr += "<input id='pac-input"+ board +"' class='controls pac-input' type='text' placeholder='검색하기'>";
 			if(mapChoice[board].children.length > 0 ){
 				//검색 자동완성 div태그 초기화
 				var head = document.getElementsByTagName('head')[0];

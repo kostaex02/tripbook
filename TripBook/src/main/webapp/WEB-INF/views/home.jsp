@@ -52,11 +52,17 @@
 	appearance: none;
 }
 
-.modal-header{
-	background: #00838F;
+.modal-content{
+	background: #546E7A;
 }
 .modal-title{
 	color:white;
+}
+.modal-body{
+	background: white;
+}
+.modal-footer{
+	padding-bottom: 0;
 }
 
 .input-group{
@@ -65,7 +71,7 @@
 
 .input_register{
     border: none;
-    border-bottom: 2px solid #00838F;
+    border-bottom: 2px solid #546E7A;
     background-position: 10px 10px; 
     background-repeat: no-repeat;
     padding-left: 40px;
@@ -199,7 +205,7 @@
 							</div>
 						</div>
 						<div class="modal-footer">
-							<button type="submit" class="btn btn-default" style="background:#00838F; color:white">가입</button>
+							<button type="submit" class="btn btn-default">가입</button>
 							<button type="button" class="btn btn-default"
 								data-dismiss="modal">닫기</button>
 						</div>
