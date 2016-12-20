@@ -723,7 +723,7 @@ hr {
 			});
 			
 			//여행게시물 달력 기능
-			var dateFormat = "yy-mm-dd",
+			var dateFormat = "mm/dd/yy",
 		      editFrom = $( "#fromDate1" ).datepicker({
 		          defaultDate: "+1w",
 		          changeMonth: true
