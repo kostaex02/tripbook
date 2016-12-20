@@ -47,7 +47,7 @@
 	#container{
 		width:100%;
 		height: 100%;
-		background-color: #20F7FA;		
+		background-color: #E0F7FA;		
 	}
 	
 	.slideSideCover {
@@ -102,12 +102,12 @@
 	    <input id="slideMenuButton" type="checkbox" role="button" checked/>
 	    <label id='slideLabel' for="slideMenuButton"><span><img src="<c:url value="/images/toggle.png"/>"></span></label>
 	    <div class="slideSideCover">
-	    	<div><a href='<c:url value="/main/main"/>'>Home</a><br></div>
-			<div></div><a href='<c:url value="/mypage/profile"/>'>My Page</a></div><br>
-			<div><a href='<c:url value="/calendar/list"/>'>Schedule</a></div><br>
-			<div><a href='<c:url value="/biography/biography"/>'>Trip Biography</a></div><br>
-			<div><a href='<c:url value="/friends/list"/>'>Friends</a></div><br>
-			<div><a href='#'><span id='slideGroupList'>Group</span></a></div><br>
+	    	<div><a href='<c:url value="/main/main"/>'>Home</a></div>
+			<div><a href='<c:url value="/mypage/profile"/>'>My Page</a></div>
+			<div><a href='<c:url value="/calendar/list"/>'>Schedule</a></div>
+			<div><a href='<c:url value="/biography/biography"/>'>Trip Biography</a></div>
+			<div><a href='<c:url value="/friends/list"/>'>Friends</a></div>
+			<div><a href='#'><span id='slideGroupList'>Group</span></a></div>
 				<div class='slideGroupMenu'>
 					<span>+Add Group</span><br>
 					<span>학교친구</span><br>
