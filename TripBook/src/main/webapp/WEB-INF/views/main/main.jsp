@@ -226,6 +226,9 @@ hr {
 	width:100px;
 	height:25px;
 }
+.text-resize{
+	resize: none;
+}
 
 .modal {
 	z-index: 20;
@@ -239,10 +242,6 @@ hr {
 	float: left;
 	top: -15px;
 	margin-right: 10px;
-}
-
-​#mainExclusive_input {
-	resize: none;
 }
 
 .MultiFile-title{
@@ -379,8 +378,8 @@ hr {
 						<div class="newBoardContainer">
 							
 							<div class="newBoardTitle">
-								<textarea name="content" class="form-control" rows="4"
-									id="title0" placeholder="내용을 입력해 주세요"></textarea>
+								<textarea name="content" class="form-control text-resize" rows="4"
+									id="title0" placeholder="내용"></textarea>
 							</div>
 							<hr>
 							<div class="newBoardSelect">
@@ -495,7 +494,7 @@ hr {
             						<hr>
 									
 									<div class="newBoardTitle">
-									<textarea name="title" class="form-control" rows="4" id="title1" placeholder="내용"></textarea>
+									<textarea name="content" class="form-control text-resize" rows="4" id="title1" placeholder="내용"></textarea>
 									</div>
 									<hr>
 									
@@ -559,7 +558,7 @@ hr {
             						<hr>
 									
 									<div class="newBoardTitle">
-										<textarea name="title" class="form-control" rows="4" id="title2" placeholder="내용"></textarea>
+										<textarea name="content" class="form-control text-resize" rows="4" id="title2" placeholder="내용"></textarea>
 									</div>
 									<hr>
 
