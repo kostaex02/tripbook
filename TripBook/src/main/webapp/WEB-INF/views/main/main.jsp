@@ -609,8 +609,7 @@ hr {
 	<script src='<c:url value="/resources/js/main/stroll.min.js"/>'></script>
 
 	<!-- 달력 -->
-	<script
-		src='<c:url value="/resources/js/calendar/lib/jquery-ui.min.js"/>'></script>
+	<script src='<c:url value="/resources/js/calendar/lib/jquery-ui.min.js"/>'></script>
 	
 	<!-- date -->
 	<script src='<c:url value="/resources/js/bootstrap/moment.js"/>'></script>
@@ -725,13 +724,13 @@ hr {
 			
 			//여행게시물 달력 기능
 			var dateFormat = "yy-mm-dd",
-		      editFrom = $( "#fromDate1" )
-		        .datepicker({
+		      editFrom = $( "#fromDate1" ).datepicker({
 		          defaultDate: "+1w",
 		          changeMonth: true
 		        })
 		        .on( "change", function() {
-		          editTo.datepicker( "option", "minDate", getDate( this ) );
+		        	editTo.datepicker( "option", "minDate", getDate( this ) );
+		        	$( "#fromDate1" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
 		        }),
 		      editTo = $( "#toDate1" ).datepicker({
 		    	defaultDate: "+1w",
@@ -739,6 +738,7 @@ hr {
 		      })
 		      .on( "change", function() {
 		    	  editFrom.datepicker( "option", "maxDate", getDate( this ) );
+		    	  $( "#toDate1" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
 		      }),
 		      addFrom = $("#fromDate2" )
 		      	.datepicker({
@@ -749,6 +749,7 @@ hr {
 		      	})
 		      	.on( "change" , function() {
 		      		addTo.datepicker("option", "minDate", getDate(this));
+		      		$( "#fromDate2" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
 		      	}),
 		      addTo = $("#toDate2").datepicker({
 		    	  	maxDate:"+1M+10D",
@@ -757,6 +758,7 @@ hr {
 		      	})
 		      	.on( "change" , function() {
 		      		addFrom.datepicker("option", "maxDate", getDate(this));
+		      		$( "#toDate2" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
 		    });
 		      	
 		 
