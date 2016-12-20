@@ -375,7 +375,7 @@ dl {
 							src="<c:url value="/images/icon/icon_tripbook48.png"/>" class="hover">
 						<div class="text">친구</div>
 					</div></a>
-				<p>
+				<hr>
 				<div id='sideGroup'>
 					<dl class="sideGroupHeader">
 						<dd style="cursor: pointer">그룹</dd>
