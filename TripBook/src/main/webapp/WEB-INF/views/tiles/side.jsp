@@ -249,6 +249,7 @@ dd:hover{
 	background-color: #546E7A;
 	float: left;
 	width: 100%;
+	box-shadow: 0px -5px 6px rgba(0, 0, 0, 0.16), 0 3px 9px rgba(0, 2, 0, 0.23)
 }
 
 
