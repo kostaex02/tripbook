@@ -17,14 +17,6 @@
 	
 }
 
-/* 버튼 음영효과 */
-#sideFriend{
-	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-}
-
-#sideHome{
-	box-shadow: 0px -5px 6px rgba(0, 0, 0, 0.16), 0 3px 9px rgba(0, 2, 0, 0.23)
-}
 
 #sideProfile {
 	position: relative;
@@ -33,9 +25,10 @@
 	height: 130px;
 }
 
+
 #sideSchedule {
 	background-color: #546E7A;
-	top: 90px;
+	top: 35px;
 	float: left;
 	width: 100%;
 }
@@ -59,9 +52,10 @@
 
 #sideHome {
 	background-color: #546E7A;
-	top: 90px;
+	top: 35px;
 	float: left;
 	width: 100%;
+	box-shadow: 0px -5px 6px rgba(0, 0, 0, 0.16), 0 3px 9px rgba(0, 2, 0, 0.23)
 }
 
 #sideHome .hover {
@@ -84,7 +78,7 @@
 
 #sideBiography {
 	background-color: #546E7A;
-	top: 90px;
+	top: 35px;
 	width: 100%;
 	clear: both;
 }
@@ -108,10 +102,11 @@
 
 #sideFriend {
 	background-color: #546E7A;
-	top: 85px;
+	top: 30px;
 	float:left;
 	width: 100%;
 	clear: both;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 #sideFriend .hover {
@@ -145,7 +140,7 @@
 
 #sideGroup {
 	position: relative;
-	top: 90px;
+	top: 35px;
 	height: auto;
 	display: none;
 	color: black;
@@ -167,6 +162,12 @@
 	background-color: maroon;
 	width: 96%;
 	border-radius: 10px;
+	font-size: 20px !important;
+}
+
+
+.friendsUserName, #friendsProfile{
+	font-size: 20px !important;
 }
 
 #friendAdd {
@@ -185,11 +186,14 @@ a {
 }
 
 .sideAddGroupButton {
-	color: black;
+	color: white;
 	cursor: pointer;
 }
 
 .sideAddGroupButton:hover {
+	color: black;
+}
+dd:hover{
 	color: black;
 }
 
@@ -322,7 +326,8 @@ a {
 }
 
 dd {
-	color: black;
+	color: white;
+	font-size:20px;
 }
 
 dl {
@@ -331,6 +336,18 @@ dl {
 
 #sideFriendProfile {
 	visibility: hidden;
+	top:35px;
+	font-size:20px;
+}
+
+.sideGroupHeader{
+	position:relative;
+	line-height: 0;
+	height: 35px;
+	top:10px;
+}
+.sideGroupHeader dd{
+	line-height: 0.5;
 }
 
 </style>
@@ -408,8 +425,7 @@ dl {
 							<!-- input value에 아이디 저장-->
 							<div class='friendsUserName'>이름</div>
 							<a href='#'>게시물</a><br> <a href='<c:url value="/friends/friendBiography"/>'>일대기</a>
-						</div>
-					</a>
+							<br>
 					<!-- 친구 상태값에 따른 버튼 변경 -->
 					<c:choose>
 						<c:when test="${friendState == null}">
@@ -420,6 +436,9 @@ dl {
 							<input class="btn btn-primary" type='button' value='친구 신청'>
 						</c:when>
 					</c:choose>
+						</div>
+					</a>
+					
 				</div>
 			</div>
 		</c:when>
