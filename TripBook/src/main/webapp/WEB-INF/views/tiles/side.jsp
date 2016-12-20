@@ -356,7 +356,7 @@ dl {
 					<div id="sideBiography">
 						<img alt="여행일대기"
 							src="<c:url value="/images/icon/icon_tripbook48.png"/>" class="hover">
-						<div class="text">여행일대기</div>
+						<div class="text">발자취</div>
 					</div>
 				</a>
 				<a href='<c:url value="/friends/list"/>'>
