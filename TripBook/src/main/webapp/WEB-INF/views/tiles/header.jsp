@@ -50,7 +50,7 @@
 	width: 99%;
 	line-height: normal; /* line-height 초기화 */
 	padding: .8em .1em; /* 원하는 여백 설정, 상하단 여백으로 높이를 조절 */
-	border: 1px solid #999;
+	border: 1px solid white;
 	border-radius: 10px;
 	-webkit-appearance: none; /* 브라우저별 기본 스타일링 제거 */
 	-moz-appearance: none;
