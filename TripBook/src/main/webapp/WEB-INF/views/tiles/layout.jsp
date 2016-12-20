@@ -66,6 +66,9 @@
 	
 	.slideSideCover div{
 		background-color:#546E7A;
+		height: 40px;
+		text-align: center;
+		line-height: 3;
 	}
 	
 	input[type=checkbox] {
@@ -91,7 +94,10 @@
 	.slideGroupMenu{
 		display: none;
 	}
-	
+	.slideGroupMenu div{
+		height:20px;
+		line-height: 1;
+	}
 	
 </style>
 </head>
@@ -109,9 +115,9 @@
 			<div><a href='<c:url value="/friends/list"/>'>Friends</a></div>
 			<div><a href='#'><span id='slideGroupList'>Group</span></a></div>
 				<div class='slideGroupMenu'>
-					<span>+Add Group</span><br>
-					<span>학교친구</span><br>
-					<span>직장동료</span><br>
+					<div>+Add Group</div>
+					<div>학교친구</div>
+					<div>직장동료</div>
 				</div>
 	    </div>
 	</div>
