@@ -98,6 +98,9 @@
 		height:20px;
 		line-height: 1;
 	}
+	#slideFriend{
+		display: none;
+	}
 	
 </style>
 </head>
@@ -112,13 +115,14 @@
 			<div><a href='<c:url value="/mypage/profile"/>'>My Page</a></div>
 			<div><a href='<c:url value="/calendar/list"/>'>Schedule</a></div>
 			<div><a href='<c:url value="/biography/biography"/>'>Trip Biography</a></div>
-			<div><a href='<c:url value="/friends/list"/>'>Friends</a></div>
-			<div><a href='#'><span id='slideGroupList'>Group</span></a></div>
+			<div><a href='<c:url value="/friends/list"/>'><div id='slideFriend'></div>Friends</a></div>
+			<div id='slideGroup'><a href='#'><div id='slideGroupList'>Group</div></a>
 				<div class='slideGroupMenu'>
-					<div>+Add Group</div>
+					<div><a class="sideAddGroupButton" data-toggle="modal" data-target="#groupCreateModal">+ 그룹 추가</a></div>
 					<div>학교친구</div>
 					<div>직장동료</div>
 				</div>
+			</div>
 	    </div>
 	</div>
 		

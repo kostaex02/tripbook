@@ -506,6 +506,15 @@ dl {
 					group.style.display = 'inline';
 				}
 			}
+			
+			var slideGroup = document.getElementById("slideGroup");
+			if (group != null) {
+				if (sessionStorage.getItem("pageName") != "slideFriend") {
+					slideGroup.style.display = 'none';
+				} else {
+					slideGroup.style.display = 'inline';
+				}
+			}
 
 			var friendProfile = document.getElementById("friendProfile");
 			if (friendProfile != null) {
