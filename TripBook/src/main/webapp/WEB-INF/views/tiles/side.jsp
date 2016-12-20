@@ -487,14 +487,14 @@ dl {
 			
 			
 			switch(sessionStorage.getItem("pageName")){
-				case "sideHome" : $('#sideHome').css('border-right', '5px solid #69F0AE');breadk;
-				case "sideSchedule" : $('#sideSchedule').css('border-right', '5px solid #69F0AE');breadk;
-				case "sideBiography" : $('#sideBiography').css('border-right', '5px solid #69F0AE');breadk;
-				case "sideFriend" : $('#sideFriend').css('border-right', '5px solid #69F0AE');breadk;
-				case "adminSideNotice" : $('#adminSideNotice').css('border-right', '5px solid #69F0AE');breadk;
-				case "adminSideBoard" : $('#adminSideBoard').css('border-right', '5px solid #69F0AE');breadk;
-				case "adminSideMessge" : $('#adminSideMessge').css('border-right', '5px solid #69F0AE');breadk;
-				case "adminSideUser" : $('#adminSideUser').css('border-right', '5px solid #69F0AE');breadk;
+				case "sideHome" : $('#sideHome').css('border-right', '5px solid #69F0AE');break;
+				case "sideSchedule" : $('#sideSchedule').css('border-right', '5px solid #69F0AE');break;
+				case "sideBiography" : $('#sideBiography').css('border-right', '5px solid #69F0AE');break;
+				case "sideFriend" : $('#sideFriend').css('border-right', '5px solid #69F0AE');break;
+				case "adminSideNotice" : $('#adminSideNotice').css('border-right', '5px solid #69F0AE');break;
+				case "adminSideBoard" : $('#adminSideBoard').css('border-right', '5px solid #69F0AE');break;
+				case "adminSideMessge" : $('#adminSideMessge').css('border-right', '5px solid #69F0AE');break;
+				case "adminSideUser" : $('#adminSideUser').css('border-right', '5px solid #69F0AE');break;
 			}
 			
 			
