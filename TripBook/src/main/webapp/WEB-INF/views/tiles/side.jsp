@@ -99,8 +99,10 @@
 
 #sideFriend {
 	background-color: #546E7A;
-	top: 90px;
+	top: 85px;
+	float:left;
 	width: 100%;
+	clear: both;
 }
 
 #sideFriend .hover {
@@ -112,7 +114,7 @@
 #sideFriend .text {
 	
 	float: right;
-	margin-right: -70px;
+	margin-right: 24px;
 }
 
 #sideFriend:hover {
@@ -134,7 +136,7 @@
 #sideGroup {
 	position: relative;
 	top: 90px;
-	height: 50px;
+	height: auto;
 	display: none;
 	color: black;
 }
@@ -184,9 +186,11 @@ a {
 /* 관리자 side menu */
 #adminSideHome, #adminSideNotice, #adminSideMessge, #adminSideBoard,
 	#adminSideUser {
+	position: relative;
+	line-height: 55px;
 	height: 50px;
-	line-height: 50px;
-	border-radius: 10px;
+	color: white;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 #adminSideNav {
@@ -198,54 +202,110 @@ a {
 #adminSideProfile {
 	position: relative;
 	line-height: 40px;
-	padding: 0px;
-	background-color: maroon;
-	width: 96%;
-	border-radius: 10px;
+	top: 30px;
+	height: 130px;
 }
 
 #adminSideHome {
+	background-color: #546E7A;
+	top: 90px;
+	float: left;
+	width: 100%;
+}
+
+#adminSideHome .text {
 	position: relative;
-	padding: 0px;
-	background-color: maroon;
-	width: 96%;
+	float: right;
+	margin-right: 24px;
+}
+
+#adminSideHome :hover{
+	background-color: #546E7A;
+	top: 90px;
+	float: left;
+	width: 100%;
+}
+
+#adminSideHome:hover {
+	position: relative;
+	background-color: #455A64;
 }
 
 #adminSideNotice {
-	background-color: navy;
+	background-color: #546E7A;
 	float: left;
-	width: 48%;
-	left: 0%
+	width: 100%;
 }
+
+
+#adminSideNotice .text {
+	position: relative;
+	float: right;
+	margin-right: 20px;
+}
+
+#adminSideNotice:hover {
+	position: relative;
+	background-color: #455A64;
+}
+
 
 #adminSideMessge {
-	background-color: olive;
-	float: left;
-	width: 48%;
-	left: 0%
-}
-
-#adminSideBoard {
-	background-color: teal;
-	width: 96%;
+	background-color: #546E7A;
+	width: 100%;
 	clear: both;
 }
 
-#adminSideUser {
-	background-color: silver;
-	width: 96%;
+
+#adminSideMessge .text {
+	position: relative;
+	float: right;
+	margin-right: 20px;
 }
 
-/* 그룹관련 css */
-.sideGroupHeader {
-	background-color: #84D4E4;
+#adminSideMessge:hover {
 	position: relative;
-	line-height: 30px;
-	height: auto;
-	color: white;
-	border-radius: 45px;
-	width: 15%;
+	background-color: #455A64;
 }
+
+#adminSideBoard {
+	background-color: #546E7A;
+	width: 100%;
+}
+
+
+#adminSideBoard .text {
+	
+	float: right;
+	margin-right: -70px;
+}
+
+#adminSideBoard:hover {
+	position: relative;
+	background-color: #455A64;
+	border-right: 3px threedhighlight red;
+}
+
+#adminSideUser {
+	background-color: #546E7A;
+	width: 100%;
+}
+
+#adminSideUser .text {
+	
+	float: right;
+	margin-right: -70px;
+}
+
+#adminSideUser:hover {
+	position: relative;
+	background-color: #455A64;
+	border-right: 3px threedhighlight red;
+}
+
+
+
+/* 그룹관련 css */
 
 .sideGroupMenu {
 	display: none;
@@ -405,7 +465,6 @@ dl {
 				trash.style.display = 'none';
 			} else {
 				trash.style.display = 'inline';
-				$('#sideSchedule').css('border-right', '5px solid #69F0AE');
 			}
 
 			var group = document.getElementById("sideGroup");
@@ -414,7 +473,6 @@ dl {
 					group.style.display = 'none';
 				} else {
 					group.style.display = 'inline';
-					$('#sideFriend').css('border-right', '5px solid #69F0AE');
 				}
 			}
 
@@ -424,8 +482,19 @@ dl {
 					friendProfile.style.display = 'none';
 				} else {
 					friendProfile.style.display = 'inline';
-					$('#friendProfile').css('border-right', '5px solid #69F0AE');
 				}
+			}
+			
+			
+			switch(sessionStorage.getItem("pageName")){
+				case "sideHome" : $('#sideHome').css('border-right', '5px solid #69F0AE');breadk;
+				case "sideSchedule" : $('#sideSchedule').css('border-right', '5px solid #69F0AE');breadk;
+				case "sideBiography" : $('#sideBiography').css('border-right', '5px solid #69F0AE');breadk;
+				case "sideFriend" : $('#sideFriend').css('border-right', '5px solid #69F0AE');breadk;
+				case "adminSideNotice" : $('#adminSideNotice').css('border-right', '5px solid #69F0AE');breadk;
+				case "adminSideBoard" : $('#adminSideBoard').css('border-right', '5px solid #69F0AE');breadk;
+				case "adminSideMessge" : $('#adminSideMessge').css('border-right', '5px solid #69F0AE');breadk;
+				case "adminSideUser" : $('#adminSideUser').css('border-right', '5px solid #69F0AE');breadk;
 			}
 			
 			
