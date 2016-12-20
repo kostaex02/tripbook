@@ -130,6 +130,8 @@
 
 #sideNav div{
 	cursor: pointer;
+	font-family:NanumPen;
+	font-size:xx-large;
 }
 
 #sideGroup {
