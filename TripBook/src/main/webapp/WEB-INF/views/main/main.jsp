@@ -182,16 +182,17 @@ hr {
 	top: 0;
 	left: 0;
 	bottom: 0;
-	width: 250px;
-	height: 25px;
-	margin: 10px 0 30px 10px;
+	margin: 10px 30px 0 10px;
 	padding: 5px;
+	width: 200px;
+	height: 30px;
 	overflow-y: auto;
-	background: rgba(255, 255, 255, 0.7);
+	background: rgba(255, 255, 255, 0.5);
 	z-index: 2;
 	font-size: 12px;
 	border-radius: 10px;
 }
+
 
 .bg_white {
 	background: #fff;
@@ -725,7 +726,7 @@ hr {
 			//여행게시물 달력 기능
 			var dateFormat = "mm/dd/yy",
 		      editFrom = $( "#fromDate1" ).datepicker({
-		          defaultDate: "+1w",
+		    	  defaultDate: "+1w",
 		          changeMonth: true
 		        })
 		        .on( "change", function() {
@@ -733,15 +734,14 @@ hr {
 		        	$( "#fromDate1" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
 		        }),
 		      editTo = $( "#toDate1" ).datepicker({
-		    	defaultDate: "+1w",
-		        changeMonth: true
+		    	  defaultDate: "+1w",
+		          changeMonth: true
 		      })
 		      .on( "change", function() {
 		    	  editFrom.datepicker( "option", "maxDate", getDate( this ) );
 		    	  $( "#toDate1" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
-		      }),
-		      addFrom = $("#fromDate2" )
-		      	.datepicker({
+		      });/* ,
+		      addFrom = $("#fromDate2" ).datepicker({
 		      		minDate:-20,
 			        maxDate:"+1M+10D",
 			        defaultDate: "+1w",
@@ -759,7 +759,7 @@ hr {
 		      	.on( "change" , function() {
 		      		addFrom.datepicker("option", "maxDate", getDate(this));
 		      		$( "#toDate2" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
-		    });
+		    }); */
 		      	
 		 
 		    function getDate( element ) {
@@ -782,10 +782,10 @@ hr {
 		async defer></script>
 	<!-- daum API Key -->
 	<script type="text/javascript"
-		src="//apis.daum.net/maps/maps3.js?apikey=3bae0d1bca94080850d3d2451479c7ee&libraries=services"></script>
+		src="//apis.daum.net/maps/maps3.js?apikey=0090a85072e4ede25e4ac7424b7f9d98&libraries=services"></script>
 
 	<script>
-var map;
+	var map;
 	
 	function createMap(board, area){
 		var mapDiv = document.createElement("div");
