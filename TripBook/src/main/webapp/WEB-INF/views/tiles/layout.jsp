@@ -30,10 +30,11 @@
 	
 	#content{
 		float:right;
-		height:530px;
+		height:100%;
 		padding:5px;
 		top:-1%;
-		left:-2%;
+		left:-7%;
+		width:65%;
 	}
 	
 	#side{
@@ -46,24 +47,25 @@
 	#container{
 		width:100%;
 		height: 100%;
-		/* background-image: url('../images/background/album.png'); */
-		background-repeat: no-repeat;
-		background-size: 100% 100%; 
-		
+		background-color: #20F7FA;		
 	}
 	
 	.slideSideCover {
-		background-color:pink;
+		background-color:#455A64;
 	    position: absolute;
 	    z-index:7;
 	    width: 150px;
 	    height:2000px;
-	    top: -50;
-	    left: -50;
+	    top: 0;
+	    left: 0;
 	    right: 0;
 	    bottom: 0;
 	    -moz-transition: left 0.5s ease;
 	    transition: left 0.5s ease;
+	}
+	
+	.slideSideCover div{
+		background-color:#546E7A;
 	}
 	
 	input[type=checkbox] {
@@ -71,16 +73,16 @@
 	}
 	
 	input:checked ~ .slideSideCover { 
-	    left: -200;
+	    left: -150px;
 	}
 	input:checked ~ #slideLabel { 
-	    left: -50;
+	    left: 0;
 	}
 	#slideLabel {
 	    z-index: 9;
 	    position: absolute;
-	    top: -50px;
-	    left: 100px;
+	    top: 0px;
+	    left: 155px;
 	    background-color: blue;
 	    -moz-transition: left 0.5s ease;
 	    transition: left 0.5s ease;
@@ -98,14 +100,14 @@
 	
 	<div class="slideMenu">
 	    <input id="slideMenuButton" type="checkbox" role="button" checked/>
-	    <label id='slideLabel' for="slideMenuButton"><span>close</span></label>
+	    <label id='slideLabel' for="slideMenuButton"><span><img src="<c:url value="/images/toggle.png"/>"></span></label>
 	    <div class="slideSideCover">
-	    	<a href='<c:url value="/main/main"/>'>Home</a><br>
-			<a href='<c:url value="/mypage/profile"/>'>My Page</a><br>
-			<a href='<c:url value="/calendar/list"/>'>Schedule</a><br>
-			<a href='<c:url value="/biography/biography"/>'>Trip Biography</a><br>
-			<a href='<c:url value="/friends/list"/>'>Friends</a><br>
-			<a href='#'><span id='slideGroupList'>Group</span></a><br>
+	    	<div><a href='<c:url value="/main/main"/>'>Home</a><br></div>
+			<div></div><a href='<c:url value="/mypage/profile"/>'>My Page</a></div><br>
+			<div><a href='<c:url value="/calendar/list"/>'>Schedule</a></div><br>
+			<div><a href='<c:url value="/biography/biography"/>'>Trip Biography</a></div><br>
+			<div><a href='<c:url value="/friends/list"/>'>Friends</a></div><br>
+			<div><a href='#'><span id='slideGroupList'>Group</span></a></div><br>
 				<div class='slideGroupMenu'>
 					<span>+Add Group</span><br>
 					<span>학교친구</span><br>
