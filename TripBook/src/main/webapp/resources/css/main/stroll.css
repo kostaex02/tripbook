@@ -57,6 +57,7 @@
  * Grow styles
  */
 .grow li {
+	border-radius:10px;
 	-webkit-transition: all 600ms ease;
 	   -moz-transition: all 600ms ease;
 	    -ms-transition: all 600ms ease;

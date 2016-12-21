@@ -165,7 +165,7 @@ textarea {
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" id="sendMessage">전송</button>
-						<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+						<button type="button" class="btn btn-default friendModalMessage" data-dismiss="modal">취소</button>
 					</div>
 				</form>
 			</div>
@@ -216,11 +216,19 @@ textarea {
 						}
 					})
 			})
+			
 			$(".friendSendMessageButton").click(function(){
+				
+				$("#friendSendMessage").show();
 				$("#messageReceiverId").val($(this).parents().parents().attr('id'));
 			});
 			
+			$(".friendModalMessage").click(function(){
+				$("textarea").val('');
+			});
+			
 			$("#sendMessage").click(function(){
+				
 				$.ajax({
 					url : "/controller/main/send",
 					type : "post",
@@ -229,6 +237,7 @@ textarea {
 					success : function(data) {
 						if(data>0){
 							$("#friendSendMessage").hide();
+							$("textarea").val('');
 						}else{
 							alert("실패");
 						}
