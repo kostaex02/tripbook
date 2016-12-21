@@ -341,13 +341,11 @@ hr {
 						<c:forEach items="${boardList}" var="item" varStatus="boardNum">
 							<li>
 								<div class='mainRecentBoard'>
-									<p>
 									<div class='profile'>
 										<img class='writerProfileImage'
 											src='<c:url value="/tripbook/user/${item.user.id }/${item.user.fileName}"/>'>
 										<b>${item.writer }</b> ${item.writeDate }
 									</div>
-									</p>
 									<div class='picture'>
 										<c:forEach items="${item.boardPictures }" var="boardPicture" varStatus="pictureNum">
 											<c:if test="${pictureNum.count < 3}">
