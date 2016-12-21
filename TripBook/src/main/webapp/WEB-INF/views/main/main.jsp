@@ -34,13 +34,12 @@ a {
 
 .profile {
 	position: relative;
-	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 	border-radius: 10px;
 }
 
 .picture {
 	height: auto;
-	min-height: 300px;
+	min-height: 100px;
 	text-align: center;
 }
 
@@ -105,7 +104,7 @@ a {
 	vertical-align: middle;
 } */
 .mainAllBoard {
-	height: 450px;
+	height: 500px;
 	overflow: hidden;
 }
 
@@ -287,18 +286,23 @@ hr {
 .writerProfileImage {
 	width: 60px;
 	height: 60px;
-	border-radius: 10px 0px 0px 10px;
+	border-radius: 100%;
 }
 
 .boardPicture {
 	width: 100%;
 	height: 300px;
 	max-width: 300px;
-	float: left;
+	position: relative;
+	float:left;
 }
 
 .replysCount {
 	text-align: right;
+}
+
+.boardContent{
+	clear: both;
 }
 </style>
 
@@ -349,23 +353,30 @@ hr {
 									<div class='picture'>
 										<c:forEach items="${item.boardPictures }" var="boardPicture" varStatus="pictureNum">
 											<c:if test="${pictureNum.count < 3}">
-												<a href="#" data-toggle="modal" data-target="#detailPicture">
-													<img class='boardPicture'
-													src='<c:url value="/tripbook/board/${item.boardNo }/${boardPicture.fileName }"/>' />
-												</a>
+												<div>
+													<a href="#" data-toggle="modal" data-target="#detailPicture">
+														<img class='boardPicture'
+														src='<c:url value="/tripbook/board/${item.boardNo }/${boardPicture.fileName }"/>' />
+													</a>
+												</div>
 											</c:if>
 										</c:forEach>
-										<div>${item.content }</div>
 									</div>
-									<div>
+										<div class="boardContent">${item.content }</div>
+									<hr>
+									<div class="boardFooter">
 										<div class="heart " id="like${boardNum.count }" rel="like"></div>
 										<div class="likeCount" id="likeCount${boardNum.count }">14</div>
 										<a href='#'>댓글달기</a>
 										<div class='replysCount'>댓글 100개</div>
 										<div class="replyArea">
 										리플영역
+										<hr>
+											<div>작성자 사진 / <img src='<c:url value="/tripbook/user/${boardReply.user.id}/${boardReply.user.fileName}"/>'></div>
+											<div>작성자 이름 / ${boardReply.user.name }</div>
+											<div>리플 내용 / ${boardReply.content }</div>
+											<div>작성시간 / ${boardReply.writerDate }</div>
 										<c:forEach items="${item.replys}" var="boardReply" varStatus="replyState">
-											${replyState.count}
 											<div>작성자 사진 / <img src='<c:url value="/tripbook/user/${boardReply.user.id}/${boardReply.user.fileName}"/>'></div>
 											<div>작성자 이름 / ${boardReply.user.name }</div>
 											<div>리플 내용 / ${boardReply.content }</div>
