@@ -817,6 +817,10 @@ hr {
 				$('.groupMap').show();	
 			});
 			
+			$('.modal').on('hidden.bs.modal', function(){
+			    $(this).find('form')[0].reset();
+			});
+			
 			//여행게시물 달력 기능
 			var dateFormat = "mm/dd/yy",
 		      editFrom = $( "#fromDate1" ).datepicker({
