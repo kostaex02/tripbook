@@ -5,6 +5,11 @@ public class BoardPictureDTO {
 	private String fileName;
 	private int boardNo;
 	
+	@Override
+	public String toString() {
+		return "BoardPictureDTO [boardPictureNo=" + boardPictureNo + ", fileName=" + fileName + ", boardNo=" + boardNo
+				+ "]";
+	}
 	public BoardPictureDTO() {
 		super();
 	}

@@ -82,6 +82,15 @@ CREATE TABLE board_table
 	state NUMBER not null, --권한
 	schedule_no references schedule_table(schedule_no) on delete cascade -- 여행 시퀀스
 );
+
+select b.board_no,b.content,b.write_date,b.trip_date,b.location,b.location_lat,b.location_lng,b.writer,b.state,b.schedule_no
+		,u.id,u.name,u.file_name,bp.board_Picture_no,bp.file_name,bp.board_no,r.reply_no,r.writer,r.writer_date
+		from board_table b join user_table u on b.writer=u.id
+		left join board_picture_table bp on b.board_no=bp.board_no
+		left join reply_table r join user_table ru on r.writer = ru.id on r.board_no = b.board_no
+		where (b.writer='test3@test.com')
+
+select * from board_Picture_table
 create sequence board_picture_sequence nocache;
 CREATE TABLE board_picture_table
 (  

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tripbook.dto.BoardDTO;
+import com.tripbook.dto.BoardPictureDTO;
 import com.tripbook.dto.NoticeDTO;
 import com.tripbook.service.BoardService;
 import com.tripbook.service.NoticeService;
@@ -40,6 +41,9 @@ public class MainController {
 		List<BoardDTO> list = boardService.selectBoard(userId);
 		for(BoardDTO b:list){
 			System.out.println(b);
+			for(BoardPictureDTO bp:b.getBoardPictures()){
+				System.out.println(bp);
+			}
 		}
 		mv.addObject("boardList", list);
 		return mv;
