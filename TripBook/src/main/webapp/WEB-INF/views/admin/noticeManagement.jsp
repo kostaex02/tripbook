@@ -12,6 +12,8 @@
 <title>Insert title here</title>
 <style type="text/css">
 
+
+
 .adminLogList {
 	margin-top: 20px;
 }
@@ -19,6 +21,8 @@
 .adminNoticeLogList {
 	width: 100%;
 	display: inline-table;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+	border-radius: 10px;
 }
 
 .notice {
@@ -46,6 +50,42 @@ textarea{
 	</div>
 	<div class="adminLogList">
 		<ul class="grow">
+			<li class="adminNoticeLogList">
+				<div class="notice">
+					공지사항 title!
+				</div>
+				<div class="adminMessage">마이크 테스트!!! 하나둘셋! 안내말씀드립니다.</div>
+			</li>
+			<li class="adminNoticeLogList">
+				<div class="notice">
+					공지사항 title!
+				</div>
+				<div class="adminMessage">마이크 테스트!!! 하나둘셋! 안내말씀드립니다.</div>
+			</li>
+			<li class="adminNoticeLogList">
+				<div class="notice">
+					공지사항 title!
+				</div>
+				<div class="adminMessage">마이크 테스트!!! 하나둘셋! 안내말씀드립니다.</div>
+			</li>
+			<li class="adminNoticeLogList">
+				<div class="notice">
+					공지사항 title!
+				</div>
+				<div class="adminMessage">마이크 테스트!!! 하나둘셋! 안내말씀드립니다.</div>
+			</li>
+			<li class="adminNoticeLogList">
+				<div class="notice">
+					공지사항 title!
+				</div>
+				<div class="adminMessage">마이크 테스트!!! 하나둘셋! 안내말씀드립니다.</div>
+			</li>
+			<li class="adminNoticeLogList">
+				<div class="notice">
+					공지사항 title!
+				</div>
+				<div class="adminMessage">마이크 테스트!!! 하나둘셋! 안내말씀드립니다.</div>
+			</li>
 			<li class="adminNoticeLogList">
 				<div class="notice">
 					공지사항 title!
