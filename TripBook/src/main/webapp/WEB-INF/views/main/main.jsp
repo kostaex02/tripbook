@@ -767,7 +767,9 @@ hr {
 		
 		$(function() {
 			// 시간.
-			$('.datetimepicker').datetimepicker();
+			$('.datetimepicker').datetimepicker({
+				sideBySide : true
+			});
 			/* 멀티파일 설정 */
 			$('#newGeneralBoardMulti').MultiFile({
 					//max : 3, //업로드 최대 파일 갯수 (지정하지 않으면 무한대)
@@ -857,13 +859,10 @@ hr {
 		      	
 		 
 		    function getDate( element ) {
-		      	var date;
-		     	try {
-		        	date = $.datepicker.parseDate( dateFormat, element.value );
-		      	} catch( error ) {
-		        	date = null;
-		      	}
-		 		return date;
+		      	var date = element.value;
+		     	
+		      	alert(date);
+		      	return date;
 		    }
 		    
 		    $.ajax({

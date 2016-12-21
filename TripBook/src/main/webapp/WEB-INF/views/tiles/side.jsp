@@ -22,7 +22,7 @@
 	position: relative;
 	line-height: 40px;
 	top: 15px;
-	left: 15px;
+	margin-left: 15px;
 	height: 130px;
 }
 
