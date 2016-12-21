@@ -245,6 +245,7 @@
 			$('.mypageLogStory').on('click','.friendMessage',function(){
 				//alert($(this).parent().attr('id'));
 				$(this).parent().siblings(".mypageMessageContent").slideToggle(500);
+				
 			})
 			/* 친구 댓글 */
 			$('.mypageLogStory').on('click','.friendReply',function(){
