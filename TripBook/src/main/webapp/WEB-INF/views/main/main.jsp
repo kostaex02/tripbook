@@ -500,8 +500,10 @@ hr {
 							<div class="tab-pane active" id="editSchedule">
 								<form name="generalForm"
 									action="/controller/board/insertEditScheduleBoard"
-									method="get" enctype="multipart/form-data"
+									method="post" 
+									enctype="multipart/form-data"
 									onkeydown="return captureReturnKey(event)">
+
 									<hr>
 									<div class="form-inline row">
 										<div class="col-sm-6">
