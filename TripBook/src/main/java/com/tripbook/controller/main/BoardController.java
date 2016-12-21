@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.tripbook.dto.BoardDTO;
 import com.tripbook.dto.BoardPictureDTO;
 import com.tripbook.dto.GeneralBoardForm;
+import com.tripbook.dto.ScheduleDTO;
 import com.tripbook.service.BoardPictureService;
 import com.tripbook.service.BoardService;
 
@@ -65,5 +66,14 @@ public class BoardController {
 			}
 		}
 		return "redirect:/main/home";
+	}
+	@RequestMapping("insertEditScheduleBoard")
+	public String insertEditScheduleBoard(HttpServletRequest request,BoardDTO boardDTO,ScheduleDTO scheduleDTO,String keyword,String address,GeneralBoardForm file){
+		System.out.println(scheduleDTO);
+		System.out.println(boardDTO);
+		System.out.println(address);
+		System.out.println(keyword);
+		System.out.println(file.getFile().size());
+		return null;
 	}
 }

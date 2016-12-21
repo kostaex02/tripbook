@@ -360,8 +360,7 @@ hr {
 			<div class="modal-content">
 				<form id="generalForm" name="generalForm" action="/controller/board/insert" method="post"
 					enctype="multipart/form-data"
-					onkeydown="return captureReturnKey(event)"
-					onsubmit="return validateForm(0)">
+					onkeydown="return captureReturnKey(event)">
 					<div class="modal-header">
 						<div class="newBoardPicture">
 								<img class="newBoardPictureImg"
@@ -443,7 +442,7 @@ hr {
 	<div class="modal fade" id="addTravelBoard" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form name="generalForm" action="#" method="post" onsubmit="kindBoard()"
+				<form name="generalForm" action="#" method="post"
 					enctype="multipart/form-data"
 					onkeydown="return captureReturnKey(event)" >
 					<div class="modal-header">
@@ -452,7 +451,7 @@ hr {
 									src='<c:url value="/images/img.jpg"/>'>
 							</div><div class="userName">${userName}</div>
 						<div>
-							<select class="select" name="state">
+							<select class="select" id="state" name="state">
 								<option value="0">전체보기</option>
 								<option value="1">친구보기</option>
 								<option value="2">비공개</option>
@@ -510,7 +509,7 @@ hr {
 												<i><img src='<c:url value="/images/icon/icon_upload.png"/>' width="64px" height="64px"></i>
 											</button>
 										</div>
-										<input type="file" class="newBoardMulti with-preview" id="newEditTravelBoardMulti" name="file" style="display: none" multiple />
+										<input type="file" class="newBoardMulti with-preview" id="newEditTravelBoardMulti" name="file[]" style="display: none" multiple />
 										<div class="newBoardMultiList" id="newEditTravelBoardMultiList" name="newBoardMultiList"></div>
 										<button class="btn btn-default btn-sm newBoardMap" type="button">
 											<i><img src='<c:url value="/images/icon/icon_map.png"/>' width="64px" height="64px"></i>
@@ -524,11 +523,11 @@ hr {
 									</div>
 
 									<div name="mapChoice" class="mapChoice" style="width: 95%"></div>
-									<input type="hidden" name="keyword" id="resultKeyword1">
-									<input type="hidden" name="location" id="resultRegion1">
-									<input type="hidden" name="address" id="resultAddress1">
-									<input type="hidden" name="locationLat" id="resultLatitude1">
-									<input type="hidden" name="locationLng" id="resultLongitude1">
+								<input type="hidden" name="keyword" id="resultKeyword1" value="10">
+								<input type="hidden" name="location" id="resultRegion1" value="10">
+								<input type="hidden" name="address" id="resultAddress1" value="10">
+								<input type="hidden" name="locationLat" id="resultLatitude1" value="10">
+								<input type="hidden" name="locationLng" id="resultLongitude1" value="10">
 								</div>
 								
 								<!-- ADD -->
@@ -588,17 +587,17 @@ hr {
 									</div>
 								
 									<div name="mapChoice" class="mapChoice" style="width: 95%"></div>
-									<input type="hidden" name="keyword" id="resultKeyword2"><br>
-									<input type="hidden" name="region" id="resultRegion2"><br>
-									<input type="hidden" name="address" id="resultAddress2"><br>
-									<input type="hidden" name="location_lat" id="resultLatitude2"><br>
-									<input type="hidden" name="location_lng" id="resultLongitude2">
+									<input type="hidden" name="keyword" id="resultKeyword2" value="10">
+									<input type="hidden" name="location" id="resultRegion2" value="10">
+									<input type="hidden" name="address" id="resultAddress2" value="10">
+									<input type="hidden" name="locationLat" id="resultLatitude2" value="10">
+									<input type="hidden" name="locationLng" id="resultLongitude2" value="10">
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="submit" class="btn btn-default btn-sm" >등록</button>
+						<button type="button" class="btn btn-default btn-sm" onclick="kindBoard()">등록</button>
 						<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">취소</button>
 					</div>
 				</form>
@@ -990,7 +989,32 @@ hr {
 	}
 	
 	function validateForm(board) {
-		alert(board);
+		if(board==1){
+			$.ajax({
+				url : "/controller/board/insertEditScheduleBoard",
+				type : "post",
+				data : {content:document.getElementById('title'+ board ).value,
+					tripDate:document.getElementById('datetimepicker' + board).value,
+					location:document.getElementById('resultRegion'+ board).value,
+					keyword:document.getElementById('resultKeyword'+ board).value,
+					address:document.getElementById('resultAddress'+ board).value,
+					locationLat:document.getElementById('resultLatitude'+ board).value,
+					locationLng:document.getElementById('resultLongitude'+ board).value,
+					file:document.getElementById('newEditTravelBoardMulti').value,
+					state:document.getElementById("state").value,
+					subject:document.getElementById('subject'+board ).value,
+					startDate:document.getElementById('fromDate' + board ).value,
+					endDate:document.getElementById('toDate' + board ).value},
+				dataType : "json",
+				success : function(data) {
+				},
+				error : function() {
+					alert('error');
+				}
+		    })
+		}else if(board==2){
+			
+		}
 		var resultTextArea = document.getElementById('title'+ board ).value;
 		var resultKeyword = document.getElementById('resultKeyword'+ board).value;
 		var resultRegion = document.getElementById('resultRegion'+ board).value;
