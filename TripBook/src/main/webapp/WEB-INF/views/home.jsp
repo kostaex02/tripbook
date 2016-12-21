@@ -501,6 +501,14 @@
 			
 			$('.modal').on('hidden.bs.modal', function(){
 			    $(this).find('form')[0].reset();
+			    $('#inputId').removeClass('has-success has-feedback').removeClass('has-error has-feedback');
+			    $('#checkingID').removeClass('glyphicon glyphicon-ok form-control-feedback').removeClass('glyphicon glyphicon-remove form-control-feedback');
+			    $('#inputPasswordCheck').removeClass('has-success has-feedback').removeClass('has-error has-feedback');
+			    $('#checkingPasswordCheck').removeClass('glyphicon glyphicon-ok form-control-feedback').removeClass('glyphicon glyphicon-remove form-control-feedback');
+			    $('#inputName').removeClass('has-success has-feedback').removeClass('has-error has-feedback');
+			    $('#checkingName').removeClass('glyphicon glyphicon-ok form-control-feedback').removeClass('glyphicon glyphicon-remove form-control-feedback');
+			    $('#inputAge').removeClass('has-success has-feedback').removeClass('has-error has-feedback');
+			    $('#checkingAge').removeClass('glyphicon glyphicon-ok form-control-feedback').removeClass('glyphicon glyphicon-remove form-control-feedback');  
 			});
 			
 			
