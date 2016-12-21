@@ -338,7 +338,7 @@ hr {
 						입력된 내용이 없습니다.
 					</c:when>
 					<c:otherwise>
-						<c:forEach items="${boardList}" var="item">
+						<c:forEach items="${boardList}" var="item" varStatus="boardNum">
 							<li>
 								<div class='mainRecentBoard'>
 									<p>
@@ -349,19 +349,32 @@ hr {
 									</div>
 									</p>
 									<div class='picture'>
-										<c:forEach items="${item.boardPictures }" var="boardPicture">
-											<a href="#" data-toggle="modal" data-target="#detailPicture">
-												<img class='boardPicture'
-												src='<c:url value="/tripbook/board/${item.boardNo }/${boardPicture.fileName }"/>' />
-											</a>
+										<c:forEach items="${item.boardPictures }" var="boardPicture" varStatus="pictureNum">
+											<c:if test="${pictureNum.count < 3}">
+												<a href="#" data-toggle="modal" data-target="#detailPicture">
+													<img class='boardPicture'
+													src='<c:url value="/tripbook/board/${item.boardNo }/${boardPicture.fileName }"/>' />
+												</a>
+											</c:if>
 										</c:forEach>
 										<div>${item.content }</div>
 									</div>
 									<div>
-										<div class="heart " id="like1" rel="like"></div>
-										<div class="likeCount" id="likeCount1">14</div>
+										<div class="heart " id="like${boardNum.count }" rel="like"></div>
+										<div class="likeCount" id="likeCount${boardNum.count }">14</div>
 										<a href='#'>댓글달기</a>
 										<div class='replysCount'>댓글 100개</div>
+										<div class="replyArea">
+										리플영역
+										<c:forEach items="${item.replys}" var="boardReply" varStatus="replyState">
+											${replyState.count}
+											<div>작성자 사진 / <img src='<c:url value="/tripbook/user/${boardReply.user.id}/${boardReply.user.fileName}"/>'></div>
+											<div>작성자 이름 / ${boardReply.user.name }</div>
+											<div>리플 내용 / ${boardReply.content }</div>
+											<div>작성시간 / ${boardReply.writerDate }</div>
+											<hr>
+										</c:forEach>
+										</div>
 									</div>
 								</div>
 							</li>
