@@ -67,13 +67,14 @@ public class BoardController {
 		}
 		return "redirect:/main/home";
 	}
+	
 	@RequestMapping("insertEditScheduleBoard")
-	public String insertEditScheduleBoard(HttpServletRequest request,BoardDTO boardDTO,ScheduleDTO scheduleDTO,String keyword,String address,GeneralBoardForm file){
-		System.out.println(scheduleDTO);
+	public String insertEditScheduleBoard(HttpServletRequest request,BoardDTO boardDTO,ScheduleDTO scheduleDTO,GeneralBoardForm file){
 		System.out.println(boardDTO);
-		System.out.println(address);
-		System.out.println(keyword);
-		System.out.println(file.getFile().size());
-		return null;
+		System.out.println(scheduleDTO);
+		for(MultipartFile m:file.getFile()){
+			System.out.println(m.getOriginalFilename());
+		}
+		return "redirect:/main/home";
 	}
 }
