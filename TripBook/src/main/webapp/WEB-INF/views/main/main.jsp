@@ -481,6 +481,8 @@ hr {
 							<div class="tab-content">
 								<!-- EDIT -->
 								<div class="tab-pane active" id="editSchedule">
+								<form name="generalForm" action="/controller/board/insertEditScheduleBoard" method="post" onsubmit="kindBoard()" enctype="multipart/form-data" onkeydown="return captureReturnKey(event)" >
+								
 								<hr>
 									<div class="form-inline row">
 										<div class="col-sm-6">
@@ -516,7 +518,7 @@ hr {
 												<i><img src='<c:url value="/images/icon/icon_upload.png"/>' width="64px" height="64px"></i>
 											</button>
 										</div>
-										<input type="file" class="newBoardMulti with-preview" id="newEditTravelBoardMulti" name="file[]" style="display: none" multiple />
+										<input type="file" class="newBoardMulti with-preview" id="newEditTravelBoardMulti" name="file" style="display: none" multiple />
 										<div class="newBoardMultiList" id="newEditTravelBoardMultiList" name="newBoardMultiList"></div>
 										<button class="btn btn-default btn-sm newBoardMap" type="button">
 											<i><img src='<c:url value="/images/icon/icon_map.png"/>' width="64px" height="64px"></i>
@@ -530,15 +532,22 @@ hr {
 									</div>
 
 									<div name="mapChoice" class="mapChoice" style="width: 95%"></div>
-								<input type="hidden" name="keyword" id="resultKeyword1" value="10">
-								<input type="hidden" name="location" id="resultRegion1" value="10">
-								<input type="hidden" name="address" id="resultAddress1" value="10">
-								<input type="hidden" name="locationLat" id="resultLatitude1" value="10">
-								<input type="hidden" name="locationLng" id="resultLongitude1" value="10">
+									<input type="hidden" name="keyword" id="resultKeyword1">
+									<input type="hidden" name="location" id="resultRegion1">
+									<input type="hidden" name="address" id="resultAddress1">
+									<input type="hidden" name="locationLat" id="resultLatitude1">
+									<input type="hidden" name="locationLng" id="resultLongitude1">
+									
+									<button type="submit" class="btn btn-default btn-sm" >등록</button>
+									<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">취소</button>
+									</form>								
 								</div>
 								
 								<!-- ADD -->
+								
 								<div class="tab-pane" id="addSchedule">
+								<form name="generalForm" action="/controller/board/insertEditScheduleBoard" method="post" onsubmit="kindBoard()" enctype="multipart/form-data" onkeydown="return captureReturnKey(event)" >
+								
 								<hr>
 									<select class="form-control" id="scheduleList">
 																	
@@ -594,18 +603,19 @@ hr {
 									</div>
 								
 									<div name="mapChoice" class="mapChoice" style="width: 95%"></div>
-									<input type="hidden" name="keyword" id="resultKeyword2" value="10">
-									<input type="hidden" name="location" id="resultRegion2" value="10">
-									<input type="hidden" name="address" id="resultAddress2" value="10">
-									<input type="hidden" name="locationLat" id="resultLatitude2" value="10">
-									<input type="hidden" name="locationLng" id="resultLongitude2" value="10">
+									<input type="hidden" name="keyword" id="resultKeyword2"><br>
+									<input type="hidden" name="region" id="resultRegion2"><br>
+									<input type="hidden" name="address" id="resultAddress2"><br>
+									<input type="hidden" name="location_lat" id="resultLatitude2"><br>
+									<input type="hidden" name="location_lng" id="resultLongitude2">
+									
+									<button type="submit" class="btn btn-default btn-sm" >등록</button>
+									<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">취소</button>
+									
+								</form>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default btn-sm" onclick="kindBoard()">등록</button>
-						<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">취소</button>
 					</div>
 				</form>
 			</div>
