@@ -152,7 +152,7 @@
 	float: left;
 	width: 50%;
 	height: 130px;
-	border-top-left-radius: 10px;
+	border-radius: 100%;
 }
 
 .friendProfile {
