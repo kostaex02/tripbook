@@ -26,6 +26,7 @@
 		padding:5px;
 		top:3%;
 		left:-2%;
+		margin-bottom: 40px;
 	}
 	
 	#content{
@@ -47,7 +48,7 @@
 	#container{
 		width:100%;
 		height: 100%;
-		background-color: #E0F7FA;		
+		background-color: #E8F5E9;		
 	}
 	
 	.slideSideCover {
