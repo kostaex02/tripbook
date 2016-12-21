@@ -81,4 +81,9 @@ public class ScheduleServiceImpl implements ScheduleService {
 		}
 	}
 
+	@Override
+	public ScheduleDTO selectScheduleByNo(int scheduleNo) {
+		return scheduleDAO.selectScheduleByNo(scheduleNo);
+	}
+
 }
