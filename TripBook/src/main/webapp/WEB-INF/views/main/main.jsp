@@ -452,7 +452,7 @@ hr {
 									src='<c:url value="/images/img.jpg"/>'>
 							</div><div class="userName">${userName}</div>
 						<div>
-							<select class="select">
+							<select class="select" name="state">
 								<option value="0">전체보기</option>
 								<option value="1">친구보기</option>
 								<option value="2">비공개</option>
