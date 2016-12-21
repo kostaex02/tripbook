@@ -341,13 +341,11 @@ hr {
 						<c:forEach items="${boardList}" var="item" varStatus="boardNum">
 							<li>
 								<div class='mainRecentBoard'>
-									<p>
 									<div class='profile'>
 										<img class='writerProfileImage'
 											src='<c:url value="/tripbook/user/${item.user.id }/${item.user.fileName}"/>'>
 										<b>${item.writer }</b> ${item.writeDate }
 									</div>
-									</p>
 									<div class='picture'>
 										<c:forEach items="${item.boardPictures }" var="boardPicture" varStatus="pictureNum">
 											<c:if test="${pictureNum.count < 3}">
@@ -817,6 +815,10 @@ hr {
 			$('.newBoardMap').click(function(){
 				$('.newBoardMulti').hide();
 				$('.groupMap').show();	
+			});
+			
+			$('.modal').on('hidden.bs.modal', function(){
+			    $(this).find('form')[0].reset();
 			});
 			
 			//여행게시물 달력 기능
