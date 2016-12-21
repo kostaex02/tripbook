@@ -23,8 +23,8 @@
 }
 
 .mainRecentBoard {
-	border: 5px dashed grey;
 	margin: 10px 0px;
+	
 }
 
 .replys {
@@ -40,8 +40,9 @@ a {
 }
 
 .profile {
-	border: 1px solid blue;
 	position: relative;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+	border-radius: 10px;
 	
 }
 
@@ -298,12 +299,12 @@ hr {
 .writerProfileImage{
 	width:60px;
 	height:60px;
+	border-radius:10px 0px 0px 10px;
 }
 .boardPicture{
 	width:100%;
 	height:300px;
 	max-width: 300px;
-	float: left;
 }
 .replysCount{
 	text-align: right;
@@ -328,70 +329,57 @@ hr {
 						</div>
 						</p>
 						<div class='picture'>
+							<div>내용은 여기!</div>
 							<a href="#" data-toggle="modal" data-target="#detailPicture">
 							<img class='boardPicture' src='<c:url value="/images/img.jpg"/>'></a>
-							<div>내용은 여기!</div>
 						</div>
 						<div><input class="btn btn-primary" type="button" value="삭제하기">
 							<div class='replysCount'>댓글 100개</div>
 						</div>
 					</div>
 				</li>
-				<li>
-					<div class='mainRecentBoard'>
-						<p>
-						<div class='profile'><img class='writerProfileImage' src='<c:url value="/images/img.jpg"/>'>
-						<b>User ID</b> 12월 03일 오전 11:41
-						</div>
-						</p>
-						<div class='picture'>
-							<a href="#" data-toggle="modal" data-target="#detailPicture">
-							<img class='boardPicture' src='<c:url value="/images/img.jpg"/>'></a>
-							<div>내용은 여기!</div>
-						</div>
-						<div><input class="btn btn-primary" type="button" value="삭제하기">
-							<div class='replysCount'>댓글 100개</div>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class='mainRecentBoard'>
-						<p>
-						<div class='profile'><img class='writerProfileImage' src='<c:url value="/images/img.jpg"/>'>
-						<b>User ID</b> 12월 03일 오전 11:41
-						</div>
-						</p>
-						<div class='picture'>
-							<a href="#" data-toggle="modal" data-target="#detailPicture">
-							<img class='boardPicture' src='<c:url value="/images/img.jpg"/>'></a>
-							<div>내용은 여기!</div>
-						</div>
-						<div><input class="btn btn-primary" type="button" value="삭제하기">
-							<div class='replysCount'>댓글 100개</div>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class='mainRecentBoard'>
-						<p>
-						<div class='profile'><img class='writerProfileImage' src='<c:url value="/images/img.jpg"/>'>
-						<b>User ID</b> 12월 03일 오전 11:41
-						</div>
-						</p>
-						<div class='picture'>
-							<a href="#" data-toggle="modal" data-target="#detailPicture">
-							<img class='boardPicture' src='<c:url value="/images/img.jpg"/>'></a>
-							<div>내용은 여기!</div>
-						</div>
-						<div><input class="btn btn-primary" type="button" value="삭제하기">
-							<div class='replysCount'>댓글 100개</div>
-						</div>
-					</div>
-				</li>
+				
 			</ul>
 		</div>
 	</div>
-
+<div class='mainAllBoard'>
+		<div class='mainScrollHidden'>
+			<ul class="grow">
+				<c:choose>
+					<c:when test="${boardList==null||boardList.size()==0 }">
+						입력된 내용이 없습니다.
+					</c:when>
+					<c:otherwise>
+						<c:forEach items="${boardList}" var="item">
+							<li>
+								<div class='mainRecentBoard'>
+									<p>
+									<div class='profile'><img class='writerProfileImage' src='<c:url value="/tripbook/user/${item.user.id }/${item.user.fileName}"/>'>
+									<b>${item.writer }</b> ${item.writeDate }
+									</div>
+									</p>
+									<div class='picture'>
+										<div>${item.content }</div>
+										<c:forEach items="${item.boardPictures }" var="boardPicture">
+											<a href="#" data-toggle="modal" data-target="#detailPicture">
+											<img class='boardPicture' src='<c:url value="/tripbook/board/${item.boardNo }/${boardPicture.fileName }"/>'/>
+											</a>
+										</c:forEach>
+									</div>
+									<div>
+										<div class="heart " id="like1" rel="like"></div>
+										<div class="likeCount" id="likeCount1">14</div>
+										<a href='#'>댓글달기</a>
+										<div class='replysCount'>댓글 100개</div>
+									</div>
+								</div>
+							</li>			
+						</c:forEach>
+					</c:otherwise>
+				</c:choose>
+			</ul>
+		</div>
+	</div>
 	
 
 	

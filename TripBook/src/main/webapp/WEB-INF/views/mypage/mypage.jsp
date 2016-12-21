@@ -11,6 +11,7 @@
 
 <title>Insert title here</title>
 <style type="text/css">
+
 #mypageNotice {
 	border: 1px solid red;
 	overflow: scroll;
@@ -24,34 +25,38 @@
 
 .mypageLogStory {
 	width: 100%;
-	display: inline-table;
+	
 }
 
 .mypageProfile {
-	display: table-cell;
-	width: 50px;
+	float:left;
+	width: 60px;
+	height:60px;
 }
 
 .mypageMessage {
-	display: table-cell;
+	float:left;
 	vertical-align: middle;
 	text-align: center;
 	width: 70%;
+	height: 60px;
 }
 
 .mypageProfileImg {
 	width: 60px;
 	height: 60px;
 	position: relative;
-	float: left;
-	margin: -10px;
-	margin-bottom: -15px;
 }
 
 .mypageButton{
-	display: table-cell;
+	height:60px;
 	vertical-align: middle;
 }
+.mypageMessageContent{
+	left:60px;
+	display: none;
+}
+
 
 </style>
 </head>
@@ -89,8 +94,8 @@
 							</div>
 							<div class="mypageMessage">${otherNoticeItem.name}님의 그룹신청!</div>
 							<div id='${otherNoticeItem.noticeNo}' class="mypageButton">
-								<input class="btn btn-primary groupAccept" type="submit" value="수락">
-								<input class="btn btn-default groupRefuse" type="submit" value="거절">
+								<input class="btn btn-primary groupAccept" type="button" value="수락">
+								<input class="btn btn-default groupRefuse" type="button" value="거절">
 							</div>
 						</li>
 					</c:when>
@@ -98,7 +103,7 @@
 						<li class="mypageLogStory">
 							<div class="mypageMessage">${otherNoticeItem.name} 관리자의 말씀 : ${otherNoticeItem.content}</div>
 							<div id='${otherNoticeItem.noticeNo}' class="mypageButton">
-								<input class="btn btn-primary noticeItem" type="submit" value="확인">
+								<input class="btn btn-primary noticeItem" type="button" value="확인">
 							</div>
 						</li>
 					</c:when>
@@ -109,19 +114,21 @@
 							</div>
 							<div class="mypageMessage">${otherNoticeItem.name}님이 새로운 게시물을 작성했습니다.</div>
 							<div id='${otherNoticeItem.noticeNo}' class="mypageButton">
-								<input class="btn btn-primary friendBoard" type="submit" value="확인하러 가자">
+								<input class="btn btn-primary friendBoard" type="button" value="확인하러 가자">
 							</div>
 						</li>
 					</c:when>
 					<c:when test="${otherNoticeItem.state eq '4'}">
 						<li class="mypageLogStory">
-							<div class="mypageProfile">
-								<img class="mypageProfileImg" src='<c:url value="/tripbook/user/${otherNoticeItem.sender}/${otherNoticeItem.fileName}"/>'>
-							</div>
-							<div class="mypageMessage">${otherNoticeItem.name}님의 메세지 : ${otherNoticeItem.content}</div>
-							<div id='${otherNoticeItem.noticeNo}' class="mypageButton">
-								<input class="btn btn-primary friendMessage" type="submit" value="확인하러 가자">
-							</div>
+								<div class="mypageProfile">
+									<img class="mypageProfileImg" src='<c:url value="/tripbook/user/${otherNoticeItem.sender}/${otherNoticeItem.fileName}"/>'>
+								</div>
+								<div class="mypageMessage">${otherNoticeItem.name}님의 메세지</div>
+								<div id='${otherNoticeItem.noticeNo}' class="mypageButton">
+									<input class="btn btn-primary friendMessage" type="button" value="확인하러 가자">
+								</div>
+								
+								<div class="mypageMessageContent">${otherNoticeItem.content}</div>
 						</li>
 					</c:when>
 					<c:when test="${otherNoticeItem.state eq '5'}">
@@ -131,7 +138,7 @@
 							</div>
 							<div class="mypageMessage">${otherNoticeItem.name}님이 게시물에 댓글 작성했습니다.</div>
 							<div id='${otherNoticeItem.noticeNo}' class="mypageButton">
-								<input class="btn btn-primary friendReply" type="submit" value="확인하러 가자">
+								<input class="btn btn-primary friendReply" type="button" value="확인하러 가자">
 							</div>
 						</li>
 					</c:when>
@@ -236,12 +243,14 @@
 			})
 			/* 친구 메세지 */
 			$('.mypageLogStory').on('click','.friendMessage',function(){
-				alert($(this).parent().attr('id'));
+				//alert($(this).parent().attr('id'));
+				$(this).parent().siblings(".mypageMessageContent").slideToggle(500);
 			})
 			/* 친구 댓글 */
 			$('.mypageLogStory').on('click','.friendReply',function(){
 				alert($(this).parent().attr('id'));
 			})
+			
 			
 		})
 		
