@@ -26,13 +26,9 @@
 	</script>
 <title>Insert title here</title>
 <style type="text/css">
-.jbTable {
-	display: table;
-	width: 100%;
-}
 
 .jbTableRow {
-	display: table-row;
+	display: inline-block;
 	width: 100%;
 }
 
@@ -72,11 +68,11 @@
 	cursor: text;
 }
 
-
-
 .calendarTrash{
-	width:48px;
-	height:48px;
+	display: inline-block;
+	margin-left: 10px;
+	height: 46px;
+	width: 46px;
 }
 
 .btn-img{
@@ -88,22 +84,24 @@
 	background-color: white;
 }
 #trash{
-	margin-left:50px;
+	height: 32px;
+	width: 32px;
+	margin: 5px;
 }
 </style>
 </head>
 <body>
-	<div class="jbTable">
 		<div class="jbTableRow">
 			<form action="<c:url value="/search/list"/>">
 			<div class="jbTableCell jbText">
-				<label for="exclusive_input">검색을 입력하세요</label> <input type="text" id="exclusive_input" name="keyword">
-				<button class="btn btn-default" type="submit" id="searchButton"><img class="btn-img" src="<c:url value="/images/icon/icon_searchButton.png"/>"></button>
+				<label for="exclusive_input">검색을 입력하세요</label> 
+				<input type="text" id="exclusive_input" name="keyword">
+				<button class="btn btn-default" type="submit" id="searchButton">
+					<img class="btn-img" src="<c:url value="/images/icon/icon_searchButton.png"/>">
+				</button>
+				<div class="jbTableCell calendarTrash"><img id='trash' src='<c:url value="/images/trash.png"/>'></div>
 			</div>
-			<div class="jbTableCell calendarTrash"><img id='trash' src='<c:url value="/images/trash.png"/>'></div>
-			
 			</form>
 		</div>
-	</div>
 </body>
 </html>
