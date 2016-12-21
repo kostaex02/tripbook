@@ -372,6 +372,9 @@ hr {
 							<option value="0">전체보기</option>
 							<option value="1">친구보기</option>
 							<option value="2">비공개</option>
+							<c:forEach items="${groupList }" var="item">
+								<option value="${item.groupNo }">${item.groupName }</option>
+							</c:forEach>
 						</select>
 						
 					</div>
@@ -449,11 +452,13 @@ hr {
 									src='<c:url value="/images/img.jpg"/>'>
 							</div><div class="userName">${userName}</div>
 						<div>
-							<select class="select">
-								<option value="전체보기">전체보기</option>
-								<option value="친구보기">친구보기</option>
-								<option value="그룹보기">그룹보기</option>
-								<option value="비공개">비공개</option>
+							<select class="select" name="state">
+								<option value="0">전체보기</option>
+								<option value="1">친구보기</option>
+								<option value="2">비공개</option>
+								<c:forEach items="${groupList }" var="item">
+									<option value="${item.groupNo }">${item.groupName }</option>
+								</c:forEach>
 							</select>
 						</div>
 						
@@ -474,11 +479,11 @@ hr {
 									<div class="form-inline row">
 										<div class="col-sm-6">
 											<label for="fromDate1">출발일</label>
-											<input type="text" class="form-control" id="fromDate1" name="start_date" style="width:100%">
+											<input type="text" class="form-control" id="fromDate1" name="startDate" style="width:100%">
 										</div>
 										<div class="col-sm-6">
 											<label for="toDate1">종료일</label>
-											<input type="text" class="form-control" id="toDate1" name="end_date" style="width:100%">
+											<input type="text" class="form-control" id="toDate1" name="endDate" style="width:100%">
 										</div>
 									</div>
 									
@@ -489,7 +494,7 @@ hr {
 										</div>
 										<div class="col-sm-4">
 											<label for="datetimepicker1">스케줄</label>
-                    						<input type='text' class="form-control datetimepicker" id='datetimepicker1' name="datetime" style="width:100%"/>
+                    						<input type='text' class="form-control datetimepicker" id='datetimepicker1' name="tripDate" style="width:100%"/>
             							</div>
             						</div>
             						<hr>
@@ -520,21 +525,20 @@ hr {
 
 									<div name="mapChoice" class="mapChoice" style="width: 95%"></div>
 									<input type="hidden" name="keyword" id="resultKeyword1">
-									<input type="hidden" name="region" id="resultRegion1">
+									<input type="hidden" name="location" id="resultRegion1">
 									<input type="hidden" name="address" id="resultAddress1">
-									<input type="hidden" name="location_lat" id="resultLatitude1">
-									<input type="hidden" name="location_lng" id="resultLongitude1">
+									<input type="hidden" name="locationLat" id="resultLatitude1">
+									<input type="hidden" name="locationLng" id="resultLongitude1">
 								</div>
 								
 								<!-- ADD -->
 								<div class="tab-pane" id="addSchedule">
 								<hr>
-									<select class="form-control">
-										<option>1</option>
-										<option>2</option>									
+									<select class="form-control" id="scheduleList">
+																	
 									</select>
 									<hr>
-									
+									<input type="hidden" id="chooseScheduleNo">
 									<div class="form-inline row">
 										<div class="col-sm-6">
 											<label for="fromDate2">출발일</label>
@@ -772,6 +776,41 @@ hr {
 		 		return date;
 		    }
 		    
+		    $.ajax({
+		    	url : "/controller/calendar/init",
+				type : "post",
+				dataType : "json",
+				success : function(data) {
+					$('#chooseScheduleNo').val(data[0].scheduleNo);
+					$('#fromDate2').val(data[0].startDate);
+					$('#toDate2').val(data[0].endDate);
+					$('#subject2').val(data[0].subject);
+					$.each(data, function(index, item) {
+						$('#scheduleList').append('<option value="'+item.scheduleNo+'">'+item.subject+'</option>');
+					});
+				},
+				error : function() {
+					alert('error')
+				}
+		    })
+		    
+		    $('#addSchedule').on('change','#scheduleList',function(){
+		    	$.ajax({
+			    	url : "/controller/calendar/select",
+					type : "post",
+					data : "scheduleNo="+$('#scheduleList').val(),
+					dataType : "json",
+					success : function(data) {
+						$('#chooseScheduleNo').val($('#scheduleList').val());
+						$('#fromDate2').val(data.startDate);
+						$('#toDate2').val(data.endDate);
+						$('#subject2').val(data.subject);
+					},
+					error : function() {
+						alert('error');
+					}
+			    })
+		    })
 		}); 
 		
 		

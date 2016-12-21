@@ -30,7 +30,6 @@ public class CalenderController {
 	@ResponseBody
 	public int add(HttpServletRequest request,ScheduleDTO scheduleDTO){
 		HttpSession session = request.getSession();
-		System.out.println(scheduleDTO.getEndDate());
 		scheduleDTO.setWriter((String)session.getAttribute("userId"));
 		return scheduleService.addSchedule(scheduleDTO);
 	}
@@ -40,7 +39,6 @@ public class CalenderController {
 		HttpSession session = request.getSession();
 		ModelAndView mv = new ModelAndView("calendar/calendar");
 		
-		System.out.println(groupService.selectGroupList((String)session.getAttribute("userId")));
 		mv.addObject("groupList", groupService.selectGroupList((String)session.getAttribute("userId")));
 		return mv;
 	}
@@ -66,5 +64,11 @@ public class CalenderController {
 		HttpSession session = request.getSession();
 		String userId = (String)session.getAttribute("userId");
 		return scheduleService.updateSchedule(scheduleNo,startDate,endDate,userId);
+	}
+	
+	@RequestMapping("select")
+	@ResponseBody
+	public ScheduleDTO select(HttpServletRequest request,int scheduleNo){
+		return scheduleService.selectScheduleByNo(scheduleNo);
 	}
 }

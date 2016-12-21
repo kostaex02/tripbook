@@ -24,4 +24,9 @@ public interface ScheduleService {
 	 * 스케줄 수정
 	 */
 	int updateSchedule(int scheduleNo, String startDate, String endDate, String userId);
+	
+	/**
+	 * 스케줄 번호로 스케줄 검색
+	 */
+	ScheduleDTO selectScheduleByNo(int scheduleNo);
 }
