@@ -17,8 +17,9 @@
 }
 
 .mainRecentBoard {
-	border: 5px dashed grey;
+	
 	margin: 10px 0px;
+	
 }
 
 .replys {
@@ -34,16 +35,21 @@ a {
 }
 
 .profile {
-	border: 1px solid blue;
 	position: relative;
-	
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+	border-radius: 10px;
 }
 
 .picture {
-	border: 1px solid red;
 	height: auto;
 	min-height:300px;
 	text-align: center;
+	
+}
+.mainScrollHidden li{
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+	border-radius: 10px;
+	height:auto;
 }
 
 .newBoardContainer {
@@ -274,6 +280,7 @@ hr {
 .writerProfileImage{
 	width:60px;
 	height:60px;
+	border-radius: 10px 0px 0px 10px;
 }
 .boardPicture{
 	width:100%;

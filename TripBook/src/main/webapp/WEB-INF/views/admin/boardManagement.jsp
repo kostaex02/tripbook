@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Trip Book</title>
 <style>
+
 .mainNewBoard {
 	border: 1px solid black;
 	text-align: center;
@@ -14,6 +15,11 @@
 
 .grow {
 	-ms-overflow-style: none;
+}
+
+.mainScrollHidden li{
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+	border-radius: 10px;
 }
 
 .mainRecentBoard {
