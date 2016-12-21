@@ -77,4 +77,14 @@ public class BoardController {
 		}
 		return "redirect:/main/home";
 	}
+	
+	@RequestMapping("insertAddScheduleBoard")
+	public String insertAddScheduleBoard(HttpServletRequest request,BoardDTO boardDTO,int scheduleNo,GeneralBoardForm file){
+		System.out.println(boardDTO);
+		System.out.println(scheduleNo);
+		for(MultipartFile m:file.getFile()){
+			System.out.println(m.getOriginalFilename());
+		}
+		return "redirect:/main/home";
+	}
 }

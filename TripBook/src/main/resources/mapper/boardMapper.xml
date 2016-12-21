@@ -14,11 +14,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="file_name" property="fileName"/>
 		<result column="state" property="state"/>
 	</resultMap>
+	
+	<resultMap type="userDTO" id="selectReplyUserMap">
+		<id column="ru_id" property="id"/>
+		<result column="ru_name" property="name"/>
+		<result column="ru_file_name" property="fileName"/>
+	</resultMap>
 
 	<resultMap type="boardPictureDTO" id="selectBoardPictureMap">
 		<id column="board_picture_no" property="boardPictureNo"/>
 		<result column="bp_file_name" property="fileName"/>
-		<result column="board_no" property="boardNo"/>
+		<result column="bp_board_no" property="boardNo"/>
 	</resultMap>
 	
 	<resultMap type="gradeDTO" id="selectGradeMap">
@@ -30,11 +36,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<resultMap type="replyDTO" id="selectReplyMap">
 		<id column="reply_no" property="replyNo"/>
-		<result column="content" property="content"/>
-		<result column="writer_date" property="writerDate"/>
-		<result column="writer" property="writer"/>
-		<result column="board_no" property="boardNo"/>
-		<association property="user" javaType="userDTO" resultMap="selectUserMap" />
+		<result column="r_content" property="content"/>
+		<result column="r_writer_date" property="writerDate"/>
+		<result column="r_writer" property="writer"/>
+		<result column="r_board_no" property="boardNo"/>
+		<association property="user" javaType="userDTO" resultMap="selectReplyUserMap" />
 	</resultMap>
 
 	<resultMap type="boardDTO" id="selectBoardMap">
@@ -55,7 +61,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="selectBoard" parameterType="map" resultMap="selectBoardMap">
 		select b.board_no,b.content,b.write_date,b.trip_date,b.location,b.location_lat,b.location_lng,b.writer,b.state,b.schedule_no
-		,u.id,u.name,u.file_name,bp.board_Picture_no,bp.file_name bp_file_name,bp.board_no,r.reply_no,r.writer,r.writer_date
+		,u.id,u.name,u.file_name,bp.board_Picture_no,bp.file_name bp_file_name,bp.board_no bp_board_no,r.reply_no,r.writer r_writer,r.content r_content
+		,r.writer_date r_writer_date,r.board_no r_board_no,ru.id ru_id, ru.name ru_name, ru.file_name ru_file_name 
 		from board_table b join user_table u on b.writer=u.id
 		left join board_picture_table bp on b.board_no=bp.board_no
 		left join reply_table r join user_table ru on r.writer = ru.id on r.board_no = b.board_no
@@ -80,9 +87,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<insert id="insertBoard" parameterType="boardDTO">
 		insert into board_table(board_no,content,write_date,trip_date,location,
-		location_lat,location_lng,writer,state)
+		location_lat,location_lng,writer,state,schedule_no)
 		values(board_sequence.nextval,#{content},sysdate,#{tripDate,jdbcType=VARCHAR},
-		#{location,jdbcType=VARCHAR},#{locationLat},#{locationLng},#{writer},#{state})
+		#{location,jdbcType=VARCHAR},#{locationLat},#{locationLng},#{writer},#{state},#{scheduleNo,jdbcType=INTEGER})
 	</insert>
 	
 	<select id="selectBoardById" parameterType="String" resultType="int">
