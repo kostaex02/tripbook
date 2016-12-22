@@ -48,4 +48,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		set subject=#{subject}, start_date=#{startDate}, end_date=#{endDate}, state=#{state}, writer=#{writer}
 		where schedule_no=#{scheduleNo}
 	</update>
+	<select id="selectScheduleNoByWriter" parameterType="String" resultType="int">
+		select schedule_no from schedule_table where writer=#{value} order by write_date desc
+	</select>
 </mapper>

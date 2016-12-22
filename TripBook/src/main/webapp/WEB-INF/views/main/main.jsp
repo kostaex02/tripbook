@@ -657,8 +657,8 @@ hr {
 
 							<div class="tab-pane" id="addSchedule">
 								<form name="generalForm"
-									action="/controller/board/insertEditScheduleBoard"
-									method="post" onsubmit="kindBoard()"
+									action="/controller/board/insertAddScheduleBoard"
+									method="post"
 									enctype="multipart/form-data"
 									onkeydown="return captureReturnKey(event)">
 

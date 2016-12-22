@@ -30,4 +30,9 @@ public class BoardDAOImpl implements BoardDAO {
 		return list.get(0);
 	}
 
+	@Override
+	public int insertScheduleBoard(BoardDTO boardDTO) {
+		return session.insert("boardMapper.insertScheduleBoard", boardDTO);
+	}
+
 }

@@ -12,9 +12,12 @@ import com.tripbook.dao.BoardDAO;
 import com.tripbook.dao.FriendDAO;
 import com.tripbook.dao.GroupMemberDAO;
 import com.tripbook.dao.KeywordDAO;
+import com.tripbook.dao.ScheduleDAO;
 import com.tripbook.dto.BoardDTO;
 import com.tripbook.dto.FriendDTO;
+import com.tripbook.dto.GeneralBoardForm;
 import com.tripbook.dto.KeywordDTO;
+import com.tripbook.dto.ScheduleDTO;
 
 @Service
 public class BoardServiceImpl implements BoardService{
@@ -26,6 +29,8 @@ public class BoardServiceImpl implements BoardService{
 	private GroupMemberDAO groupMemberDAO;
 	@Autowired
 	private KeywordDAO keywordDAO;
+	@Autowired
+	private ScheduleDAO scheduleDAO;
 	
 	@Override
 	public List<BoardDTO> selectBoard(String userId) {
@@ -58,13 +63,28 @@ public class BoardServiceImpl implements BoardService{
 
 	@Override
 	public int insertBoard(BoardDTO boardDTO, String keyword, String address) {
-		boardDAO.insertBoard(boardDTO);
-		int boardNo = boardDAO.selectBoardById(boardDTO.getWriter());
-		String [] keywords = address.split(" ");
+		int boardNo = 0;
 		if(boardDTO.getScheduleNo()>0){
-			keywordDAO.insertKeyword(new KeywordDTO(keyword, boardDTO.getScheduleNo()));			
+			boardDAO.insertScheduleBoard(boardDTO);
+			String [] keywords = address.split(" ");
+			keywordDAO.insertKeyword(new KeywordDTO(keyword, boardDTO.getScheduleNo()));
+			for(String str:keywords){
+				keywordDAO.insertKeyword(new KeywordDTO(str, boardDTO.getScheduleNo()));
+			}
+		}else{
+			boardDAO.insertBoard(boardDTO);
+			boardNo = boardDAO.selectBoardById(boardDTO.getWriter());
 		}
+		
 		return boardNo;
+	}
+
+	@Override
+	public int insertEditScheduleBoard(BoardDTO boardDTO, ScheduleDTO scheduleDTO, String keyword, String address) {
+		scheduleDAO.addSchedule(scheduleDTO);
+		int schedultNo = scheduleDAO.selectScheduleNoByWriter(scheduleDTO.getWriter()).get(0);
+		boardDTO.setScheduleNo(schedultNo);
+		return insertBoard(boardDTO, keyword, address);
 	}
 
 

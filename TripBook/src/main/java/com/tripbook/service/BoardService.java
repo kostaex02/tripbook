@@ -3,6 +3,8 @@ package com.tripbook.service;
 import java.util.List;
 
 import com.tripbook.dto.BoardDTO;
+import com.tripbook.dto.GeneralBoardForm;
+import com.tripbook.dto.ScheduleDTO;
 
 public interface BoardService {
 	/**
@@ -14,4 +16,9 @@ public interface BoardService {
 	 * 게시물 등록
 	 */
 	int insertBoard(BoardDTO boardDTO, String keyword, String address);
+	
+	/**
+	 *  일정 등록후 게시글 입력
+	 */
+	int insertEditScheduleBoard(BoardDTO boardDTO, ScheduleDTO scheduleDTO, String keyword, String address);
 }

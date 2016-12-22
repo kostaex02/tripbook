@@ -3,6 +3,7 @@ package com.tripbook.dao;
 import java.util.List;
 import java.util.Map;
 
+import com.tripbook.dto.BoardDTO;
 import com.tripbook.dto.ScheduleDTO;
 
 public interface ScheduleDAO {
@@ -30,4 +31,9 @@ public interface ScheduleDAO {
 	 * 일정 수정
 	 */
 	int updateSchedule(ScheduleDTO scheduleDTO);
+	
+	/**
+	 * 작성자로 일정 검색
+	 */
+	List<Integer> selectScheduleNoByWriter(String writer);
 }

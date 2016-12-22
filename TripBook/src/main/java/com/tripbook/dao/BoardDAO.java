@@ -20,4 +20,9 @@ public interface BoardDAO {
 	 * 아이디로 가장 최신의 글 불러오기
 	 */
 	int selectBoardById(String writer);
+	
+	/**
+	 * 여행 게시물 등록
+	 */
+	int insertScheduleBoard(BoardDTO boardDTO);
 }

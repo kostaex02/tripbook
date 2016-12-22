@@ -16,7 +16,7 @@ CREATE TABLE user_table
 	file_name VARCHAR2(250), -- 프로필 사진
 	state VARCHAR2(1) default '0' -- 계정 상태(0 : 일반,1 : 관리자,2 : 계정 탈퇴 예정)
 );
-select * from user_table;
+select * from user_table where id='yoo@tripbook.com';
 insert into user_table(id,password,name,age,gender,register_date,state) values('admin@tripbook.com','admin','관리자',20,'0',sysdate,'1');
 insert into user_table(id,password,name,age,gender,register_date,state) values('user@test.com','user','유저',27,'0',sysdate,'0');
 select name from user_table where id = 'admin@tripbook.com';
@@ -30,6 +30,7 @@ CREATE TABLE friend_table
 	friend_id1 VARCHAR2(50) references user_table(id), -- 아이디 1
 	friend_id2 VARCHAR2(50) references user_table(id) -- 아이디 2
 );
+select * from friend_table where friend_id1='test3@test.com' or friend_id2='test3@test.com';
 
 create sequence schedule_sequence nocache;
 CREATE TABLE schedule_table
@@ -160,5 +161,6 @@ CREATE TABLE reply_table
 select * from notice_table;
 delete from group_table;
 
+select to_date('12/22/2016 6:36 PM','MM/DD/YYYY HH:Mi AM / PM') from dual;
 select schedule_no,subject,to_char(start_date,'YYYY-MM-DD') start_date,to_char(end_date-1,'YYYY-MM-DD') end_date,state,writer
 		from schedule_table;

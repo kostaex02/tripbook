@@ -69,11 +69,43 @@ public class BoardController {
 	}
 	
 	@RequestMapping("insertEditScheduleBoard")
-	public String insertEditScheduleBoard(HttpServletRequest request,BoardDTO boardDTO,ScheduleDTO scheduleDTO,GeneralBoardForm file){
-		System.out.println(boardDTO);
-		System.out.println(scheduleDTO);
-		for(MultipartFile m:file.getFile()){
-			System.out.println(m.getOriginalFilename());
+	public String insertEditScheduleBoard(HttpServletRequest request,BoardDTO boardDTO,ScheduleDTO scheduleDTO,String keyword,String address,GeneralBoardForm file){
+		HttpSession session = request.getSession();
+		String userId = (String)session.getAttribute("userId");
+		boardDTO.setWriter(userId);
+		boardDTO.setContent(boardDTO.getContent().replace("\r\n","<br>"));
+		if(boardDTO.getLocation().equals("10")){
+			boardDTO.setLocation(null);
+			boardDTO.setLocationLat(0);
+			boardDTO.setLocationLng(0);	
+		}
+		scheduleDTO.setWriter(userId);
+		int boardNo = boardService.insertEditScheduleBoard(boardDTO,scheduleDTO,keyword,address);
+		if(boardNo>0){
+			String saveDir = request.getSession().getServletContext().getRealPath("/tripbook/board/"+boardNo+"/");
+			File folder = new File(saveDir);
+			if (!folder.exists()) {
+				folder.mkdirs();
+			}else{
+				if(folder.listFiles()!=null){
+					for(File f:folder.listFiles()){
+						f.delete();
+					}
+					folder.delete();
+					folder.mkdir();
+				}
+			}
+			if(file.getFile()!=null&&file.getFile().size()>0&&file.getFile().get(0).getOriginalFilename().length()>0){
+				for(MultipartFile mf:file.getFile()){
+					try {
+						mf.transferTo(new File(saveDir+mf.getOriginalFilename()));
+						boardPictureService.insertBoardPicture(new BoardPictureDTO(mf.getOriginalFilename(), boardNo));
+					} catch (IllegalStateException | IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}
 		}
 		return "redirect:/main/home";
 	}
