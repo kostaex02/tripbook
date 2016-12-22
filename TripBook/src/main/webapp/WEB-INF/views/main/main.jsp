@@ -321,6 +321,12 @@ hr {
 .replyText{
 	width:93%
 }
+.main-submit{
+	text-align:right;
+}
+.main-schedule{
+	color:black;
+}
 </style>
 
 
@@ -527,11 +533,11 @@ hr {
 							style="height: 50px; width: 200px;">
 							<li role="presentation" class="travel active" id="1"
 								style="padding: 0;"><a href="#editSchedule"
-								aria-controls="editSchedule" role="tab" data-toggle="tab">신규
+								aria-controls="editSchedule" role="tab" data-toggle="tab" class="main-schedule">신규
 									일정</a></li>
 							<li role="presentation" class="travel" id="2" style="padding: 0">
 								<a href="#addSchedule" aria-controls="addSchedule" role="tab"
-								data-toggle="tab">기존 일정</a>
+								data-toggle="tab" class="main-schedule">기존 일정</a>
 							</li>
 						</ul>
 						<div class="tab-content">
@@ -614,10 +620,11 @@ hr {
 									<input type="hidden" name="address" id="resultAddress1" value="10">
 									<input type="hidden" name="locationLat" id="resultLatitude1" value="10">
 									<input type="hidden" name="locationLng" id="resultLongitude1" value="10">
-
-									<button type="submit" class="btn btn-default btn-sm">등록</button>
-									<button type="reset" class="btn btn-default btn-sm"
+									<div class="main-submit">
+										<button type="submit" class="btn btn-default btn-sm">등록</button>
+										<button type="reset" class="btn btn-default btn-sm"
 										data-dismiss="modal">취소</button>
+									</div>
 								</form>
 							</div>
 
@@ -706,11 +713,10 @@ hr {
 									<input type="hidden" name="address" id="resultAddress2" value="10">
 									<input type="hidden" name="location_lat" id="resultLatitude2" value="10">
 									<input type="hidden" name="location_lng" id="resultLongitude2" value="10">
-
-									<button type="submit" class="btn btn-default btn-sm">등록</button>
-									<button type="button" class="btn btn-default btn-sm"
-										data-dismiss="modal">취소</button>
-
+									<div class="main-submit">
+										<button type="submit" class="btn btn-default btn-sm">등록</button>
+										<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">취소</button>
+									</div>
 								</form>
 							</div>
 						</div>
