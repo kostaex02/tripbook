@@ -257,6 +257,7 @@ hr {
 .likeCount, .heart {
 	float: left;
 	top: -15px;
+	z-index:9;
 	margin-right: 10px;
 }
 
@@ -392,7 +393,7 @@ hr {
 										</c:if>
 									<hr>
 									<div class="boardFooter">
-										<div class="heart " id="like${boardNum.count }" rel="like"></div>
+										<div class="heart" id="like${boardNum.count }" rel="like"></div>
 										<div class="likeCount" id="likeCount${boardNum.count }">14</div>
 										<div class='replysCount'>댓글 100개</div>
 										<div class="replyArea">
