@@ -667,7 +667,7 @@ hr {
 
 									</select>
 									<hr>
-									<input type="hidden" id="chooseScheduleNo">
+									<input type="hidden" name="scheduleNo" id="chooseScheduleNo">
 									<div class="form-inline row">
 										<div class="col-sm-6">
 											<label for="fromDate2">출발일</label> <input type="text"
@@ -690,7 +690,7 @@ hr {
 										<div class="col-sm-4">
 											<label for="datetimepicker2">스케줄</label> <input type='text'
 												class="form-control datetimepicker" id='datetimepicker2'
-												name="datetime" style="width: 100%; background:white" />
+												name="tripDate" style="width: 100%; background:white" />
 										</div>
 									</div>
 									<hr>
@@ -735,7 +735,7 @@ hr {
 									<div name="mapChoice" class="mapChoice" style="width: 95%"></div>
 									<input type="hidden" name="state" id="stateTravel" value="0">
 									<input type="hidden" name="keyword" id="resultKeyword2" value="10">
-									<input type="hidden" name="region" id="resultRegion2" value="10">
+									<input type="hidden" name="location" id="resultRegion2" value="10">
 									<input type="hidden" name="address" id="resultAddress2" value="10">
 									<input type="hidden" name="location_lat" id="resultLatitude2" value="10">
 									<input type="hidden" name="location_lng" id="resultLongitude2" value="10">
@@ -961,6 +961,7 @@ hr {
 					$('#fromDate2').val(data[0].startDate);
 					$('#toDate2').val(data[0].endDate);
 					$('#subject2').val(data[0].subject);
+					$('#stateTravel').val(data[0].state);
 					$.each(data, function(index, item) {
 						$('#scheduleList').append('<option value="'+item.scheduleNo+'">'+item.subject+'</option>');
 					});
@@ -981,6 +982,7 @@ hr {
 						$('#fromDate2').val(data.startDate);
 						$('#toDate2').val(data.endDate);
 						$('#subject2').val(data.subject);
+						$('#stateTravel').val(data.state);
 					},
 					error : function() {
 						alert('error');
@@ -990,10 +992,7 @@ hr {
 		  	//state값
 			$('#state').on("change",function(){
 				var state = $('#state').val();
-				alert(state);
-				$('#stateTravel').val(state);
 				$('#stateEdit').val(state);
-				
 			});
 		}); 
 		

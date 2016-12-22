@@ -398,7 +398,7 @@ dl {
 							src="<c:url value="/images/icon/icon_schedule48.png"/>"	class="hover">
 							<div class="text">스케줄</div>
 					</div></a>
-				<a href='<c:url value="/biography/biography"/>'>
+				<a href='<c:url value="/biography/list"/>'>
 					<div id="sideBiography">
 						<img alt="여행일대기"
 							src="<c:url value="/images/icon/icon_tripbook48.png"/>" class="hover">

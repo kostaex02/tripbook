@@ -29,4 +29,9 @@ public interface ScheduleService {
 	 * 스케줄 번호로 스케줄 검색
 	 */
 	ScheduleDTO selectScheduleByNo(int scheduleNo);
+	
+	/**
+	 * 일대기 자신 리스트 출력
+	 */
+	List<ScheduleDTO> selectBiography(String userId);
 }

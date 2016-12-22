@@ -44,7 +44,17 @@ CREATE TABLE schedule_table
 	writer VARCHAR2(50) references user_table(id) not null -- ÀÛ¼ºÀÚ
 );
 
+select s.schedule_no,s.subject,s.start_date,s.end_date,s.write_date,s.state,s.writer,b.board_no,b.content,bp.file_name
+from schedule_table s join board_table b on s.schedule_no = b.schedule_no
+join board_picture_table bp on b.board_no=bp.board_no
+where s.writer='test@test.com'
 select * from schedule_table;
+
+select s.schedule_no,s.subject,s.start_date,s.end_date,s.write_date,s.state,s.writer,bp.file_name,bp.board_No
+from schedule_table s 
+join board_table b on s.schedule_no = b.schedule_no
+join board_picture_table bp on b.board_no=bp.board_no
+where (s.writer=#{userId})
 
 create sequence board_sequence nocache;
 drop table reply_table;
@@ -161,6 +171,6 @@ CREATE TABLE reply_table
 select * from notice_table;
 delete from group_table;
 
-select to_date('12/22/2016 6:36 PM','MM/DD/YYYY HH:Mi AM / PM') from dual;
+select to_date('12/22/2016 6:36 AM','MM/DD/YYYY HH:MI PM','nls_date_language = ENGLISH') from dual;
 select schedule_no,subject,to_char(start_date,'YYYY-MM-DD') start_date,to_char(end_date-1,'YYYY-MM-DD') end_date,state,writer
 		from schedule_table;

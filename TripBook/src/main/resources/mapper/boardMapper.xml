@@ -99,7 +99,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  	<insert id="insertScheduleBoard" parameterType="boardDTO">
 		insert into board_table(board_no,content,write_date,trip_date,location,
 		location_lat,location_lng,writer,state,schedule_no)
-		values(board_sequence.nextval,#{content},sysdate,to_date(#{tripDate,jdbcType=VARCHAR},'mm/dd/yy hh12:mi:ss am'),
+		values(board_sequence.nextval,#{content},sysdate,to_date(#{tripDate,jdbcType=VARCHAR},'MM/DD/YYYY HH:MI PM','nls_date_language = ENGLISH'),
 		#{location,jdbcType=VARCHAR},#{locationLat},#{locationLng},#{writer},#{state},#{scheduleNo})
  	</insert>
 </mapper>

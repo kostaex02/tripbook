@@ -12,7 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.tripbook.dto.BoardDTO;
 import com.tripbook.dto.NoticeDTO;
-import com.tripbook.dto.ReplyDTO;
 import com.tripbook.service.BoardService;
 import com.tripbook.service.GroupService;
 import com.tripbook.service.NoticeService;
@@ -42,12 +41,6 @@ public class MainController {
 		String userId = (String)request.getSession().getAttribute("userId");
 		ModelAndView mv = new ModelAndView("main/main");
 		List<BoardDTO> list = boardService.selectBoard(userId);
-		for(BoardDTO b:list){
-			System.out.println(b);
-			for(ReplyDTO r:b.getReplys()){
-				System.out.println(r);
-			}
-		}
 		mv.addObject("boardList", list);
 		mv.addObject("groupList", groupService.selectGroupList(userId));
 		return mv;

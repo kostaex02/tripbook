@@ -86,4 +86,13 @@ public class ScheduleServiceImpl implements ScheduleService {
 		return scheduleDAO.selectScheduleByNo(scheduleNo);
 	}
 
+	@Override
+	public List<ScheduleDTO> selectBiography(String userId) {
+		List<Integer> list = groupMemberDAO.selectGroupMember(userId);	
+		Map<String,Object> map = new HashMap<>();
+		map.put("userId", userId);
+		map.put("groupList", list);
+		return scheduleDAO.selectBiography(map);
+	}
+
 }

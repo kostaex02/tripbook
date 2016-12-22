@@ -15,7 +15,6 @@ import com.tripbook.dao.KeywordDAO;
 import com.tripbook.dao.ScheduleDAO;
 import com.tripbook.dto.BoardDTO;
 import com.tripbook.dto.FriendDTO;
-import com.tripbook.dto.GeneralBoardForm;
 import com.tripbook.dto.KeywordDTO;
 import com.tripbook.dto.ScheduleDTO;
 
@@ -66,15 +65,17 @@ public class BoardServiceImpl implements BoardService{
 		int boardNo = 0;
 		if(boardDTO.getScheduleNo()>0){
 			boardDAO.insertScheduleBoard(boardDTO);
-			String [] keywords = address.split(" ");
-			keywordDAO.insertKeyword(new KeywordDTO(keyword, boardDTO.getScheduleNo()));
-			for(String str:keywords){
-				keywordDAO.insertKeyword(new KeywordDTO(str, boardDTO.getScheduleNo()));
+			if(keyword!=null&&!keyword.equals("")){
+				String [] keywords = address.split(" ");
+				keywordDAO.insertKeyword(new KeywordDTO(keyword, boardDTO.getScheduleNo()));
+				for(String str:keywords){
+					keywordDAO.insertKeyword(new KeywordDTO(str, boardDTO.getScheduleNo()));
+				}
 			}
 		}else{
 			boardDAO.insertBoard(boardDTO);
-			boardNo = boardDAO.selectBoardById(boardDTO.getWriter());
 		}
+		boardNo = boardDAO.selectBoardById(boardDTO.getWriter());
 		
 		return boardNo;
 	}

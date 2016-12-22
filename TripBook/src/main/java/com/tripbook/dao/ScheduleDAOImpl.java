@@ -7,7 +7,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.tripbook.dto.BoardDTO;
 import com.tripbook.dto.ScheduleDTO;
 
 @Repository
@@ -43,6 +42,11 @@ public class ScheduleDAOImpl implements ScheduleDAO{
 	@Override
 	public List<Integer> selectScheduleNoByWriter(String writer) {
 		return session.selectList("scheduleMapper.selectScheduleNoByWriter", writer);
+	}
+
+	@Override
+	public List<ScheduleDTO> selectBiography(Map<String, Object> map) {
+		return session.selectList("biographyMapper.selectBiograpy",map);
 	}
 
 }

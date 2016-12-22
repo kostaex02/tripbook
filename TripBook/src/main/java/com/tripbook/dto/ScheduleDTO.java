@@ -1,5 +1,7 @@
 package com.tripbook.dto;
 
+import java.util.List;
+
 public class ScheduleDTO {
 	private int scheduleNo;
 	private String subject;
@@ -8,7 +10,7 @@ public class ScheduleDTO {
 	private String writeDate;
 	private String state;
 	private String writer;
-	
+	private List<BoardPictureDTO> boardPictures;
 	@Override
 	public String toString() {
 		return "ScheduleDTO [scheduleNo=" + scheduleNo + ", subject=" + subject + ", startDate=" + startDate
@@ -17,6 +19,14 @@ public class ScheduleDTO {
 	
 	public ScheduleDTO() {
 		super();
+	}
+
+	public List<BoardPictureDTO> getBoardPictures() {
+		return boardPictures;
+	}
+
+	public void setBoardPictures(List<BoardPictureDTO> boardPictures) {
+		this.boardPictures = boardPictures;
 	}
 
 	public int getScheduleNo() {

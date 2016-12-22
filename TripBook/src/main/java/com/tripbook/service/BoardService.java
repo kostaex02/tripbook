@@ -3,7 +3,6 @@ package com.tripbook.service;
 import java.util.List;
 
 import com.tripbook.dto.BoardDTO;
-import com.tripbook.dto.GeneralBoardForm;
 import com.tripbook.dto.ScheduleDTO;
 
 public interface BoardService {

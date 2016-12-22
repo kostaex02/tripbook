@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="biographyMapper">
+	<resultMap type="scheduleDTO" id="selectBiographyMap">
+		<id column="schedule_no" property="scheduleNo"/>
+		<result column="subject" property="subject"/>	
+		<result column="start_date" property="startDate"/>
+		<result column="end_date" property="endDate"/>
+		<result column="write_date" property="writeDate"/>
+		<result column="state" property="state"/>
+		<result column="writer" property="writer"/>
+		<collection property="boardPictures" javaType="java.util.ArrayList" resultMap="selectBoardPictureMap" />
+	</resultMap>
+	
+	<resultMap type="boardPictureDTO" id="selectBoardPictureMap">
+		<id column="board_picture_no" property="boardPictureNo"/>
+		<result column="file_name" property="fileName"/>
+		<result column="board_no" property="boardNo"/>
+	</resultMap>
+	
+	<select id="selectBiography" parameterType="map" resultMap="selectBiographyMap">
+		select s.schedule_no,s.subject,s.start_date,s.end_date,s.write_date,s.state,s.writer,bp.file_name,bp.board_No
+		from schedule_table s 
+		join board_table b on s.schedule_no = b.schedule_no
+		join board_picture_table bp on b.board_no=bp.board_no
+		where (s.writer=#{userId})
+		<if test="groupList.size()!=0">  or (s.state in 
+			<foreach collection="groupList" item="group" open="(" separator=","
+			close=")">
+			#{group}
+			</foreach>
+		)
+		</if>
+		or
+		(b.writer=#{userId})
+		<if test="groupList.size()!=0">  or (b.state in 
+			<foreach collection="groupList" item="group" open="(" separator=","
+			close=")">
+			#{group}
+			</foreach>
+		)
+		</if>
+	</select>
+</mapper>
