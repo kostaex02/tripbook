@@ -25,7 +25,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		order by send_date desc
 	 </select>
 	 <select id="selectNoticeByAdmin" resultMap="selectNoticeMap">
-	 	select notice_no,notice_table.state state,sender,receiver,send_date,content,check_state,name,file_name
+	 	select notice_no,notice_table.state state,sender,receiver,send_date,content,check_state,name
 		from notice_table join user_table on (notice_table.sender = user_table.id) 
 		where (receiver is null) and notice_table.state in ('2') 
 		order by send_date desc

@@ -452,7 +452,7 @@ dl {
 						<div class='userName'>${userName}</div>
 						<a class='logout' href='<c:url value="/main/logout"/>'>로그아웃</a>
 					</div>
-				</a> <a href='<c:url value="/admin/noticeManagement"/>'><div
+				</a> <a href='<c:url value="/admin/notice"/>'><div
 						id='adminSideNotice'>공지사항</div></a> <a
 					href='<c:url value="/admin/messageManagement"/>'><div
 						id='adminSideMessge'>메세지</div></a> <a

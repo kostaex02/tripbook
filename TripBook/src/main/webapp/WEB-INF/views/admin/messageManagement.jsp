@@ -151,9 +151,6 @@ textarea{
 		</div>
 	</div>
 	
-	
-	
-	
 	<script src='<c:url value="/resources/js/main/stroll.min.js"/>'></script>
 	<script>
 		stroll.bind('ul');

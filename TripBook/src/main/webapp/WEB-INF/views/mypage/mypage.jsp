@@ -63,9 +63,9 @@
 <body>
 	<div id="mypageNotice">
 		<ul class="grow">
-			<c:forEach items="${noticeList}" var="noticeItem" varStatus="noticeState">
+			<c:forEach items="${noticeList}" var="noticeItem">
 				<li class="mypageNoticeList">
-					${noticeState} ${noticeItem.content}
+					${noticeItem.content}
 				</li>
 			</c:forEach>
 		</ul>
