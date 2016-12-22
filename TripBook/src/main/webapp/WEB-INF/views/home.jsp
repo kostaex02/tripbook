@@ -39,7 +39,7 @@
 }
 
 #mainForm {
-	display: block;
+	display: none;
 	margin-top: 50px;
 }
 

@@ -327,6 +327,7 @@ hr {
 .main-schedule{
 	color:black;
 }
+
 </style>
 
 
@@ -554,12 +555,12 @@ hr {
 									<div class="form-inline row">
 										<div class="col-sm-6">
 											<label for="fromDate1">출발일</label> <input type="text"
-												class="form-control" id="fromDate1" name="startDate"
+												class="form-control main-datepicker" id="fromDate1" name="startDate"
 												style="width: 100%">
 										</div>
 										<div class="col-sm-6">
 											<label for="toDate1">종료일</label> <input type="text"
-												class="form-control" id="toDate1" name="endDate"
+												class="form-control main-datepicker" id="toDate1" name="endDate"
 												style="width: 100%">
 										</div>
 									</div>
@@ -573,7 +574,7 @@ hr {
 										<div class="col-sm-4">
 											<label for="datetimepicker1">스케줄</label> <input type='text'
 												class="form-control datetimepicker" id='datetimepicker1'
-												name="tripDate" style="width: 100%" />
+												name="tripDate" style="width: 100%; background:white" />
 										</div>
 									</div>
 									<hr>
@@ -652,7 +653,7 @@ hr {
 										</div>
 										<div class="col-sm-6">
 											<label for="toDate2">종료일</label> <input type="text"
-												class="form-control" id="toDate2" name="end_date"
+												class="form-control main-datepicker" id="toDate2" name="end_date"
 												style="width: 100%" disabled>
 										</div>
 									</div>
@@ -660,13 +661,13 @@ hr {
 									<div class="form-inline row">
 										<div class="col-sm-8">
 											<label for="subject2">제목</label> <input type="text"
-												class="form-control" id="subject2" name="subject"
+												class="form-control main-datepicker" id="subject2" name="subject"
 												style="width: 100%" disabled>
 										</div>
 										<div class="col-sm-4">
 											<label for="datetimepicker2">스케줄</label> <input type='text'
 												class="form-control datetimepicker" id='datetimepicker2'
-												name="datetime" style="width: 100%" />
+												name="datetime" style="width: 100%; background:white" />
 										</div>
 									</div>
 									<hr>
@@ -861,8 +862,9 @@ hr {
 		$(function() {
 			// 시간.
 			$('.datetimepicker').datetimepicker({
-				sideBySide : true
-			});
+				sideBySide : true,
+				ignoreReadonly: true
+			}).attr('readonly','readonly');
 			/* 멀티파일 설정 */
 			$('#newGeneralBoardMulti').MultiFile({
 					//max : 3, //업로드 최대 파일 갯수 (지정하지 않으면 무한대)
@@ -933,26 +935,7 @@ hr {
 		      .on( "change", function() {
 		    	  editFrom.datepicker( "option", "maxDate", getDate( this ) );
 		    	  $( "#toDate1" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
-		      });/* ,
-		      addFrom = $("#fromDate2" ).datepicker({
-		      		minDate:-20,
-			        maxDate:"+1M+10D",
-			        defaultDate: "+1w",
-		      		changeMonth: true
-		      	})
-		      	.on( "change" , function() {
-		      		addTo.datepicker("option", "minDate", getDate(this));
-		      		$( "#fromDate2" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
-		      	}),
-		      addTo = $("#toDate2").datepicker({
-		    	  	maxDate:"+1M+10D",
-			        defaultDate: "+1w",
-		    		changeMonth: true
-		      	})
-		      	.on( "change" , function() {
-		      		addFrom.datepicker("option", "maxDate", getDate(this));
-		      		$( "#toDate2" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
-		    }); */
+		      });
 		      	
 		 
 		    function getDate( element ) {
