@@ -40,9 +40,15 @@ a {
 .picture {
 	height: auto;
 	min-height: 100px;
+	width:640px;
+	margin:auto;
 	text-align: center;
 }
-
+.picture div{
+	width:300px;
+	height:300px;
+	float:left;
+}
 .mainScrollHidden li {
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 	border-radius: 10px;
@@ -301,8 +307,25 @@ hr {
 	text-align: right;
 }
 
-.boardContent{
-	clear: both;
+.pictureDiv{
+	width:310px;
+	height:300px;
+	margin:5px;
+}
+.boardFooter{
+	margin-top:200px;
+}
+.replyArea{
+	display: none;
+}
+.replyText{
+	width:93%
+}
+.main-submit{
+	text-align:right;
+}
+.main-schedule{
+	color:black;
 }
 </style>
 
@@ -350,28 +373,28 @@ hr {
 											src='<c:url value="/tripbook/user/${item.user.id }/${item.user.fileName}"/>'>
 										<b>${item.writer }</b> ${item.writeDate }
 									</div>
-									<div class='picture'>
-										<c:forEach items="${item.boardPictures }" var="boardPicture" varStatus="pictureNum">
-											<c:if test="${pictureNum.count < 3}">
-												<div>
-													<a href="#" data-toggle="modal" data-target="#detailPicture">
-														<img class='boardPicture'
-														src='<c:url value="/tripbook/board/${item.boardNo }/${boardPicture.fileName }"/>' />
-													</a>
-												</div>
-											</c:if>
-										</c:forEach>
-									</div>
-										<div class="boardContent">${item.content }</div>
+									<div class="boardContent">${item.content }</div>
+										<c:if test="${item.boardPictures.size() != 0}">
+											<div class='picture'>
+												<c:forEach items="${item.boardPictures }" var="boardPicture" varStatus="pictureNum">
+													<c:if test="${pictureNum.count < 3}">
+														<div class='pictureDiv'>
+															<a href="#" data-toggle="modal" data-target="#detailPicture">
+																<img class='boardPicture'
+																src='<c:url value="/tripbook/board/${item.boardNo }/${boardPicture.fileName }"/>' />
+															</a>
+														</div>
+													</c:if>
+												</c:forEach>
+											</div>
+										</c:if>
 									<hr>
 									<div class="boardFooter">
 										<div class="heart " id="like${boardNum.count }" rel="like"></div>
 										<div class="likeCount" id="likeCount${boardNum.count }">14</div>
-										<a href='#'>댓글달기</a>
 										<div class='replysCount'>댓글 100개</div>
 										<div class="replyArea">
-										리플영역
-										<hr>
+											<input type='text' class='replyText' name='reply' placeholder="댓글을 입력하세요" size="30px"><input type='button' value='입력'>
 											<div>작성자 사진 / <img src='<c:url value="/tripbook/user/${boardReply.user.id}/${boardReply.user.fileName}"/>'></div>
 											<div>작성자 이름 / ${boardReply.user.name }</div>
 											<div>리플 내용 / ${boardReply.content }</div>
@@ -510,11 +533,11 @@ hr {
 							style="height: 50px; width: 200px;">
 							<li role="presentation" class="travel active" id="1"
 								style="padding: 0;"><a href="#editSchedule"
-								aria-controls="editSchedule" role="tab" data-toggle="tab">신규
+								aria-controls="editSchedule" role="tab" data-toggle="tab" class="main-schedule">신규
 									일정</a></li>
 							<li role="presentation" class="travel" id="2" style="padding: 0">
 								<a href="#addSchedule" aria-controls="addSchedule" role="tab"
-								data-toggle="tab">기존 일정</a>
+								data-toggle="tab" class="main-schedule">기존 일정</a>
 							</li>
 						</ul>
 						<div class="tab-content">
@@ -597,10 +620,11 @@ hr {
 									<input type="hidden" name="address" id="resultAddress1" value="10">
 									<input type="hidden" name="locationLat" id="resultLatitude1" value="10">
 									<input type="hidden" name="locationLng" id="resultLongitude1" value="10">
-
-									<button type="submit" class="btn btn-default btn-sm">등록</button>
-									<button type="reset" class="btn btn-default btn-sm"
+									<div class="main-submit">
+										<button type="submit" class="btn btn-default btn-sm">등록</button>
+										<button type="reset" class="btn btn-default btn-sm"
 										data-dismiss="modal">취소</button>
+									</div>
 								</form>
 							</div>
 
@@ -689,11 +713,10 @@ hr {
 									<input type="hidden" name="address" id="resultAddress2" value="10">
 									<input type="hidden" name="location_lat" id="resultLatitude2" value="10">
 									<input type="hidden" name="location_lng" id="resultLongitude2" value="10">
-
-									<button type="submit" class="btn btn-default btn-sm">등록</button>
-									<button type="button" class="btn btn-default btn-sm"
-										data-dismiss="modal">취소</button>
-
+									<div class="main-submit">
+										<button type="submit" class="btn btn-default btn-sm">등록</button>
+										<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">취소</button>
+									</div>
 								</form>
 							</div>
 						</div>
@@ -1125,7 +1148,11 @@ hr {
 			document.getElementById('resultRegion' + board).value = 1;
 		}
 	}
+	/* 리플 슬라이드 효과 */
 	
+	$(".replysCount").click(function() {
+		$(this).next().slideToggle(500);
+	})
 	</script>
 </body>
 </html>
