@@ -102,7 +102,7 @@
 			<div class="jbTableCell jbText">
 				<label for="exclusive_input">검색을 입력하세요</label> 
 				<input type="text" id="exclusive_input" name="keyword">
-				<button class="btn btn-default" type="submit" id="searchButton">
+				<button class="btn btn-search" type="submit" id="searchButton">
 					<img class="btn-img" src="<c:url value="/images/icon/icon_searchButton.png"/>">
 				</button>
 				<div class="messageAlarm"><a href="<c:url value="/mypage/list"/>"><img src="<c:url value="/images/icon/icon_messageAlarm.png"/>"></a></div>
