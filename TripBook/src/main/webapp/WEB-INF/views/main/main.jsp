@@ -742,29 +742,12 @@ hr {
 						data-interval="0">
 						<!-- Indicators -->
 						<ol class="carousel-indicators">
-						<!-- class="active" 첫번째로 나오는 화면 -->
-							<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-							<li data-target="#myCarousel" data-slide-to="1"></li>
-							<li data-target="#myCarousel" data-slide-to="2"></li>
-
+						
 						</ol>
 
 						<!-- Wrapper for slides -->
 						<div class="carousel-inner" role="listbox">
-							<div class="item active">
-								<div>게시물1</div>
-								<img src='<c:url value="/images/img.jpg"/>' alt="Chania">
-							</div>
-
-							<div class="item">
-								<div>게시물2</div>
-								<img src='<c:url value="/tripbook/board//"/>' alt="Chania">
-							</div>
-
-							<div class="item">
-								<div>게시물3</div>
-								<img src='<c:url value="/images/img.jpg"/>' alt="Flower">
-							</div>
+							
 						</div>
 
 						<!-- Left and right controls -->
@@ -1200,16 +1183,27 @@ hr {
 	
 	/* 게시물 사진 보기 */
 	$(".boardPicture").click(function(){
-		var pictureList = $(".detailViewPictures").val();
+		var pictureBoardNo = $(".detailViewPictures").val();
 		$.ajax({
-	    	url : "",
-			type : "",
-			data : "boardNo="+pictureList,
+	    	url : "/controller/picture/detail",
+			type : "post",
+			data : "boardNo="+pictureBoardNo,
 			dataType : "json",
 			success : function(list) {
+				var indexStr="";
+				var pictureStr="";
+				$.each(list,function(index,item){
+					if(index==0){
+						indexStr = indexStr + "<li data-target='#myCarousel' data-slide-to='"+index+"'class='active'></li>";
+						pictureStr = pictureStr + "<div class='item active'><img src='<c:url value='/tripbook/board/"+pictureBoardNo+"/"+item.fileName+"'/>' alt='"+item.fileName+"'></div>";
+					}else{
+						indexStr = indexStr + "<li data-target='#myCarousel' data-slide-to='"+index+"'></li>";
+						pictureStr = pictureStr + "<div class='item'><img src='<c:url value='/tripbook/board/"+pictureBoardNo+"/"+item.fileName+"'/>' alt='"+item.fileName+"'></div>";
+					}
+				});
 				
-				
-				
+				$(".carousel-indicators").innerHTML(indexStr);
+				$(".carousel-inner").innerHTML(pictureStr);
 			},
 			error : function() {
 				alert('error');
