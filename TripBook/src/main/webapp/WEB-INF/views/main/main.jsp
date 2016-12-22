@@ -1200,6 +1200,7 @@ hr {
 	/* 리플 슬라이드 효과 */
 	
 	$(".replysCount").click(function() {
+		$('.replyArea').slideUp(500);
 		$(this).next().slideToggle(500);
 	});
 	
