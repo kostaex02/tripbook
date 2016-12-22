@@ -1,5 +1,7 @@
 package com.tripbook.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,8 +13,11 @@ public class BoardPictureServiceImpl implements BoardPictureService {
 	private BoardPictureDAO boardpictureDAO;
 	@Override
 	public int insertBoardPicture(BoardPictureDTO boardPictureDTO) {
-		boardpictureDAO.insertBoardPicture(boardPictureDTO);
-		return 0;
+		return boardpictureDAO.insertBoardPicture(boardPictureDTO);
+	}
+	@Override
+	public List<BoardPictureDTO> selectBoardPictureByBoardNo(int boardNo) {
+		return boardpictureDAO.selectBoardPictureByBoardNo(boardNo);
 	}
 
 }

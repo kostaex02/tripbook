@@ -6,4 +6,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="insertBoardPicture" parameterType="boardPictureDTO">
 		insert into board_picture_table(board_picture_no,file_name,board_no) values(board_picture_sequence.nextval,#{fileName},#{boardNo})
 	</insert>
+	
+	<select id="selectBoardPictureByBoardNo" parameterType="int" resultType="boardPictureDTO">
+		select board_picture_no boardPictureNo,file_name fileName,board_no boardNo from board_picture_table
+		where board_no=#{value}
+	</select>
 </mapper>
