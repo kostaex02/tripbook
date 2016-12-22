@@ -540,7 +540,7 @@ hr {
 					</div>
 					<div class="userName">${userName}</div>
 					<div>
-						<select class="select" id="state" name="state">
+						<select class="select" id="state" name="stateTravel">
 							<option value="0">전체보기</option>
 							<option value="1">친구보기</option>
 							<option value="2">비공개</option>
@@ -639,6 +639,7 @@ hr {
 									</div>
 
 									<div name="mapChoice" class="mapChoice" style="width: 95%"></div>
+									<input type="hidden" name="state" id="stateEdit" value="0">
 									<input type="hidden" name="keyword" id="resultKeyword1" value="10">
 									<input type="hidden" name="location" id="resultRegion1" value="10">
 									<input type="hidden" name="address" id="resultAddress1" value="10">
@@ -732,6 +733,7 @@ hr {
 									</div>
 
 									<div name="mapChoice" class="mapChoice" style="width: 95%"></div>
+									<input type="hidden" name="state" id="stateTravel" value="0">
 									<input type="hidden" name="keyword" id="resultKeyword2" value="10">
 									<input type="hidden" name="region" id="resultRegion2" value="10">
 									<input type="hidden" name="address" id="resultAddress2" value="10">
@@ -985,6 +987,14 @@ hr {
 					}
 			    })
 		    })
+		  	//state값
+			$('#state').on("change",function(){
+				var state = $('#state').val();
+				alert(state);
+				$('#stateTravel').val(state);
+				$('#stateEdit').val(state);
+				
+			});
 		}); 
 		
 		
