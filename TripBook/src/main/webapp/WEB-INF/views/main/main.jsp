@@ -327,7 +327,7 @@ hr {
 	display: none;
 }
 .replyText{
-	width:93%
+	width:85%
 }
 .main-submit{
 	text-align:right;
@@ -1199,7 +1199,7 @@ hr {
 	}
 	/* 리플 슬라이드 효과 */
 	
-	$(".replysCount").click(function() {
+	$(".replysCount").mousedown(function() {
 		$('.replyArea').slideUp(500);
 		$(this).next().slideToggle(500);
 	});
