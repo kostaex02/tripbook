@@ -40,13 +40,20 @@ a {
 .picture {
 	height: auto;
 	min-height: 100px;
-	width:640px;
+	width:100%;
 	margin:auto;
 	text-align: center;
 }
+
+.picture span{
+	font-size:30px;
+	line-height: 2;
+	
+}
+
 .picture div{
-	width:300px;
-	height:300px;
+	width:100px;
+	height:100px;
 	float:left;
 }
 .mainScrollHidden li {
@@ -301,7 +308,6 @@ hr {
 	height: 100px;
 	max-width: 100px;
 	position: relative;
-	float:left;
 }
 
 .replysCount {
@@ -314,7 +320,7 @@ hr {
 	margin:5px;
 }
 .boardFooter{
-	margin-top:200px;
+	margin-top:10px;
 }
 .replyArea{
 	display: none;
@@ -380,14 +386,27 @@ hr {
 											<div class='picture'>
 												<input class='detailViewPictures'type='hidden' value="${item.boardNo}">
 												<c:forEach items="${item.boardPictures }" var="boardPicture" varStatus="pictureNum">
-													<c:if test="${pictureNum.count < 3}">
-														<div class='pictureDiv'>
+													<c:choose>
+														<c:when test="${pictureNum.count < 5}">
+															<span class='pictureDiv'>
+																<a href="#" data-toggle="modal" data-target="#detailPicture">
+																	<img class='boardPicture'
+																	src='<c:url value="/tripbook/board/${item.boardNo }/${boardPicture.fileName }"/>' />
+																</a>
+															</span>
+														</c:when>
+														<c:when test="${pictureNum.count eq 5}">
+															<span>
 															<a href="#" data-toggle="modal" data-target="#detailPicture">
-																<img class='boardPicture'
-																src='<c:url value="/tripbook/board/${item.boardNo }/${boardPicture.fileName }"/>' />
+																	<img class='boardPicture'
+																	src='<c:url value="/tripbook/board/${item.boardNo }/${boardPicture.fileName }"/>' style="position:absolute;"/>
 															</a>
-														</div>
-													</c:if>
+															+${item.boardPictures.size() - 5}장</span>
+														</c:when>
+														<c:otherwise>
+																
+														</c:otherwise>
+													</c:choose>
 												</c:forEach>
 											</div>
 										</c:if>
