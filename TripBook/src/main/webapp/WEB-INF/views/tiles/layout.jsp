@@ -27,6 +27,7 @@
 		top:3%;
 		left:-2%;
 		margin-bottom: 40px;
+		
 	}
 	
 	#content{

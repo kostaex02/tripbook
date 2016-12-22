@@ -88,6 +88,12 @@
 	width: 32px;
 	margin: 5px;
 }
+.messageAlarm{
+	margin-left: 18px;
+	margin-top: 6px;
+	cursor: pointer;
+	margin-bottom: 7px;
+}
 </style>
 </head>
 <body>
@@ -99,6 +105,7 @@
 				<button class="btn btn-default" type="submit" id="searchButton">
 					<img class="btn-img" src="<c:url value="/images/icon/icon_searchButton.png"/>">
 				</button>
+				<div class="messageAlarm"><a href="<c:url value="/mypage/list"/>"><img src="<c:url value="/images/icon/icon_messageAlarm.png"/>"></a></div>
 				<div class="jbTableCell calendarTrash"></div>
 			</div>
 			</form>
