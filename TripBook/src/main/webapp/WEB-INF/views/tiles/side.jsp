@@ -351,6 +351,21 @@ dl {
 .sideGroupHeader dd{
 	line-height: 0.5;
 }
+.messageAlarm{
+	width: 32px;
+	margin-left: 18px;
+	margin-top: 6px;
+	cursor: pointer;
+	margin-bottom: 7px;
+}
+.userName{
+	display: inline-block;
+	margin-left: 10px;
+}
+.userName img{
+	margin-left: 14px;
+	padding-left: 5px;
+}
 
 </style>
 
@@ -364,7 +379,7 @@ dl {
 					<div id="sideProfile">
 						<img class="profileImage"
 							src="<c:url value="/tripbook/user/${userId}/${userFileName}"/>">
-						<div class='userName'>${userName}</div>
+						<div class='userName'>${userName}<img src="<c:url value="/images/icon/icon_messageAlarm.png"/>"></div>
 						<a class="logout" href="<c:url value="/mypage/profile"/>">정보수정</a><br>
 						<a class="logout" href="<c:url value="/main/logout"/>">로그아웃</a>
 					</div>
