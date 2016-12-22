@@ -308,6 +308,7 @@ hr {
 	height: 100px;
 	max-width: 100px;
 	position: relative;
+	
 }
 
 .replysCount {
@@ -399,9 +400,10 @@ hr {
 															<span>
 															<a href="#" data-toggle="modal" data-target="#detailPicture">
 																	<img class='boardPicture'
-																	src='<c:url value="/tripbook/board/${item.boardNo }/${boardPicture.fileName }"/>' style="position:absolute;"/>
+																	src='<c:url value="/tripbook/board/${item.boardNo }/${boardPicture.fileName }"/>' style="position:absolute;opacity:0.4;"/>
 															</a>
-															+${item.boardPictures.size() - 5}장</span>
+															<span style='padding-left:20px;'>+${item.boardPictures.size() - 5}장</span>
+															</span>
 														</c:when>
 														<c:otherwise>
 																
