@@ -33,7 +33,7 @@
 		float:right;
 		height:100%;
 		padding:5px;
-		top:-1%;
+		top:-5%;
 		left:-7%;
 		width:65%;
 	}

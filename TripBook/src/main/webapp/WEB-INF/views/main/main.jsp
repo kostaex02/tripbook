@@ -40,9 +40,15 @@ a {
 .picture {
 	height: auto;
 	min-height: 100px;
+	width:640px;
+	margin:auto;
 	text-align: center;
 }
-
+.picture div{
+	width:300px;
+	height:300px;
+	float:left;
+}
 .mainScrollHidden li {
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 	border-radius: 10px;
@@ -301,8 +307,16 @@ hr {
 	text-align: right;
 }
 
-.boardContent{
-	clear: both;
+.pictureDiv{
+	width:310px;
+	height:300px;
+	margin:5px;
+}
+.boardFooter{
+	margin-top:200px;
+}
+.replyArea{
+	display: none;
 }
 </style>
 
@@ -350,19 +364,21 @@ hr {
 											src='<c:url value="/tripbook/user/${item.user.id }/${item.user.fileName}"/>'>
 										<b>${item.writer }</b> ${item.writeDate }
 									</div>
-									<div class='picture'>
-										<c:forEach items="${item.boardPictures }" var="boardPicture" varStatus="pictureNum">
-											<c:if test="${pictureNum.count < 3}">
-												<div>
-													<a href="#" data-toggle="modal" data-target="#detailPicture">
-														<img class='boardPicture'
-														src='<c:url value="/tripbook/board/${item.boardNo }/${boardPicture.fileName }"/>' />
-													</a>
-												</div>
-											</c:if>
-										</c:forEach>
-									</div>
-										<div class="boardContent">${item.content }</div>
+									<div class="boardContent">${item.content }</div>
+										<c:if test="${item.boardPictures.size() != 0}">
+											<div class='picture'>
+												<c:forEach items="${item.boardPictures }" var="boardPicture" varStatus="pictureNum">
+													<c:if test="${pictureNum.count < 3}">
+														<div class='pictureDiv'>
+															<a href="#" data-toggle="modal" data-target="#detailPicture">
+																<img class='boardPicture'
+																src='<c:url value="/tripbook/board/${item.boardNo }/${boardPicture.fileName }"/>' />
+															</a>
+														</div>
+													</c:if>
+												</c:forEach>
+											</div>
+										</c:if>
 									<hr>
 									<div class="boardFooter">
 										<div class="heart " id="like${boardNum.count }" rel="like"></div>
@@ -1125,7 +1141,11 @@ hr {
 			document.getElementById('resultRegion' + board).value = 1;
 		}
 	}
+	/* 리플 슬라이드 효과 */
 	
+	$(".replysCount").click(function() {
+		$(this).next().slideToggle(500);
+	})
 	</script>
 </body>
 </html>
