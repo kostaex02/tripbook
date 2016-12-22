@@ -1201,9 +1201,10 @@ hr {
 						pictureStr = pictureStr + "<div class='item'><img src='<c:url value='/tripbook/board/"+pictureBoardNo+"/"+item.fileName+"'/>' alt='"+item.fileName+"'></div>";
 					}
 				});
-				
-				$(".carousel-indicators").innerHTML(indexStr);
-				$(".carousel-inner").innerHTML(pictureStr);
+				$(".carousel-indicators").empty();
+				$(".carousel-indicators").append(indexStr);
+				$(".carousel-inner").empty();
+				$(".carousel-inner").append(pictureStr);
 			},
 			error : function() {
 				alert('error');
