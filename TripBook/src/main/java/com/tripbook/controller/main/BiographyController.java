@@ -10,4 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class BiographyController {
 	@RequestMapping("{fileName}")
 	public void page(HttpServletRequest request){}
+	
+	@RequestMapping("list")
+	public void list(HttpServletRequest request){
+		
+	}
 }
