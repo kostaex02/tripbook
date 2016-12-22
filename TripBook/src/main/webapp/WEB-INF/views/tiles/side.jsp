@@ -490,12 +490,9 @@ dl {
 				$(".sideGroupMenu").slideToggle(500);
 			})
 
-			var trash = document.getElementById("trash");
-			
-			if (sessionStorage.getItem("pageName") != "sideSchedule") {
-				trash.style.display = 'none';
-			} else {
-				trash.style.display = 'inline';
+			var insTag = "<img id='trash' src='<c:url value="/images/trash.png"/>'>"
+			if (sessionStorage.getItem("pageName") == "sideSchedule") {
+				$(".calendarTrash").html(insTag);
 			}
 
 			var group = document.getElementById("sideGroup");

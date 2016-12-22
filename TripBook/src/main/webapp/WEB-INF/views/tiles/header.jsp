@@ -99,7 +99,7 @@
 				<button class="btn btn-default" type="submit" id="searchButton">
 					<img class="btn-img" src="<c:url value="/images/icon/icon_searchButton.png"/>">
 				</button>
-				<div class="jbTableCell calendarTrash"><img id='trash' src='<c:url value="/images/trash.png"/>'></div>
+				<div class="jbTableCell calendarTrash"></div>
 			</div>
 			</form>
 		</div>
