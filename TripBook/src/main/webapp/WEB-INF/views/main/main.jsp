@@ -318,6 +318,9 @@ hr {
 .replyArea{
 	display: none;
 }
+.replyText{
+	width:93%
+}
 </style>
 
 
@@ -383,11 +386,9 @@ hr {
 									<div class="boardFooter">
 										<div class="heart " id="like${boardNum.count }" rel="like"></div>
 										<div class="likeCount" id="likeCount${boardNum.count }">14</div>
-										<a href='#'>댓글달기</a>
 										<div class='replysCount'>댓글 100개</div>
 										<div class="replyArea">
-										리플영역
-										<hr>
+											<input type='text' class='replyText' name='reply' placeholder="댓글을 입력하세요" size="30px"><input type='button' value='입력'>
 											<div>작성자 사진 / <img src='<c:url value="/tripbook/user/${boardReply.user.id}/${boardReply.user.fileName}"/>'></div>
 											<div>작성자 이름 / ${boardReply.user.name }</div>
 											<div>리플 내용 / ${boardReply.content }</div>
