@@ -35,4 +35,9 @@ public class BoardDAOImpl implements BoardDAO {
 		return session.insert("boardMapper.insertScheduleBoard", boardDTO);
 	}
 
+	@Override
+	public List<BoardDTO> selectDetailBiography(Map<String, Object> map) {
+		return session.selectList("boardMapper.selectDetailBiography", map);
+	}
+
 }

@@ -53,6 +53,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="location_lng" property="locationLng"/>
 		<result column="writer" property="writer"/>
 		<result column="state" property="state"/>
+		<result column="like_count" property="likeCount"/>
 		<result column="schedule_no" property="scheduleNo"/>
 		<association property="user" javaType="userDTO" resultMap="selectUserMap" />
 		<collection property="replys" javaType="java.util.ArrayList" resultMap="selectReplyMap" />
@@ -62,9 +63,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectBoard" parameterType="map" resultMap="selectBoardMap">
 		select b.board_no,b.content,b.write_date,b.trip_date,b.location,b.location_lat,b.location_lng,b.writer,b.state,b.schedule_no
 		,u.id,u.name,u.file_name,bp.board_Picture_no,bp.file_name bp_file_name,bp.board_no bp_board_no,r.reply_no,r.writer r_writer,r.content r_content
-		,r.writer_date r_writer_date,r.board_no r_board_no,ru.id ru_id, ru.name ru_name, ru.file_name ru_file_name 
-		from board_table b join user_table u on b.writer=u.id
+		,r.writer_date r_writer_date,r.board_no r_board_no,ru.id ru_id, ru.name ru_name, ru.file_name ru_file_name, count(g.id) like_count
+		from board_table b join user_table u on b.writer=u.id 
 		left join board_picture_table bp on b.board_no=bp.board_no
+		left join grade_table g on b.board_no=g.board_no
 		left join reply_table r join user_table ru on r.writer = ru.id on r.board_no = b.board_no
 		where (b.writer=#{userId})
 		<if test="friendList.size()!=0">
@@ -82,6 +84,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</foreach>
 		)
 		</if>
+		group by b.board_no,b.content,b.write_date,b.trip_date,b.location,b.location_lat,b.location_lng,b.writer,b.state,b.schedule_no
+		,u.id,u.name,u.file_name,bp.board_Picture_no,bp.file_name,bp.board_no,r.reply_no,r.writer,r.content,r.writer_date,r.board_no,ru.id,ru.name, ru.file_name
 		order by b.write_date desc,r.writer_date desc
 	</select>
 	
@@ -102,4 +106,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		values(board_sequence.nextval,#{content},sysdate,to_date(#{tripDate,jdbcType=VARCHAR},'MM/DD/YYYY HH:MI PM','nls_date_language = ENGLISH'),
 		#{location,jdbcType=VARCHAR},#{locationLat},#{locationLng},#{writer},#{state},#{scheduleNo})
  	</insert>
+ 	<select id="selectDetailBiography" parameterType="map" resultMap="selectBoardMap">
+ 	select b.board_no,b.content,b.write_date,b.trip_date,b.location,b.location_lat,b.location_lng,b.writer,b.state,b.schedule_no
+		,u.id,u.name,u.file_name,bp.board_Picture_no,bp.file_name bp_file_name,bp.board_no bp_board_no,r.reply_no,r.writer r_writer,r.content r_content
+		,r.writer_date r_writer_date,r.board_no r_board_no,ru.id ru_id, ru.name ru_name, ru.file_name ru_file_name 
+		from board_table b join user_table u on b.writer=u.id
+		left join board_picture_table bp on b.board_no=bp.board_no
+		left join reply_table r join user_table ru on r.writer = ru.id on r.board_no = b.board_no
+		where b.schedule_no=#{scheduleNo} and ((b.writer=#{userId})
+		<if test="friendList.size()!=0">
+		 or ((b.state='1' or b.state='0') and b.writer in 
+		<foreach collection="friendList" item="friend" open="(" separator=","
+			close=")">
+			#{friend}
+		</foreach>
+		)
+		</if>
+		<if test="groupList.size()!=0">  or (b.state in 
+			<foreach collection="groupList" item="group" open="(" separator=","
+			close=")">
+			#{group}
+			</foreach>
+		)
+		</if>
+		)
+		order by b.trip_date
+ 	</select>
 </mapper>

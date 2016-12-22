@@ -8,8 +8,6 @@ public class ReplyDTO {
 	private int boardNo;
 	private UserDTO user;
 	
-	
-	
 	@Override
 	public String toString() {
 		return "ReplyDTO [replyNo=" + replyNo + ", content=" + content + ", writerDate=" + writerDate + ", writer="

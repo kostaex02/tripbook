@@ -42,5 +42,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</foreach>
 		)
 		</if>
+		order by s.start_date
 	</select>
 </mapper>

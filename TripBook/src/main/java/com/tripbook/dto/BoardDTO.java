@@ -13,10 +13,17 @@ public class BoardDTO {
 	private String writer;
 	private int state;
 	private int scheduleNo;
+	private int likeCount;
 	private UserDTO user;
 	private List<ReplyDTO> replys;
 	private List<BoardPictureDTO> boardPictures;
 	
+	public int getLikeCount() {
+		return likeCount;
+	}
+	public void setLikeCount(int likeCount) {
+		this.likeCount = likeCount;
+	}
 	public String getWriteDate() {
 		return writeDate;
 	}

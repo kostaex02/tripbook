@@ -46,7 +46,7 @@ public class ScheduleDAOImpl implements ScheduleDAO{
 
 	@Override
 	public List<ScheduleDTO> selectBiography(Map<String, Object> map) {
-		return session.selectList("biographyMapper.selectBiograpy",map);
+		return session.selectList("biographyMapper.selectBiography",map);
 	}
 
 }

@@ -56,7 +56,6 @@ public class BoardServiceImpl implements BoardService{
 		map.put("userId", userId);
 		map.put("friendList", userList);
 		map.put("groupList", list);
-		System.out.println(map);
 		return boardDAO.selectBoard(map);
 	}
 
@@ -87,6 +86,35 @@ public class BoardServiceImpl implements BoardService{
 		boardDTO.setScheduleNo(schedultNo);
 		return insertBoard(boardDTO, keyword, address);
 	}
+
+	@Override
+	public List<BoardDTO> selectDetailBiography(String userId, int scheduleNo) {
+		Map<String,String> friendMap = new HashMap<>();
+		friendMap.put("userId", userId);
+		friendMap.put("state", "1");
+		List<FriendDTO> friendList = friendDAO.selectFriend(friendMap);
+		List<String> userList = null;
+		if(friendList!=null){
+			userList = new ArrayList<>();
+			for(FriendDTO f:friendList){
+				if(!f.getFriendId1().equals(userId)){
+					userList.add(f.getFriendId1());
+				}
+				else{
+					userList.add(f.getFriendId2());
+				}
+			}
+		}
+		List<Integer> list = groupMemberDAO.selectGroupMember(userId);
+		
+		Map<String,Object> map = new HashMap<>();
+		map.put("userId", userId);
+		map.put("friendList", userList);
+		map.put("groupList", list);
+		map.put("scheduleNo", scheduleNo);
+		return boardDAO.selectDetailBiography(map);
+	}
+
 
 
 }

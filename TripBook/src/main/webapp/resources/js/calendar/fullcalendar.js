@@ -21,9 +21,7 @@
 			droppable: true, // this allows things to be dropped onto the calendar
 			eventLimit: true, // allow "more" link when too many events\
 			eventClick: function(event, jsEvent, view) {               //작성된 이벤트 클릭시 일정내용 팝업으로 노출
-						 var dt_start = moment(event.start).format('YYYY-MM-DD hh:mm');
-						 var dt_end = moment(event.end).format('YYYY-MM-DD hh:mm');
-				 		alert("시작날짜 : "+dt_start+" / 종료날짜 : "+dt_end);
+				 		location.href="/controller/biography/detail?scheduleNo="+event.id;
 				   },
 			/*events: [
 				{

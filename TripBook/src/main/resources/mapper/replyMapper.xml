@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="replyMapper">	
+	<resultMap type="userDTO" id="selectReplyUserMap">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="file_name" property="fileName"/>
+	</resultMap>
+
+	<resultMap type="replyDTO" id="selectReplyMap">
+		<id column="reply_no" property="replyNo"/>
+		<result column="content" property="content"/>
+		<result column="writer_date" property="writerDate"/>
+		<result column="writer" property="writer"/>
+		<result column="board_no" property="boardNo"/>
+		<association property="user" javaType="userDTO" resultMap="selectReplyUserMap" />
+	</resultMap>
+	
+	<insert id="insertReply" parameterType="replyDTO">
+		insert into reply_table(reply_no,content,writer_date,writer,board_no)
+		values(reply_sequence.nextval,#{content},sysdate,#{writer},#{boardNo})
+	</insert>
+	
+	<select id="selectReplyByBoardNo" parameterType="int" resultMap='selectReplyMap'>
+		select reply_no,content,writer_date,writer,board_no,id,name,file_name
+		from reply_table join user_table on writer=id
+		where board_no=#{value} order by writer_date desc
+	</select>
+</mapper>

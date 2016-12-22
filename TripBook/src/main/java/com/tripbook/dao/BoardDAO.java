@@ -25,4 +25,9 @@ public interface BoardDAO {
 	 * 여행 게시물 등록
 	 */
 	int insertScheduleBoard(BoardDTO boardDTO);
+	
+	/**
+	 * 선택된 스케쥴에 해당하는 게시물들 출력
+	 */
+	List<BoardDTO> selectDetailBiography(Map<String, Object> map);
 }

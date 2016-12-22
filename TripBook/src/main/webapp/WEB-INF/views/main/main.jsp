@@ -414,22 +414,21 @@ hr {
 										</c:if>
 									<hr>
 									<div class="boardFooter">
-										<div class="heart" id="like${boardNum.count }" rel="like"></div>
-										<div class="likeCount" id="likeCount${boardNum.count }">14</div>
-										<div class='replysCount'>댓글 100개</div>
+										<div class="heart" id="like" rel="like"></div>
+										<div class="likeCount" id="likeCount">${item.likeCount }</div>
+										<div class='replysCount'>댓글 ${item.replys.size() }개</div>
 										<div class="replyArea">
-											<input type='text' class='replyText' name='reply' placeholder="댓글을 입력하세요" size="30px"><input type='button' value='입력'>
-											<div>작성자 사진 / <img src='<c:url value="/tripbook/user/${boardReply.user.id}/${boardReply.user.fileName}"/>'></div>
-											<div>작성자 이름 / ${boardReply.user.name }</div>
-											<div>리플 내용 / ${boardReply.content }</div>
-											<div>작성시간 / ${boardReply.writerDate }</div>
-										<c:forEach items="${item.replys}" var="boardReply" varStatus="replyState">
-											<div>작성자 사진 / <img src='<c:url value="/tripbook/user/${boardReply.user.id}/${boardReply.user.fileName}"/>'></div>
-											<div>작성자 이름 / ${boardReply.user.name }</div>
-											<div>리플 내용 / ${boardReply.content }</div>
-											<div>작성시간 / ${boardReply.writerDate }</div>
-											<hr>
-										</c:forEach>
+											<input type="hidden" name='id' value="${item.boardNo }">
+											<input type='text' class='replyText' name='reply' placeholder="댓글을 입력하세요" size="30px">
+											<input type='button' value='입력' class="replyButton">
+											
+											<c:forEach items="${item.replys}" var="boardReply" varStatus="replyState">
+												<div>작성자 사진 / <img src='<c:url value="/tripbook/user/${boardReply.user.id}/${boardReply.user.fileName}"/>'></div>
+												<div>작성자 이름 / ${boardReply.user.name }</div>
+												<div>리플 내용 / ${boardReply.content }</div>
+												<div>작성시간 / ${boardReply.writerDate }</div>
+												<hr>
+											</c:forEach>
 										</div>
 									</div>
 								</div>
@@ -823,7 +822,7 @@ hr {
 	    	$(this).css("background-position","")
 	        var D=$(this).attr("rel");
 	       
-	        if(D === 'like'){      
+	        if(D === 'like'){
 		        $("#likeCount"+messageID).html(C+1);
 		        $(this).addClass("heartAnimation").attr("rel","unlike");
 	        }else{
@@ -994,6 +993,25 @@ hr {
 				var state = $('#state').val();
 				$('#stateEdit').val(state);
 			});
+		    
+		    $('.replyButton').click(function(){
+		    	if($(this).siblings('.replyText').val()==""){
+		    		alert("댓글 내용을 입력하시오");	
+		    	}else{
+		    		$.ajax({
+				    	url : "/controller/reply/insert",
+						type : "post",
+						data : "boardNo="+$(this).siblings('input').val()+"&content="+$(this).siblings('.replyText').val(),
+						dataType : "json",
+						success : function(data) {
+							alert(data);
+						},
+						error : function() {
+							alert('error');
+						}
+				    })	
+		    	}
+		    })
 		}); 
 		
 		

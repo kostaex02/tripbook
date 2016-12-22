@@ -18,46 +18,12 @@
 <div class="container" >
 		<div class="content" >
 			<div class="grid">
-				<div class="grid__item" data-size="958x1280">
-					<a href="<c:url value="/images/test/2.jpg"/>" class="img-wrap"><img
-						src="<c:url value="/images/test/2.jpg"/>" alt="img02" /> </a>
-				</div>
-				<div class="grid__item" data-size="837x1280">
-					<a href="<c:url value="/images/test/3.jpg"/>" class="img-wrap"><img
-						src="<c:url value="/images/test/3.jpg"/>" alt="img03" /> </a>
-				</div>
-				<div class="grid__item" data-size="1280x961">
-					<a href="<c:url value="/images/test/4.jpg"/>" class="img-wrap"><img
-						src="<c:url value="/images/test/4.jpg"/>" alt="img04" /> </a>
-				</div>
-				<div class="grid__item" data-size="1280x1131">
-					<a href="<c:url value="/images/test/5.jpg"/>" class="img-wrap"><img
-						src="<c:url value="/images/test/5.jpg"/>" alt="img05" /> </a>
-				</div>
-				<div class="grid__item" data-size="1280x857">
-					<a href="<c:url value="/images/test/6.jpg"/>" class="img-wrap"><img
-						src="<c:url value="/images/test/6.jpg"/>" alt="img06" /> </a>
-				</div>
-				<div class="grid__item" data-size="1280x1280">
-					<a href="<c:url value="/images/test/7.jpg"/>" class="img-wrap"><img
-						src="<c:url value="/images/test/7.jpg"/>" alt="img07" /> </a>
-				</div>
-				<div class="grid__item" data-size="1280x853">
-					<a href="<c:url value="/images/test/8.jpg"/>" class="img-wrap"><img
-						src="<c:url value="/images/test/8.jpg"/>" alt="img08" /> </a>
-				</div>
-				<div class="grid__item" data-size="865x1280">
-					<a href="<c:url value="/images/test/9.jpg"/>" class="img-wrap"><img
-						src="<c:url value="/images/test/9.jpg"/>" alt="img09" /> </a>
-				</div>
-				<div class="grid__item" data-size="1280x1280">
-					<a href="<c:url value="/images/test/10.jpg"/>" class="img-wrap"><img
-						src="<c:url value="/images/test/10.jpg"/>" alt="img10" /> </a>
-				</div>
-				<div class="grid__item" data-size="1280x850">
-					<a href="<c:url value="/images/test/11.jpg"/>" class="img-wrap"><img
-						src="<c:url value="/images/test/11.jpg"/>" alt="img11" /> </a>
-				</div>
+				<c:forEach items="${biographyList }" var = "item">
+					<div class="grid__item">
+					<a href="/controller/biography/detail?scheduleNo=${item.scheduleNo }" class="img-wrap"><img
+						src="<c:url value="/tripbook/board/${item.boardPictures.get(0).boardNo }/${item.boardPictures.get(0).fileName }"/>" alt="img02" /> </a>
+					</div>	
+				</c:forEach>
 			</div>
 			<!-- /grid -->
 			<div class="preview">
