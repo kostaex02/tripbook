@@ -87,9 +87,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<insert id="insertBoard" parameterType="boardDTO">
 		insert into board_table(board_no,content,write_date,trip_date,location,
-		location_lat,location_lng,writer,state,schedule_no)
+		location_lat,location_lng,writer,state)
 		values(board_sequence.nextval,#{content},sysdate,#{tripDate,jdbcType=VARCHAR},
-		#{location,jdbcType=VARCHAR},#{locationLat},#{locationLng},#{writer},#{state},#{scheduleNo,jdbcType=INTEGER})
+		#{location,jdbcType=VARCHAR},#{locationLat},#{locationLng},#{writer},#{state})
 	</insert>
 	
 	<select id="selectBoardById" parameterType="String" resultType="int">
