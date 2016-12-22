@@ -367,6 +367,7 @@ dl {
 	padding-left: 5px;
 }
 
+
 </style>
 
 </head>
@@ -375,15 +376,16 @@ dl {
 	<c:choose>
 		<c:when test="${userState eq '0'}">
 			<div id='sideNav'>
-				<a class="sideProfileLink" href="<c:url value="/mypage/list"/>">
-					<div id="sideProfile">
+				<div id="sideProfile">
+					<a class="sideProfileLink" href="<c:url value="/mypage/list"/>">
 						<img class="profileImage"
 							src="<c:url value="/tripbook/user/${userId}/${userFileName}"/>">
 						<div class='userName'>${userName}<img src="<c:url value="/images/icon/icon_messageAlarm.png"/>"></div>
-						<a class="logout" href="<c:url value="/mypage/profile"/>">정보수정</a><br>
-						<a class="logout" href="<c:url value="/main/logout"/>">로그아웃</a>
-					</div>
-				</a>
+					</a>
+					<a class="reInfo" href="<c:url value="/mypage/profile"/>"><div>정보수정</div></a>
+					<a class="logout" href="<c:url value="/main/logout"/>"><div>로그아웃</div></a>
+				</div>
+
 				<a href="<c:url value="/main/home"/>">
 				<div id="sideHome">
 					 <img alt="홈"
