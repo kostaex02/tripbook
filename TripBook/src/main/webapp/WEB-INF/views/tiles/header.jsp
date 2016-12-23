@@ -53,12 +53,10 @@
 	-moz-appearance: none;
 	appearance: none;
 	outline-style: inherit;
-	
 }
 
 .jbText input[type="text"]:focus{
 	box-shadow: 0 0 2pt 0.5pt #00C6ED;
-	border-color: #00C6ED;
 }
 
 .jbText label{
@@ -94,7 +92,6 @@
 		<div class="jbTableRow">
 			<form action="<c:url value="/search/list"/>">
 			<div class="jbTableCell jbText">
-				<label for="exclusive_input">검색을 입력하세요</label> 
 				<input type="text" id="exclusive_input" name="keyword">
 				<button class="btn btn-search" type="submit" id="searchButton">
 					<img class="btn-img" src="<c:url value="/images/icon/icon_searchButton.png"/>">
