@@ -339,13 +339,21 @@ hr {
 .mapArea{
 	position:fixed;
 	left:75%;
-	top:100px;
+	top:35px;
 
 	 border:1px black solid; 
-	 width:20%;
-	 height:200px
+	 width:23%;
+	 height:250px
 }
-
+.mapSwitch{
+	position: fixed;
+	left: 85%;
+	top:6.5%;
+	z-index: 5;
+}
+.jbText{
+	width: 71%;
+}
 </style>
 
 
@@ -368,6 +376,7 @@ hr {
 </head>
 <body>
 	<div class='mainAllBoard'>
+		<a href='#' class='btn btn-primary mapSwitch'>지도</a>
 		<div class='mapArea'>여기는 지도가 표시될 공간</div>
 		<div class='mainScrollHidden'>
 			<ul class="grow">

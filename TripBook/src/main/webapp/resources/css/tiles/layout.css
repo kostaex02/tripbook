@@ -39,9 +39,13 @@ li{
 		width: 100% !important;
 	}
 	.jbText{
+		width:90% !important;
 	}
 	.mapArea{
 		display:none;
+	}
+	.mapSwitch{
+		left:80% !important;
 	}
 	::-webkit-scrollbar {
 		display:none;
@@ -56,8 +60,8 @@ li{
 	
 	#content, #header{
 		position: relative;
-		width: 80% !important;
-		left: -19% !important;
+		width: 98% !important;
+		left: -1% !important;
 	}
 	
 	#side{
@@ -71,10 +75,14 @@ li{
 	#header{
 		margin-top: 10px;
 	}
-	
+	.mainScrollHidden{
+		width:100% !important;
+	}
+	.jbText{
+		width:90% !important;
+	}
 	.mapArea{
-		left:60% !important;
-		width:35% !important;
+		display:none;
 	}
 	
 	::-webkit-scrollbar {
@@ -101,7 +109,9 @@ li{
 		width:70%;
 		margin-top: 10px;
 	}
-	
+	.mapSwitch{
+		display: none !important;
+	}
 	
 	::-webkit-scrollbar {
 		display:none;
@@ -126,6 +136,10 @@ li{
 	#header{
 		width:70%;
 		margin-top: 10px;
+	}
+	
+	.mapSwitch{
+		display: none !important;
 	}
 	
 	::-webkit-scrollbar {
