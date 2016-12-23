@@ -120,7 +120,7 @@
 	    <label id='slideLabel' for="slideMenuButton"><span><img src="<c:url value="/images/toggle.png"/>"></span></label>
 	    <div class="slideSideCover">
 	    	<div><a href='<c:url value="/main/main"/>'>Home</a></div>
-			<div><a href='<c:url value="/mypage/profile"/>'>My Page</a></div>
+			<div><a href='<c:url value="/mypage/list"/>'>My Page</a></div>
 			<div><a href='<c:url value="/calendar/list"/>'>Schedule</a></div>
 			<div><a href='<c:url value="/biography/biography"/>'>Trip Biography</a></div>
 			<div><a href='<c:url value="/friends/list"/>'><div id='slideFriend'></div>Friends</a></div>
