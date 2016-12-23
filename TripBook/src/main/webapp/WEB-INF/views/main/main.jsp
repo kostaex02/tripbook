@@ -389,8 +389,9 @@ hr {
 										<img class='writerProfileImage'
 											src='<c:url value="/tripbook/user/${item.user.id }/${item.user.fileName}"/>'>
 										<b>${item.writer }</b> ${item.writeDate }
-										<button type="button" class="btn btn-default mainboardMap" data-toggle="modal" data-target="#maindetailMap" data-keyboard="false" onclick="searchMap('${item.boardNo}',0,37.394776627382875, 127.11119669891646)">지도
+										<button type="button" class="btn btn-default mainboardMap" data-toggle="modal" data-target="#maindetailMap" data-keyboard="false" onclick="searchMap('${item.boardNo}',1,37.394776627382875, 127.11119669891646)">지도
 										</button>
+										<input type="hidden" value="1" id="region">
 									</div>
 									<div class="boardContent">${item.content }</div>
 										<c:if test="${item.boardPictures.size() != 0}">
@@ -953,7 +954,13 @@ hr {
 			})
 			
 			$('#maindetailMap').on('shown.bs.modal', function () {
-				map.relayout();
+				var region = $('#region').val();
+				alert(region);
+				if(region == 0){
+					map.relayout();
+				}else{
+					google.maps.event.trigger(map, "resize");
+				}
 			});
 			
 			//여행게시물 달력 기능
@@ -1072,13 +1079,12 @@ hr {
 		alert(lat);
 		alert(lng);
 		var mapSearch = document.getElementById('mapSearch');
+		if(mapSearch.hasChildNodes){
+			mapSearch.innerHTML="";
+		}
+		mapSearch.appendChild(mapDiv);
 		
 		if(area==0){
-			if(mapSearch.hasChildNodes){
-				mapSearch.innerHTML="";
-			}
-			mapSearch.appendChild(mapDiv);
-			
 			container = document.getElementById('map' + id);
 			options = {
 					center : new daum.maps.LatLng(lat+0.0015, lng-0.0035),
@@ -1104,7 +1110,28 @@ hr {
 			
         	
 		}else if(area==1){
+			container = document.getElementById('map' + id);
+			options = {
+					center: {lat: lat+0.0040, lng: lng-0.0035},
+					zoom : 16,
+					mapTypeControl: false
+			}
+			map = new google.maps.Map(container, options);
 			
+			//마커 생성
+			var markers = [];
+			
+			//마커 초기화
+			markers.forEach(function(marker){
+				marker.setMap(null);
+			});
+			markers = [];
+			var marker = new google.maps.Marker({
+			    position: {lat: lat, lng: lng},
+			    map: map
+			  });
+			//마커 입력
+			markers.push(marker);
 		}
 		
 	}
