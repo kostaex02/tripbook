@@ -103,7 +103,15 @@
 	#slideFriend{
 		display: none;
 	}
-	
+	#toggleSpan{
+		float:left;
+	}
+	.badgeToggle{
+		margin-left: -20px;
+	}
+	.slideBadge{
+		margin-left: 5px;
+	}
 </style>
 </head>
 <body>
@@ -111,10 +119,10 @@
 	
 	<div class="slideMenu">
 	    <input id="slideMenuButton" type="checkbox" role="button" checked/>
-	    <label id='slideLabel' for="slideMenuButton"><span><img src="<c:url value="/images/toggle.png"/>"><span class="badge">3</span></span></label>
+	    <label id='slideLabel' for="slideMenuButton"><span id='toggleSpan'><img src="<c:url value="/images/toggle.png"/>"></span><span class="badge badgeToggle">3</span></label>
 	    <div class="slideSideCover">
 	    	<div><a href='<c:url value="/main/main"/>'>Home</a></div>
-			<div><a href='<c:url value="/mypage/profile"/>'>My Page</a></div>
+			<div><a href='<c:url value="/mypage/list"/>'>My Page</a><span class="badge slideBadge">3</span></div>
 			<div><a href='<c:url value="/calendar/list"/>'>Schedule</a></div>
 			<div><a href='<c:url value="/biography/biography"/>'>Trip Biography</a></div>
 			<div><a href='<c:url value="/friends/list"/>'><div id='slideFriend'></div>Friends</a></div>
@@ -166,6 +174,16 @@
     	  }
       }
       error();
+      
+      $("#slideMenuButton").on("change",function(){
+    	  if($(this).is(":checked")){
+    		  $(".badgeToggle").css("display","inline-block");
+    	  }else{
+    		  $(".badgeToggle").css("display","none");
+    	  }
+      });
+      
+      
     });
   </script>	
 </body>
