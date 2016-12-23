@@ -9,12 +9,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.tripbook.dto.NoticeDTO;
 import com.tripbook.service.NoticeService;
+import com.tripbook.service.UserService;
 
 @Controller
 @RequestMapping("admin")
 public class AdminController {
 	@Autowired
 	private NoticeService noticeService;
+	@Autowired
+	private UserService userService;
 	
 	@RequestMapping("{pageName}")
 	public void page(HttpServletRequest request){}
@@ -30,6 +33,13 @@ public class AdminController {
 	public String sendNotice(HttpServletRequest request,String content){
 		noticeService.insertNotice(new NoticeDTO("2", (String)request.getSession().getAttribute("userId"), null, content));
 		return "redirect:notice";
+	}
+	
+	@RequestMapping("user")
+	public ModelAndView user(HttpServletRequest request){
+		ModelAndView mv = new ModelAndView("admin/userManagement");
+		mv.addObject("userList", userService.selectUserByAdmin());
+		return mv;
 	}
 	
 	@RequestMapping("message")

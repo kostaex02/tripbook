@@ -26,14 +26,34 @@ public interface UserDAO {
 	 */
 	List<UserDTO> searchUser(Map<String, String> map);
 	
+	/**
+	 * 사용자 입력
+	 */
 	int insertUser(UserDTO user);
 	
+	/**
+	 * 선택된 아이디에 해당하는 정보 출력
+	 */
 	UserDTO selectUser(String userId);
-
+	
+	/**
+	 * 선택된 아이디에 해당하는 정보 디테일 출력
+	 */
 	UserDTO selectProfile(String userId);
-
+	
+	/**
+	 * 유저 수정
+	 */
 	int updateUser(UserDTO userDTO);
-
+	
+	/**
+	 * 유저 삭제
+	 */
 	int deleteUser(String userId);
+	
+	/**
+	 * 전체 유저 출력
+	 */
+	List<UserDTO> selectUserByAdmin();
 
 }

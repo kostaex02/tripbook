@@ -82,106 +82,21 @@
 <body>
 	<div class="friendsList">
 		<ul class="grow">
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input class="btn btn-primary" type="submit" value="권한 설정">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input class="btn btn-primary" type="submit" value="권한 설정">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input class="btn btn-primary" type="submit" value="권한 설정">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input class="btn btn-primary" type="submit" value="권한 설정">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input class="btn btn-primary" type="submit" value="권한 설정">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input class="btn btn-primary" type="submit" value="권한 설정">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input class="btn btn-primary" type="submit" value="권한 설정">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input class="btn btn-primary" type="submit" value="권한 설정">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input class="btn btn-primary" type="submit" value="권한 설정">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input class="btn btn-primary" type="submit" value="권한 설정">
-				</div>
-			</li>
-			<li class="friendsProfile">
-				<div class="friendsPicture">
-					<img class="friendPictureImg" src='<c:url value="/images/img.jpg"/>'>
-				</div>
-				<div class="friendsNameId">김태희 <br> id는 히든<br></div>
-				<div class="friendsButton">
-					<input class="btn btn-primary" type="submit" value="권한 설정">
-				</div>
-			</li>
-			
+			<c:forEach items="${userList }" var="item">
+				<li id="${item.id }" class="friendsProfile">
+					<div class="friendsPicture">
+						<img class="friendPictureImg"
+							src='<c:url value="/tripbook/user/${item.id }/${item.fileName}"/>'>
+					</div>
+					<div class="friendsNameId">${item.name}</div>
+					<div class="friendsButton">
+						<a href="/controller/admin/update?userId=${item.id }"
+							class='btn btn-primary' data-toggle="modal">권한 설정</a>
+
+					</div>
+				</li>
+				
+			</c:forEach>
 		</ul>
 	</div>
  

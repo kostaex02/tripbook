@@ -74,4 +74,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="deleteUser" parameterType="String">
 		update user_table set state='2' where id=#{id}
 	</delete>
+	
+	<select id="selectUserByAdmin" resultMap="selectUserMap">
+		select id,name,age,gender,file_name from user_table where state = 0
+	</select>
 </mapper>

@@ -104,5 +104,10 @@ public class UserServiceImpl implements UserService {
 		return userDao.selectUser(friendId);
 	}
 
+	@Override
+	public List<UserDTO> selectUserByAdmin() {
+		return userDao.selectUserByAdmin();
+	}
+
 
 }

@@ -50,4 +50,9 @@ public interface UserService {
 	 * 유저 검색
 	 */
 	UserDTO selectUser(String friendId);
+	
+	/**
+	 * 전체 유저 출력
+	 */
+	List<UserDTO> selectUserByAdmin();
 }

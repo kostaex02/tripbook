@@ -50,6 +50,10 @@ public class UserDAOImpl implements UserDAO {
 	public int deleteUser(String userId) {
 		return session.update("userMapper.deleteUser",userId);
 	}
+	@Override
+	public List<UserDTO> selectUserByAdmin() {
+		return session.selectList("userMapper.selectUserByAdmin");
+	}
 	
 	
 }
