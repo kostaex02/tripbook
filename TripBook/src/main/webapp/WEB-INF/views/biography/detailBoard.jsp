@@ -58,6 +58,9 @@ a {
 	float:left;
 }
 
+.mainScrollHidden{
+	width: 70%;
+}
 
 .mainScrollHidden li {
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -334,8 +337,12 @@ hr {
 	border: 0
 }
 .mapArea{
+	position:fixed;
+	left:75%;
+	top:100px;
+
 	 border:1px black solid; 
-	 width:100%;
+	 width:20%;
 	 height:200px
 }
 
@@ -393,12 +400,7 @@ hr {
 																	src='<c:url value="/images/img.jpg"/>' />
 																</a>
 															</span>
-															<span class='pictureDiv'>
-																<a href="#" data-toggle="modal" data-target="#detailPicture">
-																	<img class='boardPicture'
-																	src='<c:url value="/images/img.jpg"/>' />
-																</a>
-															</span>
+															
 															<span>
 															<a href="#" data-toggle="modal" data-target="#detailPicture">
 																	<img class='boardPicture'
