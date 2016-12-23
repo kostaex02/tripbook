@@ -33,6 +33,9 @@
 .input-group-addon{
 	padding: 0px;
 }
+.modal-body div{
+	margin-bottom: 10px;
+}
 </style>
 <body>
 <div class="modal-header">
@@ -44,28 +47,23 @@
 				<input id="id" type="email" class="form-control input-register" name="id"
 					placeholder="Email" value="${user.id}" style="background-image: url('<c:url value="/images/icon/icon_id20.png"/>')" disabled> 
 			</div>
-			<br>
 			<div id="inputPassword" class="input-group">
 								<input id="password" type="password" class="form-control input-register"
 									name="password" placeholder="Password" style="background-image: url('<c:url value="/images/icon/icon_password20.png"/>')">
 			</div>
-			<br>
 			<div id="inputPasswordCheck" class="input-group">
 				<input id="passwordCheck" type="password" class="form-control input-register"
 				 name="passwordCheck" placeholder="Password check" style="background-image: url('<c:url value="/images/icon/icon_passwordCheck20.png"/>')">
 				<span id="checkingPasswordCheck" aria-hidden="true"></span>
 			</div>
-			<br>
 			<div id="inputName" class="input-group">
 				<input id="name" type="text" class="form-control input-register" name="name"
 				placeholder="이름" value="${user.name}" style="background-image: url('<c:url value="/images/icon/icon_user20.png"/>')">
 			</div>
-			<br>
 			<div id="inputAge" class="input-group">
 				<input id="age" type="number" class="form-control input-register" name="age"
 				placeholder="나이" value="${user.age}"  style="background-image: url('<c:url value="/images/icon/icon_birth20.png"/>')">
 			</div>
-			<br>
 			<div>
 				<div class="btn-group btn-group-justified" data-toggle="buttons">
 					<c:choose>
@@ -92,7 +90,6 @@
 					</c:choose>
 				</div>	
 			</div>
-			<br>
 			<div class="input-group">
 				<input id="picture" type="text" class="form-control" value="${user.fileName}" disabled>
 				<span class="input-group-addon">
