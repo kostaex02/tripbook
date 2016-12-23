@@ -93,14 +93,20 @@
 	    transition: left 0.5s ease;
 	}
 	
-	.slideGroupMenu{
-		display: none;
-	}
 	.slideGroupMenu div{
 		height:20px;
 		line-height: 1;
 	}
-	#slideFriend{
+	
+	.slideFriendMenu div{
+		height:20px;
+		line-height: 1;
+	}
+	.slideFriendMenu{
+		top:-2px;
+	}
+	
+	#slideFriend, .slideFriendMenu, .slideGroupMenu{
 		display: none;
 	}
 	
@@ -123,6 +129,12 @@
 					<div><a class="sideAddGroupButton" data-toggle="modal" data-target="#groupCreateModal">+ 그룹 추가</a></div>
 					<div>학교친구</div>
 					<div>직장동료</div>
+				</div>
+			</div>
+			<div id='slideSelect'><a href='#'><div id='slideFriendSelect'>선택 친구</div></a>
+				<div class='slideFriendMenu'>
+					<a href='<c:url value="/friends/friendMain"/>'><div>게시물</div></a>
+					<a href='<c:url value="/friends/friendBiography"/>'><div>발자취</div></a>
 				</div>
 			</div>
 	    </div>
@@ -157,6 +169,10 @@
       
       $("#slideGroupList").click(function() {
   		$(".slideGroupMenu").slideToggle(500);
+  	  })
+  	  
+  	  $("#slideFriendSelect").click(function() {
+  		$(".slideFriendMenu").slideToggle(500);
   	  })
   	  
       function error(){
