@@ -375,8 +375,9 @@ dl {
 }
 .badge{
 	vertical-align: top;
-	padding: 3px 9px;
+	padding: 2px 9px;
 	font-size: 20px;
+	font-family: nanumpen;
 }
 
 
