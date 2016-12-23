@@ -365,12 +365,19 @@ dl {
 	margin-left: 14px;
 	padding-left: 5px;
 }
-
-.info, .log{
-	width: 90px;
-	display: inline-block;
+.rightSide{
+	float:left;
+	position: absolute;
+	left: 53%;
+	top: 0%;
+	text-align: center;
+	
 }
-
+.badge{
+	vertical-align: top;
+	padding: 3px 9px;
+	font-size: 20px;
+}
 
 
 </style>
@@ -382,13 +389,19 @@ dl {
 		<c:when test="${userState eq '0'}">
 			<div id='sideNav'>
 				<div id="sideProfile">
+					<div style="float: left; width: 100%; height: 130px;">
 					<a class="sideProfileLink" href="<c:url value="/mypage/list"/>">
 						<img class="profileImage"
 							src="<c:url value="/tripbook/user/${userId}/${userFileName}"/>">
-						<div class='userName'>${userName} <img src="<c:url value="/images/icon/icon_messageAlarm.png"/>"><span class="badge">3</span></div>
 					</a>
-					<a class="reInfo" href="<c:url value="/mypage/profile"/>"><div class="info">정보수정</div></a>
-					<a class="logout" href="<c:url value="/main/logout"/>"><div class="log">로그아웃</div></a>
+					</div>
+					<div class="rightSide">
+					<a class="sideProfileLink" href="<c:url value="/mypage/list"/>">
+						${userName} <img src="<c:url value="/images/icon/icon_messageAlarm.png"/>"><span class="badge">3</span><br>
+					</a>
+					<a class="reInfo" href="<c:url value="/mypage/profile"/>">정보수정</a><br>
+					<a class="logout" href="<c:url value="/main/logout"/>">로그아웃</a><br>
+					</div>
 				</div>
 
 				<a href="<c:url value="/main/home"/>">
