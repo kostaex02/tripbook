@@ -16,6 +16,7 @@
 	-ms-overflow-style: none;
 }
 
+
 .mainRecentBoard {
 	margin: 10px 0px;
 }
@@ -56,6 +57,8 @@ a {
 	height:100px;
 	float:left;
 }
+
+
 .mainScrollHidden li {
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 	border-radius: 10px;
@@ -102,22 +105,9 @@ a {
 	cursor: text;
 }
 
-/* .newGeneralBoardUpload {
-	border: 1px solid pink;
-	width: 100%;
-	display: inline-table;
-}
-
-.newGeneralBoardUploadImg {
-	width: 64px;
-	margin-left: 0px;
-	border: 1px solid pink;
-	display: inline-table;
-	cursor: pointer;
-	vertical-align: middle;
-} */
 .mainAllBoard {
 	height: 500px;
+	width:100%;
 	overflow: hidden;
 }
 
@@ -343,6 +333,11 @@ hr {
 	height: auto;
 	border: 0
 }
+.mapArea{
+	 border:1px black solid; 
+	 width:100%;
+	 height:200px
+}
 
 </style>
 
@@ -365,64 +360,53 @@ hr {
 
 </head>
 <body>
-	<div id='mainNewBoard'>
-
-		<input class="btn btn-primary btn-sm" type='button' value='일반게시물'
-			data-toggle="modal" data-target="#addGeneralBoard"
-			data-keyboard="false"> <input class="btn btn-primary btn-sm"
-			type='button' value='여행게시물' data-toggle="modal"
-			data-target="#addTravelBoard" data-keyboard="false">
-	</div>
-	<hr>
 	<div class='mainAllBoard'>
+		<div class='mapArea'>여기는 지도가 표시될 공간</div>
 		<div class='mainScrollHidden'>
 			<ul class="grow">
-				<c:choose>
-					<c:when test="${boardList==null||boardList.size()==0 }">
-						입력된 내용이 없습니다.
-					</c:when>
-					<c:otherwise>
-						<c:forEach items="${boardList}" var="item" varStatus="boardNum">
+				
 							<li>
 								<div class='mainRecentBoard'>
 									<div class='profile'>
 										<img class='writerProfileImage'
-											src='<c:url value="/tripbook/user/${item.user.id }/${item.user.fileName}"/>'>
-										<b>${item.writer }</b> ${item.writeDate }
-										<button type="button" class="btn btn-default mainboardMap" data-toggle="modal" data-target="#maindetailMap" data-keyboard="false" onclick="searchMap('${item.boardNo}',0,37.394776627382875, 127.11119669891646)">지도
-										</button>
+											src='<c:url value="/images/img.jpg"/>'>
+										<b>작성자</b>2016년 12월 23일 오후 6:12
 									</div>
-									<div class="boardContent">${item.content }</div>
-										<c:if test="${item.boardPictures.size() != 0}">
+									<div class="boardContent">여기는 글 내용 어디 놀러갈래?</div>
 											<div class='picture'>
 												<input class='detailViewPictures'type='hidden' value="${item.boardNo}">
-												<c:forEach items="${item.boardPictures }" var="boardPicture" varStatus="pictureNum">
-													<c:choose>
-														<c:when test="${pictureNum.count < 5}">
 															<span class='pictureDiv'>
 																<a href="#" data-toggle="modal" data-target="#detailPicture">
 																	<img class='boardPicture'
-																	src='<c:url value="/tripbook/board/${item.boardNo }/${boardPicture.fileName }"/>' />
+																	src='<c:url value="/images/img.jpg"/>' />
 																</a>
 															</span>
-														</c:when>
-														<c:when test="${pictureNum.count eq 5}">
+															<span class='pictureDiv'>
+																<a href="#" data-toggle="modal" data-target="#detailPicture">
+																	<img class='boardPicture'
+																	src='<c:url value="/images/img.jpg"/>' />
+																</a>
+															</span>
+															<span class='pictureDiv'>
+																<a href="#" data-toggle="modal" data-target="#detailPicture">
+																	<img class='boardPicture'
+																	src='<c:url value="/images/img.jpg"/>' />
+																</a>
+															</span>
+															<span class='pictureDiv'>
+																<a href="#" data-toggle="modal" data-target="#detailPicture">
+																	<img class='boardPicture'
+																	src='<c:url value="/images/img.jpg"/>' />
+																</a>
+															</span>
 															<span>
 															<a href="#" data-toggle="modal" data-target="#detailPicture">
 																	<img class='boardPicture'
-																	src='<c:url value="/tripbook/board/${item.boardNo }/${boardPicture.fileName }"/>' style="position:absolute;opacity:0.4;"/>
+																	src='<c:url value="/images/img.jpg"/>' style="position:absolute;opacity:0.4;"/>
 															</a>
-															<span style='padding-left:20px;'>+${item.boardPictures.size() - 5}장</span>
+															<span style='padding-left:20px;'>+1장</span>
 															</span>
-														</c:when>
-														<c:otherwise>
-																
-														</c:otherwise>
-													</c:choose>
-												</c:forEach>
-												
 											</div>
-										</c:if>
 									<hr>
 									<div class="boardFooter">
 										<div class="heart" id="like" rel="like"></div>
@@ -444,12 +428,203 @@ hr {
 									</div>
 								</div>
 							</li>
-						</c:forEach>
-					</c:otherwise>
-				</c:choose>
+							
+							
+							
+							<li>
+								<div class='mainRecentBoard'>
+									<div class='profile'>
+										<img class='writerProfileImage'
+											src='<c:url value="/images/img.jpg"/>'>
+										<b>작성자</b>2016년 12월 23일 오후 6:12
+									</div>
+									<div class="boardContent">여기는 글 내용 어디 놀러갈래?</div>
+											<div class='picture'>
+												<input class='detailViewPictures'type='hidden' value="${item.boardNo}">
+															<span class='pictureDiv'>
+																<a href="#" data-toggle="modal" data-target="#detailPicture">
+																	<img class='boardPicture'
+																	src='<c:url value="/images/img.jpg"/>' />
+																</a>
+															</span>
+															<span class='pictureDiv'>
+																<a href="#" data-toggle="modal" data-target="#detailPicture">
+																	<img class='boardPicture'
+																	src='<c:url value="/images/img.jpg"/>' />
+																</a>
+															</span>
+															<span class='pictureDiv'>
+																<a href="#" data-toggle="modal" data-target="#detailPicture">
+																	<img class='boardPicture'
+																	src='<c:url value="/images/img.jpg"/>' />
+																</a>
+															</span>
+															<span class='pictureDiv'>
+																<a href="#" data-toggle="modal" data-target="#detailPicture">
+																	<img class='boardPicture'
+																	src='<c:url value="/images/img.jpg"/>' />
+																</a>
+															</span>
+															<span>
+															<a href="#" data-toggle="modal" data-target="#detailPicture">
+																	<img class='boardPicture'
+																	src='<c:url value="/images/img.jpg"/>' style="position:absolute;opacity:0.4;"/>
+															</a>
+															<span style='padding-left:20px;'>+1장</span>
+															</span>
+											</div>
+									<hr>
+									<div class="boardFooter">
+										<div class="heart" id="like" rel="like"></div>
+										<div class="likeCount" id="likeCount">${item.likeCount }</div>
+										<div class='replysCount'>댓글 ${item.replys.size() }개</div>
+										<div class="replyArea">
+											<input type="hidden" name='id' value="${item.boardNo }">
+											<input type='text' class='replyText' name='reply' placeholder="댓글을 입력하세요" size="30px">
+											<input type='button' value='입력' class="replyButton">
+											
+											<c:forEach items="${item.replys}" var="boardReply" varStatus="replyState">
+												<div>작성자 사진 / <img src='<c:url value="/tripbook/user/${boardReply.user.id}/${boardReply.user.fileName}"/>'></div>
+												<div>작성자 이름 / ${boardReply.user.name }</div>
+												<div>리플 내용 / ${boardReply.content }</div>
+												<div>작성시간 / ${boardReply.writerDate }</div>
+												<hr>
+											</c:forEach>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class='mainRecentBoard'>
+									<div class='profile'>
+										<img class='writerProfileImage'
+											src='<c:url value="/images/img.jpg"/>'>
+										<b>작성자</b>2016년 12월 23일 오후 6:12
+									</div>
+									<div class="boardContent">여기는 글 내용 어디 놀러갈래?</div>
+											<div class='picture'>
+												<input class='detailViewPictures'type='hidden' value="${item.boardNo}">
+															<span class='pictureDiv'>
+																<a href="#" data-toggle="modal" data-target="#detailPicture">
+																	<img class='boardPicture'
+																	src='<c:url value="/images/img.jpg"/>' />
+																</a>
+															</span>
+															<span class='pictureDiv'>
+																<a href="#" data-toggle="modal" data-target="#detailPicture">
+																	<img class='boardPicture'
+																	src='<c:url value="/images/img.jpg"/>' />
+																</a>
+															</span>
+															<span class='pictureDiv'>
+																<a href="#" data-toggle="modal" data-target="#detailPicture">
+																	<img class='boardPicture'
+																	src='<c:url value="/images/img.jpg"/>' />
+																</a>
+															</span>
+															<span class='pictureDiv'>
+																<a href="#" data-toggle="modal" data-target="#detailPicture">
+																	<img class='boardPicture'
+																	src='<c:url value="/images/img.jpg"/>' />
+																</a>
+															</span>
+															<span>
+															<a href="#" data-toggle="modal" data-target="#detailPicture">
+																	<img class='boardPicture'
+																	src='<c:url value="/images/img.jpg"/>' style="position:absolute;opacity:0.4;"/>
+															</a>
+															<span style='padding-left:20px;'>+1장</span>
+															</span>
+											</div>
+									<hr>
+									<div class="boardFooter">
+										<div class="heart" id="like" rel="like"></div>
+										<div class="likeCount" id="likeCount">${item.likeCount }</div>
+										<div class='replysCount'>댓글 ${item.replys.size() }개</div>
+										<div class="replyArea">
+											<input type="hidden" name='id' value="${item.boardNo }">
+											<input type='text' class='replyText' name='reply' placeholder="댓글을 입력하세요" size="30px">
+											<input type='button' value='입력' class="replyButton">
+											
+											<c:forEach items="${item.replys}" var="boardReply" varStatus="replyState">
+												<div>작성자 사진 / <img src='<c:url value="/tripbook/user/${boardReply.user.id}/${boardReply.user.fileName}"/>'></div>
+												<div>작성자 이름 / ${boardReply.user.name }</div>
+												<div>리플 내용 / ${boardReply.content }</div>
+												<div>작성시간 / ${boardReply.writerDate }</div>
+												<hr>
+											</c:forEach>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class='mainRecentBoard'>
+									<div class='profile'>
+										<img class='writerProfileImage'
+											src='<c:url value="/images/img.jpg"/>'>
+										<b>작성자</b>2016년 12월 23일 오후 6:12
+									</div>
+									<div class="boardContent">여기는 글 내용 어디 놀러갈래?</div>
+											<div class='picture'>
+												<input class='detailViewPictures'type='hidden' value="${item.boardNo}">
+															<span class='pictureDiv'>
+																<a href="#" data-toggle="modal" data-target="#detailPicture">
+																	<img class='boardPicture'
+																	src='<c:url value="/images/img.jpg"/>' />
+																</a>
+															</span>
+															<span class='pictureDiv'>
+																<a href="#" data-toggle="modal" data-target="#detailPicture">
+																	<img class='boardPicture'
+																	src='<c:url value="/images/img.jpg"/>' />
+																</a>
+															</span>
+															<span class='pictureDiv'>
+																<a href="#" data-toggle="modal" data-target="#detailPicture">
+																	<img class='boardPicture'
+																	src='<c:url value="/images/img.jpg"/>' />
+																</a>
+															</span>
+															<span class='pictureDiv'>
+																<a href="#" data-toggle="modal" data-target="#detailPicture">
+																	<img class='boardPicture'
+																	src='<c:url value="/images/img.jpg"/>' />
+																</a>
+															</span>
+															<span>
+															<a href="#" data-toggle="modal" data-target="#detailPicture">
+																	<img class='boardPicture'
+																	src='<c:url value="/images/img.jpg"/>' style="position:absolute;opacity:0.4;"/>
+															</a>
+															<span style='padding-left:20px;'>+1장</span>
+															</span>
+											</div>
+									<hr>
+									<div class="boardFooter">
+										<div class="heart" id="like" rel="like"></div>
+										<div class="likeCount" id="likeCount">${item.likeCount }</div>
+										<div class='replysCount'>댓글 ${item.replys.size() }개</div>
+										<div class="replyArea">
+											<input type="hidden" name='id' value="${item.boardNo }">
+											<input type='text' class='replyText' name='reply' placeholder="댓글을 입력하세요" size="30px">
+											<input type='button' value='입력' class="replyButton">
+											
+											<c:forEach items="${item.replys}" var="boardReply" varStatus="replyState">
+												<div>작성자 사진 / <img src='<c:url value="/tripbook/user/${boardReply.user.id}/${boardReply.user.fileName}"/>'></div>
+												<div>작성자 이름 / ${boardReply.user.name }</div>
+												<div>리플 내용 / ${boardReply.content }</div>
+												<div>작성시간 / ${boardReply.writerDate }</div>
+												<hr>
+											</c:forEach>
+										</div>
+									</div>
+								</div>
+							</li>
 			</ul>
 		</div>
 	</div>
+	
+	
 
 	<!-- 일반게시물 modal -->
 	<div class="modal fade" id="addGeneralBoard" role="dialog">
@@ -819,6 +994,8 @@ hr {
 			</div>
 		</div>
 	</div>	
+	
+	
 	
 	<script src='<c:url value="/resources/js/calendar/lib/jquery.min.js"/>'></script>
 	<script src='<c:url value="/resources/js/main/jquery.form.js"/>'></script>
