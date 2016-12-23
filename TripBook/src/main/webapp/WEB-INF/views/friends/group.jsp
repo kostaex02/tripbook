@@ -9,7 +9,7 @@
 <link rel="stylesheet"
 	href='<c:url value="/resources/css/main/stroll.css"/>'>
 
-<title>Insert title here</title>
+<title>TripBook</title>
 <style type="text/css">
 .groupMemberList {
 	margin-top: 20px;

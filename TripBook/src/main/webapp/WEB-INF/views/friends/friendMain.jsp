@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>TripBook</title>
 
 <link rel="stylesheet"
 	href='<c:url value="/resources/css/main/example.css"/>'>
@@ -99,6 +99,7 @@
 		</div>
 	</div>
 <script>
+
 	/* 리플 슬라이드 효과 */
 	
 	$(".replysCount").mousedown(function() {
