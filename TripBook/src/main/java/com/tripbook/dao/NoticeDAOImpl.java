@@ -42,4 +42,9 @@ public class NoticeDAOImpl implements NoticeDAO {
 		return session.selectOne("noticeMapper.checkNotice", noticeDTO);
 	}
 
+	@Override
+	public List<NoticeDTO> selectMessageByAdmin() {
+		return session.selectList("noticeMapper.selectMessageByAdmin");
+	}
+
 }

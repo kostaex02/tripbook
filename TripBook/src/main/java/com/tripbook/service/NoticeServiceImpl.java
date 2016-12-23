@@ -27,4 +27,9 @@ public class NoticeServiceImpl implements NoticeService {
 		return noticeDAO.insertNotice(noticeDTO);
 	}
 
+	@Override
+	public List<NoticeDTO> selectMessageByAdmin() {
+		return noticeDAO.selectMessageByAdmin();
+	}
+
 }

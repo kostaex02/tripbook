@@ -34,4 +34,9 @@ public interface NoticeDAO {
 	 * 이미 신청된 사항인지 확인
 	 */
 	String checkNotice(NoticeDTO noticeDTO);
+	
+	/**
+	 * 개별 공지사항 알림 출력
+	 */
+	List<NoticeDTO> selectMessageByAdmin();
 }

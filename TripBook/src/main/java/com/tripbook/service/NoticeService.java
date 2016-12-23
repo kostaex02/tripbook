@@ -19,4 +19,9 @@ public interface NoticeService {
 	 * 알림 입력
 	 */
 	int insertNotice(NoticeDTO noticeDTO);
+	
+	/**
+	 * 개별 공지사항 알림 출력
+	 */
+	List<NoticeDTO> selectMessageByAdmin();
 }

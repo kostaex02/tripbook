@@ -48,84 +48,14 @@ textarea{
 	</div>
 	<div class="adminLogList">
 		<ul class="grow">
-			<li class="adminNoticeLogList">
-				<div class="notice">
-					메세지 title!
-				</div>
-				<div class="adminMessage">같이 여행갑시다</div>
-			</li>
-			<li class="adminNoticeLogList">
-				<div class="notice">
-					메세지 title!
-				</div>
-				<div class="adminMessage">같이 여행갑시다</div>
-			</li>
-			<li class="adminNoticeLogList">
-				<div class="notice">
-					메세지 title!
-				</div>
-				<div class="adminMessage">같이 여행갑시다</div>
-			</li>
-			<li class="adminNoticeLogList">
-				<div class="notice">
-					메세지 title!
-				</div>
-				<div class="adminMessage">같이 여행갑시다</div>
-			</li>
-			<li class="adminNoticeLogList">
-				<div class="notice">
-					메세지 title!
-				</div>
-				<div class="adminMessage">같이 여행갑시다</div>
-			</li>
-			<li class="adminNoticeLogList">
-				<div class="notice">
-					메세지 title!
-				</div>
-				<div class="adminMessage">같이 여행갑시다</div>
-			</li>
-			<li class="adminNoticeLogList">
-				<div class="notice">
-					메세지 title!
-				</div>
-				<div class="adminMessage">같이 여행갑시다</div>
-			</li>
-			<li class="adminNoticeLogList">
-				<div class="notice">
-					메세지 title!
-				</div>
-				<div class="adminMessage">같이 여행갑시다</div>
-			</li>
-			<li class="adminNoticeLogList">
-				<div class="notice">
-					메세지 title!
-				</div>
-				<div class="adminMessage">같이 여행갑시다</div>
-			</li>
-			<li class="adminNoticeLogList">
-				<div class="notice">
-					메세지 title!
-				</div>
-				<div class="adminMessage">같이 여행갑시다</div>
-			</li>
-			<li class="adminNoticeLogList">
-				<div class="notice">
-					메세지 title!
-				</div>
-				<div class="adminMessage">같이 여행갑시다</div>
-			</li>
-			<li class="adminNoticeLogList">
-				<div class="notice">
-					메세지 title!
-				</div>
-				<div class="adminMessage">같이 여행갑시다</div>
-			</li>
-			<li class="adminNoticeLogList">
-				<div class="notice">
-					메세지 title!
-				</div>
-				<div class="adminMessage">같이 여행갑시다</div>
-			</li>
+			<c:forEach items="${noticeList }" var="item">
+				<li class="adminNoticeLogList" id="${item.noticeNo }">
+					<div class="notice">
+						${item.name }님의 공지사항입니다.
+					</div>
+					<div class="adminMessage">${item.content }</div>
+				</li>	
+			</c:forEach>
 		</ul>
 	</div>
 	
@@ -137,7 +67,7 @@ textarea{
 					공지사항
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 				</div>
-				<form action='' method="post">
+				<form action='/controller/admin/sendMessage' method="post">
 					<div class="modal-body">
 						<input type='text' class="form-control" name="receiver" placeholder="받는 사람">
 						<textarea placeholder="메세지를 입력하세요" name="message"></textarea>

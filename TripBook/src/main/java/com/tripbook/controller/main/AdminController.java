@@ -31,4 +31,16 @@ public class AdminController {
 		noticeService.insertNotice(new NoticeDTO("2", (String)request.getSession().getAttribute("userId"), null, content));
 		return "redirect:notice";
 	}
+	
+	@RequestMapping("message")
+	public ModelAndView message(HttpServletRequest request){
+		ModelAndView mv = new ModelAndView("admin/messageManagement");
+		mv.addObject("noticeList", noticeService.selectMessageByAdmin());
+		return mv;
+	}
+	
+	@RequestMapping("sendMessage")
+	public String sendMessage(HttpServletRequest request){
+		return null;
+	}
 }
