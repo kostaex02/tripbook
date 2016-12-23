@@ -948,9 +948,9 @@ hr {
 				$('.groupMap').show();	
 			});
 			
-			$('.modal').on('hidden.bs.modal', function(){
-			    $(this).find('form')[0].reset();
-			});
+			$('.modal').on('hidden.bs.modal', function () {
+				$("textarea[name='content']").removeData();
+			})
 			
 			$('#maindetailMap').on('shown.bs.modal', function () {
 				map.relayout();
