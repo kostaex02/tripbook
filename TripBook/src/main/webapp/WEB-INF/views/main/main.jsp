@@ -950,7 +950,9 @@ hr {
 			});
 			
 			$('.modal').on('hidden.bs.modal', function () {
-				$("textarea[name='content']").removeData();
+				 $('form').each(function(){
+					    this.reset();
+					  });
 			})
 			
 			$('#maindetailMap').on('shown.bs.modal', function () {
