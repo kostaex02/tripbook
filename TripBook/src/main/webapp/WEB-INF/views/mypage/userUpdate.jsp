@@ -7,7 +7,7 @@
 <link href='<c:url value="/resources/css/bootstrap/bootstrap.min.css"/>'
 	rel='stylesheet' />
 
-<title>Insert title here</title>
+<title>TripBook</title>
 </head>
 <style>
 .input-group{

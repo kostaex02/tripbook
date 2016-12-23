@@ -114,7 +114,7 @@
 </head>
 <body>
 
-	
+	<!-- 슬라이드 메뉴 -->
 	<div class="slideMenu">
 	    <input id="slideMenuButton" type="checkbox" role="button" checked/>
 	    <label id='slideLabel' for="slideMenuButton"><span><img src="<c:url value="/images/toggle.png"/>"></span></label>
@@ -165,6 +165,8 @@
 <script src='<c:url value="/resources/js/tiles/drawer.min.js"/>'></script>
 
   <script>
+  
+  /* 메뉴 슬라이드 효과 */
     $(document).ready(function() {
       
       $("#slideGroupList").click(function() {

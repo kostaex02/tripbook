@@ -9,7 +9,7 @@
 <script src="<c:url value="/resources/js/biography/modernizr-custom.js"/>"></script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>TripBook</title>
 </head>
 <body style='overflow-y: scroll; overflow-x: hidden;'>
 <div class="container" >
