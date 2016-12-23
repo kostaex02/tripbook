@@ -14,7 +14,6 @@
 	line-height: 55px;
 	height: 50px;
 	color: white;
-	
 }
 
 
@@ -367,6 +366,12 @@ dl {
 	padding-left: 5px;
 }
 
+.info, .log{
+	width: 90px;
+	display: inline-block;
+}
+
+
 
 </style>
 
@@ -380,10 +385,10 @@ dl {
 					<a class="sideProfileLink" href="<c:url value="/mypage/list"/>">
 						<img class="profileImage"
 							src="<c:url value="/tripbook/user/${userId}/${userFileName}"/>">
-						<div class='userName'>${userName}<img src="<c:url value="/images/icon/icon_messageAlarm.png"/>"></div>
+						<div class='userName'>${userName} <img src="<c:url value="/images/icon/icon_messageAlarm.png"/>"><span class="badge">3</span></div>
 					</a>
-					<a class="reInfo" href="<c:url value="/mypage/profile"/>"><div>정보수정</div></a>
-					<a class="logout" href="<c:url value="/main/logout"/>"><div>로그아웃</div></a>
+					<a class="reInfo" href="<c:url value="/mypage/profile"/>"><div class="info">정보수정</div></a>
+					<a class="logout" href="<c:url value="/main/logout"/>"><div class="log">로그아웃</div></a>
 				</div>
 
 				<a href="<c:url value="/main/home"/>">
@@ -482,10 +487,7 @@ dl {
 		</c:when>
 	</c:choose>
 
-
-
-
-
+	
 	<script src='<c:url value="/resources/js/jquery-2.2.4.js"/>'></script>
 	<script>
 		$(function() {
@@ -552,7 +554,7 @@ dl {
 			}
 			
 			
-		})
+		})		
 	</script>
 </body>
 </html>

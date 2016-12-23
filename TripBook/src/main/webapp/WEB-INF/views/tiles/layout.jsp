@@ -93,20 +93,14 @@
 	    transition: left 0.5s ease;
 	}
 	
+	.slideGroupMenu{
+		display: none;
+	}
 	.slideGroupMenu div{
 		height:20px;
 		line-height: 1;
 	}
-	
-	.slideFriendMenu div{
-		height:20px;
-		line-height: 1;
-	}
-	.slideFriendMenu{
-		top:-2px;
-	}
-	
-	#slideFriend, .slideFriendMenu, .slideGroupMenu{
+	#slideFriend{
 		display: none;
 	}
 	
@@ -114,13 +108,13 @@
 </head>
 <body>
 
-	<!-- 슬라이드 메뉴 -->
+	
 	<div class="slideMenu">
 	    <input id="slideMenuButton" type="checkbox" role="button" checked/>
-	    <label id='slideLabel' for="slideMenuButton"><span><img src="<c:url value="/images/toggle.png"/>"></span></label>
+	    <label id='slideLabel' for="slideMenuButton"><span><img src="<c:url value="/images/toggle.png"/>"><span class="badge">3</span></span></label>
 	    <div class="slideSideCover">
 	    	<div><a href='<c:url value="/main/main"/>'>Home</a></div>
-			<div><a href='<c:url value="/mypage/list"/>'>My Page</a></div>
+			<div><a href='<c:url value="/mypage/profile"/>'>My Page</a></div>
 			<div><a href='<c:url value="/calendar/list"/>'>Schedule</a></div>
 			<div><a href='<c:url value="/biography/biography"/>'>Trip Biography</a></div>
 			<div><a href='<c:url value="/friends/list"/>'><div id='slideFriend'></div>Friends</a></div>
@@ -129,12 +123,6 @@
 					<div><a class="sideAddGroupButton" data-toggle="modal" data-target="#groupCreateModal">+ 그룹 추가</a></div>
 					<div>학교친구</div>
 					<div>직장동료</div>
-				</div>
-			</div>
-			<div id='slideSelect'><a href='#'><div id='slideFriendSelect'>선택 친구</div></a>
-				<div class='slideFriendMenu'>
-					<a href='<c:url value="/friends/friendMain"/>'><div>게시물</div></a>
-					<a href='<c:url value="/friends/friendBiography"/>'><div>발자취</div></a>
 				</div>
 			</div>
 	    </div>
@@ -165,16 +153,10 @@
 <script src='<c:url value="/resources/js/tiles/drawer.min.js"/>'></script>
 
   <script>
-  
-  /* 메뉴 슬라이드 효과 */
     $(document).ready(function() {
       
       $("#slideGroupList").click(function() {
   		$(".slideGroupMenu").slideToggle(500);
-  	  })
-  	  
-  	  $("#slideFriendSelect").click(function() {
-  		$(".slideFriendMenu").slideToggle(500);
   	  })
   	  
       function error(){
