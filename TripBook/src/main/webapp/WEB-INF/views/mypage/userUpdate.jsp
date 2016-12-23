@@ -4,8 +4,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href='<c:url value="/resources/css/bootstrap/bootstrap.min.css"/>'
-	rel='stylesheet' />
 
 <title>TripBook</title>
 </head>
@@ -111,7 +109,6 @@
 
 <!-- bootstrap -->
 <script src='<c:url value="/resources/js/jquery-2.2.4.js"/>'></script>
-<script src='<c:url value="/resources/js/bootstrap/bootstrap.min.js"/>'></script>
 
 
 <script>
