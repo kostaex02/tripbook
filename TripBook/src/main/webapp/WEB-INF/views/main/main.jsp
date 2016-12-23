@@ -928,20 +928,20 @@ hr {
 			var dateFormat = "mm/dd/yy",
 		      editFrom = $( "#fromDate1" ).datepicker({
 		    	  defaultDate: "+1w",
-		          changeMonth: true
+		          changeMonth: true,
+		          dateFormat: "yy/mm/dd"
 		        })
 		        .on( "change", function() {
 		        	editTo.datepicker( "option", "minDate", getDate( this ) );
-		        	$( "#fromDate1" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
 		        }),
 		      editTo = $( "#toDate1" ).datepicker({
 		    	  defaultDate: "+1w",
-		          changeMonth: true
+		          changeMonth: true,
+		          dateFormat: "yy/mm/dd"
 		      })
 		      .on( "change", function() {
 		    	  editFrom.datepicker( "option", "maxDate", getDate( this ) );
-		    	  $( "#toDate1" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
-		      });
+		    	});
 		      	
 		 
 		    function getDate( element ) {
