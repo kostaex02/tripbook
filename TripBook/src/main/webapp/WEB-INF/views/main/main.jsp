@@ -335,6 +335,14 @@ hr {
 .main-schedule{
 	color:black;
 }
+.mainboardMap{
+	float:right;
+}
+.map img {
+	max-width: none;
+	height: auto;
+	border: 0
+}
 
 </style>
 
@@ -381,6 +389,8 @@ hr {
 										<img class='writerProfileImage'
 											src='<c:url value="/tripbook/user/${item.user.id }/${item.user.fileName}"/>'>
 										<b>${item.writer }</b> ${item.writeDate }
+										<button type="button" class="btn btn-default mainboardMap" data-toggle="modal" data-target="#maindetailMap" data-keyboard="false" onclick="searchMap('${item.boardNo}',0,37.394776627382875, 127.11119669891646)">지도
+										</button>
 									</div>
 									<div class="boardContent">${item.content }</div>
 										<c:if test="${item.boardPictures.size() != 0}">
@@ -410,6 +420,7 @@ hr {
 														</c:otherwise>
 													</c:choose>
 												</c:forEach>
+												
 											</div>
 										</c:if>
 									<hr>
@@ -663,7 +674,7 @@ hr {
 
 									<hr>
 									<select class="form-control" id="scheduleList">
-
+										
 									</select>
 									<hr>
 									<input type="hidden" name="scheduleNo" id="chooseScheduleNo">
@@ -792,8 +803,23 @@ hr {
 		</div>
 	</div>
 	
+	<!-- 지도 modal -->
+	<div class="modal fade" id="maindetailMap" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body">
+					<div id="mapSearch"></div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">취소</button>
+				</div>
+			</div>
+		</div>
+	</div>	
 	
-
 	<script src='<c:url value="/resources/js/calendar/lib/jquery.min.js"/>'></script>
 	<script src='<c:url value="/resources/js/main/jquery.form.js"/>'></script>
 	<script
@@ -831,6 +857,8 @@ hr {
 		        $(this).css("background-position","left");
 	        }
 	    });
+		
+		 
 	});
 	
 	
@@ -922,6 +950,10 @@ hr {
 			
 			$('.modal').on('hidden.bs.modal', function(){
 			    $(this).find('form')[0].reset();
+			});
+			
+			$('#maindetailMap').on('shown.bs.modal', function () {
+				map.relayout();
 			});
 			
 			//여행게시물 달력 기능
@@ -1027,6 +1059,57 @@ hr {
 	<script>
 	var map;
 	
+	//위도 경도를 통해 지도 찾는 기능
+	function searchMap(id, area, lat, lng){
+		
+		var mapDiv = document.createElement("div");
+		var container, options;
+		mapDiv.setAttribute("id", "map"+id);
+		mapDiv.setAttribute("class","map");
+		mapDiv.style.width="100%";
+		mapDiv.style.height="300px";
+		
+		alert(lat);
+		alert(lng);
+		var mapSearch = document.getElementById('mapSearch');
+		
+		if(area==0){
+			if(mapSearch.hasChildNodes){
+				mapSearch.innerHTML="";
+			}
+			mapSearch.appendChild(mapDiv);
+			
+			container = document.getElementById('map' + id);
+			options = {
+					center : new daum.maps.LatLng(lat+0.0015, lng-0.0035),
+					level : 3
+			}
+			//지도 생성
+			map = new daum.maps.Map(container, options);
+			//마커 생성
+			var markers = [];
+			//마커 초기화
+	        for(var i=0; i<markers.length;i++){
+				markers[i].setMap(null);
+			}
+	        
+			markers=[];
+			var marker = new daum.maps.Marker({
+				map : map,
+				position : new daum.maps.LatLng(lat , lng)
+			});
+			//마커 입력
+			marker.setMap(map);
+			markers.push(marker);
+			
+        	
+		}else if(area==1){
+			
+		}
+		
+	}
+	
+	//지도 검색기능
 	function createMap(board, area){
 		var mapDiv = document.createElement("div");
 		var container, options;
@@ -1035,8 +1118,6 @@ hr {
 		mapDiv.style.height="300px";
 		var board = board;
 		var mapChoice = document.getElementsByName('mapChoice');
-		
-		alert("create");
 		
 		if(area==0){	//국내
 			// 지도 검색창
@@ -1063,8 +1144,6 @@ hr {
 			}
 			//지도 생성
 			map = new daum.maps.Map(container, options);
-			
-			
 			
 		}else if(area==1){
 			var searchStr = "";
