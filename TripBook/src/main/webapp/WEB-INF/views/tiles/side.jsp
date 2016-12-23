@@ -489,11 +489,11 @@ dl {
 					</div>
 				</a> <a href='<c:url value="/admin/notice"/>'><div
 						id='adminSideNotice'>공지사항</div></a> <a
-					href='<c:url value="/admin/messageManagement"/>'><div
+					href='<c:url value="/admin/message"/>'><div
 						id='adminSideMessge'>메세지</div></a> <a
-					href='<c:url value="/admin/boardManagement"/>'><div
+					href='<c:url value="/admin/board"/>'><div
 						id='adminSideBoard'>게시물 관리</div></a> <a
-					href='<c:url value="/admin/userManagement"/>'><div
+					href='<c:url value="/admin/user"/>'><div
 						id='adminSideUser'>회원관리</div></a>
 				<p>
 			</div>
