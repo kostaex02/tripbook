@@ -59,10 +59,11 @@ public class AdminController {
 	}
 	
 	@RequestMapping("sendMessage")
-	public String sendMessage(HttpServletRequest request,String content,String [] friends){
-		System.out.println(content);
-		System.out.println(friends);
-		return null;
+	public String sendMessage(HttpServletRequest request,String content,String [] users){
+		for(String str:users){
+			noticeService.insertNotice(new NoticeDTO("2", (String)request.getSession().getAttribute("userId"), str, content));
+		}
+		return "redirect:message";
 	}
 	
 	@RequestMapping("board")

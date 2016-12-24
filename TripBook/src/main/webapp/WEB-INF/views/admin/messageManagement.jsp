@@ -73,7 +73,7 @@ textarea{
 			<c:forEach items="${noticeList }" var="item">
 				<li class="adminNoticeLogList" id="${item.noticeNo }">
 					<div class="notice">
-						${item.name }님의 공지사항입니다.
+						${item.name }님이 ${item.receiver}에게 보낸 공지사항입니다.
 					</div>
 					<div class="adminMessage">${item.content }</div>
 				</li>	
@@ -106,7 +106,7 @@ textarea{
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-default" id="submit">등록</button>
+						<button type="submit" class="btn btn-default" id="submit">등록</button>
 						<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
 					</div>
 				</form>
