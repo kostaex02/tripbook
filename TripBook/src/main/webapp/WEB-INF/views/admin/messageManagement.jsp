@@ -36,8 +36,30 @@
 }
 textarea{
 	width:100%;
-	height:300px;
+	height:100px;
 	border-radius:5px;
+}
+.adminGroupListBind {
+	height: 160px;
+	overflow: auto;
+	text-indent: 10px;
+}
+.adminGroupList {
+	height: 160px;
+	overflow: hidden;
+}
+.adminAddListImg {
+	width: 60px;
+	height: 60px;
+	position: relative;
+	float: left;
+}
+.adminAddListDiv {
+	height: 60px;
+}
+.adminGroupMember>input {
+	display: none;
+	height: 60px;
 }
 
 </style>
@@ -69,8 +91,42 @@ textarea{
 				</div>
 				<form action='/controller/admin/sendMessage' method="post">
 					<div class="modal-body">
-						<input type='text' class="form-control" name="receiver" placeholder="받는 사람">
 						<textarea placeholder="메세지를 입력하세요" name="message"></textarea>
+						<div class="adminGroupList">
+							<div class="adminGroupListBind">
+								<div class="adminGroupMember">
+									<div class="adminAddListDiv">
+									<img class="adminAddListImg"
+									src='<c:url value="/images/img.jpg"/>'>사람이름</div>
+									<input type="checkbox" name="friendsAddMemberList" value="0" />
+								</div>
+								<div class="adminGroupMember">
+									<div class="adminAddListDiv">
+									<img class="adminAddListImg"
+									src='<c:url value="/images/img.jpg"/>'>사람이름</div>
+									<input type="checkbox" name="friendsAddMemberList" value="1" />
+								</div>
+								<div class="adminGroupMember">
+									<div class="adminAddListDiv">
+									<img class="adminAddListImg"
+									src='<c:url value="/images/img.jpg"/>'>사람이름</div>
+									<input type="checkbox" name="friendsAddMemberList" value="2" />
+								</div>
+								<div class="adminGroupMember">
+									<div class="adminAddListDiv">
+									<img class="adminAddListImg"
+									src='<c:url value="/images/img.jpg"/>'>사람이름</div>
+									<input type="checkbox" name="friendsAddMemberList" value="3" />
+								</div>
+								<div class="adminGroupMember">
+									<div class="adminAddListDiv">
+									<img class="adminAddListImg"
+									src='<c:url value="/images/img.jpg"/>'>사람이름</div>
+									<input type="checkbox" name="friendsAddMemberList" value="4" />
+								</div>
+								
+							</div>
+						</div>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" id="submit">등록</button>
@@ -84,6 +140,23 @@ textarea{
 	<script src='<c:url value="/resources/js/main/stroll.min.js"/>'></script>
 	<script>
 		stroll.bind('ul');
+		
+		$(function() {
+			$('.adminGroupMember').click(function() {
+				//체크 박스 셀렉터 지정				
+				checkbox = $(this).children().last();
+				//check박스 토글
+				$(checkbox).prop('checked', function() {
+					return !$(checkbox).prop('checked');
+				});
+				//check박스에 따라 div의 css변경
+				if ($(checkbox).prop("checked")) {
+					$(this).css("background-color", "#ffffb9");
+				} else {
+					$(this).css("background-color", "#ffffff");
+				}
+			});
+		})
 	</script>
 </body>
 </html>
