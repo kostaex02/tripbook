@@ -387,8 +387,6 @@ hr {
 										<img class='writerProfileImage'
 											src='<c:url value="/tripbook/user/${item.user.id }/${item.user.fileName}"/>'>
 										<b>${item.writer }</b> ${item.tripDate }
-										<button type="button" class="btn btn-default mainboardMap" data-toggle="modal" data-target="#maindetailMap" data-keyboard="false" onclick="searchMap('${item.boardNo}',1,37.394776627382875, 127.11119669891646)">지도
-										</button>
 										<input type="hidden" value="1" id="region">
 									</div>
 									<div class="boardContent">${item.content }</div>
