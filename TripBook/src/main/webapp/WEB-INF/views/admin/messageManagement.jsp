@@ -91,40 +91,17 @@ textarea{
 				</div>
 				<form action='/controller/admin/sendMessage' method="post">
 					<div class="modal-body">
-						<textarea placeholder="메세지를 입력하세요" name="message"></textarea>
+						<textarea placeholder="메세지를 입력하세요" name="content"></textarea>
 						<div class="adminGroupList">
 							<div class="adminGroupListBind">
-								<div class="adminGroupMember">
-									<div class="adminAddListDiv">
-									<img class="adminAddListImg"
-									src='<c:url value="/images/img.jpg"/>'>사람이름</div>
-									<input type="checkbox" name="friendsAddMemberList" value="0" />
-								</div>
-								<div class="adminGroupMember">
-									<div class="adminAddListDiv">
-									<img class="adminAddListImg"
-									src='<c:url value="/images/img.jpg"/>'>사람이름</div>
-									<input type="checkbox" name="friendsAddMemberList" value="1" />
-								</div>
-								<div class="adminGroupMember">
-									<div class="adminAddListDiv">
-									<img class="adminAddListImg"
-									src='<c:url value="/images/img.jpg"/>'>사람이름</div>
-									<input type="checkbox" name="friendsAddMemberList" value="2" />
-								</div>
-								<div class="adminGroupMember">
-									<div class="adminAddListDiv">
-									<img class="adminAddListImg"
-									src='<c:url value="/images/img.jpg"/>'>사람이름</div>
-									<input type="checkbox" name="friendsAddMemberList" value="3" />
-								</div>
-								<div class="adminGroupMember">
-									<div class="adminAddListDiv">
-									<img class="adminAddListImg"
-									src='<c:url value="/images/img.jpg"/>'>사람이름</div>
-									<input type="checkbox" name="friendsAddMemberList" value="4" />
-								</div>
-								
+								<c:forEach items="${userList }" var="item">
+									<div class="adminGroupMember">
+										<div class="adminAddListDiv">
+										<img class="adminAddListImg"
+										src='<c:url value="/tripbook/user/${item.id }/${item.fileName }"/>'>${item.name }</div>
+										<input type="checkbox" name="users" value="${item.id }" />
+									</div>
+								</c:forEach>
 							</div>
 						</div>
 					</div>

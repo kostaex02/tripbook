@@ -78,4 +78,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectUserByAdmin" resultMap="selectUserMap">
 		select id,name,age,gender,file_name from user_table where state = 0
 	</select>
+	
+	<update id="updateUserState" parameterType="String">
+		update user_table set state=1 where id=#{value}
+	</update>
 </mapper>

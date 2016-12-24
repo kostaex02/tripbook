@@ -40,4 +40,9 @@ public class BoardDAOImpl implements BoardDAO {
 		return session.selectList("boardMapper.selectDetailBiography", map);
 	}
 
+	@Override
+	public List<BoardDTO> selectBoardByAdmin() {
+		return session.selectList("boardMapper.selectBoardByAdmin");
+	}
+
 }

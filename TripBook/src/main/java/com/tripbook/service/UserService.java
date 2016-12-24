@@ -55,4 +55,9 @@ public interface UserService {
 	 * 전체 유저 출력
 	 */
 	List<UserDTO> selectUserByAdmin();
+
+	/**
+	 * 사용자 운영자 권한 부여
+	 */
+	int updateUserState(String userId);
 }

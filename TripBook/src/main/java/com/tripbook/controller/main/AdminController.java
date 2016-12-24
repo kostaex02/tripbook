@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tripbook.dto.NoticeDTO;
+import com.tripbook.service.BoardService;
 import com.tripbook.service.NoticeService;
 import com.tripbook.service.UserService;
 
@@ -18,6 +19,8 @@ public class AdminController {
 	private NoticeService noticeService;
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private BoardService boardService;
 	
 	@RequestMapping("{pageName}")
 	public void page(HttpServletRequest request){}
@@ -41,16 +44,31 @@ public class AdminController {
 		mv.addObject("userList", userService.selectUserByAdmin());
 		return mv;
 	}
+	@RequestMapping("update")
+	public String update(HttpServletRequest request,String userId){
+		userService.updateUserState(userId);
+		return "redirect:user";
+	}
 	
 	@RequestMapping("message")
 	public ModelAndView message(HttpServletRequest request){
 		ModelAndView mv = new ModelAndView("admin/messageManagement");
 		mv.addObject("noticeList", noticeService.selectMessageByAdmin());
+		mv.addObject("userList", userService.selectUserByAdmin());
 		return mv;
 	}
 	
 	@RequestMapping("sendMessage")
-	public String sendMessage(HttpServletRequest request){
+	public String sendMessage(HttpServletRequest request,String content,String [] friends){
+		System.out.println(content);
+		System.out.println(friends);
 		return null;
+	}
+	
+	@RequestMapping("board")
+	public ModelAndView board(HttpServletRequest request){
+		ModelAndView mv = new ModelAndView("admin/boardManagement");
+		mv.addObject("boardList", boardService.selectBoardByAdmin());
+		return mv;
 	}
 }

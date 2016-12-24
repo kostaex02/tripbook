@@ -109,5 +109,10 @@ public class UserServiceImpl implements UserService {
 		return userDao.selectUserByAdmin();
 	}
 
+	@Override
+	public int updateUserState(String userId) {
+		return userDao.updateUserState(userId);
+	}
+
 
 }

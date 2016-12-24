@@ -115,6 +115,11 @@ public class BoardServiceImpl implements BoardService{
 		return boardDAO.selectDetailBiography(map);
 	}
 
+	@Override
+	public List<BoardDTO> selectBoardByAdmin() {
+		return boardDAO.selectBoardByAdmin();
+	}
+
 
 
 }

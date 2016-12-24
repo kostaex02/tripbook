@@ -30,4 +30,9 @@ public interface BoardDAO {
 	 * 선택된 스케쥴에 해당하는 게시물들 출력
 	 */
 	List<BoardDTO> selectDetailBiography(Map<String, Object> map);
+	
+	/**
+	 * 전체 게시물 출력
+	 */
+	List<BoardDTO> selectBoardByAdmin();
 }

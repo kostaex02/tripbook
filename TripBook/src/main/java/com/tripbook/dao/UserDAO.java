@@ -55,5 +55,10 @@ public interface UserDAO {
 	 * 전체 유저 출력
 	 */
 	List<UserDTO> selectUserByAdmin();
+	
+	/**
+	 * 일반유저 관리자 권한 부여
+	 */
+	int updateUserState(String userId);
 
 }

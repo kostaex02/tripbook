@@ -54,6 +54,10 @@ public class UserDAOImpl implements UserDAO {
 	public List<UserDTO> selectUserByAdmin() {
 		return session.selectList("userMapper.selectUserByAdmin");
 	}
+	@Override
+	public int updateUserState(String userId) {
+		return session.update("userMapper.updateUserState", userId);
+	}
 	
 	
 }

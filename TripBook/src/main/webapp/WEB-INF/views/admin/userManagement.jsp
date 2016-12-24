@@ -88,11 +88,10 @@
 						<img class="friendPictureImg"
 							src='<c:url value="/tripbook/user/${item.id }/${item.fileName}"/>'>
 					</div>
-					<div class="friendsNameId">${item.name}</div>
+					<div class="friendsNameId">${item.id}/${item.name}</div>
 					<div class="friendsButton">
 						<a href="/controller/admin/update?userId=${item.id }"
 							class='btn btn-primary' data-toggle="modal">권한 설정</a>
-
 					</div>
 				</li>
 				

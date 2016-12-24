@@ -25,4 +25,9 @@ public interface BoardService {
 	 * 일정에 해당하는 리스트 불러오기
 	 */
 	List<BoardDTO> selectDetailBiography(String userId, int scheduleNo);
+
+	/**
+	 * 전체 게시물 검색
+	 */
+	List<BoardDTO> selectBoardByAdmin();
 }
