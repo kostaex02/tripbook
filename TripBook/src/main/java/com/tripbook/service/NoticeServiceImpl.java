@@ -32,4 +32,9 @@ public class NoticeServiceImpl implements NoticeService {
 		return noticeDAO.selectMessageByAdmin();
 	}
 
+	@Override
+	public int countNotice(String userId) {
+		return noticeDAO.selectNoticeByReceiver(userId).size();
+	}
+
 }

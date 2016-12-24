@@ -398,7 +398,7 @@ dl {
 					</div>
 					<div class="rightSide">
 					<a class="sideProfileLink" href="<c:url value="/mypage/list"/>">
-						${userName} <img src="<c:url value="/images/icon/icon_messageAlarm.png"/>"><span class="badge">3</span><br>
+						${userName} <img src="<c:url value="/images/icon/icon_messageAlarm.png"/>"><span class="badge"></span><br>
 					</a>
 					<a class="reInfo" href="<c:url value="/mypage/profile"/>">정보수정</a><br>
 					<a class="logout" href="<c:url value="/main/logout"/>">로그아웃</a><br>
@@ -567,8 +567,23 @@ dl {
 				case "adminSideUser" : $('#adminSideUser').css('border-right', '5px solid #69F0AE');break;
 			}
 			
-			
-		})		
+			setInterval("newMessage()", 1000);
+		});
+		
+		function newMessage(){
+			$.ajax({
+		    	url : "/controller/notice/count",
+				type : "post",
+				dataType : "json",
+				success : function(data) {
+					$('.badge').empty();
+					$('.badge').append(data);
+				},
+				error : function() {
+					alert('error');
+				}
+		    });
+		}
 	</script>
 </body>
 </html>

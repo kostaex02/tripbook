@@ -24,4 +24,9 @@ public interface NoticeService {
 	 * 개별 공지사항 알림 출력
 	 */
 	List<NoticeDTO> selectMessageByAdmin();
+	
+	/**
+	 * 새로온 공지 알림
+	 */
+	int countNotice(String userId);
 }
