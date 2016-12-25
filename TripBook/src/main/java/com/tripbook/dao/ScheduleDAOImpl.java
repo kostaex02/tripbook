@@ -59,4 +59,9 @@ public class ScheduleDAOImpl implements ScheduleDAO{
 		return session.selectList("biographyMapper.selectNotFriendBiography",map);
 	}
 
+	@Override
+	public List<ScheduleDTO> searchBiography(Map<String, Object> map) {
+		return session.selectList("biographyMapper.searchBiography",map);
+	}
+
 }

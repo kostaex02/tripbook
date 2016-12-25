@@ -50,4 +50,9 @@ public interface ScheduleDAO {
 	 * 친구 관계가 아닌 경우 일대기 출력
 	 */
 	List<ScheduleDTO> selectNotFriendBiography(Map<String, Object> map);
+	
+	/**
+	 * 검색으로 일대기 출력
+	 */
+	List<ScheduleDTO> searchBiography(Map<String, Object> map);
 }

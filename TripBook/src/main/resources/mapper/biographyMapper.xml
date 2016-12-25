@@ -94,4 +94,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</if>
 		order by s.start_date
 	</select>
+	<select id="searchBiography" parameterType="map" resultMap="selectBiographyMap">
+		select s.schedule_no,s.subject,s.start_date,s.end_date,s.write_date,s.state,s.writer,bp.file_name,bp.board_No
+		from schedule_table s 
+		join board_table b on s.schedule_no = b.schedule_no
+		join board_picture_table bp on b.board_no=bp.board_no
+		where s.state = '0'
+		<if test="scheduleList.size!=0">  and (s.schedule_no in 
+			<foreach collection="scheduleList" item="schedule" open="(" separator=","
+			close=")">
+			#{schedule}
+			</foreach>
+		)
+		</if>
+	</select>
 </mapper>

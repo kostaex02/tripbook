@@ -39,4 +39,9 @@ public interface ScheduleService {
 	 * 일대기 친구 리스트 출력
 	 */
 	List<ScheduleDTO> selectFriendBiography(String userId, String friendId, String state);
+	
+	/**
+	 * 여행 검색
+	 */
+	List<ScheduleDTO> searchBiography(String keyword);
 }
