@@ -32,7 +32,7 @@ $(function(){
 				}
 			},
 			error : function() {
-				alert('error')
+				console.log('error')
 			}
 		})
 	})	

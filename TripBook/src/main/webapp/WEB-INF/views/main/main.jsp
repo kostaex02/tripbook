@@ -911,11 +911,7 @@ hr {
 				}
 		  	})	
 	    });
-		
-		 
 	});
-	
-	
 	
 	//enter키 금지
 	function captureReturnKey(e) { 
@@ -1058,7 +1054,7 @@ hr {
 					});
 				},
 				error : function() {
-					alert('error')
+					console.log('달력 초기화 실패')
 				}
 		    })
 		    
@@ -1076,7 +1072,7 @@ hr {
 						$('#stateTravel').val(data.state);
 					},
 					error : function() {
-						alert('error');
+						console.log('달력 추가 실패');
 					}
 			    })
 		    })

@@ -264,7 +264,7 @@ textarea {
 							}
 						},
 						error : function() {
-							alert('error')
+							console.log('그룸 초대 에러')
 						}
 					})
 			})

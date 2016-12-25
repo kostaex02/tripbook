@@ -9,7 +9,7 @@
 <link href='<c:url value="/resources/css/tiles/drawer.min.css"/>' rel="stylesheet">
 <link rel="stylesheet" href='<c:url value="/resources/css/tiles/layout.css"/>'>
 <link rel="stylesheet" href='<c:url value="/resources/css/bootstrap/bootstrap.min.css"/>'>
-<title>Insert title here</title>
+<title>TripBook</title>
 <style>
 	body{
 		background-color: white;
@@ -167,7 +167,7 @@
       function error(){
     	  var errMessage = <%= request.getAttribute("errMessage") %>;
     	  if(errMessage!=null){
-    		  alert("오류!");
+    		  alert(errMessage);
     	  }
       }
       error();
