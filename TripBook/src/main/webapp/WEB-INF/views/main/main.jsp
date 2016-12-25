@@ -750,8 +750,8 @@ hr {
 									<input type="hidden" name="keyword" id="resultKeyword2" value="10">
 									<input type="hidden" name="location" id="resultRegion2" value="10">
 									<input type="hidden" name="address" id="resultAddress2" value="10">
-									<input type="hidden" name="location_lat" id="resultLatitude2" value="10">
-									<input type="hidden" name="location_lng" id="resultLongitude2" value="10">
+									<input type="hidden" name="locationLat" id="resultLatitude2" value="10">
+									<input type="hidden" name="locationLng" id="resultLongitude2" value="10">
 									<div class="main-submit">
 										<button type="submit" class="btn btn-default btn-sm">등록</button>
 										<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">취소</button>
