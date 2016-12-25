@@ -329,6 +329,28 @@ hr {
 .replyText{
 	width:85%
 }
+
+.replyArea div {
+	float: left;
+	margin-left: 10px;
+}
+
+.replyDate {
+	opacity: 0.65;
+}
+
+.replyItem {
+	margin-left: 48px;
+	clear: both;
+}
+
+.replyWriterPicture {
+	width: 25px;
+	height: 25px;
+}
+
+
+
 .main-submit{
 	text-align:right;
 }
@@ -436,12 +458,20 @@ hr {
 											<input type='text' class='replyText' name='reply' placeholder="댓글을 입력하세요" size="30px">
 											<input type='button' value='입력' class="replyButton">
 											
-											<c:forEach items="${item.replys}" var="boardReply" varStatus="replyState">
-												<div>작성자 사진 / <img src='<c:url value="/tripbook/user/${boardReply.user.id}/${boardReply.user.fileName}"/>'></div>
-												<div>작성자 이름 / ${boardReply.user.name }</div>
-												<div>리플 내용 / ${boardReply.content }</div>
-												<div>작성시간 / ${boardReply.writerDate }</div>
-												<hr>
+											<c:forEach items="${item.replys}" var="boardReply"
+												varStatus="replyState">
+												<div class='replyItem'>
+													<div>
+														<img class='replyWriterPicture'
+															src='<c:url value="/tripbook/user/${boardReply.user.id}/${boardReply.user.fileName}"/>'>
+													</div>
+													<div class='replyWriterName'>
+														<b>${boardReply.user.name }</b>
+													</div>
+													<div class='replyContent'>${boardReply.content }</div>
+													<div class='replyDate'>${boardReply.writerDate }</div>
+												</div>
+												<br>
 											</c:forEach>
 										</div>
 									</div>
@@ -1337,7 +1367,7 @@ hr {
 	
 	$(".replysCount").mousedown(function() {
 		$('.replyArea').slideUp(500);
-		$(this).next().slideToggle(500);
+		$(this).next().slideToggle(500).css("display","inline-block");
 	});
 	
 	/* 게시물 사진 보기 */
