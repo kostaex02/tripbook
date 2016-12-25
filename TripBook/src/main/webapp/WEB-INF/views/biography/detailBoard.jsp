@@ -320,9 +320,12 @@ hr {
 	display: none;
 }
 .replyText{
-	width:85%
+	width:75% !important;
 }
-
+li{
+	display:inline-block;
+	width:100%;
+}
 .boardPicture {
 	width: 100%;
 	height: 100px;
@@ -361,7 +364,7 @@ hr {
 }
 
 .replyItem {
-	margin-left: 48px;
+	margin-left: 48px !important;
 	margin-top:5px;
 	margin-bottom:5px;
 	clear: both;
