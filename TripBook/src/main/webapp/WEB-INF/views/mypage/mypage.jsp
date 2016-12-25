@@ -124,11 +124,12 @@
 									<img class="mypageProfileImg" src='<c:url value="/tripbook/user/${otherNoticeItem.sender}/${otherNoticeItem.fileName}"/>'>
 								</div>
 								<div class="mypageMessage">${otherNoticeItem.name}님의 메세지</div>
-								<div id='${otherNoticeItem.noticeNo}' class="mypageButton">
-									<input class="btn btn-primary friendMessage" type="button" value="확인하러 가자">
+								<div class=''>
+									<div id='${otherNoticeItem.noticeNo}' class="mypageButton">
+										<input class="btn btn-primary friendMessage" type="button" value="확인하러 가자">
+									</div>
+									<div class="mypageMessageContent">${otherNoticeItem.content}</div>
 								</div>
-								
-								<div class="mypageMessageContent">${otherNoticeItem.content}</div>
 						</li>
 					</c:when>
 					<c:when test="${otherNoticeItem.state eq '5'}">

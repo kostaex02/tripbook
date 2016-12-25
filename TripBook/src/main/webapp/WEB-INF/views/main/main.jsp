@@ -876,8 +876,7 @@ hr {
 	} 
 
 	
-	/* 스크롤 효과 */
-	stroll.bind('.mainAllBoard ul');
+	
 	
 		/* 타이틀 포커스 효과 */
 		$(document)

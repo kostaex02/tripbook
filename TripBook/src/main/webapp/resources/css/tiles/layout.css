@@ -131,7 +131,9 @@ li{
 	.slideMenu{
 		display:none;
 	}
-	
+	ul{
+		height:800px !important;
+	}
 	
 	#header{
 		width:70%;
