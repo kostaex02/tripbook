@@ -63,7 +63,15 @@ li{
 		width: 98% !important;
 		left: -1% !important;
 	}
-	
+	.content{
+		margin-left:0px !important;
+	}
+	.jbTableCell {
+		margin-left:35px;
+	}
+	dd{
+		font-size:11px !important;
+	}
 	#side{
 		display: none;
 	}
