@@ -892,7 +892,6 @@ hr {
 	        }else{
 		        $("#likeCount"+messageID).html(C-1);
 		        $(this).removeClass("heartAnimation").attr("rel","like");
-		        $(this).css("background-position","left");
 	        }
 	    });
 		
@@ -1075,7 +1074,7 @@ hr {
 		    		alert("댓글 내용을 입력하시오");	
 		    	}else{
 		    		$(this).siblings('.replyItem').remove();
-		    		
+		    		var count= $(this).parents().siblings('.replysCount');
 		    		var area= $(this).parents('.replyArea');
 		    		var content = $(this).siblings('.replyText');
 		    		$.ajax({
@@ -1085,6 +1084,7 @@ hr {
 						dataType : "json",
 						success : function(data) {
 							content.val('');
+							count.text('댓글 '+data.length+'개');
 							var str = "";
 							$.each(data,function(index,item){
 								str += "<div class='replyItem'>";

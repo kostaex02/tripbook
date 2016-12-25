@@ -91,7 +91,7 @@ public class FriendController {
 	public String delete(HttpServletRequest request,String friendId){
 		HttpSession session = request.getSession();
 		friendService.deleteFriend((String)session.getAttribute("userId"),friendId);
-		return "friends/list";
+		return "redirect:/friends/list";
 	}
 	@RequestMapping("board")
 	public String board(HttpServletRequest request,String friendId){

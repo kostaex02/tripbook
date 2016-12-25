@@ -45,7 +45,6 @@ public class MyPageController {
 		String saveDir = request.getSession().getServletContext().getRealPath("/tripbook/user/"+id);
 		File folder = new File(saveDir);
 		user.setId(id);
-		
 		if(file!=null){
 			if (folder.exists()) {
 				if(folder.listFiles()!=null){
@@ -80,7 +79,7 @@ public class MyPageController {
 		UserDTO tempUser = userService.selectProfile((String)session.getAttribute("userId"));
 		session.setAttribute("userName", tempUser.getName());
 		session.setAttribute("userFileName", tempUser.getFileName());
-		return "main/home";
+		return "redirect:/main/home";
 	}
 	
 	@RequestMapping("delete")
