@@ -504,7 +504,7 @@ hr {
 								src='<c:url value="/tripbook/user/${userId}/${userFileName}"/>'>
 						</div>
 						<div class="userName">${userName}</div>
-
+						<div>
 						<select name="state" class="select">
 							<option value="0">전체보기</option>
 							<option value="1">친구보기</option>
@@ -513,7 +513,7 @@ hr {
 								<option value="${item.groupNo }">${item.groupName }</option>
 							</c:forEach>
 						</select>
-
+						</div>
 					</div>
 					<div class="modal-body">
 						<div class="newBoardContainer">
@@ -589,7 +589,7 @@ hr {
 					</div>
 					<div class="userName">${userName}</div>
 					<div>
-						<select class="select" id="state" name="stateTravel">
+						<select class="select" id="state" name="stateTravel" style="display:none">
 							<option value="0">전체보기</option>
 							<option value="1">친구보기</option>
 							<option value="2">비공개</option>
@@ -1081,6 +1081,14 @@ hr {
 				var state = $('#state').val();
 				$('#stateEdit').val(state);
 			});
+		    
+		    $('#1').click(function(){
+				$('#state').hide();
+			});
+			$('#2').click(function(){
+				$('#state').show();
+			});
+			
 		    
 		    $('.replyButton').click(function(){
 				if($(this).siblings('.replyText').val()==""){
