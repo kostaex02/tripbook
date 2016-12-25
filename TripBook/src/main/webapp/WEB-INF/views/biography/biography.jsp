@@ -23,7 +23,7 @@
 					<div class="grid__item">
 					<a href="/controller/biography/detail?scheduleNo=${item.scheduleNo }" class="img-wrap"><img
 						src="<c:url value="/tripbook/board/${item.boardPictures.get(0).boardNo }/${item.boardPictures.get(0).fileName }"/>" alt="img02" /> </a>
-						${item.subject} <br> ${fn:substring(item.startDate,0,10)} ~ ${fn:substring(item.endDate,0,10)}
+						<b>${item.subject} <br> ${fn:substring(item.startDate,0,10)} ~ ${fn:substring(item.endDate,0,10)}</b>
 					</div>
 				</c:forEach>
 			</div>
