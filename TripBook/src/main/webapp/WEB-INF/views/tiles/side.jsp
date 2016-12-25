@@ -374,7 +374,6 @@ dl {
 }
 .badge{
 	position:absolute;
-	margin-left:-10px;
 	vertical-align: top;
 	padding: 2px 9px;
 	font-size: 20px;
@@ -406,7 +405,7 @@ dl {
 					</div>
 					<div class="rightSide">
 					<a class="sideProfileLink" href="<c:url value="/mypage/list"/>">
-						${userName} <img src="<c:url value="/images/icon/icon_messageAlarm.png"/>"><span class="badge"></span><br>
+						${userName}<span class="badge"></span><br>
 					</a>
 					<a class="reInfo" href="<c:url value="/mypage/profile"/>">정보수정</a><br>
 					<a class="logout" href="<c:url value="/main/logout"/>">로그아웃</a><br>

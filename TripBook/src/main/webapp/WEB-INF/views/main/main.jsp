@@ -435,15 +435,19 @@ hr {
 																	src='<c:url value="/tripbook/board/${item.boardNo }/${boardPicture.fileName }"/>' />
 																</a>
 															</span>
-														</c:when>
-														<c:otherwise>
-															<span>
+														</c:when >
+															
+														<c:when test="${pictureNum.count eq 5}">
+														<span>
 															<a href="#" data-toggle="modal" data-target="#detailPicture">
 																	<img class='boardPicture'
 																	src='<c:url value="/tripbook/board/${item.boardNo }/${boardPicture.fileName }"/>' style="position:absolute;opacity:0.4;"/>
 															</a>
 															<span style='padding-left:20px;'>+${item.boardPictures.size() - 5}장</span>
-															</span>	
+															</span>
+														</c:when>
+														<c:otherwise>
+															
 														</c:otherwise>
 													</c:choose>
 												</c:forEach>
