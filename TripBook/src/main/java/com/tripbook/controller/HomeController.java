@@ -45,7 +45,11 @@ public class HomeController {
 			session.setAttribute("userName", tempUser.getName());
 			session.setAttribute("userFileName", tempUser.getFileName());
 			session.setAttribute("userState", tempUser.getState());
-			return mv = new ModelAndView("redirect:loginResult");
+			if(tempUser.getState().equals("0")){
+				return mv = new ModelAndView("redirect:loginResult");
+			}else{
+				return mv = new ModelAndView("redirect:admin/notice"); 
+			}
 		}else{
 			mv=new ModelAndView("home");
 			mv.addObject("errMessage", "아이디와 비밀번호가 틀렸습니다.");
