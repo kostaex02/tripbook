@@ -342,6 +342,7 @@ hr {
 
 .replyItem {
 	margin-left: 48px;
+	margin-top:5px;
 	margin-bottom:5px;
 	clear: both;
 }
