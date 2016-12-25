@@ -473,7 +473,6 @@ hr {
 													<div class='replyContent'>${boardReply.content }</div>
 													<div class='replyDate'>${boardReply.writerDate }</div>
 												</div>
-												<br>
 											</c:forEach>
 										</div>
 									</div>
@@ -1068,16 +1067,35 @@ hr {
 			});
 		    
 		    $('.replyButton').click(function(){
-		    	if($(this).siblings('.replyText').val()==""){
+				if($(this).siblings('.replyText').val()==""){
 		    		alert("댓글 내용을 입력하시오");	
 		    	}else{
+		    		$(this).siblings('.replyItem').remove();
+		    		
+		    		var area= $(this).parents('.replyArea');
+		    		var content = $(this).siblings('.replyText');
 		    		$.ajax({
 				    	url : "/controller/reply/insert",
 						type : "post",
 						data : "boardNo="+$(this).siblings('input').val()+"&content="+$(this).siblings('.replyText').val(),
 						dataType : "json",
 						success : function(data) {
-							alert(data);
+							content.val('');
+							var str = "";
+							$.each(data,function(index,item){
+								str += "<div class='replyItem'>";
+								str += "<div>";
+								str += "<img class='replyWriterPicture' src='<c:url value='/tripbook/user/"
+								str += item.user.id+"/"+item.user.fileName+"'/>'>";
+								str += "</div>";
+								str += "<div class='replyWriterName'>";
+								str += "<b>"+item.user.name+"</b>";
+								str += "</div>";
+								str += "<div class='replyContent'>"+item.content+"</div>";
+								str += "<div class='replyDate'>"+item.writerDate+"</div>";
+								str += "</div>";
+							});
+							area.append(str);
 						},
 						error : function() {
 							alert('error');
