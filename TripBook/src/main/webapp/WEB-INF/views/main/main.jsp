@@ -1035,7 +1035,6 @@ hr {
 		    function getDate( element ) {
 		      	var date = element.value;
 		     	
-		      	alert(date);
 		      	return date;
 		    }
 		    
@@ -1154,8 +1153,6 @@ hr {
 		mapDiv.style.width="100%";
 		mapDiv.style.height="300px";
 		
-		alert(lat);
-		alert(lng);
 		var mapSearch = document.getElementById('mapSearch');
 		if(mapSearch.hasChildNodes){
 			mapSearch.innerHTML="";
@@ -1388,10 +1385,8 @@ hr {
 			var resultToDate = document.getElementById('toDate' + board ).value;
 			var resultDateTime = document.getElementById('datetimepicker' + board).value;
 			
-			alert("제목 : " + resultSubject + " \n출발일 : " + resultFromDate + " \n도착일 " + resultToDate + " \n계획 " + resultDateTime);
 		}
 		
-		alert("코멘트 : " + resultTextArea + "\n키워드 : " + resultKeyword + "\n국내해외 : "+ resultRegion + "\n주소 : " + resultAddress + "\n위도 : " + resultLatitude + "\n경도 : " + resultLongitude);
 		
 	}
 	
