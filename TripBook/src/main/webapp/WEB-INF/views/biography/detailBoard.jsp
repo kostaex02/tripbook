@@ -376,8 +376,9 @@ hr {
 </head>
 <body>
 	<div class='mainAllBoard'>
-		<a href='#' class='btn btn-primary mapSwitch'>지도</a>
-		<div class='mapArea'>여기는 지도가 표시될 공간</div>
+		<div class='mapArea'>
+			<div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+		</div>
 		<div class='mainScrollHidden'>
 			<ul class="grow">
 				<c:forEach items="${detailBiographyList}" var="item" varStatus="boardNum">
@@ -387,12 +388,15 @@ hr {
 										<img class='writerProfileImage'
 											src='<c:url value="/tripbook/user/${item.user.id }/${item.user.fileName}"/>'>
 										<b>${item.writer }</b> ${item.tripDate }
-										<input type="hidden" value="1" id="region">
+										
 									</div>
 									<div class="boardContent">${item.content }</div>
 										<c:if test="${item.boardPictures.size() != 0}">
 											<div class='picture'>
 												<input class='detailViewPictures'type='hidden' value="${item.boardNo}">
+												<input type="hidden" name="region" value=${item.location }>
+												<input type="hidden" name="lat" value=${item.locationLat }>
+												<input type="hidden" name="lng" value=${item.locationLng }>
 												<c:forEach items="${item.boardPictures }" var="boardPicture" varStatus="pictureNum">
 													<c:choose>
 														<c:when test="${pictureNum.count < 5}">
@@ -446,319 +450,7 @@ hr {
 		</div>
 	</div>
 	
-	
 
-	<!-- 일반게시물 modal -->
-	<div class="modal fade" id="addGeneralBoard" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<form id="generalForm" name="generalForm"
-					action="/controller/board/insert" method="post"
-					enctype="multipart/form-data"
-					onkeydown="return captureReturnKey(event)">
-					<div class="modal-header">
-						<div class="newBoardPicture">
-							<img class="newBoardPictureImg"
-								src='<c:url value="/images/img.jpg"/>'>
-						</div>
-						<div class="userName">${userName}</div>
-
-						<select name="state" class="select">
-							<option value="0">전체보기</option>
-							<option value="1">친구보기</option>
-							<option value="2">비공개</option>
-							<c:forEach items="${groupList }" var="item">
-								<option value="${item.groupNo }">${item.groupName }</option>
-							</c:forEach>
-						</select>
-
-					</div>
-					<div class="modal-body">
-						<div class="newBoardContainer">
-
-							<div class="newBoardTitle">
-								<textarea name="content" class="form-control text-resize"
-									rows="4" id="title0" placeholder="내용"></textarea>
-							</div>
-							<hr>
-							<div class="newBoardSelect">
-								<div class="input-group-btn">
-									<button class="btn btn-default btn-sm newBoardUploadImg"
-										type="button" id="newGeneralBoardUploadImg">
-										<i><img
-											src='<c:url value="/images/icon/icon_upload.png"/>'
-											width="64px" height="64px"></i>
-									</button>
-									<hr>
-								</div>
-
-								<input type="file" class="newBoardMulti with-preview"
-									id="newGeneralBoardMulti" name="file" style="display: none"
-									multiple />
-								<div class="newBoardMultiList" id="newGeneralBoardMultiList"
-									name="newBoardMultiList"></div>
-								<div>
-									<button class="btn btn-default btn-sm newBoardMap"
-										type="button" id="newGeneralBoardMap">
-										<i><img src='<c:url value="/images/icon/icon_map.png"/>'
-											width="64px" height="64px"></i>
-									</button>
-								</div>
-								<div class="btn-group groupMap" role="group"
-									style="display: none">
-									<button type="button" class="btn btn-default btn-sm"
-										onClick="createMap(0,0)">국내</button>
-									<button type="button" class="btn btn-default btn-sm"
-										onClick="createMap(0,1)">해외</button>
-								</div>
-
-
-							</div>
-							<div name="mapChoice" class="mapChoice" style="width: 95%"></div>
-							<input type="hidden" name="keyword" id="resultKeyword0"
-								value="10"> <input type="hidden" name="location"
-								id="resultRegion0" value="10"> <input type="hidden"
-								name="address" id="resultAddress0" value="10"> <input
-								type="hidden" name="locationLat" id="resultLatitude0" value="10">
-							<input type="hidden" name="locationLng" id="resultLongitude0"
-								value="10">
-						</div>
-					</div>
-					<div class="modal-footer">
-
-						<button type="submit" class="btn btn-default btn-sm">등록</button>
-						<button type="button" class="btn btn-default btn-sm"
-							data-dismiss="modal">취소</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-
-
-	<!-- 여행게시물 modal -->
-	<div class="modal fade" id="addTravelBoard" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<div class="newBoardPicture">
-						<img class="newBoardPictureImg"
-							src='<c:url value="/images/img.jpg"/>'>
-					</div>
-					<div class="userName">${userName}</div>
-					<div>
-						<select class="select" id="state" name="stateTravel">
-							<option value="0">전체보기</option>
-							<option value="1">친구보기</option>
-							<option value="2">비공개</option>
-							<c:forEach items="${groupList }" var="item">
-								<option value="${item.groupNo }">${item.groupName }</option>
-							</c:forEach>
-						</select>
-					</div>
-
-				</div>
-				<div class="modal-body">
-					<div class="newTravelBoardContainer">
-						<ul class="nav nav-tabs nav-justified" role="tablist"
-							style="height: 50px; width: 200px;">
-							<li role="presentation" class="travel active" id="1"
-								style="padding: 0;"><a href="#editSchedule"
-								aria-controls="editSchedule" role="tab" data-toggle="tab" class="main-schedule">신규
-									일정</a></li>
-							<li role="presentation" class="travel" id="2" style="padding: 0">
-								<a href="#addSchedule" aria-controls="addSchedule" role="tab"
-								data-toggle="tab" class="main-schedule">기존 일정</a>
-							</li>
-						</ul>
-						<div class="tab-content">
-							<!-- EDIT -->
-							<div class="tab-pane active" id="editSchedule">
-								<form name="generalForm"
-									action="/controller/board/insertEditScheduleBoard"
-									method="post" 
-									enctype="multipart/form-data"
-									onkeydown="return captureReturnKey(event)">
-
-									<hr>
-									<div class="form-inline row">
-										<div class="col-sm-6">
-											<label for="fromDate1">출발일</label> <input type="text"
-												class="form-control main-datepicker" id="fromDate1" name="startDate"
-												style="width: 100%">
-										</div>
-										<div class="col-sm-6">
-											<label for="toDate1">종료일</label> <input type="text"
-												class="form-control main-datepicker" id="toDate1" name="endDate"
-												style="width: 100%">
-										</div>
-									</div>
-
-									<div class="form-inline row">
-										<div class="col-sm-8">
-											<label for="subject1">제목</label> <input type="text"
-												class="form-control" id="subject1" name="subject"
-												style="width: 100%">
-										</div>
-										<div class="col-sm-4">
-											<label for="datetimepicker1">스케줄</label> <input type='text'
-												class="form-control datetimepicker" id='datetimepicker1'
-												name="tripDate" style="width: 100%; background:white" />
-										</div>
-									</div>
-									<hr>
-
-									<div class="newBoardTitle">
-										<textarea name="content" class="form-control text-resize"
-											rows="4" id="title1" placeholder="내용"></textarea>
-									</div>
-									<hr>
-
-									<div class="newBoardSelect">
-										<div class="input-group-btn">
-											<button class="btn btn-default btn-sm newBoardUploadImg"
-												type="button">
-												<i><img
-													src='<c:url value="/images/icon/icon_upload.png"/>'
-													width="64px" height="64px"></i>
-											</button>
-										</div>
-										
-										<input type="file" class="newBoardMulti with-preview"
-											id="newEditTravelBoardMulti" name="file"
-											style="display: none" multiple />
-										<div class="newBoardMultiList"
-											id="newEditTravelBoardMultiList"></div>
-										<button class="btn btn-default btn-sm newBoardMap"
-											type="button">
-											<i><img src='<c:url value="/images/icon/icon_map.png"/>'
-												width="64px" height="64px"></i>
-										</button>
-
-										<div class="btn-group groupMap" role="group"
-											style="display: none">
-											<button type="button" class="btn btn-default btn-sm"
-												onClick="createMap(1,0)">국내</button>
-											<button type="button" class="btn btn-default btn-sm"
-												onClick="createMap(1,1)">해외</button>
-										</div>
-
-									</div>
-
-									<div name="mapChoice" class="mapChoice" style="width: 95%"></div>
-									<input type="hidden" name="state" id="stateEdit" value="0">
-									<input type="hidden" name="keyword" id="resultKeyword1" value="10">
-									<input type="hidden" name="location" id="resultRegion1" value="10">
-									<input type="hidden" name="address" id="resultAddress1" value="10">
-									<input type="hidden" name="locationLat" id="resultLatitude1" value="10">
-									<input type="hidden" name="locationLng" id="resultLongitude1" value="10">
-									<div class="main-submit">
-										<button type="submit" class="btn btn-default btn-sm">등록</button>
-										<button type="reset" class="btn btn-default btn-sm"
-										data-dismiss="modal">취소</button>
-									</div>
-								</form>
-							</div>
-
-							<!-- ADD -->
-
-							<div class="tab-pane" id="addSchedule">
-								<form name="generalForm"
-									action="/controller/board/insertAddScheduleBoard"
-									method="post"
-									enctype="multipart/form-data"
-									onkeydown="return captureReturnKey(event)">
-
-									<hr>
-									<select class="form-control" id="scheduleList">
-										
-									</select>
-									<hr>
-									<input type="hidden" name="scheduleNo" id="chooseScheduleNo">
-									<div class="form-inline row">
-										<div class="col-sm-6">
-											<label for="fromDate2">출발일</label> <input type="text"
-												class="form-control" id="fromDate2" name="start_date"
-												style="width: 100%" disabled>
-										</div>
-										<div class="col-sm-6">
-											<label for="toDate2">종료일</label> <input type="text"
-												class="form-control main-datepicker" id="toDate2" name="end_date"
-												style="width: 100%" disabled>
-										</div>
-									</div>
-
-									<div class="form-inline row">
-										<div class="col-sm-8">
-											<label for="subject2">제목</label> <input type="text"
-												class="form-control main-datepicker" id="subject2" name="subject"
-												style="width: 100%" disabled>
-										</div>
-										<div class="col-sm-4">
-											<label for="datetimepicker2">스케줄</label> <input type='text'
-												class="form-control datetimepicker" id='datetimepicker2'
-												name="tripDate" style="width: 100%; background:white" />
-										</div>
-									</div>
-									<hr>
-
-									<div class="newBoardTitle">
-										<textarea name="content" class="form-control text-resize"
-											rows="4" id="title2" placeholder="내용"></textarea>
-									</div>
-									<hr>
-
-									<div class="newBoardSelect">
-										<div class="input-group-btn">
-											<button class="btn btn-default btn-sm newBoardUploadImg"
-												type="button">
-												<i><img
-													src='<c:url value="/images/icon/icon_upload.png"/>'
-													width="64px" height="64px"></i>
-											</button>
-										</div>
-
-										<input type="file" class="newBoardMulti with-preview"
-											id="newAddTravelBoardMulti" name="file" style="display: none"
-											multiple />
-										<div class="newBoardMultiList" id="newAddTravelBoardMultiList"
-											name="newBoardMultiList"></div>
-										<button class="btn btn-default btn-sm newBoardMap"
-											type="button">
-											<i><img src='<c:url value="/images/icon/icon_map.png"/>'
-												width="64px" height="64px"></i>
-										</button>
-
-										<div class="btn-group groupMap" role="group"
-											style="display: none">
-											<button type="button" class="btn btn-default btn-sm"
-												onClick="createMap(2,0)">국내</button>
-											<button type="button" class="btn btn-default btn-sm"
-												onClick="createMap(2,1)">해외</button>
-										</div>
-
-									</div>
-
-									<div name="mapChoice" class="mapChoice" style="width: 95%"></div>
-									<input type="hidden" name="state" id="stateTravel" value="0">
-									<input type="hidden" name="keyword" id="resultKeyword2" value="10">
-									<input type="hidden" name="location" id="resultRegion2" value="10">
-									<input type="hidden" name="address" id="resultAddress2" value="10">
-									<input type="hidden" name="location_lat" id="resultLatitude2" value="10">
-									<input type="hidden" name="location_lng" id="resultLongitude2" value="10">
-									<div class="main-submit">
-										<button type="submit" class="btn btn-default btn-sm">등록</button>
-										<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">취소</button>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	
 	<!-- 게시판 사진 modal -->
 	<div class="modal fade" id="detailPicture" role="dialog" tabindex='-1'>
 		<div class="modal-dialog">
@@ -799,25 +491,6 @@ hr {
 			</div>
 		</div>
 	</div>
-	
-	<!-- 지도 modal -->
-	<div class="modal fade" id="maindetailMap" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				</div>
-				<div class="modal-body">
-					<div id="mapSearch"></div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">취소</button>
-				</div>
-			</div>
-		</div>
-	</div>	
-	
-	
 	
 	<script src='<c:url value="/resources/js/calendar/lib/jquery.min.js"/>'></script>
 	<script src='<c:url value="/resources/js/main/jquery.form.js"/>'></script>
@@ -893,6 +566,7 @@ hr {
 
 		
 		$(function() {
+			
 			// 시간.
 			$('.datetimepicker').datetimepicker({
 				sideBySide : true,
@@ -949,10 +623,6 @@ hr {
 			
 			$('.modal').on('hidden.bs.modal', function(){
 			    $(this).find('form')[0].reset();
-			});
-			
-			$('#maindetailMap').on('shown.bs.modal', function () {
-				map.relayout();
 			});
 			
 			//여행게시물 달력 기능
@@ -1042,8 +712,8 @@ hr {
 						}
 				    })	
 		    	}
-		    })
-		}); 
+		    });
+		})
 		
 		
 	</script>
@@ -1057,251 +727,85 @@ hr {
 
 	<script>
 	var map;
-	
+	searchMap();
 	//위도 경도를 통해 지도 찾는 기능
-	function searchMap(id, area, lat, lng){
-		
-		var mapDiv = document.createElement("div");
+	function searchMap(){
 		var container, options;
-		mapDiv.setAttribute("id", "map"+id);
-		mapDiv.setAttribute("class","map");
-		mapDiv.style.width="100%";
-		mapDiv.style.height="300px";
 		
-		alert(lat);
-		alert(lng);
-		var mapSearch = document.getElementById('mapSearch');
+		var allLocation = document.getElementsByName('region');
+		var allLat = document.getElementsByName('lat');
+		var allLng = document.getElementsByName('lng');
+		
+		var area = allLocation[0].value;
+		var basicLat = allLat[0].value;
+		var basicLng = allLng[0].value;
 		
 		if(area==0){
-			if(mapSearch.hasChildNodes){
-				mapSearch.innerHTML="";
-			}
-			mapSearch.appendChild(mapDiv);
-			
-			container = document.getElementById('map' + id);
+			container = document.getElementById('map');
 			options = {
-					center : new daum.maps.LatLng(lat+0.0015, lng-0.0035),
+					center : new daum.maps.LatLng(basicLat, basicLng),
 					level : 3
 			}
 			//지도 생성
 			map = new daum.maps.Map(container, options);
 			//마커 생성
-			var markers = [];
-			//마커 초기화
-	        for(var i=0; i<markers.length;i++){
-				markers[i].setMap(null);
-			}
-	        
-			markers=[];
-			var marker = new daum.maps.Marker({
-				map : map,
-				position : new daum.maps.LatLng(lat , lng)
-			});
-			//마커 입력
-			marker.setMap(map);
-			markers.push(marker);
-			
-        	
-		}else if(area==1){
-			
-		}
-		
-	}
-	
-	//지도 검색기능
-	function createMap(board, area){
-		var mapDiv = document.createElement("div");
-		var container, options;
-		mapDiv.setAttribute("id","map"+board);
-		mapDiv.style.width="100%";
-		mapDiv.style.height="300px";
-		var board = board;
-		var mapChoice = document.getElementsByName('mapChoice');
-		
-		if(area==0){	//국내
-			// 지도 검색창
-			var searchDiv = document.createElement("div");
-			var buttonText = document.createTextNode("검색하기");
-			var searchStr="";
-			searchStr += "<input type='text' id='keyword" + board + "' size='15'>";
-			searchStr += "<button type='button' id='search" + board + "' onclick=searchPlaces("+ board +")>검색하기";
-			searchDiv.id = "menu_wrap"+board;
-			searchDiv.setAttribute("class","menu_wrap");
-			searchDiv.innerHTML = searchStr;
-			if(mapChoice[board].hasChildNodes){
-				//mapChoice[board].removeChild(mapChoice[board].childNodes[0]);
-				mapChoice[board].innerHTML="";
-			}
-			mapChoice[board].appendChild(searchDiv);
-			mapChoice[board].appendChild(mapDiv);		
 			
 			
-			container = document.getElementById('map' + board );
-			options = {
-					center : new daum.maps.LatLng(33.450701, 126.570667),
-					level : 3
-			}
-			//지도 생성
-			map = new daum.maps.Map(container, options);
-			
-		}else if(area==1){
-			var searchStr = "";
-			searchStr += "<input id='pac-input"+ board +"' class='controls pac-input' type='text' placeholder='검색하기'>";
-			if(mapChoice[board].children.length > 0 ){
-				//검색 자동완성 div태그 초기화
-				var head = document.getElementsByTagName('head')[0];
-				head.firstChild.remove();
-				$('.pac-container').remove();
+			var markers=[];
+			var marker;
+			for(var i=0;i<allLat.length;i++){
+				var imageSrc = 'http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png'; // 마커 이미지 url, 스프라이트 이미지를 씁니다
+	        	var imageSize = new daum.maps.Size(36, 37);  // 마커 이미지의 크기
+	        	var imgOptions =  {
+	            	spriteSize : new daum.maps.Size(36, 691), // 스프라이트 이미지의 크기
+	            	spriteOrigin : new daum.maps.Point(0, (i*46)+10), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
+	            	offset: new daum.maps.Point(13, 37) // 마커 좌표에 일치시킬 이미지 내에서의 좌표
+	        	};
 				
-				//mapChoice[board].removeChild('map'+board);
-				mapChoice[board].firstChild.remove();
-			} 
-			
-			mapChoice[board].innerHTML = searchStr;
-			mapChoice[board].appendChild(mapDiv);
-			
-			container = document.getElementById('map' + board);
-			options = {
-					center: {lat: -33.86, lng: 151.209},
-					zoom : 13,
-					mapTypeControl: false
-			}
-			
-			map = new google.maps.Map(container, options);
-			
-			var input = (document.getElementById('pac-input' + board));
-			
-			//input을 받아와서 google place의 searchBox에 연결.
-			var searchBox = new google.maps.places.SearchBox(input);
-			//SearchBox를 맨위 좌측에 위치
-			map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-			
-			//맵에서 지역과 가까운곳으로...
-			map.addListener('bounds_changed', function(){
-				searchBox.setBounds(map.getBounds());
-			});
-			//마커 생성
-			var markers = [];
-			
-			// 서치박스에서 장소입력 후 엔터 이벤트
-			searchBox.addListener('places_changed',function(){
-				var places = searchBox.getPlaces();
-				//장소가 없으면 return
-				if(places.length == 0){
-					return;
-				}
-				//마커 초기화
-				markers.forEach(function(marker){
-					marker.setMap(null);
-				});
-				markers = [];
-				
-				var bounds = new google.maps.LatLngBounds();
-				places.forEach(function(place){
-					//마커 입력
-					markers.push(new google.maps.Marker({
-						map: map,
-						title : place.name,
-						position : place.geometry.location
-					}));
-					
-					//지도에 나타냄
-					if(place.geometry.viewport){
-						bounds.union(place.geometry.viewport);
-					}else{//bound된 좌표를 갖고와서 확장.
-						bounds.extend(place.geometry.location);
-					}
-					
-					//키워드, 주소, 위도, 경도 텍스트로
-					document.getElementById('resultKeyword'+ board).value = input.value;
-					document.getElementById("resultAddress" + board).value = place.formatted_address;
-					document.getElementById("resultLatitude" + board).value = place.geometry.location.lat();
-					document.getElementById("resultLongitude" + board).value = place.geometry.location.lng();
-					regionCheck(place.geometry.location.lat(), place.geometry.location.lng(), board);
-				});
-				//viewport를 설정
-				map.fitBounds(bounds);
-			});
-		}
-	}
-	function searchPlaces(board){
-		
-		//검색에서 키워드
-		var keyword = document.getElementById('keyword' + board);
-		//장소 갖고오기
-		var places = new daum.maps.services.Places();
-		//마커 생성
-		var markers = [];
-		
-		var callback = function(status, result) {
-		    if (status === daum.maps.services.Status.OK) {
-		        console.log(result.places[0].title);
-		        //마커 초기화
-		        for(var i=0; i<markers.length;i++){
-					markers[i].setMap(null);
-				}
-				markers=[];
-				var position = new daum.maps.LatLng(result.places[0].latitude , result.places[0].longitude);
-	        	var bounds = new daum.maps.LatLngBounds();
-	        	var marker = new daum.maps.Marker({
+				var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imgOptions);
+				marker = new daum.maps.Marker({
 					map : map,
-					position : position
+					position : new daum.maps.LatLng(allLat[i].value, allLng[i].value),
+					image : markerImage
 				});
 				//마커 입력
 				marker.setMap(map);
 				markers.push(marker);
+					
+			}
 			
-				//bounds의 범위에서 확장
-	       		bounds.extend(position);
-				
-	       		// 경도, 위도, 주소 폼에 입력
-	       		document.getElementById('resultKeyword' + board).value = keyword.value;
-	    		document.getElementById("resultAddress" + board).value = result.places[0].address;
-	    		document.getElementById("resultLatitude" + board).value = result.places[0].latitude;
-	    		document.getElementById("resultLongitude" + board).value = result.places[0].longitude;
-	    		regionCheck(result.places[0].latitude, result.places[0].longitude, board);
-	        	// 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
-	        	map.setBounds(bounds);
-		    }
-		};
-
-		places.keywordSearch(keyword.value, callback);
-	}
-	
-	function validateForm(board) {
-		
-		var resultTextArea = document.getElementById('title'+ board ).value;
-		var resultKeyword = document.getElementById('resultKeyword'+ board).value;
-		var resultRegion = document.getElementById('resultRegion'+ board).value;
-		var resultAddress = document.getElementById('resultAddress'+ board).value;
-		var resultLatitude = document.getElementById('resultLatitude'+ board).value;
-		var resultLongitude = document.getElementById('resultLongitude'+ board).value;
-		if(board != 0){
-			var resultSubject = document.getElementById('subject'+board ).value;
-			var resultFromDate = document.getElementById('fromDate' + board ).value;
-			var resultToDate = document.getElementById('toDate' + board ).value;
-			var resultDateTime = document.getElementById('datetimepicker' + board).value;
+        	
+		}else if(area==1){
+			container = document.getElementById('map');
+			var center = new google.maps.LatLng(basicLat,basicLng);
 			
-			alert("제목 : " + resultSubject + " \n출발일 : " + resultFromDate + " \n도착일 " + resultToDate + " \n계획 " + resultDateTime);
+			var labels = '123456789';
+			var labelIndex = 0;
+			options = {
+					center: center,
+					zoom : 16,
+					mapTypeControl: false
+			}
+			map = new google.maps.Map(container, options);
+			
+			//마커 생성
+			var markers = [];
+			
+			var marker;
+			
+			for(var i=0;i<allLat.length;i++){
+				marker = new google.maps.Marker({
+				    position: new google.maps.LatLng(allLat[i].value,allLng[i].value),
+				    map: map,
+				    label: labels[labelIndex++ % labels.length]
+				  });
+				//마커 입력
+				markers.push(marker);
+			}
 		}
 		
-		alert("코멘트 : " + resultTextArea + "\n키워드 : " + resultKeyword + "\n국내해외 : "+ resultRegion + "\n주소 : " + resultAddress + "\n위도 : " + resultLatitude + "\n경도 : " + resultLongitude);
-		
 	}
 	
-	function kindBoard(){
-		var board = $(".travel.active")[0].id;
-		
-		validateForm(board);
-	}
-	
-	function regionCheck(latitude, longitude, board){
-		if((latitude <= 43 && latitude>=33.06) && (longitude <=131.52 && longitude >= 124.11)){
-			document.getElementById('resultRegion' + board).value = 0;
-		}else{
-			document.getElementById('resultRegion' + board).value = 1;
-		}
-	}
 	/* 리플 슬라이드 효과 */
 	
 	$(".replysCount").mousedown(function() {
