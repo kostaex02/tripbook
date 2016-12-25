@@ -53,7 +53,7 @@ public class FriendController {
 		HttpSession session = request.getSession();
 		String userId = (String) session.getAttribute("userId");
 		String state =  friendService.selectFriend(userId, friendId);
-		ModelAndView mv = new ModelAndView("friends/friendMain");
+		ModelAndView mv = new ModelAndView("friends/friendBiography");
 		UserDTO friend = userService.selectProfile(friendId);
 		mv.addObject("friendUserId", friend.getId());
 		mv.addObject("friendUserName", friend.getName());
