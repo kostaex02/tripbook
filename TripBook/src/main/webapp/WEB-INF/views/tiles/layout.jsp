@@ -118,16 +118,23 @@
 	    <input id="slideMenuButton" type="checkbox" role="button" checked/>
 	    <label id='slideLabel' for="slideMenuButton"><span id='toggleSpan'><img src="<c:url value="/images/toggle.png"/>"></span><span class="badge badgeToggle"></span></label>
 	    <div class="slideSideCover">
-	    	<div><a href='<c:url value="/main/main"/>'>Home</a></div>
+	    	<div><a href='<c:url value="/main/home"/>'>Home</a></div>
 			<div><a href='<c:url value="/mypage/list"/>'>My Page</a><span class="badge slideBadge"></span></div>
 			<div><a href='<c:url value="/calendar/list"/>'>Schedule</a></div>
-			<div><a href='<c:url value="/biography/biography"/>'>Trip Biography</a></div>
+			<div><a href='<c:url value="/biography/list"/>'>Trip Biography</a></div>
 			<div><a href='<c:url value="/friends/list"/>'><div id='slideFriend'></div>Friends</a></div>
 			<div id='slideGroup'><a href='#'><div id='slideGroupList'>Group</div></a>
 				<div class='slideGroupMenu'>
 					<div><a class="sideAddGroupButton" data-toggle="modal" data-target="#groupCreateModal">+ 그룹 추가</a></div>
-					<div>학교친구</div>
-					<div>직장동료</div>
+					<c:choose>
+						<c:when test="${groupList ne null}">
+							<c:forEach items="${groupList }" var="item">
+								<a href='<c:url value="/group/list?groupNo=${item.groupNo}"/>'>
+									<dd id="${item.groupNo }">${item.groupName }</dd>
+								</a>
+							</c:forEach>
+						</c:when>
+					</c:choose>
 				</div>
 			</div>
 	    </div>
