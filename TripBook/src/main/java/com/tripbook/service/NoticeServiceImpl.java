@@ -34,7 +34,12 @@ public class NoticeServiceImpl implements NoticeService {
 
 	@Override
 	public int countNotice(String userId) {
-		return noticeDAO.selectNoticeByReceiver(userId).size();
+		return noticeDAO.selectNotReadNoticeByReceiver(userId).size();
+	}
+
+	@Override
+	public int readNotice(int noticeNo) {
+		return noticeDAO.readNotice(noticeNo);
 	}
 
 }

@@ -39,4 +39,14 @@ public interface NoticeDAO {
 	 * 개별 공지사항 알림 출력
 	 */
 	List<NoticeDTO> selectMessageByAdmin();
+	
+	/**
+	 * 알림 읽음 처리
+	 */
+	int readNotice(int noticeNo);
+	
+	/**
+	 * 읽지 않은 알림 출력
+	 */
+	List<NoticeDTO> selectNotReadNoticeByReceiver(String userId);
 }

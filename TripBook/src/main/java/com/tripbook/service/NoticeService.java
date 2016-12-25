@@ -29,4 +29,9 @@ public interface NoticeService {
 	 * 새로온 공지 알림
 	 */
 	int countNotice(String userId);
+	
+	/**
+	 * 알림 읽음 처리
+	 */
+	int readNotice(int noticeNo);
 }

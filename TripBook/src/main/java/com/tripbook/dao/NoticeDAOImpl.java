@@ -47,4 +47,14 @@ public class NoticeDAOImpl implements NoticeDAO {
 		return session.selectList("noticeMapper.selectMessageByAdmin");
 	}
 
+	@Override
+	public int readNotice(int noticeNo) {
+		return session.update("noticeMapper.readNotice", noticeNo);
+	}
+
+	@Override
+	public List<NoticeDTO> selectNotReadNoticeByReceiver(String userId) {
+		return session.selectList("noticeMapper.selectNotReadNoticeByReceiver", userId);
+	}
+
 }
