@@ -26,15 +26,14 @@
 }
 
 .notice {
-	display: table-cell;
-	width: 50px;
+	width: 100%;
 }
 
 .adminMessage {
-	display: table-cell;
+	display: none;
 	vertical-align: middle;
-	text-align: center;
-	width: 70%;
+	margin-left:20px;
+	width: 100%;
 }
 textarea{
 	width:100%;
@@ -92,6 +91,12 @@ textarea{
 		$('.cancelBtn').click(function(){
 			$('textarea').val('');
 		});
+		
+		$(".notice").click(function() {
+			$('.adminMessage').slideUp(500);
+			$(this).next().slideToggle(500);
+		});
+		
 	</script>
 </body>
 </html>

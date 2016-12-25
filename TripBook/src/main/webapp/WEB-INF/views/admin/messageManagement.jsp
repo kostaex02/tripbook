@@ -18,21 +18,19 @@
 
 .adminNoticeLogList {
 	width: 100%;
-	display: inline-table;
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 	border-radius: 10px;
 }
 
 .notice {
-	display: table-cell;
-	width: 50px;
+	width: 100%;
 }
 
 .adminMessage {
-	display: table-cell;
+	display:none;
 	vertical-align: middle;
-	text-align: center;
-	width: 70%;
+	margin-left:20px;
+	width: 100%;
 }
 textarea{
 	width:100%;
@@ -74,6 +72,7 @@ textarea{
 					<div class="notice">
 						${item.name }님이 ${item.receiver}에게 보낸 메세지입니다.
 					</div>
+					
 					<div class="adminMessage">${item.content }</div>
 				</li>	
 			</c:forEach>
@@ -139,6 +138,12 @@ textarea{
 			$(".adminGroupMember").css("background-color", "#ffffff");
 
 		})
+		
+		$(".notice").click(function() {
+			$('.adminMessage').slideUp(500);
+			$(this).next().slideToggle(500);
+		});
+		
 	</script>
 </body>
 </html>
