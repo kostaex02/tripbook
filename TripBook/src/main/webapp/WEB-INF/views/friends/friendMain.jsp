@@ -23,7 +23,6 @@
 <link rel="stylesheet" type="text/css"
 	href="<c:url value="/resources/css/bootstrap/bootstrap-datetimepicker.css"/>" />
 <style>
-<style>
 .mainNewBoard {
 	border: 1px solid black;
 	text-align: center;
@@ -384,6 +383,10 @@ hr {
 	max-width: none;
 	height: auto;
 	border: 0
+}
+
+#sideGroup{
+	display: none !important;
 }
 </style>
 </head>

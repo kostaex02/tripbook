@@ -13,7 +13,7 @@
 <style type="text/css">
 
 #mypageNotice {
-	border: 1px solid black;
+	border: 3px solid black;
 	border-radius:10px;
 	overflow: scroll;
 	height:30%;

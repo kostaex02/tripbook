@@ -54,7 +54,7 @@
 							</c:forEach>
 						</select>
 						<button id="calenderSubmit" type="button" class="btn btn-default btn-sm">등록</button>
-						<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">취소</button>
+						<button type="button" class="btn btn-default btn-sm scheduleCancel" data-dismiss="modal">취소</button>
 					</div>
 				</form>
 			</div>
@@ -62,6 +62,11 @@
 	</div>
 	
 	<script>
+		$('.scheduleCancel').click(function(){
+			$('textarea').val('');
+		})
+	
+	
 		$(function(){
 			//여행게시물 달력 기능
 			

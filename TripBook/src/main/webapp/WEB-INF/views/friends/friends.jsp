@@ -82,7 +82,7 @@ textarea {
 	border-radius: 5px;
 }
 
-</style>'
+</style>
 <script type="text/javascript">
 $(function(){
 	$('.friendsProfile').on('click', ".friendPictureImg", function(){
@@ -90,6 +90,7 @@ $(function(){
 		location.href="/controller/friends/main?friendId="+str;
 	});
 })
+
 </script>
 </head>
 <body>
