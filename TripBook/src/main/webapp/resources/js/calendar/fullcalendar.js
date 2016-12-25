@@ -21,7 +21,8 @@
 			droppable: true, // this allows things to be dropped onto the calendar
 			eventLimit: true, // allow "more" link when too many events\
 			eventClick: function(event, jsEvent, view) {               //작성된 이벤트 클릭시 일정내용 팝업으로 노출
-				 		location.href="/controller/biography/detail?scheduleNo="+event.id;
+				sessionStorage.setItem("pageName", "scheduleDetail"); 		
+				location.href="/controller/biography/detail?scheduleNo="+event.id;
 				   },
 			/*events: [
 				{

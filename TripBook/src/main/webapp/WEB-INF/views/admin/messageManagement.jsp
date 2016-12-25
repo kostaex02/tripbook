@@ -58,7 +58,6 @@ textarea{
 	height: 60px;
 }
 .adminGroupMember>input {
-	display: none;
 	height: 60px;
 }
 
@@ -73,7 +72,7 @@ textarea{
 			<c:forEach items="${noticeList }" var="item">
 				<li class="adminNoticeLogList" id="${item.noticeNo }">
 					<div class="notice">
-						${item.name }님이 ${item.receiver}에게 보낸 공지사항입니다.
+						${item.name }님이 ${item.receiver}에게 보낸 메세지입니다.
 					</div>
 					<div class="adminMessage">${item.content }</div>
 				</li>	
@@ -81,12 +80,12 @@ textarea{
 		</ul>
 	</div>
 	
-	<!-- 공지사항 작성 Modal -->
+	<!-- 메세지 작성 Modal -->
 	<div class="modal fade" id="addNotice" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					공지사항
+					메세지 작성
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 				</div>
 				<form action='/controller/admin/sendMessage' method="post">
@@ -99,7 +98,7 @@ textarea{
 										<div class="adminAddListDiv">
 										<img class="adminAddListImg"
 										src='<c:url value="/tripbook/user/${item.id }/${item.fileName }"/>'>${item.name }</div>
-										<input type="checkbox" name="users" value="${item.id }" />
+										<input type="checkbox" class='userCheck' name="users" value="${item.id }" />
 									</div>
 								</c:forEach>
 							</div>
@@ -107,7 +106,7 @@ textarea{
 					</div>
 					<div class="modal-footer">
 						<button type="submit" class="btn btn-default" id="submit">등록</button>
-						<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+						<button type="button" class="btn btn-default messageCancel" data-dismiss="modal">취소</button>
 					</div>
 				</form>
 			</div>
@@ -133,6 +132,12 @@ textarea{
 					$(this).css("background-color", "#ffffff");
 				}
 			});
+		})
+		$('.messageCancel').click(function(){
+			$('textArea').val('');
+			$(".userCheck").prop('checked', false) ;
+			$(".adminGroupMember").css("background-color", "#ffffff");
+
 		})
 	</script>
 </body>

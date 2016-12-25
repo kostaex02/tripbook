@@ -72,11 +72,11 @@ textarea{
 				</div>
 				<form action='/controller/admin/sendNotice' method="post">
 					<div class="modal-body">
-						<textarea placeholder="공지사항을 입력하세요" name="content"></textarea>
+						<textarea class='noticeContent' placeholder="공지사항을 입력하세요" name="content"></textarea>
 					</div>
 					<div class="modal-footer">
 						<button type="submit" class="btn btn-default" id="submit">등록</button>
-						<button type="reset" class="btn btn-default" data-dismiss="modal">취소</button>
+						<button type="reset" class="btn btn-default cancelBtn" data-dismiss="modal">취소</button>
 					</div>
 				</form>
 			</div>
@@ -89,6 +89,9 @@ textarea{
 	<script src='<c:url value="/resources/js/main/stroll.min.js"/>'></script>
 	<script>
 		stroll.bind('ul');
+		$('.cancelBtn').click(function(){
+			$('textarea').val('');
+		});
 	</script>
 </body>
 </html>
