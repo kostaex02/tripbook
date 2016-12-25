@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.tripbook.dto.BoardDTO;
+import com.tripbook.dto.GradeDTO;
 
 public interface BoardDAO {
 	/**
@@ -45,4 +46,19 @@ public interface BoardDAO {
 	 * 친구 사이의 게시물 출력
 	 */
 	List<BoardDTO> selectFriendBoardList(Map<String, Object> map);
+	
+	/**
+	 * 좋아요 검색
+	 */
+	GradeDTO selectGrade(GradeDTO gradeDTO);
+
+	/**
+	 * 좋아요 입력
+	 */
+	int insertGrade(GradeDTO gradeDTO);
+	
+	/**
+	 * 좋아요 삭제
+	 */
+	int deleteGrade(GradeDTO gradeDTO);
 }

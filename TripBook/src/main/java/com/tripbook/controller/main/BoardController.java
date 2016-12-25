@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.tripbook.dto.BoardDTO;
@@ -80,7 +81,6 @@ public class BoardController {
 		}
 		scheduleDTO.setWriter(userId);
 		int boardNo = boardService.insertEditScheduleBoard(boardDTO,scheduleDTO,keyword,address);
-		System.out.println(boardNo);
 		if(boardNo>0){
 			String saveDir = request.getSession().getServletContext().getRealPath("/tripbook/board/"+boardNo+"/");
 			File folder = new File(saveDir);
@@ -149,5 +149,11 @@ public class BoardController {
 			}
 		}
 		return "redirect:/main/home";
+	}
+	
+	@RequestMapping("changeLike")
+	@ResponseBody
+	public int changeLike(HttpServletRequest request,int boardNo){
+		return boardService.changeLike((String)request.getSession().getAttribute("userId"),boardNo);
 	}
 }

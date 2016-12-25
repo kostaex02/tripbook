@@ -10,13 +10,12 @@ import org.springframework.stereotype.Service;
 
 import com.tripbook.dao.BoardDAO;
 import com.tripbook.dao.FriendDAO;
-import com.tripbook.dao.GroupDAO;
 import com.tripbook.dao.GroupMemberDAO;
 import com.tripbook.dao.KeywordDAO;
 import com.tripbook.dao.ScheduleDAO;
 import com.tripbook.dto.BoardDTO;
 import com.tripbook.dto.FriendDTO;
-import com.tripbook.dto.GroupDTO;
+import com.tripbook.dto.GradeDTO;
 import com.tripbook.dto.KeywordDTO;
 import com.tripbook.dto.ScheduleDTO;
 
@@ -26,8 +25,6 @@ public class BoardServiceImpl implements BoardService{
 	private BoardDAO boardDAO;
 	@Autowired
 	private FriendDAO friendDAO;
-	@Autowired
-	private GroupDAO groupDAO;
 	@Autowired
 	private GroupMemberDAO groupMemberDAO;
 	@Autowired
@@ -143,6 +140,18 @@ public class BoardServiceImpl implements BoardService{
 			return boardDAO.selectFriendBoardList(map);
 		}else{
 			return boardDAO.selectNotFriendBoardList(map);
+		}
+	}
+
+	@Override
+	public int changeLike(String userId, int boardNo) {
+		GradeDTO grade = boardDAO.selectGrade(new GradeDTO(userId, boardNo));
+		if(grade!=null){
+			boardDAO.deleteGrade(new GradeDTO(userId, boardNo));
+			return 0;
+		}else{
+			boardDAO.insertGrade(new GradeDTO(userId, boardNo));
+			return 1;
 		}
 	}
 }

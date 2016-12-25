@@ -176,4 +176,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</if>
 		order by b.write_date desc,r.writer_date desc
  	</select>
+ 	
+ 	<select id="selectGrade" parameterType="gradeDTO" resultMap="selectGradeMap">
+ 		select grade from grade_table where id=#{id} and board_no=#{boardNo}
+ 	</select>
+ 	
+ 	<insert id="insertGrade" parameterType="gradeDTO">
+ 		insert into grade_table(grade_no,grade,id,board_no) values(grade_sequence.nextval,#{grade},#{id},#{boardNo})
+ 	</insert>
+ 	
+ 	<delete id="deleteGrade" parameterType="gradeDTO">
+ 		delete from grade_table where id=#{id} and board_no=#{boardNo}
+ 	</delete>
 </mapper>

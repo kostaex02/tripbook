@@ -577,6 +577,7 @@ dl {
 				case "adminSideUser" : $('#adminSideUser').css('border-right', '5px solid #69F0AE');break;
 			}
 			
+			newMessage();
 			setInterval("newMessage()", 1000);
 		});
 		
@@ -590,7 +591,7 @@ dl {
 					$('.badge').append(data);
 				},
 				error : function() {
-					alert('error');
+					console.log('메세지 개수 에러');
 				}
 		    });
 		}

@@ -5,6 +5,15 @@ public class GradeDTO {
 	private int grade;
 	private String id;
 	private int boardNo;
+	public GradeDTO() {
+		super();
+	}
+	public GradeDTO(String id, int boardNo) {
+		super();
+		this.grade=1;
+		this.id = id;
+		this.boardNo = boardNo;
+	}
 	public int getGradeNo() {
 		return gradeNo;
 	}
@@ -28,5 +37,9 @@ public class GradeDTO {
 	}
 	public void setBoardNo(int boardNo) {
 		this.boardNo = boardNo;
+	}
+	@Override
+	public String toString() {
+		return "GradeDTO [gradeNo=" + gradeNo + ", grade=" + grade + ", id=" + id + ", boardNo=" + boardNo + "]";
 	}
 }

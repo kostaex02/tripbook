@@ -35,4 +35,9 @@ public interface BoardService {
 	 * 다른 유저 보드 출력
 	 */
 	List<BoardDTO> selectFriendBoard(String userId,String friendId, String state);
+	
+	/**
+	 * 게시글 좋아요 개수 변경
+	 */
+	int changeLike(String userId, int boardNo);
 }

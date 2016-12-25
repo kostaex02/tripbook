@@ -456,8 +456,8 @@ hr {
 										</c:if>
 									<hr>
 									<div class="boardFooter">
-										<div class="heart" id="like" rel="like"></div>
-										<div class="likeCount" id="likeCount">${item.likeCount }</div>
+										<div class="heart" id="like${item.boardNo }" rel="like"></div>
+										<div class="likeCount" id="likeCount${item.boardNo }">${item.likeCount }</div>
 										<div class='replysCount'>댓글 ${item.replys.size() }개</div>
 										<div class="replyArea">
 											<input type="hidden" name='id' value="${item.boardNo }">
@@ -885,14 +885,30 @@ hr {
 	        var C=parseInt($("#likeCount"+messageID).html());
 	    	$(this).css("background-position","")
 	        var D=$(this).attr("rel");
-	       
-	        if(D === 'like'){
-		        $("#likeCount"+messageID).html(C+1);
-		        $(this).addClass("heartAnimation").attr("rel","unlike");
-	        }else{
-		        $("#likeCount"+messageID).html(C-1);
-		        $(this).removeClass("heartAnimation").attr("rel","like");
-	        }
+	    	var main = $(this);
+	    	$.ajax({
+		    	url : "/controller/board/changeLike",
+				type : "post",
+				data : "boardNo="+messageID,
+				dataType : "text",
+				success : function(data) {
+					if(data==0){
+					    $("#likeCount"+messageID).html(C-1);
+					}else{
+					    $("#likeCount"+messageID).html(C+1);
+					}
+					if(D === 'like'){//증가
+						if(data!=0){
+							main.addClass("heartAnimation").attr("rel","unlike");	
+						}
+			        }else{//감소
+				        main.removeClass("heartAnimation").attr("rel","like");
+			        }	
+				},
+				error : function() {
+					console.log('좋아요 입력 오류');
+				}
+		  	})	
 	    });
 		
 		 
@@ -1102,7 +1118,7 @@ hr {
 							area.append(str);
 						},
 						error : function() {
-							alert('error');
+							console.log('댓글 입력 오류');
 						}
 				    })	
 		    	}
@@ -1420,7 +1436,7 @@ hr {
 				$(".carousel-inner").append(pictureStr);
 			},
 			error : function() {
-				alert('error');
+				console.log('게시물 사진 오류')
 			}
 	    });
 		

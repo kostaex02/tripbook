@@ -12,7 +12,6 @@ import com.tripbook.dao.FriendDAO;
 import com.tripbook.dao.GroupMemberDAO;
 import com.tripbook.dao.ScheduleDAO;
 import com.tripbook.dto.FriendDTO;
-import com.tripbook.dto.GroupDTO;
 import com.tripbook.dto.ScheduleDTO;
 
 @Service

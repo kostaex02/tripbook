@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.tripbook.dto.BoardDTO;
+import com.tripbook.dto.GradeDTO;
 
 @Repository
 public class BoardDAOImpl implements BoardDAO {
@@ -53,6 +54,21 @@ public class BoardDAOImpl implements BoardDAO {
 	@Override
 	public List<BoardDTO> selectFriendBoardList(Map<String, Object> map) {
 		return session.selectList("boardMapper.selectFriendBoard",map);
+	}
+
+	@Override
+	public GradeDTO selectGrade(GradeDTO gradeDTO) {
+		return session.selectOne("boardMapper.selectGrade", gradeDTO);
+	}
+
+	@Override
+	public int insertGrade(GradeDTO gradeDTO) {
+		return session.insert("boardMapper.insertGrade", gradeDTO);
+	}
+
+	@Override
+	public int deleteGrade(GradeDTO gradeDTO) {
+		return session.delete("boardMapper.deleteGrade", gradeDTO);
 	}
 
 }
