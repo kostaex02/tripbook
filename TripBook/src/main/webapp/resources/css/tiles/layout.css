@@ -118,7 +118,7 @@ li{
 	}
 }
 
-@media screen and (min-width:1000px) {
+@media screen and (min-width:1000px) and (max-width:1500px){
 	body{
 		overflow-y: hidden !important;
    		overflow-x: hidden !important;
@@ -131,9 +131,7 @@ li{
 	.slideMenu{
 		display:none;
 	}
-	ul{
-		height:800px !important;
-	}
+	
 	
 	#header{
 		width:70%;
@@ -149,3 +147,8 @@ li{
 	}
 }
 
+@media screen and (min-width:1501px) {
+	ul, .mainAllBoard{
+		height:850px !important;
+	}
+}
