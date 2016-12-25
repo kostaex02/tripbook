@@ -741,7 +741,6 @@ hr {
 		var basicLng = allLng[0].value;
 		
 		if(area==0){
-			
 			container = document.getElementById('map');
 			options = {
 					center : new daum.maps.LatLng(basicLat, basicLng),
@@ -751,12 +750,23 @@ hr {
 			map = new daum.maps.Map(container, options);
 			//마커 생성
 			
+			
 			var markers=[];
 			var marker;
 			for(var i=0;i<allLat.length;i++){
+				var imageSrc = 'http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png'; // 마커 이미지 url, 스프라이트 이미지를 씁니다
+	        	var imageSize = new daum.maps.Size(36, 37);  // 마커 이미지의 크기
+	        	var imgOptions =  {
+	            	spriteSize : new daum.maps.Size(36, 691), // 스프라이트 이미지의 크기
+	            	spriteOrigin : new daum.maps.Point(0, (i*46)+10), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
+	            	offset: new daum.maps.Point(13, 37) // 마커 좌표에 일치시킬 이미지 내에서의 좌표
+	        	};
+				
+				var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imgOptions);
 				marker = new daum.maps.Marker({
 					map : map,
-					position : new daum.maps.LatLng(allLat[i].value, allLng[i].value)
+					position : new daum.maps.LatLng(allLat[i].value, allLng[i].value),
+					image : markerImage
 				});
 				//마커 입력
 				marker.setMap(map);
@@ -767,9 +777,10 @@ hr {
         	
 		}else if(area==1){
 			container = document.getElementById('map');
-			alert(basicLat);
-			alert(basicLng);
 			var center = new google.maps.LatLng(basicLat,basicLng);
+			
+			var labels = '123456789';
+			var labelIndex = 0;
 			options = {
 					center: center,
 					zoom : 16,
@@ -785,7 +796,8 @@ hr {
 			for(var i=0;i<allLat.length;i++){
 				marker = new google.maps.Marker({
 				    position: new google.maps.LatLng(allLat[i].value,allLng[i].value),
-				    map: map
+				    map: map,
+				    label: labels[labelIndex++ % labels.length]
 				  });
 				//마커 입력
 				markers.push(marker);
