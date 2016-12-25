@@ -105,7 +105,7 @@
 							<div class="mypageMessage">${otherNoticeItem.name} 관리자의 메세지</div>
 							<div class=''>
 								<div id='${otherNoticeItem.noticeNo}' class="mypageButton">
-									<input class="btn btn-primary noticeItem" type="button" value="확인하러 가자">
+									<input class="btn btn-primary noticeItem" type="button" value="확인">
 								</div>
 								<div class="mypageMessageContent">${otherNoticeItem.content}</div>
 							</div>
