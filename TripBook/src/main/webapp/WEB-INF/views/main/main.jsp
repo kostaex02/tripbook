@@ -324,6 +324,7 @@ hr {
 	margin-top:10px;
 }
 .replyArea{
+	width:100%;
 	display: none;
 }
 .replyText{
@@ -341,6 +342,7 @@ hr {
 
 .replyItem {
 	margin-left: 48px;
+	margin-bottom:5px;
 	clear: both;
 }
 
