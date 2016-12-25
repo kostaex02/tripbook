@@ -342,6 +342,7 @@ hr {
 
 .replyItem {
 	margin-left: 48px;
+	margin-top:5px;
 	margin-bottom:5px;
 	clear: both;
 }
@@ -500,7 +501,7 @@ hr {
 					<div class="modal-header">
 						<div class="newBoardPicture">
 							<img class="newBoardPictureImg"
-								src='<c:url value="/images/img.jpg"/>'>
+								src='<c:url value="/tripbook/user/${userId}/${userFileName}"/>'>
 						</div>
 						<div class="userName">${userName}</div>
 
@@ -584,7 +585,7 @@ hr {
 				<div class="modal-header">
 					<div class="newBoardPicture">
 						<img class="newBoardPictureImg"
-							src='<c:url value="/images/img.jpg"/>'>
+							src='<c:url value="/tripbook/user/${userId}/${userFileName}"/>'>
 					</div>
 					<div class="userName">${userName}</div>
 					<div>

@@ -301,6 +301,10 @@ dd:hover{
 	border-right: 3px threedhighlight red;
 }
 
+.friendsImage{
+	margin-left: 20px;
+}
+
 #adminSideUser {
 	background-color: #546E7A;
 	width: 100%;
@@ -471,17 +475,9 @@ dl {
 									<input type="hidden" class="friendsUserId" value="">
 									<!-- input value에 아이디 저장-->
 									<div class='friendsUserName'>${friendUserName }</div>
-									<a href='<c:url value="/friends/main?friendId=${friendUserId }"/>'>게시물</a><br> <a href='<c:url value="/friends/biography?friendId=${friendUserId }"/>'>일대기</a>
+									<a href='<c:url value="/friends/main?friendId=${friendUserId }"/>'>게시물</a><br> <a href='<c:url value="/friends/biography?friendId=${friendUserId }"/>'>발자취</a>
 									<br>
-							<!-- 친구 상태값에 따른 버튼 변경 -->
-								<c:choose>
-									<c:when test="${friendState == 1}">
-										<input class="btn btn-primary" type='button' value='메세지'>
-									</c:when>
-									<c:otherwise>
-										<input class="btn btn-primary" type='button' value='친구신청'>
-									</c:otherwise>
-								</c:choose>
+							
 								</div>
 							</a>
 							
