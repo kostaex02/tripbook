@@ -92,7 +92,7 @@
 				</div>	
 			</div>
 			<div class="input-group">
-				<input id="picture" type="text" class="form-control" value="${user.fileName}" disabled>
+				<input id="picture" type="text" class="form-control" value="${user.fileName}" name="fileName" disabled>
 				<span class="input-group-addon">
 					<button class="btn btn-default" type="button" id="buttonLoadPicture">
 						<img src='<c:url value="/images/icon/icon_picture20.png"/>'>
