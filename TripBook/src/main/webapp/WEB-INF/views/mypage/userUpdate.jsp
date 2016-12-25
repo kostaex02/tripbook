@@ -34,6 +34,9 @@
 .modal-body div{
 	margin-bottom: 10px;
 }
+.modal-footer{
+	margin-top:-20px;
+}
 </style>
 <body>
 <div class="modal-header">
