@@ -82,7 +82,15 @@ textarea {
 	border-radius: 5px;
 }
 
-</style>
+</style>'
+<script type="text/javascript">
+$(function(){
+	$('.friendsProfile').on('click', ".friendPictureImg", function(){
+		var str= $(this).parent().siblings("input").attr('id');
+		location.href="/controller/friends/main?friendId="+str;
+	});
+})
+</script>
 </head>
 <body>
 	<div class="friendsList">
@@ -93,6 +101,7 @@ textarea {
 						<img class="friendPictureImg"
 							src='<c:url value="/tripbook/user/${item.id }/${item.fileName}"/>'>
 					</div>
+					<input type="hidden" value="${item.id}" id="${item.id}">
 					<div class="friendsNameId">${item.name}</div>
 					<div class="friendsButton">
 						<input type="button" class='btn btn-primary friendSendMessageButton' data-toggle="modal"
