@@ -35,4 +35,14 @@ public interface BoardDAO {
 	 * 전체 게시물 출력
 	 */
 	List<BoardDTO> selectBoardByAdmin();
+	
+	/**
+	 * 서로 모르는 사람일 경우의 게시물 촐력
+	 */
+	List<BoardDTO> selectNotFriendBoardList(Map<String, Object> map);
+	
+	/**
+	 * 친구 사이의 게시물 출력
+	 */
+	List<BoardDTO> selectFriendBoardList(Map<String, Object> map);
 }

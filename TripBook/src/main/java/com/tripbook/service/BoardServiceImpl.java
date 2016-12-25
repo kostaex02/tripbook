@@ -10,11 +10,13 @@ import org.springframework.stereotype.Service;
 
 import com.tripbook.dao.BoardDAO;
 import com.tripbook.dao.FriendDAO;
+import com.tripbook.dao.GroupDAO;
 import com.tripbook.dao.GroupMemberDAO;
 import com.tripbook.dao.KeywordDAO;
 import com.tripbook.dao.ScheduleDAO;
 import com.tripbook.dto.BoardDTO;
 import com.tripbook.dto.FriendDTO;
+import com.tripbook.dto.GroupDTO;
 import com.tripbook.dto.KeywordDTO;
 import com.tripbook.dto.ScheduleDTO;
 
@@ -24,6 +26,8 @@ public class BoardServiceImpl implements BoardService{
 	private BoardDAO boardDAO;
 	@Autowired
 	private FriendDAO friendDAO;
+	@Autowired
+	private GroupDAO groupDAO;
 	@Autowired
 	private GroupMemberDAO groupMemberDAO;
 	@Autowired
@@ -120,6 +124,25 @@ public class BoardServiceImpl implements BoardService{
 		return boardDAO.selectBoardByAdmin();
 	}
 
-
-
+	@Override
+	public List<BoardDTO> selectFriendBoard(String userId, String friendId, String state) {
+		List<Integer> list = groupMemberDAO.selectGroupMember(userId);
+		List<Integer> friendList = groupMemberDAO.selectGroupMember(friendId);
+		List<Integer> friendGroupList = new ArrayList<>();
+		for(int userGroupNo:list){
+			for(int friendGroupNo:friendList){
+				if(userGroupNo==friendGroupNo){
+					friendGroupList.add(friendGroupNo);
+				}
+			}
+		}
+		Map<String, Object> map = new HashMap<>();
+		map.put("friendId", friendId);
+		map.put("groupList", friendGroupList);
+		if(state!=null&&state.equals("1")){
+			return boardDAO.selectFriendBoardList(map);
+		}else{
+			return boardDAO.selectNotFriendBoardList(map);
+		}
+	}
 }

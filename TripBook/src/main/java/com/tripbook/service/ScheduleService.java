@@ -34,4 +34,9 @@ public interface ScheduleService {
 	 * 일대기 자신 리스트 출력
 	 */
 	List<ScheduleDTO> selectBiography(String userId);
+	
+	/**
+	 * 일대기 친구 리스트 출력
+	 */
+	List<ScheduleDTO> selectFriendBiography(String userId, String friendId, String state);
 }

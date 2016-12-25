@@ -45,4 +45,14 @@ public class BoardDAOImpl implements BoardDAO {
 		return session.selectList("boardMapper.selectBoardByAdmin");
 	}
 
+	@Override
+	public List<BoardDTO> selectNotFriendBoardList(Map<String,Object> map) {
+		return session.selectList("boardMapper.selectNotFriendBoard",map);
+	}
+
+	@Override
+	public List<BoardDTO> selectFriendBoardList(Map<String, Object> map) {
+		return session.selectList("boardMapper.selectFriendBoard",map);
+	}
+
 }

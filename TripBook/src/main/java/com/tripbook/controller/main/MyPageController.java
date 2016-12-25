@@ -80,7 +80,7 @@ public class MyPageController {
 		UserDTO tempUser = userService.selectProfile((String)session.getAttribute("userId"));
 		session.setAttribute("userName", tempUser.getName());
 		session.setAttribute("userFileName", tempUser.getFileName());
-		return "main/main";
+		return "main/home";
 	}
 	
 	@RequestMapping("delete")

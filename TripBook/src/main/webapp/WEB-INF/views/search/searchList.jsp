@@ -41,9 +41,7 @@ $(function(){
 	$(function(){
 		$('.friendsProfile').on('click', ".friendPictureImg", function(){
 			var str= $(this).parent().siblings("input").attr('id');
-			$('.friendsUserId').attr("value", str);
-			
-			$('#sideFriendProfile').css('visibility', 'visible');
+			location.href="/controller/friends/main?friendId="+str;
 		});
 	})
 	

@@ -140,4 +140,38 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		left join board_picture_table bp on b.board_no=bp.board_no
 		left join reply_table r join user_table ru on r.writer = ru.id on r.board_no = b.board_no
  	</select>
+ 	
+ 	<select id="selectNotFriendBoard" parameterType="map" resultMap="selectBoardMap">
+ 		select b.board_no,b.content,b.write_date,b.trip_date,b.location,b.location_lat,b.location_lng,b.writer,b.state,b.schedule_no
+		,u.id,u.name,u.file_name,bp.board_Picture_no,bp.file_name bp_file_name,bp.board_no bp_board_no,r.reply_no,r.writer r_writer,r.content r_content
+		,r.writer_date r_writer_date,r.board_no r_board_no,ru.id ru_id, ru.name ru_name, ru.file_name ru_file_name 
+		from board_table b join user_table u on b.writer=u.id
+		left join board_picture_table bp on b.board_no=bp.board_no
+		left join reply_table r join user_table ru on r.writer = ru.id on r.board_no = b.board_no
+		where (b.writer=#{friendId} and b.state='0')
+		<if test="groupList.size()!=0">  or (b.state in 
+			<foreach collection="groupList" item="group" open="(" separator=","
+			close=")">
+			#{group}
+			</foreach>
+		)
+		</if>
+ 	</select>
+ 	
+ 	<select id="selectFriendBoard" parameterType="map" resultMap="selectBoardMap">
+ 		select b.board_no,b.content,b.write_date,b.trip_date,b.location,b.location_lat,b.location_lng,b.writer,b.state,b.schedule_no
+		,u.id,u.name,u.file_name,bp.board_Picture_no,bp.file_name bp_file_name,bp.board_no bp_board_no,r.reply_no,r.writer r_writer,r.content r_content
+		,r.writer_date r_writer_date,r.board_no r_board_no,ru.id ru_id, ru.name ru_name, ru.file_name ru_file_name 
+		from board_table b join user_table u on b.writer=u.id
+		left join board_picture_table bp on b.board_no=bp.board_no
+		left join reply_table r join user_table ru on r.writer = ru.id on r.board_no = b.board_no
+		where (b.writer=#{friendId} and (b.state='0' or b.state='1'))
+		<if test="groupList.size()!=0">  or (b.state in 
+			<foreach collection="groupList" item="group" open="(" separator=","
+			close=")">
+			#{group}
+			</foreach>
+		)
+		</if>
+ 	</select>
 </mapper>

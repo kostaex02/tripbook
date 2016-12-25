@@ -12,6 +12,7 @@ import com.tripbook.dao.FriendDAO;
 import com.tripbook.dao.GroupMemberDAO;
 import com.tripbook.dao.ScheduleDAO;
 import com.tripbook.dto.FriendDTO;
+import com.tripbook.dto.GroupDTO;
 import com.tripbook.dto.ScheduleDTO;
 
 @Service
@@ -93,6 +94,28 @@ public class ScheduleServiceImpl implements ScheduleService {
 		map.put("userId", userId);
 		map.put("groupList", list);
 		return scheduleDAO.selectBiography(map);
+	}
+
+	@Override
+	public List<ScheduleDTO> selectFriendBiography(String userId, String friendId, String state) {
+		List<Integer> list = groupMemberDAO.selectGroupMember(userId);
+		List<Integer> friendList = groupMemberDAO.selectGroupMember(friendId);
+		List<Integer> friendGroupList = new ArrayList<>();
+		for(int userGroupNo:list){
+			for(int friendGroupNo:friendList){
+				if(userGroupNo==friendGroupNo){
+					friendGroupList.add(friendGroupNo);
+				}
+			}
+		}
+		Map<String, Object> map = new HashMap<>();
+		map.put("friendId", friendId);
+		map.put("groupList", friendGroupList);
+		if(state!=null&&state.equals("1")){
+			return scheduleDAO.selectFriendBiography(map);
+		}else{
+			return scheduleDAO.selectNotFriendBiography(map);
+		}
 	}
 
 }

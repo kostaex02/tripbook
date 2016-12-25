@@ -336,7 +336,6 @@ dl {
 }
 
 #sideFriendProfile {
-	visibility: hidden;
 	top:35px;
 	font-size:20px;
 }
@@ -453,31 +452,34 @@ dl {
 				</div>
 
 				<!-- 클릭시 생성 -->
-				<div id="sideFriendProfile">
-					<hr>
-					<a class='sideProfileLink' href='<c:url value="/friends/friendMain"/>'>
-						<div id="friendsProfile">
-							<img class='profileImage friendsImage'
-								src='<c:url value="/tripbook/user/${friendUserId}/${friendUserFileName}"/>'>
-							<input type="hidden" class="friendsUserId" value="">
-							<!-- input value에 아이디 저장-->
-							<div class='friendsUserName'>이름</div>
-							<a href='#'>게시물</a><br> <a href='<c:url value="/friends/friendBiography"/>'>일대기</a>
-							<br>
-					<!-- 친구 상태값에 따른 버튼 변경 -->
-					<c:choose>
-						<c:when test="${friendState == null}">
-							<input class="btn btn-primary" type='button' value='메세지'>
-						</c:when>
-						<c:when test="${friendState == null}">
-							<hr id='friendAdd'>
-							<input class="btn btn-primary" type='button' value='친구 신청'>
-						</c:when>
-					</c:choose>
-						</div>
-					</a>
-					
-				</div>
+				<c:choose>
+					<c:when test="${friendUserId!=null }">
+						<div id="sideFriendProfile">
+							<hr>
+							<a class='sideProfileLink' href='<c:url value="/friends/main?friendId=${friendUserId }"/>'>
+								<div id="friendsProfile">
+									<img class='profileImage friendsImage'
+										src='<c:url value="/tripbook/user/${friendUserId}/${friendUserFileName}"/>'>
+									<input type="hidden" class="friendsUserId" value="">
+									<!-- input value에 아이디 저장-->
+									<div class='friendsUserName'>${friendUserName }</div>
+									<a href='<c:url value="/friends/main?friendId=${friendUserId }"/>'>게시물</a><br> <a href='<c:url value="/friends/biography?friendId=${friendUserId }"/>'>일대기</a>
+									<br>
+							<!-- 친구 상태값에 따른 버튼 변경 -->
+								<c:choose>
+									<c:when test="${friendState == 1}">
+										<input class="btn btn-primary" type='button' value='메세지'>
+									</c:when>
+									<c:otherwise>
+										<input class="btn btn-primary" type='button' value='친구신청'>
+									</c:otherwise>
+								</c:choose>
+								</div>
+							</a>
+							
+						</div>	
+					</c:when>
+				</c:choose>
 			</div>
 		</c:when>
 		<c:when test="${userState eq '1'}">
