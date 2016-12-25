@@ -15,9 +15,6 @@
 </style>
 </head>
 <body style='overflow-y: scroll; overflow-x: hidden;'>
-<div>
-<a href='<c:url value="/biography/detail?scheduleNo=1"/>'>이동이동</a>
-</div>
 <div class="container" >
 		<div class="content" >
 			<div class="grid">

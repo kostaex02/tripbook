@@ -102,9 +102,12 @@
 					</c:when>
 					<c:when test="${otherNoticeItem.state eq '2'}">
 						<li class="mypageLogStory">
-							<div class="mypageMessage">${otherNoticeItem.name} 관리자의 말씀 : ${otherNoticeItem.content}</div>
-							<div id='${otherNoticeItem.noticeNo}' class="mypageButton">
-								<input class="btn btn-primary noticeItem" type="button" value="확인">
+							<div class="mypageMessage">${otherNoticeItem.name} 관리자의 메세지</div>
+							<div class=''>
+								<div id='${otherNoticeItem.noticeNo}' class="mypageButton">
+									<input class="btn btn-primary noticeItem" type="button" value="확인하러 가자">
+								</div>
+								<div class="mypageMessageContent">${otherNoticeItem.content}</div>
 							</div>
 						</li>
 					</c:when>
@@ -237,7 +240,19 @@
 			})
 			/* 관리자 메세지 */
 			$('.mypageLogStory').on('click','.noticeItem',function(){
-				alert($(this).parent().attr('id'));
+				var temp = $(this).parent();
+				$.ajax({
+					url : "/controller/mypage/read",
+					type : "post",
+					data : 'noticeNo=' + $(this).parent().attr('id'),
+					dataType : "text",
+					success : function(data) {
+						temp.siblings(".mypageMessageContent").slideToggle(500);
+					},
+					error : function() {
+						alert('error')
+					}
+				})
 			}) 
 			/* 친구 게시물 알림 */
 			$('.mypageLogStory').on('click','.friendBoard',function(){
@@ -245,8 +260,19 @@
 			})
 			/* 친구 메세지 */
 			$('.mypageLogStory').on('click','.friendMessage',function(){
-				//alert($(this).parent().attr('id'));
-				$(this).parent().siblings(".mypageMessageContent").slideToggle(500);
+				var temp = $(this).parent();
+				$.ajax({
+					url : "/controller/mypage/read",
+					type : "post",
+					data : 'noticeNo=' + $(this).parent().attr('id'),
+					dataType : "text",
+					success : function(data) {
+						temp.siblings(".mypageMessageContent").slideToggle(500);
+					},
+					error : function() {
+						alert('error')
+					}
+				})
 				
 			})
 			/* 친구 댓글 */

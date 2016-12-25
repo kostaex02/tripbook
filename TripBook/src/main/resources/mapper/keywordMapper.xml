@@ -6,4 +6,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="insertKeyword" parameterType="keywordDTO">
 		insert into keyword_table(keyword_no,keyword,schedule_no) values(keyword_sequence.nextval,#{keyword},#{scheduleNo})
 	</insert>
+	
+	<select id="selectKeyword" parameterType="String" resultType="int">
+		select schedule_no from keyword_table where keyword like '%${value}%' group by schedule_no
+	</select>
 </mapper>

@@ -50,4 +50,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where not(receiver is null) and notice_table.state in ('2') 
 		order by send_date desc
 	 </select>
+	 
+	 <update id="readNotice" parameterType="int">
+	 	update notice_table set check_state='1' where notice_no=#{value}
+	 </update>
+	 <select id="selectNotReadNoticeByReceiver" parameterType="String" resultMap="selectNoticeMap">
+	 	select notice_no,notice_table.state state,sender,receiver,send_date,content,check_state,name,file_name
+		from notice_table join user_table on (notice_table.sender = user_table.id) 
+		where receiver=#{value} and check_state='0'
+	 </select>
 </mapper>

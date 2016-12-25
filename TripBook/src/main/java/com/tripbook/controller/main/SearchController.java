@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.tripbook.dto.UserDTO;
 import com.tripbook.service.FriendService;
+import com.tripbook.service.ScheduleService;
 import com.tripbook.service.UserService;
 
 @Controller
@@ -22,6 +23,8 @@ public class SearchController {
 	private UserService userService;
 	@Autowired
 	private FriendService friendService;
+	@Autowired
+	private ScheduleService scheduleService;
 	
 	@RequestMapping("{pageName}")
 	public void page(HttpServletRequest request){}
@@ -31,8 +34,8 @@ public class SearchController {
 		HttpSession session = request.getSession();
 		List<UserDTO> userList = userService.searchUser((String)session.getAttribute("userId"),keyword);
 		ModelAndView mv = new ModelAndView("search/searchList");
-		
 		mv.addObject("userList", userList);
+		mv.addObject("biographyList", scheduleService.searchBiography(keyword));
 		return mv;
 	}
 	

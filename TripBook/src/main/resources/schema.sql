@@ -17,6 +17,7 @@ CREATE TABLE user_table
 	state VARCHAR2(1) default '0' -- 계정 상태(0 : 일반,1 : 관리자,2 : 계정 탈퇴 예정)
 );
 
+select schedule_no from keyword_table where keyword like '%중%' group by schedule_no
 select * from user_table where id='yoo@tripbook.com';
 insert into user_table(id,password,name,age,gender,register_date,state) values('admin@tripbook.com','admin','관리자',20,'0',sysdate,'1');
 insert into user_table(id,password,name,age,gender,register_date,state) values('user@test.com','user','유저',27,'0',sysdate,'0');

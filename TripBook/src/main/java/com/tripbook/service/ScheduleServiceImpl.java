@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.tripbook.dao.FriendDAO;
 import com.tripbook.dao.GroupMemberDAO;
+import com.tripbook.dao.KeywordDAO;
 import com.tripbook.dao.ScheduleDAO;
 import com.tripbook.dto.FriendDTO;
 import com.tripbook.dto.ScheduleDTO;
@@ -22,6 +23,8 @@ public class ScheduleServiceImpl implements ScheduleService {
 	private FriendDAO friendDAO;
 	@Autowired
 	private GroupMemberDAO groupMemberDAO;
+	@Autowired
+	private KeywordDAO keywordDAO;
 	
 	@Override
 	public int addSchedule(ScheduleDTO scheduleDTO) {
@@ -115,6 +118,14 @@ public class ScheduleServiceImpl implements ScheduleService {
 		}else{
 			return scheduleDAO.selectNotFriendBiography(map);
 		}
+	}
+
+	@Override
+	public List<ScheduleDTO> searchBiography(String keyword) {
+		List<Integer> list = keywordDAO.selectKeyword(keyword);
+		Map<String,Object> map = new HashMap<>();
+		map.put("scheduleList", list);
+		return scheduleDAO.searchBiography(map);
 	}
 
 }
