@@ -30,4 +30,9 @@ public interface BoardService {
 	 * 전체 게시물 검색
 	 */
 	List<BoardDTO> selectBoardByAdmin();
+
+	/**
+	 * 다른 유저 보드 출력
+	 */
+	List<BoardDTO> selectFriendBoard(String userId,String friendId, String state);
 }

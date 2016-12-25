@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tripbook.dto.UserDTO;
+import com.tripbook.service.BoardService;
 import com.tripbook.service.FriendService;
 import com.tripbook.service.GroupService;
+import com.tripbook.service.ScheduleService;
 import com.tripbook.service.UserService;
 
 @Controller
@@ -23,9 +25,43 @@ public class FriendController {
 	private GroupService groupService;
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private BoardService boardService;
+	@Autowired
+	private ScheduleService scheduleService;
 	
 	@RequestMapping("{pageName}")
 	public void page(HttpServletRequest request){}
+	
+	@RequestMapping("main")
+	public ModelAndView main(HttpServletRequest request,String friendId){
+		HttpSession session = request.getSession();
+		String userId = (String) session.getAttribute("userId");
+		String state =  friendService.selectFriend(userId, friendId);
+		ModelAndView mv = new ModelAndView("friends/friendMain");
+		UserDTO friend = userService.selectProfile(friendId);
+		mv.addObject("friendUserId", friend.getId());
+		mv.addObject("friendUserName", friend.getName());
+		mv.addObject("friendUserFileName", friend.getFileName());
+		mv.addObject("friendState", state);
+		mv.addObject("friendBoardList", boardService.selectFriendBoard(userId,friendId,state));
+		return mv;
+	}
+	
+	@RequestMapping("biography")
+	public ModelAndView biography(HttpServletRequest request,String friendId){
+		HttpSession session = request.getSession();
+		String userId = (String) session.getAttribute("userId");
+		String state =  friendService.selectFriend(userId, friendId);
+		ModelAndView mv = new ModelAndView("friends/friendMain");
+		UserDTO friend = userService.selectProfile(friendId);
+		mv.addObject("friendUserId", friend.getId());
+		mv.addObject("friendUserName", friend.getName());
+		mv.addObject("friendUserFileName", friend.getFileName());
+		mv.addObject("friendState", state);
+		mv.addObject("friendBiographyList", scheduleService.selectFriendBiography(userId,friendId,state));
+		return mv;
+	}
 	
 	@RequestMapping("list")
 	public ModelAndView friends(HttpServletRequest request){
