@@ -29,11 +29,11 @@
 		<div class='mainScrollHidden'>
 			<ul class="grow">
 				<c:choose>
-					<c:when test="${boardList==null||boardList.size()==0 }">
+					<c:when test="${friendBoardList==null||friendBoardList.size()==0 }">
 						입력된 내용이 없습니다.
 					</c:when>
 					<c:otherwise>
-						<c:forEach items="${boardList}" var="item" varStatus="boardNum">
+						<c:forEach items="${friendBoardList}" var="item" varStatus="boardNum">
 							<li>
 								<div class='mainRecentBoard'>
 									<div class='profile'>

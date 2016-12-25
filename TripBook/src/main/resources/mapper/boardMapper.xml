@@ -156,6 +156,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</foreach>
 		)
 		</if>
+		order by b.write_date desc,r.writer_date desc
  	</select>
  	
  	<select id="selectFriendBoard" parameterType="map" resultMap="selectBoardMap">
@@ -173,5 +174,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</foreach>
 		)
 		</if>
+		order by b.write_date desc,r.writer_date desc
  	</select>
 </mapper>
