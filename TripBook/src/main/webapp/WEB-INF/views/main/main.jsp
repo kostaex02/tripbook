@@ -372,9 +372,11 @@ hr {
 			data-keyboard="false"> <input class="btn btn-primary btn-sm"
 			type='button' value='여행게시물' data-toggle="modal"
 			data-target="#addTravelBoard" data-keyboard="false">
+								
 	</div>
 	<hr>
 	<div class='mainAllBoard'>
+		<input type="hidden" value="0" id="region">	
 		<div class='mainScrollHidden'>
 			<ul class="grow">
 				<c:choose>
@@ -395,7 +397,6 @@ hr {
 												</button>
 											</c:when>
 										</c:choose>
-										<input type="hidden" value="1" id="region">
 									</div>
 									<div class="boardContent">${item.content }</div>
 										<c:if test="${item.boardPictures.size() != 0}">
@@ -961,7 +962,6 @@ hr {
 			
 			$('#maindetailMap').on('shown.bs.modal', function () {
 				var region = $('#region').val();
-				alert(region);
 				if(region == 0){
 					map.relayout();
 				}else{
@@ -1074,6 +1074,7 @@ hr {
 	
 	//위도 경도를 통해 지도 찾는 기능
 	function searchMap(id, area, lat, lng){
+		document.getElementById('region').value = area;
 		
 		var mapDiv = document.createElement("div");
 		var container, options;
