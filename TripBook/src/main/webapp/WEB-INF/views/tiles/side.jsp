@@ -373,10 +373,19 @@ dl {
 	
 }
 .badge{
+	position:absolute;
+	margin-left:-10px;
 	vertical-align: top;
 	padding: 2px 9px;
 	font-size: 20px;
 	font-family: nanumpen;
+}
+.badgeToggle{
+	margin-left:-20px !important;
+}
+.slideBadge{
+	margin-left:0px !important;
+
 }
 
 

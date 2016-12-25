@@ -52,7 +52,7 @@ li{
 	}
 }
 
-@media screen and (min-width:400px) and (max-width:719px) {
+@media screen and (min-width:400px) and (max-width:780px) {
 	body{
 		overflow-y: hidden !important;
    		overflow-x: hidden !important;
@@ -91,7 +91,7 @@ li{
 	
 }
 
-@media screen and (min-width:720px) and (max-width:999px) {
+@media screen and (min-width:781px) and (max-width:999px) {
 	body{
 		overflow-y: hidden !important;
    		overflow-x: hidden !important;
