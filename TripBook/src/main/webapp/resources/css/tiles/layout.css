@@ -146,9 +146,3 @@ li{
 		display:none;
 	}
 }
-
-@media screen and (min-width:1501px) {
-	ul, .mainAllBoard{
-		height:850px !important;
-	}
-}
