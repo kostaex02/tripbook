@@ -411,7 +411,7 @@ hr {
 																	src='<c:url value="/tripbook/board/${item.boardNo }/${boardPicture.fileName }"/>' />
 																</a>
 															</span>
-														</c:when>ㄴ
+														</c:when>
 														<c:otherwise>
 															<span>
 															<a href="#" data-toggle="modal" data-target="#detailPicture">
