@@ -324,6 +324,7 @@ hr {
 	margin-top:10px;
 }
 .replyArea{
+	width:100%;
 	display: none;
 }
 .replyText{
