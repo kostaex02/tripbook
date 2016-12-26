@@ -3,7 +3,8 @@ alter user tripbook account unlock;
 grant connect, resource to tripbook;
 grant create sequence to tripbook;
 
-
+select * from user_table
+delete from  user_table
 CREATE TABLE user_table
 (  
 	id VARCHAR2(50) primary key, --아이디(이메일)
@@ -125,6 +126,7 @@ CREATE TABLE grade_table
 	board_no NUMBER references board_table(board_no) on delete cascade not null -- 게시글
 );
 
+delete from  grade_table
 
 
 
@@ -180,7 +182,7 @@ CREATE TABLE reply_table
 );
 select * from notice_table;
 delete from group_table;
-
+delete from user_table
 select to_date('12/22/2016 6:36 AM','MM/DD/YYYY HH:MI PM','nls_date_language = ENGLISH') from dual;
 select schedule_no,subject,to_char(start_date,'YYYY-MM-DD') start_date,to_char(end_date-1,'YYYY-MM-DD') end_date,state,writer
 		from schedule_table;
