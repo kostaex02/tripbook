@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <html>
 <head>
 <title>TripBook</title>
@@ -52,8 +53,11 @@ $(function(){
 <style type="text/css">
 .friendsList {
 	margin-top: 20px;
-	height:470px;
+	height:1000px;
+	width:50%;
 	overflow: scroll;
+	position:relative;
+	float:left;
 	
 }
 
@@ -93,7 +97,10 @@ $(function(){
 	display: table-cell;
 	vertical-align: middle;
 }
-
+.container{
+	width:50%;
+	height:800px;
+}
 
 
 </style>
@@ -101,7 +108,7 @@ $(function(){
 	href='<c:url value="/resources/css/main/stroll.css"/>'>
 </head>
 <body>
-	<div class="friendsList">
+	<span class="friendsList">
 		<ul class="grow">
 			<c:forEach items="${userList }" var="item" varStatus="state">
 				<li class="friendsProfile">
@@ -116,15 +123,16 @@ $(function(){
 				</li>
 			</c:forEach>
 		</ul>
-	</div>
+	</span>
 	
-	<div class="container" >
+	<span class="container" >
 		<div class="content" >
 			<div class="grid">
 				<c:forEach items="${biographyList }" var = "item">
 					<div class="grid__item">
 					<a href="/controller/biography/detail?scheduleNo=${item.scheduleNo }" class="img-wrap"><img
 						src="<c:url value="/tripbook/board/${item.boardPictures.get(0).boardNo }/${item.boardPictures.get(0).fileName }"/>" alt="img02" /> </a>
+						<b>${item.subject} <br> ${fn:substring(item.startDate,0,10)} ~ ${fn:substring(item.endDate,0,10)}</b>
 					</div>	
 				</c:forEach>
 			</div>
@@ -138,7 +146,7 @@ $(function(){
 			<!-- /preview -->
 		</div>
 		<!-- /content -->
-	</div>
+	</span>
 	<script src='<c:url value="/resources/js/main/stroll.min.js"/>'></script>
 	<script src="<c:url value="/resources/js/biography/imagesloaded.pkgd.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/biography/masonry.pkgd.min.js"/>"></script>
