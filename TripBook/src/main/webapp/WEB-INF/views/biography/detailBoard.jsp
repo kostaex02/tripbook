@@ -773,16 +773,36 @@ li{
 		    	if($(this).siblings('.replyText').val()==""){
 		    		alert("댓글 내용을 입력하시오");	
 		    	}else{
+		    		$(this).siblings('.replyItem').remove();
+		    		var count= $(this).parents().siblings('.replysCount');
+		    		var area= $(this).parents('.replyArea');
+		    		var content = $(this).siblings('.replyText');
 		    		$.ajax({
 				    	url : "/controller/reply/insert",
 						type : "post",
 						data : "boardNo="+$(this).siblings('input').val()+"&content="+$(this).siblings('.replyText').val(),
 						dataType : "json",
 						success : function(data) {
-							alert(data);
+							content.val('');
+							count.text('댓글 '+data.length+'개');
+							var str = "";
+							$.each(data,function(index,item){
+								str += "<div class='replyItem'>";
+								str += "<div>";
+								str += "<img class='replyWriterPicture' src='<c:url value='/tripbook/user/"
+								str += item.user.id+"/"+item.user.fileName+"'/>'>";
+								str += "</div>";
+								str += "<div class='replyWriterName'>";
+								str += "<b>"+item.user.name+"</b>";
+								str += "</div>";
+								str += "<div class='replyContent'>"+item.content+"</div>";
+								str += "<div class='replyDate'>"+item.writerDate+"</div>";
+								str += "</div>";
+							});
+							area.append(str);
 						},
 						error : function() {
-							alert('error');
+							console.log('댓글 입력 오류');
 						}
 				    })	
 		    	}
